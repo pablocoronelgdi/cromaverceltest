@@ -1,31 +1,60 @@
-# README #
+# Croma UI
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Croma es un sistema de diseño perteneciente al banco Macro que se enfoca en brindar una excelente experiencia de usuario haciendo foco en su accesibilidad.
 
-### What is this repository for? ###
+## Instalación
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+1. Cloná la carpeta
+2. Posicionate dentro del directorio raiz y verificá tener la versión 18.0.0 o superior de Node JS.
+3. Ejecutá el comando
 
-### How do I get set up? ###
+```bash
+$ yarn install
+```
+4. Esto instalara todos los node_modules necesarios.
+5. Ejecutá el siguiente comando para realizar una build de las librerias de componentes
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+```bash
+$ yarn dev
+```
 
-### Contribution guidelines ###
+## Ejecución (web)
 
-* Writing tests
-* Code review
-* Other guidelines
+1. Para correr la aplicación web, podes utilizar el siguiente comando: 
+```bash
+$ yarn start
+```
+2. En caso de que quieras abrir storybook, podes utilizar este otro. 
+```bash
+$ yarn storybook
+```
 
-### Who do I talk to? ###
+## Ejecución (mobile)
 
-* Repo owner or admin
-* Other community or team contact
-* Test
-* Test de Leo Romero
+1. Para correr la aplicación mobile,**deberas posicionarte en el directorio raiz del package "storybook-react-native"** y uilizar el siguiente comando: 
+```bash
+$ yarn start
+```
+2. En caso de que quieras abrir storybook, **deberas posicionarte en el directorio raiz del package "storybook-react-native"** y utilizar este otro comando. 
+```bash
+$ yarn storybook
+```
+
+### Tecnologías
+- Vite
+- React
+- Typescript
+- React Native
+- Rollup 
+- Styled-Components
+- Storybook
+- Yarn
+- Lerna
+
+## Readme en desarrollo
+
+
+## Licencia
+
+[MIT](https://choosealicense.com/licenses/mit/)
+

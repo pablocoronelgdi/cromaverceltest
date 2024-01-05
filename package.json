@@ -1,0 +1,26 @@
+{
+  "name": "@cromaui/core",
+  "author": "garaje_de_ideas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "npmClient": "yarn",
+  "private": true,
+  "useWorkspaces": true,
+  "stream": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^7.4.1"
+  },
+  "scripts": {
+    "build": "yarn lerna run build",
+    "dev": "yarn lerna run dev",
+    "start": "yarn lerna run start",
+    "storybook": "yarn lerna run storybook:android"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
