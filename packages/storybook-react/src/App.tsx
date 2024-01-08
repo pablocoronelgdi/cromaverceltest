@@ -27,10 +27,10 @@ function App() {
         {/*Switch inactivo y true*/}
         <Switch disabled defaultValue={false} />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', placeItems: 'center', width: '100%', gap: 10, flexWrap: 'wrap' }}>
-          <RoundedImage size="extra-small" monogram="áä" />
+          <RoundedImage size="extra-small" />
           <RoundedImage size="small" monogram="AbAcs" />
           <RoundedImage size="medium" monogram="22" />
-          <RoundedImage size="large" monogram="j2" />
+          <RoundedImage size="large" monogram="a2a" />
           <RoundedImage size="extra-large" monogram="2G" />
           <RoundedImage size="extra-small" iconName="person" />
           <RoundedImage size="small" iconName="person" />
