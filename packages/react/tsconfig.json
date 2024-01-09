@@ -14,8 +14,8 @@
     "declaration": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "allowJs": true,
+    "allowJs": true
   },
-  "include": ["src", "../storybook/utils", "../storybook-react/src/mocks"],
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

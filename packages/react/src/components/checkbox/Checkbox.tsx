@@ -1,35 +1,26 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import * as checkboxStyles from "./styles";
 import { Icon } from "../icon";
 import { Color } from "@cromaui/foundations";
-import { CheckInnerProps, CheckProps } from "./types";
-
-const CheckContainer = styled.div<CheckInnerProps>`
-  ${() => checkboxStyles.checkContainer}
-`;
-const CheckInput = styled.input`
-  ${() => checkboxStyles.checkInput}
-`;
-const CheckArea = styled.label<CheckInnerProps>`
-  ${() => checkboxStyles.checkArea}
-`;
+import { CheckProps } from "./types";
+import { CheckContainer } from "./styles";
 
 const Checkbox: React.FC<CheckProps> = ({
   onChange,
   disabled,
-  value,
+  checked,
   defaultValue,
 }) => {
   const [isChecked, setIsChecked] = useState(defaultValue || false);
   const [isPressed, setIsPressed] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleCheck = () => {
     if (!disabled) {
-      if (value === undefined) {
+      if (checked === undefined) {
         setIsChecked(!isChecked);
       }
       if (onChange) {
+        setIsChecked(!isChecked);
         onChange(!isChecked);
       }
     }
@@ -44,31 +35,42 @@ const Checkbox: React.FC<CheckProps> = ({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === "Tab") {
+      setIsFocused(true);
+    }
+  };
+
+  const handleClick = () => {
+    setIsFocused(false);
+  };
+
   return (
     <CheckContainer
-      isChecked={isChecked}
+      isChecked={checked !== undefined ? checked : isChecked}
       isPressed={isPressed}
+      isFocused={isFocused}
       disabled={disabled}
     >
-      <CheckArea
+      <label
         onMouseDown={(e) => handlePress(e)}
         onMouseUp={(e) => handlePress(e)}
         onMouseLeave={handleMouseLeave}
-        isPressed={isPressed}
-        isChecked={value !== undefined ? value : isChecked}
-        disabled={disabled}
+        tabIndex={isFocused ? 0 : -1}
+        onKeyDown={handleKeyDown}
+        onClick={handleClick}
       >
-        <CheckInput
+        <input
           disabled={disabled}
           type="checkbox"
-          checked={value !== undefined ? value : isChecked}
+          checked={checked !== undefined ? checked : isChecked}
           onChange={handleCheck}
         />
         <Icon
           color={disabled ? Color.Neutral[400] : Color.Navy.main}
-          name={value || isChecked ? "check_box" : "check_box_outline_blank"}
+          name={checked || isChecked ? "check_box" : "check_box_outline_blank"}
         />
-      </CheckArea>
+      </label>
     </CheckContainer>
   );
 };
