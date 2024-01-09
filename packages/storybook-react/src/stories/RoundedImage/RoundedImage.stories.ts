@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RoundedImage }  from '@cromaui/react';
-import { PHOTO_DATA_MOCK } from '../mocks/images';
+import { PHOTO_DATA_MOCK } from '../../mocks/images';
 
 const meta = {
   title: 'Data Display/RoundedImage',
@@ -12,7 +12,7 @@ const meta = {
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
       description: 'La prop size es que indica el tamaño del componente RoundedImage',
       table: {
-        defaultValue: { summary: "small" },
+        defaultValue: { summary: `'small'` },
         type: { summary: 'string' },
       },
     },
@@ -28,7 +28,7 @@ const meta = {
       control: { type: 'text' },
       description: 'La prop monogram es la que indica el monograma del componente, debe estar compuesto por 2 letras. No acepta tildes, ni diéricis, ni números', 
       table: {
-        defaultValue: { summary: 'AR' },
+        defaultValue: { summary: `'AR'` },
         type: { summary: 'string' },
       },
     },
@@ -37,11 +37,13 @@ const meta = {
       description: 'La prop photo es la que admite un objeto con la información de una imagen para renderizar en el componente RoundedImage', 
       table: {
         defaultValue: { summary: `
-          alt: string;
-          image: string;
-          title: string;
-          height: string;
-          width: string;
+          {
+            alt: string;
+            image: string;
+            title: string;
+            height: string;
+            width: string;
+          }
         `},
         type: { summary: 'object' },
       }, 
@@ -50,7 +52,7 @@ const meta = {
       control: { type: 'text' },
       description: 'La prop iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons', 
       table: {
-        defaultValue: { summary: 'person' },
+        defaultValue: { summary: `'person'` },
         type: { summary: 'string' },
       },
    },

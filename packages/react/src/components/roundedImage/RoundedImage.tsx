@@ -5,7 +5,7 @@ import { Icon } from "../icon";
 import { Image } from "../image";
 import { monogramRegex } from "../../utils/stringsUtils";
 import { IconSizeType } from "../icon/types";
-
+/** Descripcion del componente RoundedImage WIP */
 const RoundedImage: React.FC<RoundedImageProps> = ({
   size = 'small',
   disabled = false,
