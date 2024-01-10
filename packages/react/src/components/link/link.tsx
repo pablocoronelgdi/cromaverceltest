@@ -1,6 +1,6 @@
 import React  from 'react';
 import { Color } from '@cromaui/foundations';
-import { StyledLinkProps, LinkSizeType } from './types';
+import { LinkPropsTypes, LinkSizeType } from './types';
 import { StyledLink } from './styles';
 import {Icon} from '../icon';
 
@@ -17,10 +17,11 @@ export const getSize = (size?: LinkSizeType) => {
     }
   };
 
-const Link: React.FC<StyledLinkProps> = ({
+const Link: React.FC<LinkPropsTypes> = ({
     link = '',
     content = 'terminos y condiciones',
     alt = 'terminos y condiciones',
+    title = 'terminos y condiciones',
     target,
     disabled = false,
     size,
@@ -48,6 +49,7 @@ const Link: React.FC<StyledLinkProps> = ({
         link={disabled ? '#' : link} 
         href={disabled ? '#' : link} 
         alt={alt} 
+        title={title} 
         content={content} 
         target={target} 
         disabled={disabled} 

@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import { FlexBoxCenter  } from "../../globals/globals";
-import { StyledLinkProps } from "./types";
+import { LinkPropsTypes } from "./types";
 import { Color, Typography, Borders, Shapes, Spacings } from '@cromaui/foundations';
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE LINK     =
 ============================================= */
 
-export const StyledLink = styled.a<StyledLinkProps>`
+export const StyledLink = styled.a<LinkPropsTypes>`
     ${FlexBoxCenter}
     color: ${(props) => props.disabled ? Color.Neutral[400] : Color.Blue.main};
     padding: ${Spacings.space2};
