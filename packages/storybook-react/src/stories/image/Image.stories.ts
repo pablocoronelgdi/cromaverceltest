@@ -4,6 +4,7 @@ import { Image } from "@cromaui/react";
 const meta: Meta<typeof Image> = {
     title: 'Images',
     component: Image,
+    tags: ['autodocs'],
     argTypes:{
         image:{ control: { type: 'string' },},
         width:{ control: { type: 'number' },},

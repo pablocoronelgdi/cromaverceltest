@@ -4,6 +4,7 @@ import { TextArea } from '@cromaui/react';
 const meta = {
   title: 'Inputs/TextArea',
   component: TextArea,
+  tags: ['autodocs'],
   argTypes: {
     title: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
