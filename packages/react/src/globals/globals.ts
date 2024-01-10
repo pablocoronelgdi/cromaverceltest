@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import { normalize } from "polished";
 export const GlobalStyle = createGlobalStyle`
 
@@ -68,3 +68,27 @@ html{
     box-sizing: inherit
 }
 `;
+
+/* FlexBox */
+export const FlexBoxCenter = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+export const FlexBoxStart = css`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+export const FlexBoxEnd = css`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+`
+export const FlexBoxColumCenter = css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+`
+/* ----- */
