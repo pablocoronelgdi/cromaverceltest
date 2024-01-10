@@ -1,49 +1,34 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Icon } from "../icon";
-import * as SwitchStyles from "./styles";
-import { SwitchInnerProps, SwitchProps } from "./types";
+import { SwitchProps } from "./types";
+import { SwitchContainer } from "./styles";
 
-
-
-// Un div que contiene a todo el componente.
-const SwitchContainer = styled.div`
-  ${() => SwitchStyles.SwitchContainer}
-`;
-
-// El background del componente que contiene al input y al thumb.
-const SwitchArea = styled.label<SwitchInnerProps>`
-  ${() => SwitchStyles.SwitchArea}
-`;
-
-// El input oculto con transparencia 0 para manejo de eventos.
-const SwitchInput = styled.input`
-  ${() => SwitchStyles.SwitchInput}
-`;
-
-// La bolita trasladable del switch que contiene el icono.
-const SwitchThumb = styled.div<SwitchInnerProps>`
-  ${() => SwitchStyles.SwitchThumb}
-`;
-
+/**
+ * Elemento de interfaz de usuario que permite a los usuarios alternar entre dos estados
+ * "verdadero" o "falso" ofreciendo una forma intuitiva de controlar opciones binarias 
+ * con retroalimentación visual inmediata. Ideal para activar o desactivar funciones de manera sencilla.
+ */
 const Switch: React.FC<SwitchProps> = ({
   onChange,
-  disabled,
+  disabled = false,
   value,
   defaultValue,
 }) => {
   const [isChecked, setChecked] = useState(defaultValue || false);
   const [isPressed, setIsPressed] = useState(false);
 
-  /* Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
+  /**
+   * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
    * por el usuario, la ejecuta pasándole el estado del "checked".
-   * De esta forma el componente puede ser controlado o no controlado. */
+   * De esta forma el componente puede ser controlado o no controlado.
+   */
   const handleCheck = () => {
     if (!disabled) {
       if (value === undefined) {
         setChecked(!isChecked);
       }
       if (onChange) {
+        setChecked(!isChecked);
         onChange(!isChecked);
       }
     }
@@ -61,28 +46,24 @@ const Switch: React.FC<SwitchProps> = ({
   };
 
   return (
-    <SwitchContainer>
-      <SwitchArea
-        isChecked={value !== undefined ? value : isChecked}
-        isPressed={isPressed}
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
-        onMouseLeave={handleMouseLeave}
-        disabled={disabled}
-      >
-        <SwitchInput
+    <SwitchContainer
+      isChecked={value !== undefined ? value : isChecked}
+      isPressed={isPressed}
+      onMouseDown={(e) => handlePress(e)}
+      onMouseUp={(e) => handlePress(e)}
+      onMouseLeave={handleMouseLeave}
+      disabled={disabled}
+    >
+      <label>
+        <input
           type="checkbox"
           checked={value !== undefined ? value : isChecked}
           onChange={handleCheck}
         />
-        <SwitchThumb
-          disabled={disabled}
-          isChecked={value !== undefined ? value : isChecked}
-          isPressed={isPressed}
-        >
+        <div>
           {value || isChecked ? <Icon size="medium" name="check" /> : null}
-        </SwitchThumb>
-      </SwitchArea>
+        </div>
+      </label>
     </SwitchContainer>
   );
 };
