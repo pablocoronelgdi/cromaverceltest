@@ -1,6 +1,6 @@
 export type StyledImageProps = {
-  width: number, /* modifies element width */
-  height: number, /* modifies element height */
+  width: string | number, /* modifies element width */
+  height: string | number, /* modifies element height */
   image: string, /* parameter to add the image to display */
   backgroundImage?: boolean, /* activate brackground image mode */
   children?: Object, 

@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { RoundedImageContainerStyled } from "./styles";
-import { RoundedImageProps, RoundedImageSizeType } from "./types";
+import { RoundedImageProps } from "./types";
 import { Icon } from "../icon";
 import { Image } from "../image";
 import { monogramRegex } from "../../utils/stringsUtils";
 import { IconSizeType } from "../icon/types";
-
-export const getSize = (size?: RoundedImageSizeType) => {
-  switch (size) {
-    case "extra-small":
-      return "32px";
-    case "small":
-      return "40px";
-    case "medium":
-      return "48px";
-    case "large":
-      return "72px";
-    case "extra-large":
-      return "80px";
-    default:
-      return "32px";
-  }
-};
-
+/** Descripcion del componente RoundedImage WIP */
 const RoundedImage: React.FC<RoundedImageProps> = ({
   size = 'small',
   disabled = false,
@@ -30,7 +13,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
   photo,
   iconName
 }) => {
-  const [monogramCustom, setMonogramCustom] = useState<RoundedImageProps['monogram']>('AR');
+  const [monogramCustom, setMonogramCustom] = useState<string | null>('AR');
   const maxLenghtMonogram = 2;
   const iconSize: IconSizeType = (() => {
     switch (size) {
@@ -52,6 +35,8 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       setMonogramCustom(monogramRegex(monogram));
     } else if (monogram && monogram.length >= maxLenghtMonogram) {
       setMonogramCustom(monogramRegex(monogram?.charAt(0).concat(monogram?.charAt(1))));
+    } else if (monogram && monogram.trim() === '') {
+      setMonogramCustom(null);
     }
   }, [monogram]);
 
@@ -61,12 +46,12 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       disabled={disabled}
     >
       {
-        monogram && !photo &&
+        monogram && !photo && (!iconName || iconName) &&
         <small>
           {monogramCustom}
         </small>
       }
-      {photo?.image && photo?.alt && !monogram &&
+      {photo?.image && (!monogram || monogram) && (!iconName || iconName) &&
         <Image
           alt={photo?.alt}
           height={photo.height}
@@ -75,8 +60,8 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
           image={photo?.image}
         />
       }
-      {(!monogramCustom && !photo || iconName) &&
-        <Icon size={iconSize} name={iconName || "person"} />
+      {((!photo && !monogram) || !isNaN(Number(monogram))) &&
+        <Icon size={iconSize} name={iconName?.toLowerCase() || "person"} />
       }
     </RoundedImageContainerStyled>
   )
