@@ -21,10 +21,12 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
   border: ${Borders.br2};
   border-radius: ${Shapes.full};
   border-color: transparent;
-  &:focus-within {
-    border: ${Borders.br2};
-    border-color: ${Color.Blue.main};
-  }
+  ${(props) =>
+    props.isFocused &&
+    css`
+      border: ${Borders.br2};
+      border-color: ${Color.Blue.main};
+    `}
 
   /* ----------  Switch Area  ---------- */
 
