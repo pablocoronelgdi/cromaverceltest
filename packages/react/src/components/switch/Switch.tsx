@@ -5,17 +5,18 @@ import { SwitchContainer } from "./styles";
 
 /**
  * Elemento de interfaz de usuario que permite a los usuarios alternar entre dos estados
- * "verdadero" o "falso" ofreciendo una forma intuitiva de controlar opciones binarias 
+ * "verdadero" o "falso" ofreciendo una forma intuitiva de controlar opciones binarias
  * con retroalimentación visual inmediata. Ideal para activar o desactivar funciones de manera sencilla.
  */
 const Switch: React.FC<SwitchProps> = ({
   onChange,
   disabled = false,
-  value,
+  checked,
   defaultValue,
 }) => {
   const [isChecked, setChecked] = useState(defaultValue || false);
   const [isPressed, setIsPressed] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   /**
    * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
@@ -24,7 +25,7 @@ const Switch: React.FC<SwitchProps> = ({
    */
   const handleCheck = () => {
     if (!disabled) {
-      if (value === undefined) {
+      if (checked === undefined) {
         setChecked(!isChecked);
       }
       if (onChange) {
@@ -34,7 +35,6 @@ const Switch: React.FC<SwitchProps> = ({
     }
   };
 
-  /* Eventos para setear en true o falso el estado de isPressed que permite agrandar el thumb */
   const handlePress = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setIsPressed(!isPressed);
@@ -45,23 +45,37 @@ const Switch: React.FC<SwitchProps> = ({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === "Tab") {
+      setIsFocused(true);
+    }
+  };
+
+  const handleClick = () => {
+    setIsFocused(false);
+  };
+
   return (
     <SwitchContainer
-      isChecked={value !== undefined ? value : isChecked}
+      isChecked={checked !== undefined ? checked : isChecked}
       isPressed={isPressed}
       onMouseDown={(e) => handlePress(e)}
       onMouseUp={(e) => handlePress(e)}
       onMouseLeave={handleMouseLeave}
+      isFocused={isFocused}
       disabled={disabled}
+      tabIndex={isFocused ? 0 : -1}
+      onKeyDown={handleKeyDown}
+      onClick={handleClick}
     >
       <label>
         <input
           type="checkbox"
-          checked={value !== undefined ? value : isChecked}
+          checked={checked !== undefined ? checked : isChecked}
           onChange={handleCheck}
         />
         <div>
-          {value || isChecked ? <Icon size="medium" name="check" /> : null}
+          {checked || isChecked ? <Icon size="medium" name="check" /> : null}
         </div>
       </label>
     </SwitchContainer>
