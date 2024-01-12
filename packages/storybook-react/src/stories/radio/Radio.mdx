@@ -1,0 +1,34 @@
+import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
+import * as RadioStories from './Radio.stories';
+
+
+<Meta of={RadioStories} />
+
+# Radio
+
+Un radio input es un elemento de interfaz gráfica que permite al usuario seleccionar una opción exclusiva de entre varias disponibles.
+<br />
+
+<Primary />
+
+## Usos
+
+### Default
+Radio input necesita de un valor booleano en la propiedad "checked" y una funcion en la prop "onChange" 
+para modificarlo.
+
+<Story of={RadioStories.Default} />
+<Source of={RadioStories.Default} />
+
+
+### Deshabilitado
+Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso. 
+
+<Story of={RadioStories.Disabled} />
+<Source of={RadioStories.Disabled} />
+
+## Props
+El componente Radio acepta, ademas de los atributos de html, los siguientes parametros:
+
+<ArgTypes />
+
