@@ -3,6 +3,7 @@ export const Spacings = {
   space4: "4px",
   space6: "6px",
   space8: "8px",
+  space10: "10px",
   space12: "12px",
   space16: "16px",
   space20: "20px",

@@ -84,6 +84,7 @@ export const Success = {
   main: "#079C48",
   soft: "#97D4A7",
   extraSoft: "#E5F5E9",
+  700: "#088436",
 };
 
 export const Info = {
