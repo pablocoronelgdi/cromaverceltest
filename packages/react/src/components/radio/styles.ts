@@ -5,7 +5,7 @@ import {
   Shapes,
   Spacings,
 } from "@cromaui/foundations";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { RadioInnerProps } from "./types";
 
 /* =============================================
@@ -43,10 +43,13 @@ export const RadioContainer = styled.div<RadioInnerProps>`
     align-items: center;
     justify-content: center;
     border-radius: ${Shapes.full};
-    &:focus-within {
-      outline: ${Borders.br2}${Color.Blue.main};
-      outline-offset: -1px;
-    }
+
+    ${(props) =>
+      props.isFocused &&
+      css`
+        outline: ${Borders.br2}${Color.Blue.main};
+        outline-offset: -1px;
+      `}
 
     /* ----------  Radio Icon  ---------- */
     & span {
@@ -62,37 +65,3 @@ export const RadioContainer = styled.div<RadioInnerProps>`
     }
   }
 `;
-
-/* export const radioArea = (props) => {
-  //ESTILOS BASE
-  const base = css`
-    width: ${Spacings.space24};
-    height: ${Spacings.space24};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: ${Shapes.full};
-    &:focus-within {
-      outline: ${Borders.br2}${Color.Blue.main};
-      outline-offset: -1px;
-    }
-  `;
-  //DISABLED
-  const disabled = css`
-    & span {
-      color: ${Color.Neutral[400]};
-    }
-  `;
-  return css`
-    ${base}
-  `;
-}; */
-
-/* export const radioInput = (props) => {
-  return css`
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-  `;
-}; */

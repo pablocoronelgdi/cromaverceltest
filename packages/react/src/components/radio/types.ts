@@ -1,4 +1,4 @@
-export type RadioProps = {
+export type RadioPropTypes = {
   onChange?: (e:any) => void;
   disabled?: boolean;
   checked: boolean;
@@ -8,5 +8,6 @@ export type RadioProps = {
 };
 export type RadioInnerProps = {
   isPressed: boolean;
+  isFocused: boolean;
   disabled?: boolean;
 };
