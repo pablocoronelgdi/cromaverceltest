@@ -1,3 +1,4 @@
+import { Badge } from "./components/badge";
 import { Button } from "./components/button";
 import { Checkbox } from "./components/checkbox";
 import { Icon } from "./components/icon";
@@ -11,6 +12,7 @@ import { TextArea } from "./components/textarea";
 import { ThemeWrapper } from "./components/themeWrapper";
 
 export {
+  Badge,
   Button,
   Checkbox,
   Icon,
