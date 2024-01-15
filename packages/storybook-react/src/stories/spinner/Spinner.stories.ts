@@ -16,9 +16,9 @@ const meta = {
     },
     label: {
       control: { type: "text" },
-      description: "El mensaje de carga que muestra el",
+      description: "El mensaje de carga que muestra el componente",
       table: {
-        defaultValue: { summary: `'Cargando...'` },
+        defaultValue: { summary: `""` },
         type: { summary: "string" },
       },
     },
