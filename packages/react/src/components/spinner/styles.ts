@@ -44,7 +44,8 @@ export const SpinnerContainerStyled = styled.div<SpinnerPropTypes>`
       withLogo ? Spacings.space76 : Spacings.space64};
     padding: ${({ withLogo }) => (withLogo ? Spacings.space2 : 0)};
     border-style: solid;
-    border-width: ${({ withLogo }) => (withLogo ? "10px" : Spacings.space8)};
+    border-width: ${({ withLogo }) =>
+      withLogo ? Spacings.space10 : Spacings.space8};
     border-color: ${Color.Navy.extraSoft};
     border-radius: ${Shapes.full};
     border-left-color: ${({ withLogo }) =>
