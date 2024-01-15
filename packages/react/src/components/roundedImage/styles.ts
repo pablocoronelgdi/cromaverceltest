@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
-import { RoundedImageProps } from "./types";
+import { RoundedImagePropsTypes } from "./types";
 import { Borders, Color, Typography } from "@cromaui/foundations";
 import { getSize } from "./utils";
 
-export const RoundedImageContainerStyled = styled.div<RoundedImageProps>`
+export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   display: flex;
   align-items: center;
   justify-content: center;
