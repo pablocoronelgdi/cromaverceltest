@@ -1,5 +1,13 @@
+import { Checkbox, ThemeWrapper } from '@cromaui/react'
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <ThemeWrapper $theme='macro'>
+        <Checkbox />
+      </ThemeWrapper>
+    </>
+  )
 }
 
-export default App;
+export default App

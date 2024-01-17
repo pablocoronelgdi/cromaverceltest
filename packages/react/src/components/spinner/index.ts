@@ -1,2 +1,2 @@
-import Spinner from "./Spinner";
-export { Spinner };
+import Spinner from './Spinner'
+export { Spinner }

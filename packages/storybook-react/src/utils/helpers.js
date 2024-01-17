@@ -1,4 +1,4 @@
-function getTextColor(hue, saturation, lightness) {
+/* function getTextColor(hue, saturation, lightness) {
     
     const saturationThreshold = 50; // Limite de saturacion
     const lightnessThreshold = 50;  // Limite de brillo
@@ -8,4 +8,4 @@ function getTextColor(hue, saturation, lightness) {
   
     // Devolvemos blanco o negro dependiento si es claro o no. 
     return isLightColor ? '#000000' : '#ffffff';
-  }
+  } */

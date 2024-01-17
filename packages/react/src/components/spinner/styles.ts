@@ -1,7 +1,7 @@
-import styled, { keyframes } from "styled-components";
-import { SpinnerPropTypes } from "./types";
-import { FlexBoxCenter } from "../../globals/globals";
-import { Color, Shapes, Spacings } from "@cromaui/foundations";
+import styled, { keyframes } from 'styled-components'
+import { FlexBoxCenter } from '../../globals/globals'
+import { Color, Shapes, Spacings } from '@cromaui/foundations'
+import type { SpinnerPropTypes } from './types'
 
 /* =============================================
 =                   KEYFRAMES                  =
@@ -13,7 +13,7 @@ const rotateOuterDiv = keyframes`
   to {
     transform: rotate(405deg);
   }
-`;
+`
 const rotateInnedDiv = keyframes`
   from {
     transform: rotate(0deg);
@@ -21,7 +21,7 @@ const rotateInnedDiv = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE SPINNER     =
@@ -78,7 +78,7 @@ export const SpinnerContainerStyled = styled.div<SpinnerPropTypes>`
     /* ----------  Spinner label  (div) ---------- */
     & > span {
       text-align: center;
-      font-family: "OpenSans";
+      font-family: 'OpenSans';
     }
   }
-`;
+`

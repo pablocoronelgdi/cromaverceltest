@@ -1,2 +1,2 @@
-import Link from "./link";
-export {Link}
+import Link from './link'
+export { Link }

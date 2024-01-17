@@ -1,10 +1,10 @@
-import { Text, View, StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import { Button, Icon, SwitchIcon, Checkbox } from "@cromaui/react-native/";
-import { useState } from "react";
+import { Text, View, StyleSheet } from 'react-native'
+import Constants from 'expo-constants'
+import { Button, Icon, SwitchIcon, Checkbox } from '@cromaui/react-native/'
+import { useState } from 'react'
 
-function App() {
-  const [value, setvalue] = useState(true);
+function App () {
+  const [value, setvalue] = useState(true)
 
   return (
     <View style={styles.container}>
@@ -25,25 +25,25 @@ function App() {
         Macro
       </Button>
 
-      <SwitchIcon value={value} onPress={() => setvalue(!value)} />
-      <SwitchIcon disabled value={value} onPress={() => setvalue(!value)} />
-      <Text>{value ? "Macro on" : "Macro off"}</Text>
+      <SwitchIcon value={value} onPress={() => { setvalue(!value) }} />
+      <SwitchIcon disabled value={value} onPress={() => { setvalue(!value) }} />
+      <Text>{value ? 'Macro on' : 'Macro off'}</Text>
       <Checkbox />
     </View>
-  );
+  )
 }
 
-let AppEntryPoint = App;
-if (Constants.expoConfig?.extra?.storybookEnabled === "true") {
-  AppEntryPoint = require("./.storybook").default;
+let AppEntryPoint = App
+if (Constants.expoConfig?.extra?.storybookEnabled === 'true') {
+  AppEntryPoint = require('./.storybook').default
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
 
-export default AppEntryPoint;
+export default AppEntryPoint

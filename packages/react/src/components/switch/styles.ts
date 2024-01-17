@@ -1,13 +1,12 @@
-import { css } from "styled-components";
+import { styled, css } from 'styled-components'
 import {
   Spacings,
   Color,
   Shapes,
   Borders,
-  Opacities,
-} from "@cromaui/foundations";
-import { SwitchInnerProps } from "./types";
-import styled from "styled-components";
+  Opacities
+} from '@cromaui/foundations'
+import type { SwitchInnerProps } from './types'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE SWITCH     =
@@ -82,7 +81,7 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
       background-color: ${(props) =>
         props.isChecked ? Color.Neutral[50] : Color.Neutral[600]};
       border-radius: ${Shapes.full};
-      transform: translateX(${(props) => (props.isChecked ? "18px" : 0)});
+      transform: translateX(${(props) => (props.isChecked ? '18px' : 0)});
       transition: all 0.4s ease;
       z-index: 1;
 
@@ -95,7 +94,7 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
           background-color: ${props.isChecked
             ? Color.Neutral[50]
             : Color.Neutral[400]};
-          transform: translateX(${props.isChecked ? "18px" : 0});
+          transform: translateX(${props.isChecked ? '18px' : 0});
         `}
 
       // Pressed
@@ -104,14 +103,14 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
         css`
           height: ${Spacings.space28};
           width: ${Spacings.space28};
-          transform: translateX(${props.isChecked ? "18px" : "-4px"});
+          transform: translateX(${props.isChecked ? '18px' : '-4px'});
         `}
 
       /* ---------- Thumb Aura ---------- */
     // Aura del hover del thumb.
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         height: 40px;
         width: 40px;
@@ -150,4 +149,4 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
       }
     }
   }
-`;
+`

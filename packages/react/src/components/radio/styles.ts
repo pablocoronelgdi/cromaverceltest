@@ -3,10 +3,10 @@ import {
   Color,
   Opacities,
   Shapes,
-  Spacings,
-} from "@cromaui/foundations";
-import styled, { css } from "styled-components";
-import { RadioInnerProps } from "./types";
+  Spacings
+} from '@cromaui/foundations'
+import styled, { css } from 'styled-components'
+import type { RadioInnerProps } from './types'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE RADIO     =
@@ -23,15 +23,15 @@ export const RadioContainer = styled.div<RadioInnerProps>`
   border-radius: ${Shapes.full};
   background-color: ${(props) =>
     props.disabled
-      ? "transparent"
+      ? 'transparent'
       : props.isPressed
       ? Color.Neutral[600] + Opacities.opacity20
-      : "transparent"};
+      : 'transparent'};
 
   & hover {
     background-color: ${(props) =>
       props.disabled
-        ? "transparent"
+        ? 'transparent'
         : Color.Neutral[600] + Opacities.opacity20};
   }
 
@@ -64,4 +64,4 @@ export const RadioContainer = styled.div<RadioInnerProps>`
       position: absolute;
     }
   }
-`;
+`

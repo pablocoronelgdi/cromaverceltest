@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
-import { Icon } from "../icon";
-import { Color } from "@cromaui/foundations";
-import { RadioPropTypes } from "./types";
-import { RadioContainer } from "./styles";
+import React, { useState } from 'react'
+import type { ChangeEvent } from 'react'
+import { Icon } from '../icon'
+import { Color } from '@cromaui/foundations'
+import { RadioContainer } from './styles'
+import type { RadioPropTypes } from './types'
 
 const Radio: React.FC<RadioPropTypes> = ({
   onChange,
@@ -10,34 +11,34 @@ const Radio: React.FC<RadioPropTypes> = ({
   checked,
   value,
   id,
-  name,
+  name
 }) => {
-  const [isPressed, setIsPressed] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
-  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (onChange) {
-      onChange(e);
+      onChange(e)
     }
-  };
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  }
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (e.key === "Tab") {
-      setIsFocused(true);
+  }
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
     }
-  };
+  }
 
-  const handleClick = () => {
-    setIsFocused(false);
-  };
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
     <RadioContainer
@@ -46,8 +47,12 @@ const Radio: React.FC<RadioPropTypes> = ({
       disabled={disabled}
     >
       <label
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
+        onMouseDown={(e) => {
+          handlePress(e)
+        }}
+        onMouseUp={(e) => {
+          handlePress(e)
+        }}
         onMouseLeave={handleMouseLeave}
         htmlFor={id}
         tabIndex={isFocused ? 0 : -1}
@@ -61,15 +66,17 @@ const Radio: React.FC<RadioPropTypes> = ({
           checked={checked}
           name={name}
           value={value}
-          onChange={(e) => handleRadioChange(e)}
+          onChange={(e) => {
+            handleRadioChange(e)
+          }}
         />
         <Icon
           color={disabled ? Color.Neutral[400] : Color.Navy.main}
-          name={checked ? "radio_button_checked" : " radio_button_unchecked"}
+          name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
         />
       </label>
     </RadioContainer>
-  );
-};
+  )
+}
 
-export default Radio;
+export default Radio

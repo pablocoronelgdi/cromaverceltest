@@ -3,10 +3,10 @@ import {
   Color,
   Opacities,
   Shapes,
-  Spacings,
-} from "@cromaui/foundations";
-import { styled, css } from "styled-components";
-import { CheckInnerProps } from "./types";
+  Spacings
+} from '@cromaui/foundations'
+import { styled, css } from 'styled-components'
+import type { CheckInnerProps } from './types'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE CHECKBOX     =
@@ -63,4 +63,4 @@ export const CheckContainer = styled.div<CheckInnerProps>`
       position: absolute;
     }
   }
-`;
+`

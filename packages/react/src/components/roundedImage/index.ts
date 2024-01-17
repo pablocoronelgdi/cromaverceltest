@@ -1,2 +1,2 @@
-import RoundedImage from "./RoundedImage";
-export { RoundedImage };
+import RoundedImage from './RoundedImage'
+export { RoundedImage }
