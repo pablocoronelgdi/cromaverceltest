@@ -35,15 +35,15 @@ export const getColorByProp = (
   }
 }
 
-export const hexToRgb = (hex: string, alpha: number) => {
+export const hexToRgb = (hex: string, alpha: number): string => {
   // Nos aseguramos que el color empieze con un hashtag #
   hex = hex.startsWith('#') ? hex.slice(1) : hex
 
   // Pareamos los valores para los colores rgb
-  let hexParseado = parseInt(hex, 16)
-  let r = (hexParseado >> 16) & 255
-  let g = (hexParseado >> 8) & 255
-  let b = hexParseado & 255
+  const hexParseado = parseInt(hex, 16)
+  const r = (hexParseado >> 16) & 255
+  const g = (hexParseado >> 8) & 255
+  const b = hexParseado & 255
 
   // Validamos el alpha y seteamos default si no viene en el parametro
   alpha = alpha === undefined ? 1 : alpha

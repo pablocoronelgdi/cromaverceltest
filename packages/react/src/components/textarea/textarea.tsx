@@ -22,7 +22,9 @@ const TextArea: React.FC<StyledTextAreaProps> = ({
   const [textValue, setTextValue] = useState<string>(text)
   const [caracters, setText] = useState('')
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     setTextValue(event.target.value)
     const newText = event.target.value
 

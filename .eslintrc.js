@@ -21,16 +21,15 @@ module.exports = {
     project: ['./tsconfig.json', './packages/*/tsconfig.json']
   },
   plugins: ['react'],
-
   settings: {
     react: {
       version: 'detect'
     }
   },
-  ignorePatterns: ['**/storybook-react-native'],
   rules: {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
     'multiline-ternary': 'off'
   }
 }

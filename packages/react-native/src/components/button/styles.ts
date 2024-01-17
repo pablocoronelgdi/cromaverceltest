@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { type RuleSet, css } from 'styled-components'
 import { Color, Typography } from '@cromaui/foundations'
 import { getColorByProp } from '../../utils/colorUtils'
 import type { ButtonTextPropTypes, ChildrenButtonPropTypes } from './types'
@@ -18,7 +18,7 @@ import type { ButtonTextPropTypes, ChildrenButtonPropTypes } from './types'
 
 /* ----------  Botón  ---------- */
 
-export const getBaseButtonStyles = () => {
+export const getBaseButtonStyles = (): RuleSet<object> => {
   return css`
     padding: 8px 12px 8px 12px;
     border-radius: 8px;
@@ -31,7 +31,7 @@ export const getBaseButtonStyles = () => {
 
 /* ----------  Texto del Botón  ---------- */
 
-export const getBaseButtonTextStyles = () => {
+export const getBaseButtonTextStyles = (): RuleSet<object> => {
   return css`
     font-size: ${Typography.button.md.semibold.fontSize};
     line-height: ${Typography.button.md.semibold.lineHeight};
@@ -46,7 +46,7 @@ export const getBaseButtonTextStyles = () => {
 
 /* ----------  Outlined Botón  ---------- */
 
-const outlinedButton = (props: ChildrenButtonPropTypes) => {
+const outlinedButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -61,23 +61,24 @@ const outlinedButton = (props: ChildrenButtonPropTypes) => {
   if (props.isPressed) {
     return css`
       background-color: ${getColorByProp(
-        props.color,
+        props.color as string,
         props.theme,
         'extraLight'
       )};
-      border: solid 2px ${getColorByProp(props.color, props.theme, 'dark')};
+      border: solid 2px
+        ${getColorByProp(props.color as string, props.theme, 'dark')};
     `
   }
   // DEFAULT
   return css`
     background-color: ${Color.Neutral[0]};
-    border: solid 2px ${getColorByProp(props.color, props.theme)};
+    border: solid 2px ${getColorByProp(props.color as string, props.theme)};
   `
 }
 
 /* ----------  Outlined Texto del Botón  ---------- */
 
-const outlinedTextButton = (props: ButtonTextPropTypes) => {
+const outlinedTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -98,7 +99,7 @@ const outlinedTextButton = (props: ButtonTextPropTypes) => {
 
 /* ----------  Filled Botón  ---------- */
 
-const filledButton = (props: ChildrenButtonPropTypes) => {
+const filledButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -121,14 +122,14 @@ const filledButton = (props: ChildrenButtonPropTypes) => {
   }
   // DEFAULT
   return css`
-    background-color: ${getColorByProp(props.color, props.theme)};
-    border: solid 2px ${getColorByProp(props.color, props.theme)};
+    background-color: ${getColorByProp(props.color as string, props.theme)};
+    border: solid 2px ${getColorByProp(props.color as string, props.theme)};
   `
 }
 
 /* ----------  Filled Texto del Botón  ---------- */
 
-const filledTextButton = (props: ButtonTextPropTypes) => {
+const filledTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -152,7 +153,7 @@ const filledTextButton = (props: ButtonTextPropTypes) => {
 
 /* ----------  Link Botón  ---------- */
 
-const linkButton = (props: ChildrenButtonPropTypes) => {
+const linkButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -185,7 +186,7 @@ const linkButton = (props: ChildrenButtonPropTypes) => {
 
 /* ----------  Link Texto del Botón  ---------- */
 
-const linkTextButton = (props: ButtonTextPropTypes) => {
+const linkTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -212,7 +213,9 @@ const linkTextButton = (props: ButtonTextPropTypes) => {
 ============================================= */
 
 /* ----------  Obtener el tamaño del boton  ---------- */
-export const getButtonSize = (props: ChildrenButtonPropTypes) => {
+export const getButtonSize = (
+  props: ChildrenButtonPropTypes
+): RuleSet<object> => {
   switch (props.size) {
     case 'small':
       return css`
@@ -234,7 +237,9 @@ export const getButtonSize = (props: ChildrenButtonPropTypes) => {
 }
 
 /* ----------  Obtener el tamaño del texto del boton  ---------- */
-export const getButtonTextSize = (props: ButtonTextPropTypes) => {
+export const getButtonTextSize = (
+  props: ButtonTextPropTypes
+): RuleSet<object> => {
   switch (props.size) {
     case 'small':
       return css`
@@ -255,7 +260,9 @@ export const getButtonTextSize = (props: ButtonTextPropTypes) => {
 }
 
 /* ----------  Obtener la variante del boton  ---------- */
-export const getButtonVariant = (props: ChildrenButtonPropTypes) => {
+export const getButtonVariant = (
+  props: ChildrenButtonPropTypes
+): RuleSet<object> => {
   switch (props.variant) {
     case 'link':
       return linkButton(props)
@@ -267,7 +274,9 @@ export const getButtonVariant = (props: ChildrenButtonPropTypes) => {
 }
 
 /* ----------  Obtener la variante del texto del boton  ---------- */
-export const getButtonTextVariant = (props: ButtonTextPropTypes) => {
+export const getButtonTextVariant = (
+  props: ButtonTextPropTypes
+): RuleSet<object> => {
   switch (props.variant) {
     case 'link':
       return linkTextButton(props)

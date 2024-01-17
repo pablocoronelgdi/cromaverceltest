@@ -1,3 +1,5 @@
-*.config.js
+rollup.config.js
+babel.config.js
+storybook-react-native
 dist
 node_modules
