@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Icon } from '../icon'
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import { CheckContainer } from './styles'
 import type { CheckProps } from './types'
 
@@ -71,7 +71,7 @@ const Checkbox: React.FC<CheckProps> = ({
           onChange={handleCheck}
         />
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Navy.main}
+          color={disabled ? color.neutral[400] : color.navy.main}
           name={checked ?? isChecked ? 'check_box' : 'check_box_outline_blank'}
         />
       </label>

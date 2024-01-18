@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import {
-  Elevations,
-  Color,
-  Spacings,
-  Typography,
-  Shapes,
-  Borders
+  elevations,
+  color,
+  spacings,
+  typography,
+  shapes,
+  borders
 } from '@cromaui/foundations'
 import type { StyledTextAreaProps } from './types'
 
@@ -13,12 +13,12 @@ export const StyledContent = styled.div<StyledTextAreaProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-family: ${Typography.body.sm.regular.fontFamily};
-  font-weight: ${Typography.body.sm.semibold.fontWeight};
+  font-family: ${typography.body.sm.regular.fontFamily};
+  font-weight: ${typography.body.sm.semibold.fontWeight};
 
   & p {
-    margin-bottom: ${Spacings.space8};
-    font-size: ${Typography.body.sm.semibold.fontSize};
+    margin-bottom: ${spacings.space8};
+    font-size: ${typography.body.sm.semibold.fontSize};
   }
 
   & label {
@@ -26,17 +26,17 @@ export const StyledContent = styled.div<StyledTextAreaProps>`
     justify-content: space-between;
     color: ${(props) =>
       props.error
-        ? Color.Error.main
-        : Color.Neutral[800] && props.disabled
-        ? Color.Neutral[400]
-        : Color.Neutral[800]};
-    margin-top: ${Spacings.space8};
-    font-size: ${Typography.caption.regular.fontSize};
-    font-weight: ${Typography.caption.regular.fontWeight};
-    line-height: ${Typography.caption.regular.lineHeight};
+        ? color.error.main
+        : color.neutral[800] && props.disabled
+        ? color.neutral[400]
+        : color.neutral[800]};
+    margin-top: ${spacings.space8};
+    font-size: ${typography.caption.regular.fontSize};
+    font-weight: ${typography.caption.regular.fontWeight};
+    line-height: ${typography.caption.regular.lineHeight};
 
     & span {
-      margin-right: ${Spacings.space8};
+      margin-right: ${spacings.space8};
     }
 
     & p {
@@ -65,37 +65,37 @@ export const StyledLabelIcon = styled.div<StyledTextAreaProps>`
 export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   width: 100%;
   min-height: 120px;
-  background-color: ${Color.Neutral[50]};
-  color: ${(props) => (props.text ? Color.Neutral[800] : Color.Neutral[500])};
-  padding: ${Spacings.space12};
-  border-radius: ${Shapes.sm};
+  background-color: ${color.neutral[50]};
+  color: ${(props) => (props.text ? color.neutral[800] : color.neutral[500])};
+  padding: ${spacings.space12};
+  border-radius: ${shapes.sm};
   border: ${(props) =>
     props.error
-      ? Borders.br2 + Color.Error.main
-      : Borders.br1 + Color.Neutral[400]};
-  font-weight: ${Typography.body.sm.regular.fontWeight};
-  font-size: ${Typography.body.sm.regular.fontSize};
+      ? borders.br2 + color.error.main
+      : borders.br1 + color.neutral[400]};
+  font-weight: ${typography.body.sm.regular.fontWeight};
+  font-size: ${typography.body.sm.regular.fontSize};
   box-sizing: border-box;
 
   &:hover {
-    border: ${Borders.br1} ${Color.Neutral[800]};
-    box-shadow: ${Elevations.level2};
+    border: ${borders.br1} ${color.neutral[800]};
+    box-shadow: ${elevations.level2};
   }
 
   &:focus {
-    border: ${Borders.br1} solid ${Color.Blue.main};
-    color: ${Color.Neutral[700]};
-    box-shadow: ${Elevations.level2};
+    border: ${borders.br1} solid ${color.blue.main};
+    color: ${color.neutral[700]};
+    box-shadow: ${elevations.level2};
   }
 
   &:disabled {
-    border: ${Borders.br1} solid ${Color.Neutral[400]};
-    background-color: ${Color.Neutral[200]};
+    border: ${borders.br1} solid ${color.neutral[400]};
+    background-color: ${color.neutral[200]};
     cursor: no-drop;
 
     &:hover {
       box-shadow: none;
-      border: ${Borders.br1} ${Color.Neutral[400]};
+      border: ${borders.br1} ${color.neutral[400]};
     }
   }
 `

@@ -6,7 +6,7 @@ import {
   StyledLabelIcon
 } from './styles'
 import { Icon } from '../icon'
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import type { StyledTextAreaProps } from './types'
 
 const TextArea: React.FC<StyledTextAreaProps> = ({
@@ -54,7 +54,7 @@ const TextArea: React.FC<StyledTextAreaProps> = ({
               {error && (
                 <Icon
                   name="info_outlined"
-                  color={Color.Error.main}
+                  color={color.error.main}
                   size="small"
                 />
               )}

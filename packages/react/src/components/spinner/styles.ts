@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import { FlexBoxCenter } from '../../globals/globals'
-import { Color, Shapes, Spacings } from '@cromaui/foundations'
+import { FLEX_CENTER } from '../../globals/globals'
+import { color, shapes, spacings } from '@cromaui/foundations'
 import type { SpinnerPropTypes } from './types'
 
 /* =============================================
@@ -29,47 +29,47 @@ const rotateInnedDiv = keyframes`
 
 /* ----------  Spinner Container  (div) ---------- */
 export const SpinnerContainerStyled = styled.div<SpinnerPropTypes>`
-  ${FlexBoxCenter}
+  ${FLEX_CENTER}
   flex-direction:column;
-  gap: ${({ withLogo }) => (withLogo ? Spacings.space8 : Spacings.space4)};
-  padding: ${Spacings.space2};
+  gap: ${({ withLogo }) => (withLogo ? spacings.space8 : spacings.space4)};
+  padding: ${spacings.space2};
   width: min-content;
 
   /* ----------  Outer Spinner Ring  (div) ---------- */
   & > div {
-    ${FlexBoxCenter}
+    ${FLEX_CENTER}
     width: ${({ withLogo }) =>
-      withLogo ? Spacings.space76 : Spacings.space64};
+      withLogo ? spacings.space76 : spacings.space64};
     height: ${({ withLogo }) =>
-      withLogo ? Spacings.space76 : Spacings.space64};
-    padding: ${({ withLogo }) => (withLogo ? Spacings.space2 : 0)};
+      withLogo ? spacings.space76 : spacings.space64};
+    padding: ${({ withLogo }) => (withLogo ? spacings.space2 : 0)};
     border-style: solid;
     border-width: ${({ withLogo }) =>
-      withLogo ? Spacings.space10 : Spacings.space8};
-    border-color: ${Color.Navy.extraSoft};
-    border-radius: ${Shapes.full};
+      withLogo ? spacings.space10 : spacings.space8};
+    border-color: ${color.navy.extraSoft};
+    border-radius: ${shapes.full};
     border-left-color: ${({ withLogo }) =>
-      withLogo ? Color.Navy.main : Color.Navy.extraSoft};
-    border-top-color: ${Color.Navy.main};
+      withLogo ? color.navy.main : color.navy.extraSoft};
+    border-top-color: ${color.navy.main};
     transform: rotate(45deg);
     animation: ${rotateOuterDiv} 1s ease infinite;
 
     /* ----------  Inner Spinner Ring  (div) ---------- */
     & > div {
-      ${FlexBoxCenter}
-      border: solid 10px ${Color.Navy.extraSoft};
+      ${FLEX_CENTER}
+      border: solid 10px ${color.navy.extraSoft};
       border-radius: 50%;
-      width: ${Spacings.space48};
-      height: ${Spacings.space48};
-      border-left-color: ${Color.Navy.soft};
-      border-top-color: ${Color.Navy.soft};
+      width: ${spacings.space48};
+      height: ${spacings.space48};
+      border-left-color: ${color.navy.soft};
+      border-top-color: ${color.navy.soft};
       animation: ${rotateInnedDiv} 2s ease infinite;
 
       /* ----------  Center Spinner Circle  (div) ---------- */
       & > div {
-        width: ${Spacings.space20};
-        height: ${Spacings.space20};
-        background-color: ${Color.Navy.main};
+        width: ${spacings.space20};
+        height: ${spacings.space20};
+        background-color: ${color.navy.main};
         border-radius: 50%;
         font-size: 12px;
       }

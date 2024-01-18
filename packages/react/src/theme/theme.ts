@@ -1,39 +1,39 @@
-import { Color, Elevations } from '@cromaui/foundations'
-const { Navy, Blue, Pink, Neutral, Stone } = Color
+import { color, elevations } from '@cromaui/foundations'
+const { navy, blue, pink, neutral, stone } = color
 
 const macro = {
   color: {
     primary: {
-      dark: Navy.main,
-      main: Navy.main,
-      light: Navy.main,
-      extraLight: Navy.main
+      dark: navy.main,
+      main: navy.main,
+      light: navy.main,
+      extraLight: navy.main
     },
     secondary: {
-      dark: Pink.main,
-      main: Pink.main,
-      light: Pink.main,
-      extraLight: Pink.main
+      dark: pink.main,
+      main: pink.main,
+      light: pink.main,
+      extraLight: pink.main
     },
     tertiary: {
-      dark: Blue.main,
-      main: Blue.main,
-      light: Blue.main,
-      extraLight: Blue.main
+      dark: blue.main,
+      main: blue.main,
+      light: blue.main,
+      extraLight: blue.main
     },
     complementary: {
-      dark: Stone.dark,
-      main: Stone.dark,
-      light: Stone.dark
+      dark: stone.dark,
+      main: stone.dark,
+      light: stone.dark
     },
     text: {
-      light: Neutral[100],
-      dark: Neutral[900]
+      light: neutral[100],
+      dark: neutral[900]
     }
   },
   components: {
     button: {
-      elevation: Elevations.level2
+      elevation: elevations.level2
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Shapes, Elevations, Borders, Color } from '@cromaui/foundations'
+import { shapes, elevations, borders, color } from '@cromaui/foundations'
 import type { StyledImageProps } from './types'
 
 const StyledImage = styled.div<StyledImageProps>`
@@ -10,7 +10,7 @@ const StyledImage = styled.div<StyledImageProps>`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: ${(props) => (props.circle ? Shapes.full : 0)};
+  border-radius: ${(props) => (props.circle ? shapes.full : 0)};
   transition: 0.5s;
   display: flex;
   justify-content: center;
@@ -18,13 +18,13 @@ const StyledImage = styled.div<StyledImageProps>`
 
   &:hover {
     transition: 0.5s;
-    box-shadow: ${(props) => (props.hover ? Elevations.level3 : 'none')};
+    box-shadow: ${(props) => (props.hover ? elevations.level3 : 'none')};
   }
 
   &:focus {
     transition: 0.5s;
-    border: ${Borders.br3} ${Color.Blue.main};
-    box-shadow: ${Elevations.level3};
+    border: ${borders.br3} ${color.blue.main};
+    box-shadow: ${elevations.level3};
   }
 `
 

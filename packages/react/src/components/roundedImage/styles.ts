@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Borders, Color, Typography } from '@cromaui/foundations'
+import { borders, color, typography } from '@cromaui/foundations'
 import { getSize } from './utils'
 import type { RoundedImagePropsTypes } from './types'
 
@@ -7,59 +7,59 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: ${Borders.br1};
-  border-color: ${Color.Navy.main};
+  border: ${borders.br1};
+  border-color: ${color.navy.main};
   border-radius: 100px;
-  background-color: ${Color.Navy.extraSoft};
-  color: ${Color.Navy.main};
+  background-color: ${color.navy.extraSoft};
+  color: ${color.navy.main};
   height: ${(props: RoundedImagePropsTypes) => getSize(props.size)};
   width: ${(props: RoundedImagePropsTypes) => getSize(props.size)};
   text-align: center;
   overflow: hidden;
 
   & small {
-    font-family: ${Typography.body.sm.semibold.fontFamily};
-    font-weight: ${Typography.body.sm.semibold.fontWeight};
+    font-family: ${typography.body.sm.semibold.fontFamily};
+    font-weight: ${typography.body.sm.semibold.fontWeight};
 
     ${(props) =>
       props.size === 'extra-small' &&
       css`
-        font-size: ${Typography.body.sm.semibold.fontSize};
+        font-size: ${typography.body.sm.semibold.fontSize};
         line-height: 1.1em;
-        letter-spacing: ${Typography.body.sm.semibold.letterSpacing};
+        letter-spacing: ${typography.body.sm.semibold.letterSpacing};
       `}
 
     ${(props) =>
       props.size === 'small' &&
       css`
-    font-size: ${Typography.body.md.semibold.fontSize};
-    letter-spacing: ${Typography.body.md.semibold.letterSpacing};
-    line-height: letter-spacing: ${Typography.body.md.semibold.lineHeight};
+    font-size: ${typography.body.md.semibold.fontSize};
+    letter-spacing: ${typography.body.md.semibold.letterSpacing};
+    line-height: letter-spacing: ${typography.body.md.semibold.lineHeight};
     `}
 
     ${(props) =>
       (props.size === 'medium' || props.size === 'large') &&
       css`
-    font-size: ${Typography.body.lg.semibold.fontSize};
-    letter-spacing: ${Typography.body.lg.semibold.letterSpacing};
-    line-height: letter-spacing: ${Typography.body.lg.semibold.lineHeight};
+    font-size: ${typography.body.lg.semibold.fontSize};
+    letter-spacing: ${typography.body.lg.semibold.letterSpacing};
+    line-height: letter-spacing: ${typography.body.lg.semibold.lineHeight};
     `}
     
     ${(props) =>
       props.size === 'extra-large' &&
       css`
-    font-size: ${Typography.heading.sm.semibold.fontSize};
-    letter-spacing: ${Typography.heading.sm.semibold.letterSpacing};
-    line-height: letter-spacing: ${Typography.heading.sm.semibold.lineHeight};
+    font-size: ${typography.heading.sm.semibold.fontSize};
+    letter-spacing: ${typography.heading.sm.semibold.letterSpacing};
+    line-height: letter-spacing: ${typography.heading.sm.semibold.lineHeight};
     `}
   }
 
   ${(props) =>
     props.disabled &&
     css`
-      background-color: ${Color.Neutral[200]};
-      border-color: ${Color.Neutral[400]};
-      color: ${Color.Neutral[400]};
+      background-color: ${color.neutral[200]};
+      border-color: ${color.neutral[400]};
+      color: ${color.neutral[400]};
       cursor: not-allowed;
     `}
 
@@ -77,7 +77,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
     ${(props) =>
       props.disabled &&
       css`
-        color: ${Color.Neutral[400]};
+        color: ${color.neutral[400]};
       `}
   }
 `

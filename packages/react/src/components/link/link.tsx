@@ -1,5 +1,5 @@
 import React from 'react'
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import { StyledLink } from './styles'
 import { Icon } from '../icon'
 import type { LinkPropsTypes, LinkSizeType } from './types'
@@ -58,7 +58,7 @@ const Link: React.FC<LinkPropsTypes> = ({
     >
       {iconRight && (
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Blue.main}
+          color={disabled ? color.neutral[400] : color.blue.main}
           name={iconName}
           size={iconSize}
         />
@@ -66,7 +66,7 @@ const Link: React.FC<LinkPropsTypes> = ({
       <p>{content}</p>
       {iconLeft && (
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Blue.main}
+          color={disabled ? color.neutral[400] : color.blue.main}
           name={iconName}
           size={iconSize}
         />

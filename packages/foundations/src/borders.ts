@@ -1,4 +1,4 @@
-export const Borders = {
+export const borders = {
   br1: 'solid 1px',
   br2: 'solid 2px',
   br3: 'solid 3px',

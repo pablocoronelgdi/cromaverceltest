@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { Icon } from '../icon'
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import { RadioContainer } from './styles'
 import type { RadioPropTypes } from './types'
 
@@ -71,7 +71,7 @@ const Radio: React.FC<RadioPropTypes> = ({
           }}
         />
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Navy.main}
+          color={disabled ? color.neutral[400] : color.navy.main}
           name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
         />
       </label>

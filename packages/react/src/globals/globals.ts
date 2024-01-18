@@ -70,22 +70,22 @@ html{
 `
 
 /* FlexBox */
-export const FlexBoxCenter = css`
+export const FLEX_CENTER = css`
   display: flex;
   justify-content: center;
   align-items: center;
 `
-export const FlexBoxStart = css`
+export const FLEX_START = css`
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `
-export const FlexBoxEnd = css`
+export const FLEX_END = css`
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `
-export const FlexBoxColumCenter = css`
+export const FLEX_COLUMN_CENTER = css`
   display: flex;
   flex-direction: column;
   justify-content: center;

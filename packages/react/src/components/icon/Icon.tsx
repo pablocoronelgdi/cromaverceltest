@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Color, Shapes } from '@cromaui/foundations'
+import { color, shapes } from '@cromaui/foundations'
 import type { IconPropTypes, IconSizeType } from './types'
 
 const getSize = (size?: IconSizeType): string => {
@@ -26,7 +26,7 @@ const StyledIcon = styled.span<IconPropTypes>`
   line-height: ${(props) => getSize(props.size)};
   width: ${(props) => getSize(props.size)};
   height: ${(props) => getSize(props.size)};
-  color: ${(props) => props.color && Color.Navy.main};
+  color: ${(props) => props.color && color.navy.main};
   background-color: transparent;
   font-size: ${(props) => getSize(props.size)};
   font-family: 'Material Icons';
@@ -35,7 +35,7 @@ const StyledIcon = styled.span<IconPropTypes>`
   letter-spacing: normal;
   text-transform: none;
   user-select: none;
-  border-radius: ${Shapes.full};
+  border-radius: ${shapes.full};
   font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;

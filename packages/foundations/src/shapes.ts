@@ -1,4 +1,4 @@
-export const Shapes = {
+export const shapes = {
   xs: '4px',
   sm: '8px',
   md: '12px',

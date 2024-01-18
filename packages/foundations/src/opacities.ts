@@ -1,4 +1,4 @@
-export const Opacities = {
+export const opacities = {
   opacity15: '26',
   opacity20: '33',
   opacity30: '4d',
