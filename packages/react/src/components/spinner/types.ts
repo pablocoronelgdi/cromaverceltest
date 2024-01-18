@@ -1,4 +1,4 @@
 export type SpinnerPropTypes = {
-    withLogo?: boolean;
-    label?: string;
-  };
+  withLogo?: boolean
+  label?: string
+}

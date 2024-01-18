@@ -1,60 +1,64 @@
-import React, { useState } from "react";
-import { Icon } from "../icon";
-import { Color } from "@cromaui/foundations";
-import { CheckProps } from "./types";
-import { CheckContainer } from "./styles";
+import React, { useState } from 'react'
+import { Icon } from '../icon'
+import { color } from '@cromaui/foundations'
+import { CheckContainer } from './styles'
+import type { CheckProps } from './types'
 
 const Checkbox: React.FC<CheckProps> = ({
   onChange,
   disabled,
   checked,
-  defaultValue,
+  defaultValue
 }) => {
-  const [isChecked, setIsChecked] = useState(defaultValue || false);
-  const [isPressed, setIsPressed] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isChecked, setIsChecked] = useState(defaultValue ?? false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
-  const handleCheck = () => {
+  const handleCheck = (): void => {
     if (!disabled) {
       if (checked === undefined) {
-        setIsChecked(!isChecked);
+        setIsChecked(!isChecked)
       }
       if (onChange) {
-        setIsChecked(!isChecked);
-        onChange(!isChecked);
+        setIsChecked(!isChecked)
+        onChange(!isChecked)
       }
     }
-  };
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  }
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
+  }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (e.key === "Tab") {
-      setIsFocused(true);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
     }
-  };
+  }
 
-  const handleClick = () => {
-    setIsFocused(false);
-  };
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
     <CheckContainer
-      isChecked={checked !== undefined ? checked : isChecked}
+      isChecked={checked ?? isChecked}
       isPressed={isPressed}
       isFocused={isFocused}
       disabled={disabled}
     >
       <label
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
+        onMouseDown={(e) => {
+          handlePress(e)
+        }}
+        onMouseUp={(e) => {
+          handlePress(e)
+        }}
         onMouseLeave={handleMouseLeave}
         tabIndex={isFocused ? 0 : -1}
         onKeyDown={handleKeyDown}
@@ -63,16 +67,16 @@ const Checkbox: React.FC<CheckProps> = ({
         <input
           disabled={disabled}
           type="checkbox"
-          checked={checked !== undefined ? checked : isChecked}
+          checked={checked ?? isChecked}
           onChange={handleCheck}
         />
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Navy.main}
-          name={checked || isChecked ? "check_box" : "check_box_outline_blank"}
+          color={disabled ? color.neutral[400] : color.navy.main}
+          name={checked ?? isChecked ? 'check_box' : 'check_box_outline_blank'}
         />
       </label>
     </CheckContainer>
-  );
-};
+  )
+}
 
-export default Checkbox;
+export default Checkbox

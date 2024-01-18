@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Icon } from "../icon";
-import { SwitchProps } from "./types";
-import { SwitchContainer } from "./styles";
+import React, { useState } from 'react'
+import { Icon } from '../icon'
+import { SwitchContainer } from './styles'
+import type { SwitchProps } from './types'
 
 /**
  * Elemento de interfaz de usuario que permite a los usuarios alternar entre dos estados
@@ -12,55 +12,59 @@ const Switch: React.FC<SwitchProps> = ({
   onChange,
   disabled = false,
   checked,
-  defaultValue,
+  defaultValue
 }) => {
-  const [isChecked, setChecked] = useState(defaultValue || false);
-  const [isPressed, setIsPressed] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isChecked, setChecked] = useState(defaultValue ?? false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
   /**
    * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
    * por el usuario, la ejecuta pasándole el estado del "checked".
    * De esta forma el componente puede ser controlado o no controlado.
    */
-  const handleCheck = () => {
+  const handleCheck = (): void => {
     if (!disabled) {
       if (checked === undefined) {
-        setChecked(!isChecked);
+        setChecked(!isChecked)
       }
       if (onChange) {
-        setChecked(!isChecked);
-        onChange(!isChecked);
+        setChecked(!isChecked)
+        onChange(!isChecked)
       }
     }
-  };
+  }
 
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
+  }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (e.key === "Tab") {
-      setIsFocused(true);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
     }
-  };
+  }
 
-  const handleClick = () => {
-    setIsFocused(false);
-  };
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
     <SwitchContainer
-      isChecked={checked !== undefined ? checked : isChecked}
+      isChecked={checked ?? isChecked}
       isPressed={isPressed}
-      onMouseDown={(e) => handlePress(e)}
-      onMouseUp={(e) => handlePress(e)}
+      onMouseDown={(e) => {
+        handlePress(e)
+      }}
+      onMouseUp={(e) => {
+        handlePress(e)
+      }}
       onMouseLeave={handleMouseLeave}
       isFocused={isFocused}
       disabled={disabled}
@@ -71,15 +75,15 @@ const Switch: React.FC<SwitchProps> = ({
       <label>
         <input
           type="checkbox"
-          checked={checked !== undefined ? checked : isChecked}
+          checked={checked ?? isChecked}
           onChange={handleCheck}
         />
         <div>
-          {checked || isChecked ? <Icon size="medium" name="check" /> : null}
+          {checked ?? isChecked ? <Icon size="medium" name="check" /> : null}
         </div>
       </label>
     </SwitchContainer>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

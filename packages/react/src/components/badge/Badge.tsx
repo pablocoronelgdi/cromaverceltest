@@ -1,32 +1,35 @@
-import React from "react";
-import { BadgePropsTypes } from "./types";
-import { BadgeContainerStyled } from "./styles";
-import { Icon } from "../icon";
-import { IconSizeType } from "../icon/types";
-import { badgeRegex } from "../../utils/stringsUtils";
-/** Descripción del componente Badge WIP */
+import React from 'react'
+import { Icon } from '../icon'
+import { BadgeContainerStyled } from './styles'
+import { badgeRegex } from '../../utils/stringsUtils'
+import type { BadgePropsTypes } from './types'
+import type { IconSizeType } from '../icon/types'
 
+/** Descripción del componente Badge WIP */
 const Badge: React.FC<BadgePropsTypes> = ({
-  backgroundType = "light",
+  backgroundType = 'light',
   size,
-  color = "pink",
+  color = 'pink',
   count,
   iconName,
   text
 }) => {
   const iconSize: IconSizeType = (() => {
     switch (size) {
-      case "small":
-      case "medium":
-        return "small";
-      case "large":
-        return "medium";
+      case 'small':
+      case 'medium':
+        return 'small'
+      case 'large':
+        return 'medium'
       default:
-        return "small";
+        return 'small'
     }
-  })();
-  const countString = count?.toFixed()?.toLocaleString()!;
-  const customCount = count! >= 999 ? countString?.slice(0, 3)?.concat("+") : count;
+  })()
+  const countString = count?.toFixed()?.toLocaleString()
+  const customCount =
+    count !== undefined && count >= 999
+      ? countString?.slice(0, 3)?.concat('+')
+      : count
 
   return (
     <BadgeContainerStyled
@@ -37,19 +40,15 @@ const Badge: React.FC<BadgePropsTypes> = ({
       count={count}
       iconName={iconName}
     >
-      {
-        iconName &&
+      {iconName && (
         <Icon
           size={iconSize}
-          name={iconName ? iconName.toLocaleLowerCase() : "check"}
+          name={iconName ? iconName.toLocaleLowerCase() : 'check'}
         />
-      }
-      {
-        (text || count) &&
-        <small>{badgeRegex(text) || customCount}</small>
-      }
+      )}
+      {(text ?? count) && <small>{badgeRegex(text) ?? customCount}</small>}
     </BadgeContainerStyled>
-  );
-};
+  )
+}
 
-export default Badge;
+export default Badge

@@ -1,12 +1,12 @@
 import {
-  Borders,
-  Color,
-  Opacities,
-  Shapes,
-  Spacings,
-} from "@cromaui/foundations";
-import { styled, css } from "styled-components";
-import { CheckInnerProps } from "./types";
+  borders,
+  color,
+  opacities,
+  shapes,
+  spacings
+} from '@cromaui/foundations'
+import { styled, css } from 'styled-components'
+import type { CheckInnerProps } from './types'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE CHECKBOX     =
@@ -20,37 +20,37 @@ export const CheckContainer = styled.div<CheckInnerProps>`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: ${Spacings.space40};
-  height: ${Spacings.space40};
-  padding: ${Spacings.space8};
-  border-radius: ${Shapes.full};
+  width: ${spacings.space40};
+  height: ${spacings.space40};
+  padding: ${spacings.space8};
+  border-radius: ${shapes.full};
 
   /* ----------  Check Aura ---------- */
   &:hover {
     ${(props) =>
       props.disabled &&
       css`
-        background-color: ${Color.Navy.soft}${Opacities.opacity20};
+        background-color: ${color.navy.soft}${opacities.opacity20};
       `}
     ${(props) =>
       props.isPressed &&
       css`
-        background-color: ${Color.Neutral[600]}${Opacities.opacity20};
+        background-color: ${color.neutral[600]}${opacities.opacity20};
       `}
   }
 
   /* ----------  Check Area  (label) ---------- */
   & label {
-    width: ${Spacings.space24};
-    height: ${Spacings.space24};
+    width: ${spacings.space24};
+    height: ${spacings.space24};
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    border-radius: ${Shapes.xs};
+    border-radius: ${shapes.xs};
     ${(props) =>
       props.isFocused &&
       css`
-        outline: ${Borders.br2}${Color.Blue.main};
+        outline: ${borders.br2}${color.blue.main};
         outline-offset: 0px;
       `}
 
@@ -63,4 +63,4 @@ export const CheckContainer = styled.div<CheckInnerProps>`
       position: absolute;
     }
   }
-`;
+`

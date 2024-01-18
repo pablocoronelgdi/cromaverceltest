@@ -1,6 +1,7 @@
-import { css } from "styled-components";
-import { Color, Typography } from "@cromaui/foundations";
-import { getColorByProp } from "../../utils/colorUtils";
+import { type RuleSet, css } from 'styled-components'
+import { Color, Typography } from '@cromaui/foundations'
+import { getColorByProp } from '../../utils/colorUtils'
+import type { ButtonTextPropTypes, ChildrenButtonPropTypes } from './types'
 
 /*
  * INDICE:
@@ -17,7 +18,7 @@ import { getColorByProp } from "../../utils/colorUtils";
 
 /* ----------  Botón  ---------- */
 
-export const getBaseButtonStyles = () => {
+export const getBaseButtonStyles = (): RuleSet<object> => {
   return css`
     padding: 8px 12px 8px 12px;
     border-radius: 8px;
@@ -25,19 +26,19 @@ export const getBaseButtonStyles = () => {
     justify-content: center;
     align-items: center;
     gap: 8px;
-  `;
-};
+  `
+}
 
 /* ----------  Texto del Botón  ---------- */
 
-export const getBaseButtonTextStyles = () => {
+export const getBaseButtonTextStyles = (): RuleSet<object> => {
   return css`
     font-size: ${Typography.button.md.semibold.fontSize};
     line-height: ${Typography.button.md.semibold.lineHeight};
     font-weight: ${Typography.button.md.semibold.fontWeight};
     text-align: center;
-  `;
-};
+  `
+}
 
 /* =============================================
 =            VARIANTES de COMPONENTE                 =
@@ -45,7 +46,7 @@ export const getBaseButtonTextStyles = () => {
 
 /* ----------  Outlined Botón  ---------- */
 
-const outlinedButton = (props) => {
+const outlinedButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -54,7 +55,7 @@ const outlinedButton = (props) => {
       border: solid 2px
         ${props.theme?.components?.button?.variant?.outlined.disabled.color ||
         Color.Neutral[400]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
@@ -62,42 +63,43 @@ const outlinedButton = (props) => {
       background-color: ${getColorByProp(
         props.color,
         props.theme,
-        "extraLight"
+        'extraLight'
       )};
-      border: solid 2px ${getColorByProp(props.color, props.theme, "dark")};
-    `;
+      border: solid 2px
+        ${getColorByProp(props.color, props.theme, 'dark')};
+    `
   }
   // DEFAULT
   return css`
     background-color: ${Color.Neutral[0]};
     border: solid 2px ${getColorByProp(props.color, props.theme)};
-  `;
-};
+  `
+}
 
 /* ----------  Outlined Texto del Botón  ---------- */
 
-const outlinedTextButton = (props) => {
+const outlinedTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.outlined.disabled
         ?.backgroundColor || Color.Neutral[400]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
-      color: ${getColorByProp(props.color, props.theme, "dark")};
-    `;
+      color: ${getColorByProp(props.color, props.theme, 'dark')};
+    `
   }
   return css`
     color: ${getColorByProp(props.color, props.theme)};
-  `;
-};
+  `
+}
 
 /* ----------  Filled Botón  ---------- */
 
-const filledButton = (props) => {
+const filledButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -106,7 +108,7 @@ const filledButton = (props) => {
       border: solid 2px
         ${props.theme?.components?.button?.variant.filled.disabled.color ||
         Color.Neutral[300]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
@@ -116,42 +118,42 @@ const filledButton = (props) => {
       border: solid 2px
         ${props.theme?.components?.button?.variant?.filled?.pressed
           ?.backgroundColor || Color.Navy.dark};
-    `;
+    `
   }
   // DEFAULT
   return css`
     background-color: ${getColorByProp(props.color, props.theme)};
     border: solid 2px ${getColorByProp(props.color, props.theme)};
-  `;
-};
+  `
+}
 
 /* ----------  Filled Texto del Botón  ---------- */
 
-const filledTextButton = (props) => {
+const filledTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.filled?.color ||
       Color.Neutral[500]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       color: ${props.theme?.components?.button?.variant?.filled?.color ||
       Color.Neutral[100]};
-    `;
+    `
   }
   // DISABLED
   return css`
     color: ${props.theme?.components?.button?.variant?.filled?.color ||
     Color.Neutral[100]};
-  `;
-};
+  `
+}
 
 /* ----------  Link Botón  ---------- */
 
-const linkButton = (props) => {
+const linkButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
@@ -160,7 +162,7 @@ const linkButton = (props) => {
       border: solid 2px
         ${props.theme?.components?.button?.variant.link.disabled.color ||
         Color.Neutral[0]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
@@ -170,7 +172,7 @@ const linkButton = (props) => {
       border: solid 2px
         ${props.theme?.components?.button?.variant?.link.pressed.color ||
         Color.Neutral[0]};
-    `;
+    `
   }
   // DEFAULT
   return css`
@@ -179,100 +181,108 @@ const linkButton = (props) => {
     border: solid 2px
       ${props.theme?.components?.button?.variant?.link?.backgroundColor ||
       Color.Neutral[100]};
-  `;
-};
+  `
+}
 
 /* ----------  Link Texto del Botón  ---------- */
 
-const linkTextButton = (props) => {
+const linkTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   // DISABLED
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.link?.color ||
       Color.Neutral[400]};
-    `;
+    `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       color: ${props.theme?.components?.button?.variant?.link?.color ||
       Color.Navy.main};
-    `;
+    `
   }
   // DEFAULT
   return css`
     color: ${props.theme?.components?.button?.variant?.link?.color ||
     Color.Navy.main};
-  `;
-};
+  `
+}
 
 /* =============================================
 =            FUNCIONES                =
 ============================================= */
 
 /* ----------  Obtener el tamaño del boton  ---------- */
-export const getButtonSize = (props) => {
+export const getButtonSize = (
+  props: ChildrenButtonPropTypes
+): RuleSet<object> => {
   switch (props.size) {
-    case "small":
+    case 'small':
       return css`
         padding: 8px 12px;
-      `;
-    case "medium":
+      `
+    case 'medium':
       return css`
         padding: 8px 12px;
-      `;
-    case "large":
+      `
+    case 'large':
       return css`
         padding: 12px 16px;
-      `;
+      `
     default:
       return css`
         padding: 8px 12px;
-      `;
+      `
   }
-};
+}
 
 /* ----------  Obtener el tamaño del texto del boton  ---------- */
-export const getButtonTextSize = (props) => {
+export const getButtonTextSize = (
+  props: ButtonTextPropTypes
+): RuleSet<object> => {
   switch (props.size) {
-    case "small":
+    case 'small':
       return css`
         font-size: ${Typography.button.sm.semibold.fontSize};
         line-height: ${Typography.button.sm.semibold.lineHeight};
-      `;
-    case "large":
+      `
+    case 'large':
       return css`
         font-size: ${Typography.button.md.semibold.fontSize};
         line-height: ${Typography.button.md.semibold.lineHeight};
-      `;
+      `
     default:
       return css`
         font-size: ${Typography.button.md.semibold.fontSize};
         line-height: ${Typography.button.md.semibold.lineHeight};
-      `;
+      `
   }
-};
+}
 
 /* ----------  Obtener la variante del boton  ---------- */
-export const getButtonVariant = (props) => {
+export const getButtonVariant = (
+  props: ChildrenButtonPropTypes
+): RuleSet<object> => {
   switch (props.variant) {
-    case "link":
-      return linkButton(props);
-    case "outlined":
-      return outlinedButton(props);
+    case 'link':
+      return linkButton(props)
+    case 'outlined':
+      return outlinedButton(props)
     default:
-      return filledButton(props);
+      return filledButton(props)
   }
-};
+}
 
 /* ----------  Obtener la variante del texto del boton  ---------- */
-export const getButtonTextVariant = (props) => {
+export const getButtonTextVariant = (
+  props: ButtonTextPropTypes
+): RuleSet<object> => {
   switch (props.variant) {
-    case "link":
-      return linkTextButton(props);
-    case "outlined":
-      return outlinedTextButton(props);
+    case 'link':
+      return linkTextButton(props)
+    case 'outlined':
+      return outlinedTextButton(props)
     default:
-      return filledTextButton(props);
+      return filledTextButton(props)
   }
-};
+}

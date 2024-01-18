@@ -1,53 +1,57 @@
-import styled from "styled-components/native";
-import { useState } from "react";
-import * as ButtonStyle from "./styles";
-import {
+import React, { useState } from 'react'
+import styled from 'styled-components/native'
+import * as ButtonStyle from './styles'
+import type {
   ButtonPropTypes,
   ChildrenButtonPropTypes,
   ButtonTextPropTypes,
-  ButonIconPropTypes,
-} from "./types";
-import { Icon } from "../icon";
+  ButonIconPropTypes
+} from './types'
+import { Icon } from '../icon'
 
 const StyledPressable = styled.Pressable<ChildrenButtonPropTypes>`
   padding: 2px;
   border: solid 2px;
   border-color: transparent;
   border-radius: 12px;
-`;
+`
 const ViewButton = styled.View<ChildrenButtonPropTypes>`
   ${() => ButtonStyle.getBaseButtonStyles()}
   ${(props: ChildrenButtonPropTypes) => ButtonStyle.getButtonSize(props)}
 ${(props: ChildrenButtonPropTypes) => ButtonStyle.getButtonVariant(props)}
-`;
+`
 const TextButton = styled.Text<ButtonTextPropTypes>`
   ${() => ButtonStyle.getBaseButtonTextStyles()}
   ${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextSize(props)}
 ${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextVariant(props)};
-`;
+`
 const IconButton = styled(Icon).attrs<ButonIconPropTypes>(
   (props: ButonIconPropTypes) => ({
-    variant: props.variant,
+    variant: props.variant
   })
 )`
   ${(props: ButonIconPropTypes) => ButtonStyle.getButtonTextVariant(props)};
-`;
+`
 
-const Button = ({
-  size = "medium",
+const Button: React.FC<ButtonPropTypes> = ({
+  size = 'medium',
   variant,
   children,
   disabled,
   style,
   iconName,
-  iconPosition = "left",
-  color = "primary",
+  iconPosition = 'left',
+  color = 'primary'
 }: ButtonPropTypes) => {
-  const [isPressed, setIsPressed] = useState(false);
+  const [isPressed, setIsPressed] = useState(false)
   return (
     <StyledPressable
-      onPressIn={() => setIsPressed(true)}
-      onPressOut={() => setIsPressed(false)}
+      onPressIn={() => {
+        setIsPressed(true)
+      }}
+      onPressOut={() => {
+        setIsPressed(false)
+      }}
       isPressed={isPressed}
     >
       <ViewButton
@@ -58,7 +62,7 @@ const Button = ({
         isPressed={isPressed}
         color={color}
       >
-        {iconName && iconPosition === "left" && (
+        {iconName && iconPosition === 'left' && (
           <IconButton
             name={iconName}
             size={size}
@@ -75,7 +79,7 @@ const Button = ({
         >
           {children}
         </TextButton>
-        {iconName && iconPosition === "right" && (
+        {iconName && iconPosition === 'right' && (
           <IconButton
             name={iconName}
             size={size}
@@ -86,7 +90,7 @@ const Button = ({
         )}
       </ViewButton>
     </StyledPressable>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

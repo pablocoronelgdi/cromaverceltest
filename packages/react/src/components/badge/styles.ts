@@ -1,199 +1,203 @@
-import styled, { css } from "styled-components";
-import { BadgePropsTypes } from "./types";
-import { FlexBoxCenter } from "../../globals/globals";
-import { Borders, Color, Spacings, Typography } from "@cromaui/foundations";
+import styled, { css } from 'styled-components'
+import { FLEX_CENTER } from '../../globals/globals'
+import { borders, color, spacings, typography } from '@cromaui/foundations'
+import type { BadgePropsTypes } from './types'
 
 export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
-  ${FlexBoxCenter}
+  ${FLEX_CENTER}
   border-radius: 100px;
-  outline: ${(props) => !props.text && Borders.br2};
-  outline-color: ${
-    (props) => ((props.backgroundType === "light") ? Color.Neutral[50] : Color.Navy.main)
-  };
-  gap: ${
-    (props) => ((props.size === "large" && !!props.iconName) ? Spacings.space4 : Spacings.space2)
-  };
+  outline: ${(props) => !props.text && borders.br2};
+  outline-color: ${(props) =>
+    props.backgroundType === 'light' ? color.neutral[50] : color.navy.main};
+  gap: ${(props) =>
+    props.size === 'large' && !!props.iconName
+      ? spacings.space4
+      : spacings.space2};
   overflow: hidden;
   text-align: center;
   width: fit-content;
   max-width: 142px;
-  
+
   & small {
-    font-family: ${Typography.body.sm.semibold.fontFamily};
-    font-weight: ${Typography.body.sm.semibold.fontWeight};
+    font-family: ${typography.body.sm.semibold.fontFamily};
+    font-weight: ${typography.body.sm.semibold.fontWeight};
 
     ${(props) =>
-      (props.size === "small" || props.size === "medium") &&
+      (props.size === 'small' || props.size === 'medium') &&
       (props.text || props.count) &&
-        css`
-          font-size: ${Typography.caption.semibold.fontSize};
-          line-height: 1.1em;
-          letter-spacing: ${Typography.caption.semibold.letterSpacing};
-        `
-    }
-    
+      css`
+        font-size: ${typography.caption.semibold.fontSize};
+        line-height: 1.1em;
+        letter-spacing: ${typography.caption.semibold.letterSpacing};
+      `}
+
     ${(props) =>
-      props.size === "large" &&
+      props.size === 'large' &&
       (props.text || props.count) &&
-        css`
-          font-size: ${Typography.body.sm.semibold.fontSize};
-          line-height: ${Typography.body.sm.semibold.lineHeight};
-          letter-spacing: ${Typography.body.sm.semibold.letterSpacing};
-        `
-    }
-  };
+      css`
+        font-size: ${typography.body.sm.semibold.fontSize};
+        line-height: ${typography.body.sm.semibold.lineHeight};
+        letter-spacing: ${typography.body.sm.semibold.letterSpacing};
+      `}
+  }
 
   ${(props) =>
     props.text &&
     css`
-      padding-top: ${props.size === "small" ? "1px" : props.size === "medium" ? "2px" : "0"};
-      padding-bottom: ${props.size === "small" ? "1px" : props.size === "medium" ? "2px" : "0"};
-      padding-left:
-        ${
-          (props.size === "small" || props.size === "medium")
-            ? props.iconName
-              ? Spacings.space4
-              : Spacings.space6
-            : props.iconName
-            ? Spacings.space6
-            : Spacings.space8
-        }; 
-      padding-right: 
-        ${props.size === "large" ? Spacings.space8 : Spacings.space6};
+      padding-top: ${props.size === 'small'
+        ? '1px'
+        : props.size === 'medium'
+        ? '2px'
+        : '0'};
+      padding-bottom: ${props.size === 'small'
+        ? '1px'
+        : props.size === 'medium'
+        ? '2px'
+        : '0'};
+      padding-left: ${props.size === 'small' || props.size === 'medium'
+        ? props.iconName
+          ? spacings.space4
+          : spacings.space6
+        : props.iconName
+        ? spacings.space6
+        : spacings.space8};
+      padding-right: ${props.size === 'large'
+        ? spacings.space8
+        : spacings.space6};
       width: max-content;
       white-space: nowrap;
       justify-content: start;
     `}
 
   ${(props) =>
-    props.color === "pink" &&
+    props.color === 'pink' &&
     css`
-    background-color: ${Color.Pink.main};
-    color: ${Color.Neutral[900]};
-    `
-  }
+      background-color: ${color.pink.main};
+      color: ${color.neutral[900]};
+    `}
 
   ${(props) =>
-    props.color === "blue" &&
+    props.color === 'blue' &&
     css`
-      background-color: ${Color.Info.main};
-      color: ${Color.Neutral[50]};
-    `
-  }
+      background-color: ${color.Info.main};
+      color: ${color.neutral[50]};
+    `}
 
   ${(props) =>
-    props.color === "green" &&
+    props.color === 'green' &&
     css`
-      background-color: ${Color.Success[700]};
-      color: ${Color.Neutral[50]};
-    `
-  }
+      background-color: ${color.success[700]};
+      color: ${color.neutral[50]};
+    `}
 
   ${(props) =>
-    (props.size === "small" && !props.text && !props.count) &&
+    props.size === 'small' &&
+    !props.text &&
+    !props.count &&
     css`
-      height: ${Spacings.space6};
-      width: ${Spacings.space6};
-    `
-  }
+      height: ${spacings.space6};
+      width: ${spacings.space6};
+    `}
 
   ${(props) =>
-    (props.size === "medium" && !props.text && !props.count) &&
+    props.size === 'medium' &&
+    !props.text &&
+    !props.count &&
     css`
-      height: ${Spacings.space8};
-      width: ${Spacings.space8};
-    `
-  }
+      height: ${spacings.space8};
+      width: ${spacings.space8};
+    `}
 
   ${(props) =>
-    (props.size === "large" && !props.text && !props.count) &&
+    props.size === 'large' &&
+    !props.text &&
+    !props.count &&
     css`
-      height: ${Spacings.space10};
-      width: ${Spacings.space10};
-    `
-  }
+      height: ${spacings.space10};
+      width: ${spacings.space10};
+    `}
     
   ${(props) =>
-    (props.size === "small" && props.count) &&
+    props.size === 'small' &&
+    props.count &&
     css`
-    height: ${Spacings.space16};
-    min-width: ${Spacings.space16};
-    width: fit-content;
-    max-width: 142px;
-    padding-left: ${Spacings.space4};
-    padding-right: ${Spacings.space4};
-    `
-  }
-
-  ${(props) =>
-    (props.size === "medium" && props.count) &&
-    css`
-      height: ${Spacings.space20};
-      min-width: ${Spacings.space20};
+      height: ${spacings.space16};
+      min-width: ${spacings.space16};
       width: fit-content;
-      padding-left: ${Spacings.space6};
-      padding-right: ${Spacings.space6};
-    `
-  }
+      max-width: 142px;
+      padding-left: ${spacings.space4};
+      padding-right: ${spacings.space4};
+    `}
 
   ${(props) =>
-    (props.size === "large" && props.count) &&
+    props.size === 'medium' &&
+    props.count &&
     css`
-      height: ${Spacings.space24};
-      min-width: ${Spacings.space24};
+      height: ${spacings.space20};
+      min-width: ${spacings.space20};
       width: fit-content;
-      padding-left: ${Spacings.space8};
-      padding-right: ${Spacings.space8};
-    `
-  }
+      padding-left: ${spacings.space6};
+      padding-right: ${spacings.space6};
+    `}
 
   ${(props) =>
-    (props.size === "small" && props.iconName && !props.text) &&
+    props.size === 'large' &&
+    props.count &&
     css`
-    height: ${Spacings.space16};
-    width: ${Spacings.space16};
-    `
-  }
+      height: ${spacings.space24};
+      min-width: ${spacings.space24};
+      width: fit-content;
+      padding-left: ${spacings.space8};
+      padding-right: ${spacings.space8};
+    `}
 
   ${(props) =>
-    (props.size === "medium" && props.iconName && !props.text) &&
+    props.size === 'small' &&
+    props.iconName &&
+    !props.text &&
     css`
-      height: ${Spacings.space20};
-      width: ${Spacings.space20};
-    `
-  }
+      height: ${spacings.space16};
+      width: ${spacings.space16};
+    `}
 
   ${(props) =>
-    (props.size === "large" && props.iconName && !props.text) &&
+    props.size === 'medium' &&
+    props.iconName &&
+    !props.text &&
     css`
-      height: ${Spacings.space24};
-      width: ${Spacings.space24};
-    `
-  }
+      height: ${spacings.space20};
+      width: ${spacings.space20};
+    `}
+
+  ${(props) =>
+    props.size === 'large' &&
+    props.iconName &&
+    !props.text &&
+    css`
+      height: ${spacings.space24};
+      width: ${spacings.space24};
+    `}
   
   & > span {
     ${(props) =>
-      props.color === "pink" &&
+      props.color === 'pink' &&
       css`
-        background-color: ${Color.Pink.main};
-        color: ${Color.Neutral[900]};
-      `
-    }
+        background-color: ${color.pink.main};
+        color: ${color.neutral[900]};
+      `}
 
     ${(props) =>
-      props.color === "blue" &&
+      props.color === 'blue' &&
       css`
-        background-color: ${Color.Info.main};
-        color: ${Color.Neutral[50]};
-      `
-    }
+        background-color: ${color.Info.main};
+        color: ${color.neutral[50]};
+      `}
 
     ${(props) =>
-      props.color === "green" &&
+      props.color === 'green' &&
       css`
-        background-color: ${Color.Success[700]};
-        color: ${Color.Neutral[50]};
-      `
-    }
+        background-color: ${color.success[700]};
+        color: ${color.neutral[50]};
+      `}
   }
-`;
+`

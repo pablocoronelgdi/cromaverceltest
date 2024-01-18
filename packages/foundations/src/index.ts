@@ -1,8 +1,8 @@
-import * as Color from "./colors";
-import { Typography } from "./Typhography";
-import { Spacings } from "./spacings";
-import { Shapes } from "./shapes";
-import { Borders } from "./borders";
-import { Elevations } from "./elevations";
-import { Opacities } from "./opacities";
-export { Color, Typography, Spacings, Shapes, Borders, Elevations,Opacities };
+import * as color from './colors'
+import { spacings } from './spacings'
+import { shapes } from './shapes'
+import { borders } from './borders'
+import { elevations } from './elevations'
+import { opacities } from './opacities'
+import { typography } from './typography'
+export { color, shapes, spacings, borders, elevations, opacities, typography }

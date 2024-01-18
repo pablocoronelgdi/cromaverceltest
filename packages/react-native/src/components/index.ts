@@ -1,4 +1,4 @@
-import { Button } from "./button";
-import { Icon } from "./icon";
+import { Button } from './button'
+import { Icon } from './icon'
 
-export {Button,Icon}
+export { Button, Icon }

@@ -1,6 +1,6 @@
-import React from "react";
-import { SpinnerPropTypes } from "./types";
-import { SpinnerContainerStyled } from "./styles";
+import React from 'react'
+import { SpinnerContainerStyled } from './styles'
+import type { SpinnerPropTypes } from './types'
 
 const Spinner: React.FC<SpinnerPropTypes> = ({ withLogo, label }) => {
   return (
@@ -14,7 +14,7 @@ const Spinner: React.FC<SpinnerPropTypes> = ({ withLogo, label }) => {
       </div>
       {label && <span>{label}</span>}
     </SpinnerContainerStyled>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner

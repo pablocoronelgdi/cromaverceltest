@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "composite": true,
+    "declarationMap": true,
+    "noEmit": true,
+  },
+  "include": ["./packages/*/*.ts", ".eslintrc.js"],
+  "exclude": ["node_modules", "dist"]
+}

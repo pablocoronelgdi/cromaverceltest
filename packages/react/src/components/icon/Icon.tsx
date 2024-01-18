@@ -1,22 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { IconPropTypes, IconSizeType } from "./types";
-import { Color, Shapes } from "@cromaui/foundations";
+import React from 'react'
+import styled from 'styled-components'
+import { color, shapes } from '@cromaui/foundations'
+import type { IconPropTypes, IconSizeType } from './types'
 
-const getSize = (size?: IconSizeType) => {
+const getSize = (size?: IconSizeType): string => {
   switch (size) {
-    case "small":
-      return "16px";
-    case "medium":
-      return "20px";
-    case "large":
-      return "24px";
-    case "extra-large":
-      return "32px";
+    case 'small':
+      return '16px'
+    case 'medium':
+      return '20px'
+    case 'large':
+      return '24px'
+    case 'extra-large':
+      return '32px'
     default:
-      return "24px";
+      return '24px'
   }
-};
+}
 
 const StyledIcon = styled.span<IconPropTypes>`
   white-space: nowrap;
@@ -26,26 +26,27 @@ const StyledIcon = styled.span<IconPropTypes>`
   line-height: ${(props) => getSize(props.size)};
   width: ${(props) => getSize(props.size)};
   height: ${(props) => getSize(props.size)};
-  color: ${(props) => props.color || Color.Navy.main};
+  color: ${(props) => props.color && color.navy.main};
   background-color: transparent;
   font-size: ${(props) => getSize(props.size)};
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   letter-spacing: normal;
   text-transform: none;
   user-select: none;
-  border-radius: ${Shapes.full};
-  -webkit-font-feature-settings: "liga";
+  border-radius: ${shapes.full};
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-`;
+`
 
-const Icon: React.FC<IconPropTypes> = ({ name = "info", size, color }) => {
+const Icon: React.FC<IconPropTypes> = ({ name = 'info', size, color }) => {
   return (
     <StyledIcon color={color} size={size}>
       {name}
     </StyledIcon>
-  );
-};
+  )
+}
 
-export default Icon;
+export default Icon

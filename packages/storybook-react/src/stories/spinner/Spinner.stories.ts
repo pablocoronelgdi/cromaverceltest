@@ -1,61 +1,61 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Spinner } from "@cromaui/react";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Spinner } from '@cromaui/react'
 
 const meta = {
-  title: "Data Display/Spinner",
+  title: 'Data Display/Spinner',
   component: Spinner,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     withLogo: {
-      control: { type: "boolean" },
-      description: "Muestra una variante basada en el logo de Macro.",
+      control: { type: 'boolean' },
+      description: 'Muestra una variante basada en el logo de Macro.',
       table: {
         defaultValue: { summary: false },
-        type: { summary: "boolean" },
-      },
+        type: { summary: 'boolean' }
+      }
     },
     label: {
-      control: { type: "text" },
-      description: "El mensaje de carga que muestra el componente",
+      control: { type: 'text' },
+      description: 'El mensaje de carga que muestra el componente',
       table: {
-        defaultValue: { summary: `""` },
-        type: { summary: "string" },
-      },
-    },
-  },
-} satisfies Meta<typeof Spinner>;
+        defaultValue: { summary: '""' },
+        type: { summary: 'string' }
+      }
+    }
+  }
+} satisfies Meta<typeof Spinner>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const SpinnerDefault: Story = {
-  name: "Default",
+  name: 'Default',
   args: {
     withLogo: false,
-    label: undefined,
-  },
-};
+    label: undefined
+  }
+}
 
 export const SpinnerWithLabel: Story = {
-  name: "Con texto",
+  name: 'Con texto',
   args: {
     withLogo: false,
-    label: "Cargando...",
-  },
-};
+    label: 'Cargando...'
+  }
+}
 
 export const SpinerLogoDefault: Story = {
-  name: "Con logo",
+  name: 'Con logo',
   args: {
     withLogo: true,
-    label: undefined,
-  },
-};
+    label: undefined
+  }
+}
 
 export const SpinnerLogoWithLabel: Story = {
-  name: "Con logo y texto",
+  name: 'Con logo y texto',
   args: {
     withLogo: true,
-    label: "Cargando...",
-  },
-};
+    label: 'Cargando...'
+  }
+}

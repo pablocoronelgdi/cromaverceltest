@@ -1,2 +1,2 @@
-import ThemeWrapper from "./ThemeWrapper";
-export {ThemeWrapper}
+import ThemeWrapper from './ThemeWrapper'
+export { ThemeWrapper }

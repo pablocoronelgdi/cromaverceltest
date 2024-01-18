@@ -1,2 +1,2 @@
-import Image from "./image";
-export {Image}
+import Image from './image'
+export { Image }

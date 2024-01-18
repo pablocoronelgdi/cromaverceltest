@@ -1,13 +1,12 @@
-import { css } from "styled-components";
+import { styled, css } from 'styled-components'
 import {
-  Spacings,
-  Color,
-  Shapes,
-  Borders,
-  Opacities,
-} from "@cromaui/foundations";
-import { SwitchInnerProps } from "./types";
-import styled from "styled-components";
+  spacings,
+  color,
+  shapes,
+  borders,
+  opacities
+} from '@cromaui/foundations'
+import type { SwitchInnerProps } from './types'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE SWITCH     =
@@ -17,15 +16,15 @@ import styled from "styled-components";
 
 export const SwitchContainer = styled.div<SwitchInnerProps>`
   width: 60px;
-  padding: ${Spacings.space2};
-  border: ${Borders.br2};
-  border-radius: ${Shapes.full};
+  padding: ${spacings.space2};
+  border: ${borders.br2};
+  border-radius: ${shapes.full};
   border-color: transparent;
   ${(props) =>
     props.isFocused &&
     css`
-      border: ${Borders.br2};
-      border-color: ${Color.Blue.main};
+      border: ${borders.br2};
+      border-color: ${color.blue.main};
     `}
 
   /* ----------  Switch Area  ---------- */
@@ -35,28 +34,28 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
     display: flex;
     align-items: center;
     width: 100%;
-    height: ${Spacings.space32};
-    padding-top: ${Spacings.space2};
-    padding-bottom: ${Spacings.space2};
+    height: ${spacings.space32};
+    padding-top: ${spacings.space2};
+    padding-bottom: ${spacings.space2};
     padding-left: ${(props) =>
-      props.isPressed ? Spacings.space2 : Spacings.space4};
+      props.isPressed ? spacings.space2 : spacings.space4};
     padding-right: ${(props) =>
-      props.isPressed ? Spacings.space2 : Spacings.space4};
+      props.isPressed ? spacings.space2 : spacings.space4};
     background-color: ${(props) =>
       props.disabled
-        ? Color.Neutral[300]
+        ? color.neutral[300]
         : props.isChecked
-        ? Color.Navy.main
-        : Color.Neutral[300]};
+        ? color.navy.main
+        : color.neutral[300]};
 
-    border: ${Borders.br2};
-    border-radius: ${Shapes.full};
+    border: ${borders.br2};
+    border-radius: ${shapes.full};
     border-color: ${(props) =>
       props.disabled
-        ? Color.Neutral[300]
+        ? color.neutral[300]
         : props.isChecked
-        ? Color.Navy.main
-        : Color.Neutral[600]};
+        ? color.navy.main
+        : color.neutral[600]};
     transition: all 0.4s ease;
     cursor: pointer;
 
@@ -76,13 +75,13 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
       align-items: center;
       justify-content: center;
       width: ${(props) =>
-        props.isChecked ? Spacings.space24 : Spacings.space16};
+        props.isChecked ? spacings.space24 : spacings.space16};
       height: ${(props) =>
-        props.isChecked ? Spacings.space24 : Spacings.space16};
+        props.isChecked ? spacings.space24 : spacings.space16};
       background-color: ${(props) =>
-        props.isChecked ? Color.Neutral[50] : Color.Neutral[600]};
-      border-radius: ${Shapes.full};
-      transform: translateX(${(props) => (props.isChecked ? "18px" : 0)});
+        props.isChecked ? color.neutral[50] : color.neutral[600]};
+      border-radius: ${shapes.full};
+      transform: translateX(${(props) => (props.isChecked ? '18px' : 0)});
       transition: all 0.4s ease;
       z-index: 1;
 
@@ -90,28 +89,28 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
       ${(props) =>
         props.disabled &&
         css`
-          height: ${props.isChecked ? Spacings.space24 : Spacings.space16};
-          width: ${props.isChecked ? Spacings.space24 : Spacings.space16};
+          height: ${props.isChecked ? spacings.space24 : spacings.space16};
+          width: ${props.isChecked ? spacings.space24 : spacings.space16};
           background-color: ${props.isChecked
-            ? Color.Neutral[50]
-            : Color.Neutral[400]};
-          transform: translateX(${props.isChecked ? "18px" : 0});
+            ? color.neutral[50]
+            : color.neutral[400]};
+          transform: translateX(${props.isChecked ? '18px' : 0});
         `}
 
       // Pressed
       ${(props) =>
         props.isPressed &&
         css`
-          height: ${Spacings.space28};
-          width: ${Spacings.space28};
-          transform: translateX(${props.isChecked ? "18px" : "-4px"});
+          height: ${spacings.space28};
+          width: ${spacings.space28};
+          transform: translateX(${props.isChecked ? '18px' : '-4px'});
         `}
 
       /* ---------- Thumb Aura ---------- */
     // Aura del hover del thumb.
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         height: 40px;
         width: 40px;
@@ -122,8 +121,8 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
         &::before {
           background-color: ${(props) =>
             props.isChecked
-              ? Color.Navy.soft + Opacities.opacity20
-              : Color.Neutral[600] + Opacities.opacity20};
+              ? color.navy.soft + opacities.opacity20
+              : color.neutral[600] + opacities.opacity20};
         }
       }
 
@@ -137,17 +136,17 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
         background-color: inherit;
         border-radius: inherit;
         height: ${(props) =>
-          props.isPressed ? Spacings.space28 : Spacings.space24};
+          props.isPressed ? spacings.space28 : spacings.space24};
         width: ${(props) =>
-          props.isPressed ? Spacings.space28 : Spacings.space24};
+          props.isPressed ? spacings.space28 : spacings.space24};
         transition: all 0.4s ease;
 
         ${(props) =>
           props.disabled &&
           css`
-            color: ${Color.Neutral[300]};
+            color: ${color.neutral[300]};
           `}
       }
     }
   }
-`;
+`

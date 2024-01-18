@@ -1,39 +1,41 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { ReactNode } from "react";
-import { PressableProps } from "react-native";
-import { IconPropTypes } from "../icon";
+import type { MaterialIcons } from '@expo/vector-icons'
+import type { ReactNode } from 'react'
+import type { PressableProps } from 'react-native'
+import type { IconPropTypes } from '../icon'
 
-/*----------  Props del botón  ----------*/
+/* ----------  Props del botón  ---------- */
 
-export type ButtonSizeType = "small" | "medium" | "large";
-export type ButtonVariantType = "filled" | "outlined" | "link";
+export type ButtonSizeType = 'small' | 'medium' | 'large'
+export type ButtonVariantType = 'filled' | 'outlined' | 'link'
 
 export type ButtonPropTypes = {
-  size?: ButtonSizeType;
-  variant?: ButtonVariantType;
-  theme?: object;
-  children?: ReactNode;
-  disabled?: boolean;
-  iconName?: keyof typeof MaterialIcons.glyphMap;
-  iconPosition?: "left" | "right";
-  color?: string;
-} & PressableProps;
+  size?: ButtonSizeType
+  variant?: ButtonVariantType
+  theme?: any
+  children?: ReactNode
+  disabled?: boolean
+  iconName?: keyof typeof MaterialIcons.glyphMap
+  iconPosition?: 'left' | 'right'
+  color?: string
+} & PressableProps
 
 export type ChildrenButtonPropTypes = {
-  isPressed: boolean;
-} & ButtonPropTypes;
+  isPressed: boolean
+} & ButtonPropTypes
 
-/*----------  Props del texto del boton  ----------*/
+/* ----------  Props del texto del boton  ---------- */
 
 export type ButtonTextPropTypes = {
-  size?: ButtonSizeType;
-  variant?: ButtonVariantType;
-  isPressed?: boolean;
-  disabled?: boolean;
-};
-/*----------  Props del icono del boton  ----------*/
+  size?: ButtonSizeType
+  variant?: ButtonVariantType
+  isPressed?: boolean
+  disabled?: boolean
+  theme?: any
+  color?: string
+}
+/* ----------  Props del icono del boton  ---------- */
 
 export type ButonIconPropTypes = {
-  variant?: ButtonVariantType;
-  isPressed?: boolean;
-} & IconPropTypes;
+  variant?: ButtonVariantType
+  isPressed?: boolean
+} & IconPropTypes
