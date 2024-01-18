@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useArgs } from '@storybook/preview-api'
-import { Story } from '@storybook/blocks'
 import { Checkbox } from '@cromaui/react'
 import { useState } from 'react'
 
@@ -76,7 +75,7 @@ export const ControlledCheckBox: Story = {
   render: function Render(args) {
     const [{ value }, setValue] = useArgs()
 
-    function onChange() {
+    function onChange(): void {
       setValue({ value: !value })
     }
     return <Checkbox {...args} onChange={onChange} checked={value} />
@@ -113,7 +112,7 @@ export const UnControlledCheckBox: Story = {
 
   render: function Render(args) {
     const [value, setValue] = useState('El valor del checkbox es: false')
-    const getValorDelCheckbox = (isChecked: boolean) => {
+    const getValorDelCheckbox = (isChecked: boolean): void => {
       setValue(`El valor del checkbox es: ${isChecked}`)
     }
     return (

@@ -11,7 +11,7 @@ const meta = {
       options: ['small', 'medium', 'large'],
       description: 'La prop size es que indica el tamaño del componente Badge',
       table: {
-        defaultValue: { summary: '\'small\'' },
+        defaultValue: { summary: "'small'" },
         type: { summary: 'string' }
       }
     },
@@ -20,7 +20,7 @@ const meta = {
       description:
         'La prop text es la que indica el contenido de tipo texto del componente, debe estar tener como máximo 4 palabras. Sin punto final',
       table: {
-        defaultValue: { summary: '\'Nuevo\'' },
+        defaultValue: { summary: "'Nuevo'" },
         type: { summary: 'string' }
       }
     },
@@ -38,7 +38,7 @@ const meta = {
       description:
         'La prop iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
       table: {
-        defaultValue: { summary: '\'info\'' },
+        defaultValue: { summary: "'info'" },
         type: { summary: 'string' }
       }
     },
@@ -47,7 +47,7 @@ const meta = {
       options: ['pink', 'blue', 'green'],
       description: 'La prop color es que indica el color del componente Badge',
       table: {
-        defaultValue: { summary: '\'pink\'' },
+        defaultValue: { summary: "'pink'" },
         type: { summary: 'string' }
       }
     },
@@ -57,7 +57,7 @@ const meta = {
       description:
         'La prop backgroundType es la que indica el color del borde del componente Badge',
       table: {
-        defaultValue: { summary: '\'light\'' },
+        defaultValue: { summary: "'light'" },
         type: { summary: 'string' }
       }
     }

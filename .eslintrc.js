@@ -18,7 +18,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', './packages/*/tsconfig.json']
+    project: ['./tsconfig.json', './packages/*/tsconfig.json'],
+    tsconfigRootDir: __dirname
   },
   plugins: ['react'],
   settings: {
@@ -30,6 +31,9 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
+    'space-before-function-paren': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
     'multiline-ternary': 'off'
   }
 }

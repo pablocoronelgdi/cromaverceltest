@@ -18,10 +18,10 @@ const meta: Meta<typeof Image> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ImageDefault: Story =
-{
+export const ImageDefault: Story = {
   args: {
-    image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
     width: 100,
     height: 100,
     backgroundImage: false,
@@ -29,10 +29,10 @@ export const ImageDefault: Story =
   }
 }
 
-export const ImageBackground: Story =
-{
+export const ImageBackground: Story = {
   args: {
-    image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
     backgroundImage: true,
     width: 200,
     height: 200,
@@ -40,10 +40,10 @@ export const ImageBackground: Story =
   }
 }
 
-export const ImageCircle: Story =
-{
+export const ImageCircle: Story = {
   args: {
-    image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
     backgroundImage: true,
     circle: true,
     width: 150,
@@ -52,10 +52,10 @@ export const ImageCircle: Story =
   }
 }
 
-export const ImageHover: Story =
-{
+export const ImageHover: Story = {
   args: {
-    image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
     backgroundImage: true,
     circle: false,
     width: 150,
@@ -65,10 +65,10 @@ export const ImageHover: Story =
   }
 }
 
-export const ImageFullWidth: Story =
-{
+export const ImageFullWidth: Story = {
   args: {
-    image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+    image:
+      'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
     backgroundImage: false,
     fullWidth: true,
     alt: 'Banca Internet'

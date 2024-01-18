@@ -20,8 +20,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const TextAreaDefault: Story =
-{
+export const TextAreaDefault: Story = {
   args: {
     label: 'Texto de ejemplo',
     text: 'Quiero comunicar que...',
@@ -32,8 +31,7 @@ export const TextAreaDefault: Story =
   }
 }
 
-export const TextAreaTitle: Story =
-{
+export const TextAreaTitle: Story = {
   args: {
     title: 'Dejar comentario',
     label: 'Texto de ejemplo',
@@ -46,20 +44,19 @@ export const TextAreaTitle: Story =
   }
 }
 
-export const TextAreaError: Story =
-{
+export const TextAreaError: Story = {
   args: {
     title: 'Dejar comentario',
     label: 'Texto de ejemplo',
     text: 'Quiero comunicar que...',
-    errorMessage: 'Se supero el limite de caracteres, que se requiere en este tipo de formularios',
+    errorMessage:
+      'Se supero el limite de caracteres, que se requiere en este tipo de formularios',
     error: true,
     disabled: false
   }
 }
 
-export const TextAreaDisabled: Story =
-{
+export const TextAreaDisabled: Story = {
   args: {
     title: 'Dejar comentario',
     label: 'Texto de ejemplo',

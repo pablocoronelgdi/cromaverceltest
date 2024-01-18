@@ -1,9 +1,9 @@
 import { Checkbox, ThemeWrapper } from '@cromaui/react'
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
-      <ThemeWrapper $theme='macro'>
+      <ThemeWrapper $theme="macro">
         <Checkbox />
       </ThemeWrapper>
     </>

@@ -61,18 +61,18 @@ const outlinedButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   if (props.isPressed) {
     return css`
       background-color: ${getColorByProp(
-        props.color as string,
+        props.color,
         props.theme,
         'extraLight'
       )};
       border: solid 2px
-        ${getColorByProp(props.color as string, props.theme, 'dark')};
+        ${getColorByProp(props.color, props.theme, 'dark')};
     `
   }
   // DEFAULT
   return css`
     background-color: ${Color.Neutral[0]};
-    border: solid 2px ${getColorByProp(props.color as string, props.theme)};
+    border: solid 2px ${getColorByProp(props.color, props.theme)};
   `
 }
 
@@ -122,8 +122,8 @@ const filledButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   }
   // DEFAULT
   return css`
-    background-color: ${getColorByProp(props.color as string, props.theme)};
-    border: solid 2px ${getColorByProp(props.color as string, props.theme)};
+    background-color: ${getColorByProp(props.color, props.theme)};
+    border: solid 2px ${getColorByProp(props.color, props.theme)};
   `
 }
 

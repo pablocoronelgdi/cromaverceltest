@@ -10,15 +10,17 @@ const meta = {
     size: {
       control: { type: 'select' },
       options: ['extra-small', 'small', 'medium', 'large', 'extra-large'],
-      description: 'La prop size es que indica el tamaño del componente RoundedImage',
+      description:
+        'La prop size es que indica el tamaño del componente RoundedImage',
       table: {
-        defaultValue: { summary: '\'small\'' },
+        defaultValue: { summary: "'small'" },
         type: { summary: 'string' }
       }
     },
     disabled: {
       control: { type: 'boolean' },
-      description: 'La prop disabled es la que indica si el componente RoundedImage está habilitado o no',
+      description:
+        'La prop disabled es la que indica si el componente RoundedImage está habilitado o no',
       table: {
         defaultValue: { summary: false },
         type: { summary: 'boolean' }
@@ -26,15 +28,17 @@ const meta = {
     },
     monogram: {
       control: { type: 'text' },
-      description: 'La prop monogram es la que indica el monograma del componente, debe estar compuesto por 2 letras. No acepta tildes, ni diéricis, ni números',
+      description:
+        'La prop monogram es la que indica el monograma del componente, debe estar compuesto por 2 letras. No acepta tildes, ni diéricis, ni números',
       table: {
-        defaultValue: { summary: '\'AR\'' },
+        defaultValue: { summary: "'AR'" },
         type: { summary: 'string' }
       }
     },
     photo: {
       control: { type: 'object' },
-      description: 'La prop photo es la que admite un objeto con la información de una imagen para renderizar en el componente RoundedImage',
+      description:
+        'La prop photo es la que admite un objeto con la información de una imagen para renderizar en el componente RoundedImage',
       table: {
         defaultValue: {
           summary: `
@@ -52,17 +56,18 @@ const meta = {
     },
     iconName: {
       control: { type: 'text' },
-      description: 'La prop iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
+      description:
+        'La prop iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
       table: {
-        defaultValue: { summary: '\'person\'' },
+        defaultValue: { summary: "'person'" },
         type: { summary: 'string' }
       }
     }
   }
-} satisfies Meta <typeof RoundedImage>
+} satisfies Meta<typeof RoundedImage>
 
 export default meta
-  type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>
 
 export const RoundedImageDefault: Story = {
   args: {
