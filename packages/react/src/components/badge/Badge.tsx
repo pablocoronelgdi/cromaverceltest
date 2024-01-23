@@ -8,7 +8,7 @@ import type { IconSizeType } from '../icon/types'
 /** Descripción del componente Badge WIP */
 const Badge: React.FC<BadgePropsTypes> = ({
   backgroundType = 'light',
-  size,
+  size = 'small',
   color = 'pink',
   count,
   iconName,
@@ -25,10 +25,10 @@ const Badge: React.FC<BadgePropsTypes> = ({
         return 'small'
     }
   })()
-  const countString = count?.toFixed()?.toLocaleString()
+  const maxCount = '999'
   const customCount =
-    count !== undefined && count >= 999
-      ? countString?.slice(0, 3)?.concat('+')
+    count !== undefined && count > 999
+      ? maxCount?.concat('+')
       : count
 
   return (

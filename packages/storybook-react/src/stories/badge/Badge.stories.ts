@@ -27,7 +27,7 @@ const meta = {
     count: {
       control: { type: 'number' },
       description:
-        'La prop count es la que indica el monograma del componente, debe estar compuesto por 2 letras. No acepta tildes, ni diéricis, ni números',
+        'La prop count es la que indica el contenido del componente, si se excede de 999 se suma un +. Solo se permiten números',
       table: {
         defaultValue: { summary: '3' },
         type: { summary: 'number' }
