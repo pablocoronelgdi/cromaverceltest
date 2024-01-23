@@ -21,6 +21,8 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
   & small {
     font-family: ${typography.body.sm.semibold.fontFamily};
     font-weight: ${typography.body.sm.semibold.fontWeight};
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     ${(props) =>
       (props.size === 'small' || props.size === 'medium') &&
@@ -67,6 +69,8 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       width: max-content;
       white-space: nowrap;
       justify-content: start;
+      overflow: hidden;
+      text-overflow: ellipsis;
     `}
 
   ${(props) =>
