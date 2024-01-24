@@ -1,12 +1,15 @@
-import Ts from "rollup-plugin-typescript2";
-
+import typescript from '@rollup/plugin-typescript'
+import commonjs from '@rollup/plugin-commonjs'
 export default {
-  input: ["src/index.ts"],
+  input: ['src/index.ts'],
   output: {
-    dir: "dist",
-    format: "esm",
+    dir: 'dist',
+    format: 'esm',
     sourcemap: true,
-    preserveModules: true,
+    preserveModules: true
   },
-  plugins: [Ts()],
-};
+  plugins: [
+    typescript(),
+    commonjs()
+  ]
+}
