@@ -3,7 +3,7 @@ import type { ProgressBarPropsTypes } from './types'
 import { Container, ContainerProgress, ProgressFill } from './styles'
 
 const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ duration, label }) => {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
     const progressId = setInterval(() => {
