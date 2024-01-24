@@ -7,6 +7,7 @@ const meta: Meta<typeof Image> = {
   tags: ['autodocs'],
   argTypes: {
     duration: { control: { type: 'number' } },
+    percentage: { control: { type: 'number' } },
     label: { control: { type: 'text' } },
   }
 }
@@ -16,13 +17,13 @@ type Story = StoryObj<typeof meta>
 
 export const ProgressbarDefault: Story = {
   args: {
-    duration: 1000,
+    duration: 100
   }
 }
 
 export const ProgressbarLabel: Story = {
   args: {
-    duration: 1000,
+    duration: 75,
     label: 'Subiendo archivos..'
   }
 }

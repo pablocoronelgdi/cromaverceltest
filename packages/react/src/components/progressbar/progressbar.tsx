@@ -4,18 +4,20 @@ import { Container, ContainerProgress, ProgressFill } from './styles'
 
 const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ duration, label }) => {
   const [progress, setProgress] = useState<number>(0);
+  const time = duration
+  const percentage = (100 / duration)
 
   useEffect(() => {
     const progressId = setInterval(() => {
       setProgress((prevProgress) => {
-        if (prevProgress < 100) {
-          return prevProgress + (100 / duration);
+        if (prevProgress < time) {
+          return prevProgress + percentage;
         } else {
           clearInterval(progressId);
-          return 100;
+          return time;
         }
       });
-    }, duration / 100);
+    }, percentage);
 
     return () => clearInterval(progressId);
   }, [duration]);
