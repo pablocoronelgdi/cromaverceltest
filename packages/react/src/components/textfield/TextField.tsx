@@ -8,7 +8,7 @@ const TextField: React.FC<TextfieldPropTypes> = ({
   helperText,
   error,
   type = 'text',
-  characterCount,
+  characterCount = 50,
   ...props
 }) => {
   const [textValue, setTextValue] = useState<string>()
@@ -43,7 +43,7 @@ const TextField: React.FC<TextfieldPropTypes> = ({
       </label>
       <div>
         <span>
-          {textValue}/{maxLimit}
+          {textValue?.length ? textValue.length : 0}/{maxLimit}
         </span>
         <span>
           {error && <Icon name="error" />}

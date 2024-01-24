@@ -7,14 +7,15 @@ import {
   spacings,
   typography
 } from '@cromaui/foundations'
-import { FLEX_CENTER } from '../../globals/globals'
+import { FLEX_BETWEEN, FLEX_CENTER } from '../../globals/globals'
 import { neutral } from '@cromaui/foundations/dist/colors'
 
 export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
+  width: ${({ width }) => width && 'auto'};
+
   & label > div {
     ${FLEX_CENTER}
     gap: ${spacings.space8};
-    width: fit-content;
     padding: ${spacings.space12};
     border-radius: ${shapes.sm};
     border: ${borders.br1}${color.neutral[400]};
@@ -39,7 +40,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
   }
 
   & > div {
-    ${FLEX_CENTER}
+    ${FLEX_BETWEEN}
     flex-direction:row-reverse;
   }
 
