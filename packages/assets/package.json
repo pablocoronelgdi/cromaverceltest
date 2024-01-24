@@ -3,11 +3,18 @@
   "author": "garaje_de_ideas",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "yarn build --watch"
   },
   "devDependencies": {
+    "@svgr/rollup": "^8.1.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "@rollup/plugin-typescript": "^11.1.6",
     "typescript": "^5.3.2"
   },
   "keywords": [],

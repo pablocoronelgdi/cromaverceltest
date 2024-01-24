@@ -10,6 +10,8 @@ import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { TextArea } from './components/textarea'
 import { ThemeWrapper } from './components/themeWrapper'
+import { TextField } from './components/textfield'
+import { Logo } from './components/logo'
 
 export {
   Badge,
@@ -18,10 +20,12 @@ export {
   Icon,
   Image,
   Link,
+  Logo,
   Radio,
   RoundedImage,
   Spinner,
   Switch,
   TextArea,
+  TextField,
   ThemeWrapper
 }
