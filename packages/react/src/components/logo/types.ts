@@ -1,7 +1,9 @@
+import type { LogoCatalog } from '@cromaui/assets'
+
 export type LogoPropTypes = {
-  name: string
+  name: LogoCatalog
   width?: number
-  heigth?: number
+  height?: number
   colorPrimary?: string
   colorSecondary?: string
 }

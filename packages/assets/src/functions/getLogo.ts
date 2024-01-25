@@ -1,11 +1,10 @@
-import * as Logos from '../index'
-import type { LogoTypes } from '../types/types'
+import * as Logos from '../logos'
+import type { LogoCatalog } from '../types/types'
 
 const importedLogo: any = Logos
 
-const getLogo = (name: LogoTypes): string => {
-  const logo = importedLogo[name]
-
+const getLogo = (name: LogoCatalog): string => {
+  const logo = importedLogo[name as string]
   return logo ? logo.toString() : 'Logo not found'
 }
 

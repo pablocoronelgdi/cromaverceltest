@@ -1,4 +1,4 @@
-import MacroHorizontal from './logos/macro-institucional-horizontal-navy.svg'
-import MacroTagLine from './logos/macro-institucional-tagline-black.svg'
 import { getLogo } from './functions/getLogo'
-export { MacroHorizontal, MacroTagLine, getLogo }
+import { MacroTagLine, MacroHorizontal } from './logos'
+import type { LogoCatalog } from './types/types'
+export { MacroHorizontal, MacroTagLine, getLogo, type LogoCatalog }
