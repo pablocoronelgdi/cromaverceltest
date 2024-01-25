@@ -1,4 +1,9 @@
 import { addons } from '@storybook/manager-api'
+import cromaTheme from './cromaTheme';
+
+addons.setConfig({
+  theme: cromaTheme,
+});
 
 const STATIC_FILTER = 'static-filter'
 const excludeTags = new Set(['docs-only', 'test-only'])
