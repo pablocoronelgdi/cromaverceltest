@@ -7,4 +7,6 @@ export type TextfieldPropTypes = {
   type?: 'text' | 'password'
   isFocused?: boolean
   characterCount?: number
+  iconName?: string | undefined
+  iconPosition?: 'left' | 'right'
 } & InputHTMLAttributes<HTMLInputElement>

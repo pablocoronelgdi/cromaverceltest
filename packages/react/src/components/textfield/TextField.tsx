@@ -2,6 +2,7 @@ import React, { type ChangeEvent, useState } from 'react'
 import type { TextfieldPropTypes } from './types'
 import { TextfieldContainerStyled } from './styles'
 import { Icon } from '../icon'
+import { Button } from '../button'
 
 const TextField: React.FC<TextfieldPropTypes> = ({
   label,
@@ -9,13 +10,20 @@ const TextField: React.FC<TextfieldPropTypes> = ({
   error,
   type = 'text',
   characterCount = 50,
+  iconName,
+  iconPosition = 'left',
   ...props
 }) => {
   const [textValue, setTextValue] = useState<string>()
+  const [passVisible, setPassVisible] = useState<boolean>(type === 'text')
   const maxLimit = characterCount < 50 ? characterCount : 50
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setTextValue(e.target.value)
+  }
+  const toogleVisibility = (): void => {
+    setPassVisible(!passVisible)
+    console.log('HOLA')
   }
 
   return (
@@ -26,28 +34,42 @@ const TextField: React.FC<TextfieldPropTypes> = ({
       type={type}
       isFocused={false}
       characterCount={characterCount}
+      iconName={iconName}
+      iconPosition={iconPosition}
+      {...props}
     >
       <label htmlFor={props.name}>
         {label}
         <div>
+          {iconName && type === 'text' && <Icon name={iconName} />}
           <input
             name={props.name}
             placeholder={props.placeholder}
-            type={type === 'password' ? 'password' : 'text'}
+            type={passVisible ? 'text' : 'password'}
+            disabled={props.disabled}
             onChange={(e) => {
               handleInputChange(e)
             }}
           />
-          {type === 'password' && <Icon name="visibility" />}
+          {type === 'password' && (
+            <Button
+              variant="link"
+              onClick={() => {
+                toogleVisibility()
+              }}
+              style={{ padding: 0 }}
+              iconName={passVisible ? 'visibility' : 'visibility_off'}
+            />
+          )}
         </div>
       </label>
       <div>
         <span>
-          {textValue?.length ? textValue.length : 0}/{maxLimit}
+          {error && <Icon name="info_outlined" size="small" />}
+          {helperText}
         </span>
         <span>
-          {error && <Icon name="error" />}
-          {helperText}
+          {textValue?.length ? textValue.length : 0}/{maxLimit}
         </span>
       </div>
     </TextfieldContainerStyled>
