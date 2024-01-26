@@ -32,10 +32,9 @@ const TextField: React.FC<TextfieldPropTypes> = ({
       helperText={helperText}
       error={error}
       type={type}
-      isFocused={false}
       characterCount={characterCount}
       iconName={iconName}
-      iconPosition={iconPosition}
+      iconPosition={type === 'password' ? 'right' : iconPosition}
       {...props}
     >
       <label htmlFor={props.name}>
@@ -47,6 +46,7 @@ const TextField: React.FC<TextfieldPropTypes> = ({
             placeholder={props.placeholder}
             type={passVisible ? 'text' : 'password'}
             disabled={props.disabled}
+            maxLength={maxLimit}
             onChange={(e) => {
               handleInputChange(e)
             }}
@@ -55,7 +55,9 @@ const TextField: React.FC<TextfieldPropTypes> = ({
             <Button
               variant="link"
               onClick={() => {
-                toogleVisibility()
+                if (!props.disabled) {
+                  toogleVisibility()
+                }
               }}
               style={{ padding: 0 }}
               iconName={passVisible ? 'visibility' : 'visibility_off'}

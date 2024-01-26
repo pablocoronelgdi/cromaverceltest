@@ -1,0 +1,62 @@
+import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
+import * as TextfieldStories from './Textfield.stories';
+
+
+<Meta of={TextfieldStories} />
+
+# Textfield
+
+Mediante el componente textfield los usuarios podran introducir texto en una aplicación. 
+Es esencial para la recopilación de datos, como nombres o mensajes, y ofrece opciones de personalización 
+visual. 
+Facilita la interacción mediante teclados virtuales, gestionando eventos como la escritura 
+y permitiendo validación y restricciones en la entrada de texto.
+<br />
+
+<Primary />
+
+## Usos
+
+### Deshabilitado
+Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso. 
+Si es un componente controlado, esto no impedira que cambie su valor si dicho valor puede ser modificado
+desde otro componente ajeno al texfield.
+
+<Story of={TextfieldStories.Disabled} />
+<Source of={TextfieldStories.Disabled} />
+
+### Componente de Tipo Texto
+Por default, el componente se utiliza como tipo texto.
+Permitiendo todo tipo de entrada como un `string`
+
+<Story of={TextfieldStories.TypeText} />
+<Source of={TextfieldStories.TypeText} />
+
+### Componente de Tipo Password
+Mediante la propiedad text='password' se puede modificar el elemento para ocultar los caracteres 
+ingresados. 
+
+<Story of={TextfieldStories.TypePassword} />
+<Source of={TextfieldStories.TypePassword} />
+
+
+### Textfield con Icono
+
+Se pueden agregar Iconos al componente mediante el uso de la prop 'iconName'. 
+Adicionalmente se puede modificar el lado donde se ubica con la prop 'iconPosition'
+
+<Story of={TextfieldStories.WithIcon} />
+<Source of={TextfieldStories.WithIcon} />
+
+### Validacion y Errores
+
+La propiedad "error" acepta un valor booleano o una funcion que devuelva un booleano.
+Si 'error'= true, se marcarán en rojo los borders del input asi como su texto de ayuda
+<Story of={TextfieldStories.ErrorInput} />
+<Source of={TextfieldStories.ErrorInput} />
+
+## Props
+El componente textfield acepta, ademas de los atributos html del input, los siguientes parametros:
+
+<ArgTypes />
+

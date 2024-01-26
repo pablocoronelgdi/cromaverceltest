@@ -11,7 +11,7 @@ import { FLEX_BETWEEN, FLEX_CENTER, FLEX_END } from '../../globals/globals'
 import { neutral } from '@cromaui/foundations/dist/colors'
 
 /* =============================================
-=            ESTILOS DEL COMPONENTE SPINNER     =
+=            ESTILOS DEL COMPONENTE TEXTFIELD     =
 ============================================= */
 
 /* ----------  Textfield Container  (div) ---------- */
@@ -23,6 +23,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
   /* ---------- Input label  (label) ---------- */
   // Label que contiene el texto label del componente + Input area
   & label {
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     font-family: 'OpenSans';
     font-size: ${typography.body.sm.semibold.fontSize};
     text-decoration: ${typography.body.sm.semibold.textDecoration};
@@ -37,45 +38,41 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
     // Div que envuelve el input y el icono. Proporciona el borde visible del componente
     & > div {
       ${({ iconName }) => (iconName ? FLEX_BETWEEN : FLEX_END)}
-      flex-direction: ${(props) =>
-        props.type === 'password' || props.iconPosition === 'right'
-          ? 'row'
-          : 'row-reverse'};
+      flex-direction: ${({ type, iconPosition }) =>
+        iconPosition === 'right' && type === 'text' ? 'row-reverse' : 'row'};
       gap: ${spacings.space8};
       padding: ${spacings.space12};
       background-color: ${color.neutral[50]};
       border-radius: ${shapes.sm};
       border: ${borders.br1};
       border-color: ${color.neutral[400]};
+      cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
       &:hover {
         border: ${borders.br1};
-        border-color: ${({ error }) =>
-          error ? color.neutral[0] : color.neutral[600]};
+        border-color: ${({ error, disabled }) =>
+          disabled || error ? color.neutral[400] : color.neutral[600]};
       }
       &:focus-within {
-        border: ${borders.br2};
-        border-color: ${({ error }) =>
-          error ? color.neutral[0] : color.blue.main};
+        outline: ${borders.br2};
+        outline-color: ${({ error }) =>
+          error ? color.error.main : color.blue.main};
       }
-      ${(props) =>
-        props.disabled &&
+      ${({ error }) =>
+        error &&
         css`
-          cursor: not-allowed;
+          outline: ${borders.br2};
+          outline-color: ${color.error.main};
+        `}
+      ${({ disabled }) =>
+        disabled &&
+        css`
           background-color: ${color.neutral[200]};
           border-color: ${color.neutral[400]};
+          outline-color: ${color.neutral[0]};
         `}
-      ${({ error, isFocused }) => css`
-        outline: ${error ? borders.br2 : isFocused ? borders.br2 : borders.br1};
-        outline-color: ${error
-          ? color.error.main
-          : isFocused
-          ? color.blue.main
-          : color.neutral[0]};
-      `}
 
-      cursor: text;
-
+     
       /* ---------- Input  (input) ---------- */
       // El input en cuestión, se remueven bordes ya que el input area se encarga del estilo
       & > input {
@@ -89,6 +86,8 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
         line-height: ${typography.body.sm.regular.lineHeight};
         width: 100%;
         border: none;
+        cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
         &:focus {
           border: none;
           outline: none;
