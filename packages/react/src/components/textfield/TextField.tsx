@@ -23,7 +23,6 @@ const TextField: React.FC<TextfieldPropTypes> = ({
   }
   const toogleVisibility = (): void => {
     setPassVisible(!passVisible)
-    console.log('HOLA')
   }
 
   return (
