@@ -8,7 +8,7 @@ const meta: Meta<typeof Image> = {
   argTypes: {
     duration: { control: { type: 'number' } },
     percentage: { control: { type: 'number' } },
-    label: { control: { type: 'text' } },
+    label: { control: { type: 'text' } }
   }
 }
 

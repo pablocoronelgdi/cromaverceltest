@@ -85,6 +85,11 @@ export const FLEX_END = css`
   justify-content: flex-end;
   align-items: center;
 `
+export const FLEX_BETWEEN = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 export const FLEX_COLUMN_CENTER = css`
   display: flex;
   flex-direction: column;

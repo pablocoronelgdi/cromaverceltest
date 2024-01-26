@@ -10,6 +10,7 @@ import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { TextArea } from './components/textarea'
+import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
 
 export {
@@ -25,5 +26,6 @@ export {
   Spinner,
   Switch,
   TextArea,
+  TextField,
   ThemeWrapper
 }

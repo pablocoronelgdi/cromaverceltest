@@ -3,7 +3,7 @@ import type { ProgressBarPropsTypes } from './types'
 import { Container, ContainerProgress, ProgressFill } from './styles'
 
 const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ duration, label }) => {
-  const [progress, setProgress] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(0)
   const time = duration
   const percentage = (100 / duration)
 
@@ -11,16 +11,16 @@ const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ duration, label }) => {
     const progressId = setInterval(() => {
       setProgress((prevProgress) => {
         if (prevProgress < time) {
-          return prevProgress + percentage;
+          return prevProgress + percentage
         } else {
-          clearInterval(progressId);
-          return time;
+          clearInterval(progressId)
+          return time
         }
-      });
-    }, percentage);
+      })
+    }, percentage)
 
-    return () => clearInterval(progressId);
-  }, [duration]);
+    return () => { clearInterval(progressId) }
+  }, [duration])
 
   return (
     <Container>
@@ -29,7 +29,7 @@ const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ duration, label }) => {
         </ContainerProgress>
        {label && <p>{label}</p>}
     </Container>
-  );
-};
+  )
+}
 
-export default ProgressBar;
+export default ProgressBar
