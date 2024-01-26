@@ -290,20 +290,22 @@ export const ErrorInput: Story = {
     const regexp = /^[a-zA-Z\s]*$/
 
     return (
-      <TextField
-        iconName="person"
-        label="Nombre Completo"
-        value={value}
-        onChange={(e) => {
-          setValue({ value: e.target.value })
-        }}
-        error={!regexp.test(value as string)}
-        helperText={
-          !regexp.test(value as string)
-            ? 'Solo se permiten caracteres alfabéticos '
-            : 'Ingrese su nombre completo'
-        }
-      />
+      <div style={{ width: '50%', padding: '1rem' }}>
+        <TextField
+          iconName="person"
+          label="Nombre Completo"
+          value={value}
+          onChange={(e) => {
+            setValue({ value: e.target.value })
+          }}
+          error={!regexp.test(value as string)}
+          helperText={
+            !regexp.test(value as string)
+              ? 'Solo se permiten caracteres alfabéticos '
+              : 'Ingrese su nombre completo'
+          }
+        />
+      </div>
     )
   }
 }
