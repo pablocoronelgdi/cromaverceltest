@@ -90,7 +90,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-
 /* ----------  STORYBOOK STORIES ---------- */
 
 export const TextInput: Story = {
@@ -107,8 +106,6 @@ export const TextInput: Story = {
     characterCount: 20
   }
 }
-
-
 
 /* ----------  DOC STORIES ---------- */
 
@@ -310,4 +307,3 @@ export const ErrorInput: Story = {
     )
   }
 }
-

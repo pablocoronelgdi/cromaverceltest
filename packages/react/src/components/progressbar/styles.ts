@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import {
   color,
   shapes,
@@ -18,7 +18,7 @@ export const Container = styled.div`
     line-height: ${typography.caption.regular.lineHeight};
     letter-spacing: ${typography.caption.regular.letterSpacing};
   }
-`;
+`
 
 export const ContainerProgress = styled.div`
   width: 100%;
@@ -28,12 +28,12 @@ export const ContainerProgress = styled.div`
   margin-top: ${spacings.space4};
   margin-bottom: ${spacings.space4};
   overflow: hidden;
-`;
+`
 
 export const ProgressFill = styled.div<ProgressBarPropsTypes>`
   height: 100%;
   width: ${(props) => props.width}%;
   background-color: ${color.blue.main};
   transition: width 0.3s ease-in-out;
-`;
-export default ProgressFill;
+`
+export default ProgressFill
