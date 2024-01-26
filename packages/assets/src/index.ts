@@ -1,4 +1,20 @@
-import { getLogo } from './functions/getLogo'
+/* eslint-disable @typescript-eslint/consistent-type-exports */
+import { getAsset } from './functions/getAsset'
 import { MacroTagLine, MacroHorizontal } from './logos'
-import type { LogoCatalog } from './types/types'
-export { MacroHorizontal, MacroTagLine, getLogo, type LogoCatalog }
+import { Cash, Clock } from './pictograms'
+import { HandTeamMacro, Hand } from './illustrations'
+import type { IllustrationCatalog } from './types/illustrationTypes'
+import type { LogoCatalog } from './types/logoTypes'
+import type { PictogramCatalog } from './types/pictogramTypes'
+export {
+  Cash,
+  Clock,
+  MacroHorizontal,
+  MacroTagLine,
+  HandTeamMacro,
+  Hand,
+  getAsset,
+  LogoCatalog,
+  PictogramCatalog,
+  IllustrationCatalog
+}
