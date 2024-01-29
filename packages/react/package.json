@@ -8,15 +8,18 @@
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.1.0",
+    "@cromaui/foundations": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.31",
     "rollup": "^4.1.4",
-    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.2.2"
   },
   "type": "module",
