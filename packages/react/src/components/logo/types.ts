@@ -1,4 +1,5 @@
 import type { LogoCatalog } from '@cromaui/assets'
+import type { ReactNode } from 'react'
 
 export type LogoPropTypes = {
   name?: LogoCatalog
@@ -6,5 +7,5 @@ export type LogoPropTypes = {
   height?: number
   colorPrimary?: string
   colorSecondary?: string
-  children?: React.SVGAttributes<SVGSVGElement>
+  children?: ReactNode
 }
