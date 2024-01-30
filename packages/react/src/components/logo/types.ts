@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 export type LogoPropTypes = {
   name?: LogoCatalog
-  width?: number
+  width?: number | string
   height?: number
   colorPrimary?: string
   colorSecondary?: string

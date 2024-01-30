@@ -26,8 +26,8 @@ const sanitizeChildren = (unsafeChildren: ReactNode): string => {
 
 const Logo: React.FC<LogoPropTypes> = ({
   name,
-  width = 200,
-  height = 100,
+  width = 'auto',
+  height = 'auto',
   colorPrimary = color.navy.main,
   colorSecondary = color.neutral[50],
   children
@@ -41,7 +41,7 @@ const Logo: React.FC<LogoPropTypes> = ({
     .replaceAll(/logoHeight/g, `${height}`)
 
   return children && typeof children === 'string' ? (
-    <img src={sanitizedChildren} />
+    <img alt={'logo macro'} title={'logo macro'} src={sanitizedChildren} />
   ) : children && isValidElement(children) && children.type === 'svg' ? (
     <LogoContainerStyled
       dangerouslySetInnerHTML={{ __html: sanitizedChildren }}
