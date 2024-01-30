@@ -1,4 +1,4 @@
 import { Button } from './button'
 import { Icon } from './icon'
-
-export { Button, Icon }
+import { Fab } from './fab'
+export { Button, Icon, Fab }
