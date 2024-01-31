@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { borders, color, typography } from '@cromaui/foundations'
 import { getSize } from './utils'
 import type { RoundedImagePropsTypes } from './types'
+import { FONT_TYPE_SEMIBOLD } from '../../globals/globals'
 
 export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   display: flex;
@@ -18,39 +19,39 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   overflow: hidden;
 
   & small {
-    font-family: ${typography.body.sm.semibold.fontFamily};
-    font-weight: ${typography.body.sm.semibold.fontWeight};
+    ${FONT_TYPE_SEMIBOLD}
+    font-family: ${typography.body.sm.fontFamily};
 
     ${(props) =>
       props.size === 'extra-small' &&
       css`
-        font-size: ${typography.body.sm.semibold.fontSize};
+        font-size: ${typography.body.sm.fontSize};
         line-height: 1.1em;
-        letter-spacing: ${typography.body.sm.semibold.letterSpacing};
+        letter-spacing: ${typography.body.sm.letterSpacing};
       `}
 
     ${(props) =>
       props.size === 'small' &&
       css`
-    font-size: ${typography.body.md.semibold.fontSize};
-    letter-spacing: ${typography.body.md.semibold.letterSpacing};
-    line-height: letter-spacing: ${typography.body.md.semibold.lineHeight};
+    font-size: ${typography.body.md.fontSize};
+    letter-spacing: ${typography.body.md.letterSpacing};
+    line-height: letter-spacing: ${typography.body.md.lineHeight};
     `}
 
     ${(props) =>
       (props.size === 'medium' || props.size === 'large') &&
       css`
-    font-size: ${typography.body.lg.semibold.fontSize};
-    letter-spacing: ${typography.body.lg.semibold.letterSpacing};
-    line-height: letter-spacing: ${typography.body.lg.semibold.lineHeight};
+    font-size: ${typography.body.lg.fontSize};
+    letter-spacing: ${typography.body.lg.letterSpacing};
+    line-height: letter-spacing: ${typography.body.lg.lineHeight};
     `}
     
     ${(props) =>
       props.size === 'extra-large' &&
       css`
-    font-size: ${typography.heading.sm.semibold.fontSize};
-    letter-spacing: ${typography.heading.sm.semibold.letterSpacing};
-    line-height: letter-spacing: ${typography.heading.sm.semibold.lineHeight};
+    font-size: ${typography.heading.sm.fontSize};
+    letter-spacing: ${typography.heading.sm.letterSpacing};
+    line-height: letter-spacing: ${typography.heading.sm.lineHeight};
     `}
   }
 

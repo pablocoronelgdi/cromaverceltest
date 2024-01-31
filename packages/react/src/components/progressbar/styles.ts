@@ -1,22 +1,15 @@
 import styled from 'styled-components'
-import {
-  color,
-  shapes,
-  spacings,
-  typography
-} from '@cromaui/foundations'
+import { color, shapes, spacings } from '@cromaui/foundations'
 import type { ProgressBarPropsTypes } from './types'
+import { FONT_CAPTION, FONT_TYPE_REGULAR } from '../../globals/globals'
 
 export const Container = styled.div`
   width: 100%;
 
   & p {
     margin: 0;
-    font-family: ${typography.caption.regular.fontFamily};
-    font-size: ${typography.caption.regular.fontSize};
-    font-weight: ${typography.caption.regular.fontWeight};
-    line-height: ${typography.caption.regular.lineHeight};
-    letter-spacing: ${typography.caption.regular.letterSpacing};
+    ${FONT_CAPTION}
+    ${FONT_TYPE_REGULAR}
   }
 `
 

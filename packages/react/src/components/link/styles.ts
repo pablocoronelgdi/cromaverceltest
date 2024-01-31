@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
-import { FLEX_CENTER } from '../../globals/globals'
 import {
-  color,
-  typography,
-  borders,
-  shapes,
-  spacings
-} from '@cromaui/foundations'
+  FLEX_CENTER,
+  FONT_LINK_LG,
+  FONT_LINK_MD,
+  FONT_LINK_SM,
+  FONT_TYPE_REGULAR
+} from '../../globals/globals'
+import { color, borders, shapes, spacings } from '@cromaui/foundations'
 import type { LinkPropsTypes } from './types'
 
 /* =============================================
@@ -19,28 +19,22 @@ export const StyledLink = styled.a<LinkPropsTypes>`
   padding: ${spacings.space2};
   text-decoration: none;
   cursor: ${(props) => (props.disabled ? 'no-drop' : 'pointer')};
-  font-family: ${typography.link.md.regular.fontFamily};
+  ${FONT_TYPE_REGULAR}
 
   ${(props) =>
     props.size === 'large' &&
     css`
-      font-size: ${typography.link.lg.regular.fontSize};
-      font-weight: ${typography.link.lg.regular.fontWeight};
-      line-height: ${typography.link.lg.regular.lineHeight};
+      ${FONT_LINK_LG}
     `}
   ${(props) =>
     props.size === 'medium' &&
     css`
-      font-size: ${typography.link.md.regular.fontSize};
-      font-weight: ${typography.link.md.regular.fontWeight};
-      line-height: ${typography.link.md.regular.lineHeight};
+      ${FONT_LINK_MD}
     `}
     ${(props) =>
     props.size === 'small' &&
     css`
-      font-size: ${typography.link.sm.regular.fontSize};
-      font-weight: ${typography.link.sm.regular.fontWeight};
-      line-height: ${typography.link.sm.regular.lineHeight};
+      ${FONT_LINK_SM}
     `}
 
     & p {

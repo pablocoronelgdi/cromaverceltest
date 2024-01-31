@@ -7,8 +7,6 @@ export const typography = {
 
       fontFamily: 'Titillium Web',
 
-      fontWeight: 400,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -25,8 +23,6 @@ export const typography = {
       textDecoration: 'none',
 
       fontFamily: 'Titillium Web',
-
-      fontWeight: 400,
 
       fontStyle: 'normal',
       fontStretch: 'normal',
@@ -46,8 +42,6 @@ export const typography = {
 
       fontFamily: 'Titillium Web',
 
-      fontWeight: 600,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -64,8 +58,6 @@ export const typography = {
       textDecoration: 'none',
 
       fontFamily: 'Titillium Web',
-
-      fontWeight: 600,
 
       fontStyle: 'normal',
 
@@ -84,8 +76,6 @@ export const typography = {
 
       fontFamily: 'Titillium Web',
 
-      fontWeight: 600,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -102,8 +92,6 @@ export const typography = {
       textDecoration: 'none',
 
       fontFamily: 'Public Sans',
-
-      fontWeight: 600,
 
       fontStyle: 'normal',
 
@@ -124,8 +112,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 400,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -141,8 +127,6 @@ export const typography = {
 
       textDecoration: 'none',
       fontFamily: 'Public Sans',
-
-      fontWeight: 400,
 
       fontStyle: 'normal',
 
@@ -161,7 +145,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 700,
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -179,8 +162,6 @@ export const typography = {
     textDecoration: 'none',
 
     fontFamily: 'Public Sans',
-
-    fontWeight: 400,
 
     fontStyle: 'normal',
 
@@ -200,8 +181,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 400,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -219,8 +198,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 400,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -237,8 +214,6 @@ export const typography = {
       textDecoration: 'underline',
 
       fontFamily: 'Public Sans',
-
-      fontWeight: 400,
 
       fontStyle: 'normal',
 
@@ -259,8 +234,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 600,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -278,8 +251,6 @@ export const typography = {
 
       fontFamily: 'Public Sans',
 
-      fontWeight: 600,
-
       fontStyle: 'normal',
 
       fontStretch: 'normal',
@@ -289,5 +260,10 @@ export const typography = {
       lineHeight: '16px',
       textCase: 'none'
     }
+  },
+  variants: {
+    regular: { fontWeight: 400 },
+    semibold: { fontWeight: 600 },
+    bold: { fontWeight: 700 }
   }
 }

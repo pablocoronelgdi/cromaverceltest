@@ -8,17 +8,18 @@ import {
   borders
 } from '@cromaui/foundations'
 import type { StyledTextAreaProps } from './types'
+import { FONT_TYPE_REGULAR } from '../../globals/globals'
 
 export const StyledContent = styled.div<StyledTextAreaProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-family: ${typography.body.sm.regular.fontFamily};
-  font-weight: ${typography.body.sm.semibold.fontWeight};
+  font-family: ${typography.body.sm.fontFamily};
+  ${FONT_TYPE_REGULAR}
 
   & p {
     margin-bottom: ${spacings.space8};
-    font-size: ${typography.body.sm.semibold.fontSize};
+    font-size: ${typography.body.sm.fontSize};
   }
 
   & label {
@@ -31,9 +32,9 @@ export const StyledContent = styled.div<StyledTextAreaProps>`
         ? color.neutral[400]
         : color.neutral[800]};
     margin-top: ${spacings.space8};
-    font-size: ${typography.caption.regular.fontSize};
-    font-weight: ${typography.caption.regular.fontWeight};
-    line-height: ${typography.caption.regular.lineHeight};
+    font-size: ${typography.caption.fontSize};
+    ${FONT_TYPE_REGULAR}
+    line-height: ${typography.caption.lineHeight};
 
     & span {
       margin-right: ${spacings.space8};
@@ -73,8 +74,8 @@ export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     props.error
       ? borders.br2 + color.error.main
       : borders.br1 + color.neutral[400]};
-  font-weight: ${typography.body.sm.regular.fontWeight};
-  font-size: ${typography.body.sm.regular.fontSize};
+  ${FONT_TYPE_REGULAR}
+  font-size: ${typography.body.sm.fontSize};
   box-sizing: border-box;
 
   &:hover {
