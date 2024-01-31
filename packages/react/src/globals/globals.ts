@@ -96,3 +96,105 @@ export const FLEX_COLUMN_CENTER = css`
   justify-content: center;
   align-self: center;
 `
+
+export const DISPLAY_XL = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const DISPLAY_LG = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+
+export const HEADING_XL = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const HEADING_LG = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const HEADING_MD = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const HEADING_SM = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const BODY_LG = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const BODY_MD = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const BODY_SM = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`
+export const CAPTION = css`
+  font-size: '50px';
+  text-decoration: 'none';
+  font-family: 'Titillium Web';
+  font-weight: 400;
+  font-style: 'normal';
+  font-stretch: 'normal';
+  letter-spacing: '0.3px';
+  line-height: '80px';
+`

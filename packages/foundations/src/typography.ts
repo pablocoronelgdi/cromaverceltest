@@ -1,470 +1,11 @@
 export const typography = {
   display: {
     xl: {
-      regular: {
-        fontSize: '50px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.3,
-
-        lineHeight: '80px',
-
-        textCase: 'none'
-      },
-      semibold: {
-        fontSize: '50px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.3,
-
-        lineHeight: '80px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '50px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.3,
-
-        lineHeight: '80px',
-
-        textCase: 'none'
-      }
-    },
-    lg: {
-      regular: {
-        fontSize: '40px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-        fontStretch: 'normal',
-
-        letterSpacing: 0.2,
-
-        lineHeight: '64px',
-
-        textCase: 'none'
-      },
-      semibold: {
-        fontSize: '40px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.2,
-
-        lineHeight: '64px',
-
-        textCase: 'none',
-
-        bold: {
-          fontSize: '40px',
-
-          textDecoration: 'none',
-
-          fontFamily: 'Titillium Web',
-
-          fontWeight: 700,
-
-          fontStyle: 'normal',
-
-          fontStretch: 'normal',
-
-          letterSpacing: 0.2,
-
-          lineHeight: '64px',
-
-          textCase: 'none'
-        }
-      }
-    }
-  },
-  heading: {
-    xl: {
-      semibold: {
-        fontSize: '32px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.128,
-
-        lineHeight: '48px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '32px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.128,
-
-        lineHeight: '48px',
-
-        textCase: 'none'
-      }
-    },
-    lg: {
-      semibold: {
-        fontSize: '28px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.098,
-
-        lineHeight: '48px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '28px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.098,
-
-        lineHeight: '48px',
-
-        textCase: 'none'
-      }
-    },
-    md: {
-      semibold: {
-        fontSize: '24px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.072,
-
-        lineHeight: '40px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '24px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Titillium Web',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.072,
-
-        lineHeight: '40px',
-
-        textCase: 'none'
-      }
-    },
-    sm: {
-      semibold: {
-        fontSize: '20px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.05,
-
-        lineHeight: '32px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '20px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.05,
-
-        lineHeight: '32px',
-
-        textCase: 'none'
-      }
-    }
-  },
-  body: {
-    lg: {
-      regular: {
-        fontSize: '18px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.036,
-
-        lineHeight: '32px',
-
-        textCase: 'none'
-      },
-      semibold: {
-        fontSize: '18px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.036,
-
-        lineHeight: '32px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '18px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.036,
-
-        lineHeight: '32px',
-
-        textCase: 'none'
-      }
-    },
-    md: {
-      regular: {
-        fontSize: '16px',
-
-        textDecoration: 'none',
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.032,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      },
-      semibold: {
-        fontSize: '16px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.032,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      },
-      bold: {
-        fontSize: '16px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 700,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.032,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      }
-    },
-    sm: {
-      bold: {
-        fontSize: '14px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 700,
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.025,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      },
-      regular: {
-        fontSize: '14px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.025,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      },
-      semibold: {
-        fontSize: '14px',
-
-        textDecoration: 'none',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 600,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0.025,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      }
-    }
-  },
-  caption: {
-    regular: {
-      fontSize: '12px',
+      fontSize: '50px',
 
       textDecoration: 'none',
 
-      fontFamily: 'Public Sans',
+      fontFamily: 'Titillium Web',
 
       fontWeight: 400,
 
@@ -472,14 +13,91 @@ export const typography = {
 
       fontStretch: 'normal',
 
-      letterSpacing: 0.018,
+      letterSpacing: '0.3px',
 
-      lineHeight: '18px',
+      lineHeight: '80px',
 
       textCase: 'none'
     },
-    semibold: {
-      fontSize: '12px',
+    lg: {
+      fontSize: '40px',
+
+      textDecoration: 'none',
+
+      fontFamily: 'Titillium Web',
+
+      fontWeight: 400,
+
+      fontStyle: 'normal',
+      fontStretch: 'normal',
+
+      letterSpacing: '0.2px',
+
+      lineHeight: '64px',
+
+      textCase: 'none'
+    }
+  },
+  heading: {
+    xl: {
+      fontSize: '32px',
+
+      textDecoration: 'none',
+
+      fontFamily: 'Titillium Web',
+
+      fontWeight: 600,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.128px',
+
+      lineHeight: '48px',
+
+      textCase: 'none'
+    },
+    lg: {
+      fontSize: '28px',
+
+      textDecoration: 'none',
+
+      fontFamily: 'Titillium Web',
+
+      fontWeight: 600,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.098px',
+
+      lineHeight: '48px',
+
+      textCase: 'none'
+    },
+    md: {
+      fontSize: '24px',
+
+      textDecoration: 'none',
+
+      fontFamily: 'Titillium Web',
+
+      fontWeight: 600,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.072px',
+
+      lineHeight: '40px',
+
+      textCase: 'none'
+    },
+    sm: {
+      fontSize: '20px',
 
       textDecoration: 'none',
 
@@ -491,138 +109,185 @@ export const typography = {
 
       fontStretch: 'normal',
 
-      letterSpacing: 0.018,
+      letterSpacing: '0.05px',
 
-      lineHeight: '18px',
+      lineHeight: '32px',
+
+      textCase: 'none'
+    }
+  },
+  body: {
+    lg: {
+      fontSize: '18px',
+
+      textDecoration: 'none',
+
+      fontFamily: 'Public Sans',
+
+      fontWeight: 400,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.036px',
+
+      lineHeight: '32px',
 
       textCase: 'none'
     },
-    bold: {
-      fontSize: '12px',
+    md: {
+      fontSize: '16px',
+
+      textDecoration: 'none',
+      fontFamily: 'Public Sans',
+
+      fontWeight: 400,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.032px',
+
+      lineHeight: '24px',
+
+      textCase: 'none'
+    },
+    sm: {
+      fontSize: '14px',
 
       textDecoration: 'none',
 
       fontFamily: 'Public Sans',
 
       fontWeight: 700,
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: '0.025px',
+
+      lineHeight: '24px',
+
+      textCase: 'none'
+    }
+  },
+  caption: {
+    fontSize: '12px',
+
+    textDecoration: 'none',
+
+    fontFamily: 'Public Sans',
+
+    fontWeight: 400,
+
+    fontStyle: 'normal',
+
+    fontStretch: 'normal',
+
+    letterSpacing: '0.018px',
+
+    lineHeight: '18px',
+
+    textCase: 'none'
+  },
+  link: {
+    lg: {
+      fontSize: '18px',
+
+      textDecoration: 'underline',
+
+      fontFamily: 'Public Sans',
+
+      fontWeight: 400,
 
       fontStyle: 'normal',
 
       fontStretch: 'normal',
 
-      letterSpacing: 0.018,
+      letterSpacing: 0,
 
-      lineHeight: '18px',
+      lineHeight: '28px',
+
+      textCase: 'none'
+    },
+    md: {
+      fontSize: '16px',
+
+      textDecoration: 'underline',
+
+      fontFamily: 'Public Sans',
+
+      fontWeight: 400,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: 0,
+
+      lineHeight: '24px',
+
+      textCase: 'none'
+    },
+    sm: {
+      fontSize: '14px',
+
+      textDecoration: 'underline',
+
+      fontFamily: 'Public Sans',
+
+      fontWeight: 400,
+
+      fontStyle: 'normal',
+
+      fontStretch: 'normal',
+
+      letterSpacing: 0,
+
+      lineHeight: '20px',
 
       textCase: 'none'
     }
   },
-  link: {
-    lg: {
-      regular: {
-        fontSize: '18px',
-
-        textDecoration: 'underline',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0,
-
-        lineHeight: '28px',
-
-        textCase: 'none'
-      }
-    },
-    md: {
-      regular: {
-        fontSize: '16px',
-
-        textDecoration: 'underline',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0,
-
-        lineHeight: '24px',
-
-        textCase: 'none'
-      }
-    },
-    sm: {
-      regular: {
-        fontSize: '14px',
-
-        textDecoration: 'underline',
-
-        fontFamily: 'Public Sans',
-
-        fontWeight: 400,
-
-        fontStyle: 'normal',
-
-        fontStretch: 'normal',
-
-        letterSpacing: 0,
-
-        lineHeight: '20px',
-
-        textCase: 'none'
-      }
-    }
-  },
   button: {
     md: {
-      semibold: {
-        fontSize: '16px',
+      fontSize: '16px',
 
-        textDecoration: 'none',
+      textDecoration: 'none',
 
-        fontFamily: 'Public Sans',
+      fontFamily: 'Public Sans',
 
-        fontWeight: 600,
+      fontWeight: 600,
 
-        fontStyle: 'normal',
+      fontStyle: 'normal',
 
-        fontStretch: 'normal',
+      fontStretch: 'normal',
 
-        letterSpacing: 0.032,
+      letterSpacing: '0.032px',
 
-        lineHeight: '24px',
+      lineHeight: '24px',
 
-        textCase: 'none'
-      }
+      textCase: 'none'
     },
     sm: {
-      semibold: {
-        fontSize: '14px',
+      fontSize: '14px',
 
-        textDecoration: 'none',
+      textDecoration: 'none',
 
-        fontFamily: 'Public Sans',
+      fontFamily: 'Public Sans',
 
-        fontWeight: 600,
+      fontWeight: 600,
 
-        fontStyle: 'normal',
+      fontStyle: 'normal',
 
-        fontStretch: 'normal',
+      fontStretch: 'normal',
 
-        letterSpacing: 0.025,
+      letterSpacing: '0.025px',
 
-        lineHeight: '16px',
-        textCase: 'none'
-      }
+      lineHeight: '16px',
+      textCase: 'none'
     }
   }
 }
