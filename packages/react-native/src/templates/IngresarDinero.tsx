@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import CromaText from '../components/text/Text'
 import Button from '../components/button/Button'
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 16,
     flexShrink: 0,
-    backgroundColor: Color.Navy.main
+    backgroundColor: color.navy.main
   },
   body: {
     width: '100%',
