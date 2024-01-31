@@ -35,7 +35,7 @@ export type ButtonTextPropTypes = {
 }
 /* ----------  Props del icono del boton  ---------- */
 
-export type ButonIconPropTypes = {
+export type ButtonIconPropTypes = {
   variant?: ButtonVariantType
   isPressed?: boolean
 } & IconPropTypes

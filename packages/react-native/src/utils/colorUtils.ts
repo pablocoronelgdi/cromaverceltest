@@ -1,37 +1,37 @@
-import { Color } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 
 export const getColorByProp = (
-  color?: string,
+  stringcolor?: string,
   theme?: any,
   variant?: string,
   neutralNumber?: number
 ): string => {
-  switch (color) {
+  switch (stringcolor) {
     case 'primary':
-      return theme?.color?.primary?.[variant || 'main'] || Color.Navy.main
+      return theme?.color?.primary?.[variant || 'main'] || color.navy.main
     case 'secondary':
-      return theme?.color?.secondary?.[variant || 'main'] || Color.Pink.main
+      return theme?.color?.secondary?.[variant || 'main'] || color.pink.main
     case 'tertiary':
-      return theme?.color?.tertiary?.[variant || 'main'] || Color.Blue.main
+      return theme?.color?.tertiary?.[variant || 'main'] || color.blue.main
     case 'complementary':
       return (
-        theme?.color?.complementary?.[variant || 'main'] || Color.Stone.main
+        theme?.color?.complementary?.[variant || 'main'] || color.stone.main
       )
     case 'success':
-      return theme?.color?.success?.[variant || 'main'] || Color.Success.main
+      return theme?.color?.success?.[variant || 'main'] || color.success.main
     case 'warning':
-      return theme?.color?.warning?.[variant || 'main'] || Color.Warning.main
+      return theme?.color?.warning?.[variant || 'main'] || color.warning.main
     case 'error':
-      return theme?.color?.error?.[variant || 'main'] || Color.Error.main
+      return theme?.color?.error?.[variant || 'main'] || color.error.main
     case 'info':
-      return theme?.color?.info?.[variant || 'main'] || Color.Info.main
+      return theme?.color?.info?.[variant || 'main'] || color.Info.main
     case 'neutral':
       return (
         theme?.color?.info?.[variant || 'main'][neutralNumber || 300] ||
-        Color.Neutral[500]
+        color.neutral[500]
       )
     default:
-      return theme?.color?.primary?.[variant || 'main'] || Color.Navy.main
+      return theme?.color?.primary?.[variant || 'main'] || color.navy.main
   }
 }
 

@@ -1,22 +1,22 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Color, Shapes, Spacings } from '@cromaui/foundations'
+import { color, shapes, spacings } from '@cromaui/foundations'
 import { Icon } from '../icon'
 
 const CheckboxContainer = styled.Pressable`
-  background-color: ${Color.Navy.extraSoft};
-  padding: ${Spacings.space8};
-  border-radius: ${Shapes.full};
+  background-color: ${color.navy.extraSoft};
+  padding: ${spacings.space8};
+  border-radius: ${shapes.full};
 `
 
 const CheckboxBorder = styled.View`
-  background-color: ${Color.Blue.main};
+  background-color: ${color.blue.main};
   border-radius: 100px;
 `
 
 const CheckboxIcon = styled(Icon)`
-  color: ${Color.Neutral[50]};
-  background-color: ${Color.Navy.main};
+  color: ${color.neutral[50]};
+  background-color: ${color.navy.main};
 `
 
 const Checkbox: React.FC = () => {
