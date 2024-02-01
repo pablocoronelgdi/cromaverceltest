@@ -1,8 +1,8 @@
 export const navy = {
-  dark: '#032744',
-  main: '#003057',
-  soft: '#4A739D',
-  extraSoft: '#DBEAF9'
+  dark: '#021B4D',
+  main: '#053575',
+  soft: '#92BEF2',
+  extraSoft: '#E2EFFD'
 }
 
 export const pink = {
@@ -88,8 +88,8 @@ export const success = {
 }
 
 export const Info = {
-  dark: '#0318A5',
-  main: '#203AE9',
-  soft: '#7893FF',
-  extraSoft: '#DBE9FF'
+  dark: '#153990',
+  main: '#0865D7',
+  soft: '#5AB8FF',
+  extraSoft: '#BADFFF'
 }
