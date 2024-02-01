@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript'
-import commonjs from '@rollup/plugin-commonjs'
+import svg from 'rollup-plugin-svg'
+
 export default {
   input: ['src/index.ts'],
   output: {
@@ -8,5 +9,5 @@ export default {
     sourcemap: true,
     preserveModules: true
   },
-  plugins: [typescript(), commonjs()]
+  plugins: [typescript(), svg()]
 }

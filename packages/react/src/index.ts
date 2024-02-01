@@ -12,6 +12,7 @@ import { Switch } from './components/switch'
 import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
+import { Logo } from './components/logo'
 
 export {
   Badge,
@@ -21,6 +22,7 @@ export {
   Image,
   Link,
   ProgressBar,
+  Logo,
   Radio,
   RoundedImage,
   Spinner,
