@@ -1,28 +1,28 @@
-import React, { type ReactNode } from 'react'
-import styled from 'styled-components'
-import { macro } from '../../theme/theme'
-import type { elevations } from '@cromaui/foundations'
+import React from 'react'
+import type { ButtonPropTypes } from './types'
+import { StyledButton } from './styles'
+import { Icon } from '../icon'
 
-type StyledButtonProps = {
-  children: ReactNode | string
-  $elevation?: keyof typeof elevations
-}
-
-const StyledButton = styled.button<StyledButtonProps>`
-  background-color: transparent;
-  color: ${macro.color.primary.main};
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 1.5rem;
-  border: solid 3px;
-  border-color: ${(props) =>
-    props.theme?.color?.primary?.main || macro.color.primary.main};
-  font-weight: 600;
-  box-shadow: ${macro.components.button.elevation};
-`
-
-const Button: React.FC<StyledButtonProps> = ({ children, $elevation }) => {
-  return <StyledButton $elevation={$elevation}>{children}</StyledButton>
+const Button: React.FC<ButtonPropTypes> = ({
+  variant = 'filled',
+  children,
+  iconName,
+  size = 'medium',
+  ...props
+}) => {
+  return (
+    <StyledButton
+      variant={variant}
+      size={size}
+      onClick={props.onClick}
+      {...props}
+    >
+      {children}
+      {iconName && (
+        <Icon name={iconName} size={size !== 'small' ? 'large' : 'medium'} />
+      )}
+    </StyledButton>
+  )
 }
 
 export default Button

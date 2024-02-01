@@ -1,5 +1,5 @@
 import { type RuleSet, css } from 'styled-components'
-import { Color, Typography } from '@cromaui/foundations'
+import { color, typography } from '@cromaui/foundations'
 import { getColorByProp } from '../../utils/colorUtils'
 import type { ButtonTextPropTypes, ChildrenButtonPropTypes } from './types'
 
@@ -33,9 +33,9 @@ export const getBaseButtonStyles = (): RuleSet<object> => {
 
 export const getBaseButtonTextStyles = (): RuleSet<object> => {
   return css`
-    font-size: ${Typography.button.md.semibold.fontSize};
-    line-height: ${Typography.button.md.semibold.lineHeight};
-    font-weight: ${Typography.button.md.semibold.fontWeight};
+    font-size: ${typography.button.md.semibold.fontSize};
+    line-height: ${typography.button.md.semibold.lineHeight};
+    font-weight: ${typography.button.md.semibold.fontWeight};
     text-align: center;
   `
 }
@@ -51,10 +51,10 @@ const outlinedButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       background-color: ${props.theme?.components?.button?.variant.outlined
-        .disabled?.backgroundColor || Color.Neutral[0]};
+        .disabled?.backgroundcolor || color.neutral[0]};
       border: solid 2px
         ${props.theme?.components?.button?.variant?.outlined.disabled.color ||
-        Color.Neutral[400]};
+        color.neutral[400]};
     `
   }
   // PRESSED
@@ -65,13 +65,12 @@ const outlinedButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
         props.theme,
         'extraLight'
       )};
-      border: solid 2px
-        ${getColorByProp(props.color, props.theme, 'dark')};
+      border: solid 2px ${getColorByProp(props.color, props.theme, 'dark')};
     `
   }
   // DEFAULT
   return css`
-    background-color: ${Color.Neutral[0]};
+    background-color: ${color.neutral[0]};
     border: solid 2px ${getColorByProp(props.color, props.theme)};
   `
 }
@@ -83,7 +82,7 @@ const outlinedTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.outlined.disabled
-        ?.backgroundColor || Color.Neutral[400]};
+        ?.backgroundcolor || color.neutral[400]};
     `
   }
   // PRESSED
@@ -104,20 +103,20 @@ const filledButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       background-color: ${props.theme?.components?.button?.variant.filled
-        .disabled?.backgroundColor || Color.Neutral[300]};
+        .disabled?.backgroundcolor || color.neutral[300]};
       border: solid 2px
         ${props.theme?.components?.button?.variant.filled.disabled.color ||
-        Color.Neutral[300]};
+        color.neutral[300]};
     `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       background-color: ${props.theme?.components?.button?.variant?.filled
-        .pressed.backgroundColor || Color.Navy.dark};
+        .pressed.backgroundcolor || color.navy.dark};
       border: solid 2px
         ${props.theme?.components?.button?.variant?.filled?.pressed
-          ?.backgroundColor || Color.Navy.dark};
+          ?.backgroundcolor || color.navy.dark};
     `
   }
   // DEFAULT
@@ -134,20 +133,20 @@ const filledTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.filled?.color ||
-      Color.Neutral[500]};
+      color.neutral[500]};
     `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       color: ${props.theme?.components?.button?.variant?.filled?.color ||
-      Color.Neutral[100]};
+      color.neutral[100]};
     `
   }
   // DISABLED
   return css`
     color: ${props.theme?.components?.button?.variant?.filled?.color ||
-    Color.Neutral[100]};
+    color.neutral[100]};
   `
 }
 
@@ -158,29 +157,29 @@ const linkButton = (props: ChildrenButtonPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       background-color: ${props.theme?.components?.button?.variant.link.disabled
-        .backgroundColor || Color.Neutral[0]};
+        .backgroundcolor || color.neutral[0]};
       border: solid 2px
         ${props.theme?.components?.button?.variant.link.disabled.color ||
-        Color.Neutral[0]};
+        color.neutral[0]};
     `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       background-color: ${props.theme?.components?.button?.variant.link.pressed
-        .backgroundColor || Color.Neutral[200]};
+        .backgroundcolor || color.neutral[200]};
       border: solid 2px
         ${props.theme?.components?.button?.variant?.link.pressed.color ||
-        Color.Neutral[0]};
+        color.neutral[0]};
     `
   }
   // DEFAULT
   return css`
     background-color: ${props.theme?.components?.button?.variant.link
-      ?.backgroundColor || Color.Neutral[0]};
+      ?.backgroundcolor || color.neutral[0]};
     border: solid 2px
-      ${props.theme?.components?.button?.variant?.link?.backgroundColor ||
-      Color.Neutral[100]};
+      ${props.theme?.components?.button?.variant?.link?.backgroundcolor ||
+      color.neutral[100]};
   `
 }
 
@@ -191,20 +190,20 @@ const linkTextButton = (props: ButtonTextPropTypes): RuleSet<object> => {
   if (props.disabled) {
     return css`
       color: ${props.theme?.components?.button?.variant?.link?.color ||
-      Color.Neutral[400]};
+      color.neutral[400]};
     `
   }
   // PRESSED
   if (props.isPressed) {
     return css`
       color: ${props.theme?.components?.button?.variant?.link?.color ||
-      Color.Navy.main};
+      color.navy.main};
     `
   }
   // DEFAULT
   return css`
     color: ${props.theme?.components?.button?.variant?.link?.color ||
-    Color.Navy.main};
+    color.navy.main};
   `
 }
 
@@ -243,18 +242,18 @@ export const getButtonTextSize = (
   switch (props.size) {
     case 'small':
       return css`
-        font-size: ${Typography.button.sm.semibold.fontSize};
-        line-height: ${Typography.button.sm.semibold.lineHeight};
+        font-size: ${typography.button.sm.semibold.fontSize};
+        line-height: ${typography.button.sm.semibold.lineHeight};
       `
     case 'large':
       return css`
-        font-size: ${Typography.button.md.semibold.fontSize};
-        line-height: ${Typography.button.md.semibold.lineHeight};
+        font-size: ${typography.button.md.semibold.fontSize};
+        line-height: ${typography.button.md.semibold.lineHeight};
       `
     default:
       return css`
-        font-size: ${Typography.button.md.semibold.fontSize};
-        line-height: ${Typography.button.md.semibold.lineHeight};
+        font-size: ${typography.button.md.semibold.fontSize};
+        line-height: ${typography.button.md.semibold.lineHeight};
       `
   }
 }

@@ -5,7 +5,7 @@ import type {
   ButtonPropTypes,
   ChildrenButtonPropTypes,
   ButtonTextPropTypes,
-  ButonIconPropTypes
+  ButtonIconPropTypes
 } from './types'
 import { Icon } from '../icon'
 
@@ -25,13 +25,11 @@ const TextButton = styled.Text<ButtonTextPropTypes>`
   ${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextSize(props)}
 ${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextVariant(props)};
 `
-const IconButton = styled(Icon).attrs<ButonIconPropTypes>(
-  (props: ButonIconPropTypes) => ({
+const IconButton = styled(Icon).attrs<ButtonIconPropTypes>(
+  (props: ButtonIconPropTypes) => ({
     variant: props.variant
   })
-)`
-  ${(props: ButonIconPropTypes) => ButtonStyle.getButtonTextVariant(props)};
-`
+)``
 
 const Button: React.FC<ButtonPropTypes> = ({
   size = 'medium',

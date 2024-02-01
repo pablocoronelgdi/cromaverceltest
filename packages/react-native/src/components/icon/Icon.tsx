@@ -4,14 +4,16 @@ import styled from 'styled-components'
 import { getColorByProp } from '../../utils/colorUtils'
 import type { IconPropTypes, IconSizeType } from './types'
 
-const getSize = (size: IconSizeType): number => {
+const getSize = (size?: IconSizeType): number => {
   switch (size) {
     case 'small':
       return 16
     case 'medium':
-      return 32
+      return 20
     case 'large':
-      return 40
+      return 24
+    case 'extra-large':
+      return 32
     default:
       return 24
   }
