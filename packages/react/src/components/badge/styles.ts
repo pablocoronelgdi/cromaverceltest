@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { FLEX_CENTER } from '../../globals/globals'
+import { FLEX_CENTER, FONT_TYPE_SEMIBOLD } from '../../globals/globals'
 import { borders, color, spacings, typography } from '@cromaui/foundations'
 import type { BadgePropsTypes } from './types'
 
@@ -19,8 +19,8 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
   max-width: 142px;
 
   & small {
-    font-family: ${typography.body.sm.semibold.fontFamily};
-    font-weight: ${typography.body.sm.semibold.fontWeight};
+    ${FONT_TYPE_SEMIBOLD}
+    font-family: ${typography.body.sm.fontFamily};
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -28,18 +28,18 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       (props.size === 'small' || props.size === 'medium') &&
       (props.text || props.count) &&
       css`
-        font-size: ${typography.caption.semibold.fontSize};
+        font-size: ${typography.caption.fontSize};
         line-height: 1.1em;
-        letter-spacing: ${typography.caption.semibold.letterSpacing};
+        letter-spacing: ${typography.caption.letterSpacing};
       `}
 
     ${(props) =>
       props.size === 'large' &&
       (props.text || props.count) &&
       css`
-        font-size: ${typography.body.sm.semibold.fontSize};
-        line-height: ${typography.body.sm.semibold.lineHeight};
-        letter-spacing: ${typography.body.sm.semibold.letterSpacing};
+        font-size: ${typography.body.sm.fontSize};
+        line-height: ${typography.body.sm.lineHeight};
+        letter-spacing: ${typography.body.sm.letterSpacing};
       `}
   }
 

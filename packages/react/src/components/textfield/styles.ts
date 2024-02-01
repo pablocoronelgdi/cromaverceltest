@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components'
 import type { TextfieldPropTypes } from './types'
+import { borders, color, shapes, spacings } from '@cromaui/foundations'
 import {
-  borders,
-  color,
-  shapes,
-  spacings,
-  typography
-} from '@cromaui/foundations'
-import { FLEX_BETWEEN, FLEX_CENTER, FLEX_END } from '../../globals/globals'
+  FLEX_BETWEEN,
+  FLEX_CENTER,
+  FLEX_END,
+  FONT_BODY_SM,
+  FONT_CAPTION,
+  FONT_TYPE_REGULAR,
+  FONT_TYPE_SEMIBOLD
+} from '../../globals/globals'
 import { neutral } from '@cromaui/foundations/dist/colors'
 
 /* =============================================
@@ -24,14 +26,8 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
   // Label que contiene el texto label del componente + Input area
   & label {
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    font-family: 'OpenSans';
-    font-size: ${typography.body.sm.semibold.fontSize};
-    text-decoration: ${typography.body.sm.semibold.textDecoration};
-    font-weight: ${typography.body.sm.semibold.fontWeight};
-    font-style: ${typography.body.sm.semibold.fontStyle};
-    font-stretch: ${typography.body.sm.semibold.fontStretch};
-    letter-spacing: ${typography.body.sm.semibold.letterSpacing};
-    line-height: ${typography.body.sm.semibold.lineHeight};
+    ${FONT_CAPTION}
+    ${FONT_TYPE_SEMIBOLD}
     background-color: ${color.neutral[50]};
 
     /* ---------- Input area  (div) ---------- */
@@ -76,14 +72,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
       /* ---------- Input  (input) ---------- */
       // El input en cuestión, se remueven bordes ya que el input area se encarga del estilo
       & > input {
-        font-family: 'OpenSans';
-        font-size: ${typography.body.sm.regular.fontSize};
-        text-decoration: ${typography.body.sm.regular.textDecoration};
-        font-weight: ${typography.body.sm.regular.fontWeight};
-        font-style: ${typography.body.sm.regular.fontStyle};
-        font-stretch: ${typography.body.sm.regular.fontStretch};
-        letter-spacing: ${typography.body.sm.regular.letterSpacing};
-        line-height: ${typography.body.sm.regular.lineHeight};
+        ${FONT_BODY_SM}
         width: 100%;
         border: none;
         cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -112,26 +101,14 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
       ${FLEX_CENTER}
       align-items: flex-start;
       color: ${({ error }) => (error ? color.error.main : neutral[800])};
-      font-family: 'OpenSans';
-      font-size: ${typography.caption.regular.fontSize};
-      text-decoration: ${typography.caption.regular.textDecoration};
-      font-weight: ${typography.caption.regular.fontWeight};
-      font-style: ${typography.caption.regular.fontStyle};
-      font-stretch: ${typography.caption.regular.fontStretch};
-      letter-spacing: ${typography.caption.regular.letterSpacing};
-      line-height: ${typography.caption.regular.lineHeight};
+      ${FONT_CAPTION}
+      ${FONT_TYPE_REGULAR}
     }
 
     /* ---------- Character count (span) ---------- */
     & > span:last-of-type {
-      font-family: 'OpenSans';
-      font-size: ${typography.caption.regular.fontSize};
-      text-decoration: ${typography.caption.regular.textDecoration};
-      font-weight: ${typography.caption.regular.fontWeight};
-      font-style: ${typography.caption.regular.fontStyle};
-      font-stretch: ${typography.caption.regular.fontStretch};
-      letter-spacing: ${typography.caption.regular.letterSpacing};
-      line-height: ${typography.caption.regular.lineHeight};
+      ${FONT_CAPTION}
+      ${FONT_TYPE_REGULAR}
     }
   }
 `
