@@ -1,10 +1,10 @@
 export type PinInputPropsTypes = {
     length: number
-    disabled: boolean
+    disabled?: boolean
     title?: string
-    label: string
-    type: string
+    label?: string
+    type?: string
     errorMessage?: string
-    error: boolean
+    error?: boolean
     onComplete: (pin: string) => void
 }

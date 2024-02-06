@@ -64,7 +64,7 @@ const PinInput: React.FC<PinInputPropsTypes> = ({ length, onComplete, disabled, 
   };
 
   return (
-    <StyledPinInput onComplete={onComplete} disabled={disabled} length={length} error={error} label={label} type={type}>
+    <StyledPinInput onComplete={onComplete} length={length}>
       {title && <p className='title'>{title}</p>}
       <div className='content-input'>
         {code.map((digit, index) => (
@@ -85,8 +85,8 @@ const PinInput: React.FC<PinInputPropsTypes> = ({ length, onComplete, disabled, 
       </div>
       {label && (
         <label>
-          <StyledLabel onComplete={onComplete} disabled={disabled} length={length} error={error} label={label} type={type}>
-            <StyledLabelIcon onComplete={onComplete} disabled={disabled} length={length} error={error} label={label} type={type}>
+          <StyledLabel onComplete={onComplete} length={length}>
+            <StyledLabelIcon onComplete={onComplete} length={length}>
               {error && (
                 <Icon
                   name="info_outlined"
