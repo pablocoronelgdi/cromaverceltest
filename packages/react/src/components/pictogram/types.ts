@@ -1,8 +1,8 @@
-import type { LogoCatalog } from '@cromaui/assets'
+import type { PictogramCatalog } from '@cromaui/assets'
 import type { ReactNode } from 'react'
 
-export type LogoPropTypes = {
-  name?: LogoCatalog
+export type PictoGramPropTypes = {
+  name?: PictogramCatalog
   width?: number | string
   height?: number | string
   colorPrimary?: string

@@ -13,16 +13,20 @@ import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
 import { Logo } from './components/logo'
+import { Pictogram } from './components/pictogram'
+import { Illustration } from './components/illustration'
 
 export {
   Badge,
   Button,
   Checkbox,
   Icon,
+  Illustration,
   Image,
   Link,
-  ProgressBar,
   Logo,
+  Pictogram,
+  ProgressBar,
   Radio,
   RoundedImage,
   Spinner,

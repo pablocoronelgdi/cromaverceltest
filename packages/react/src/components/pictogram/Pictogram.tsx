@@ -1,9 +1,9 @@
 import React from 'react'
-import type { LogoPropTypes } from './types'
+import type { PictoGramPropTypes } from './types'
 import { color } from '@cromaui/foundations'
 import AssetLoader from '../assetLoader/AssetLoader'
 
-const Logo: React.FC<LogoPropTypes> = ({
+const Pictogram: React.FC<PictoGramPropTypes> = ({
   name,
   width = 'auto',
   height = 'auto',
@@ -16,7 +16,7 @@ const Logo: React.FC<LogoPropTypes> = ({
   ) : (
     <AssetLoader
       name={name}
-      type={'logo'}
+      type={'pictogram'}
       width={width}
       height={height}
       colorPrimary={colorPrimary}
@@ -25,4 +25,4 @@ const Logo: React.FC<LogoPropTypes> = ({
   )
 }
 
-export default Logo
+export default Pictogram
