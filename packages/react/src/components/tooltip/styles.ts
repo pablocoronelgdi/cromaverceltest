@@ -1,39 +1,76 @@
 import { color, shapes, spacings } from '@cromaui/foundations'
 import styled, { css, type RuleSet } from 'styled-components'
-import type { TooltipPositionTypes } from './types'
+import type { TooltipArrowPositionTypes, TooltipPositionTypes } from './types'
+import { FONT_BODY_SM } from '../../globals/globals'
 
-const getTooltipPosition = (position: string): RuleSet<object> => {
+const getTooltipPosition = (position: string, arrowPosition: string): RuleSet<object> => {
   switch (position) {
     case 'top':
       return css`
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 150%;
+        left: ${arrowPosition === 'start' ? '0' : arrowPosition === 'middle' ? '50%' : '100%'};
+        transform: ${arrowPosition === 'start'
+          ? 'translateX(0)'
+          : arrowPosition === 'middle'
+          ? 'translateX(-50%)'
+          : 'translateX(-100%)'};
       `
     case 'right':
       return css`
         top: 50%;
         left: 100%;
-        transform: translateY(-50%);
       `
     case 'bottom':
       return css`
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 150%;
+        left: ${arrowPosition === 'start' ? '0' : arrowPosition === 'middle' ? '50%' : '100%'};
+        transform: ${arrowPosition === 'start'
+          ? 'translateX(0)'
+          : arrowPosition === 'middle'
+          ? 'translateX(-50%)'
+          : 'translateX(-100%)'};
       `
     case 'left':
       return css`
         top: 50%;
         right: 100%;
-        transform: translateY(-50%);
       `
     default:
       return css``
   }
 }
 
-export const TooltipContainer = styled.div<TooltipPositionTypes>`
+const getTooltipArrowPosition = (position: string, arrowPosition: string): RuleSet<object> => {
+  switch (position) {
+    case 'top':
+      return css`
+        top: 100%;
+        left: ${arrowPosition === 'start' ? '5%' : arrowPosition === 'middle' ? '50%' : '90%'};
+      `
+    case 'right':
+      return css`
+        right: 98%;
+        top: ${arrowPosition === 'start' ? '10%' : arrowPosition === 'middle' ? '50%' : '90%'};
+        transform: rotate(90deg);
+      `
+    case 'bottom':
+      return css`
+        bottom: 100%;
+        left: ${arrowPosition === 'start' ? '10%' : arrowPosition === 'middle' ? '50%' : '90%'};
+        transform: rotate(180deg);
+      `
+
+    case 'left':
+      return css`
+        left: 100%;
+        top: ${arrowPosition === 'start' ? '10%' : arrowPosition === 'middle' ? '50%' : '90%'};
+        transform: rotate(270deg);
+      `
+    default:
+      return css``
+  }
+}
+export const TooltipContainer = styled.div<TooltipPositionTypes & TooltipArrowPositionTypes>`
   position: relative;
   display: inline-block;
 
@@ -45,21 +82,24 @@ export const TooltipContainer = styled.div<TooltipPositionTypes>`
     padding: ${spacings.space8};
     z-index: 1;
     display: block;
-    ${({ position }) => getTooltipPosition(position)}
-    &:before {
-      content: '';
-      width: 0;
-      height: 0;
-      left: 40px;
-      top: 20px;
-      position: absolute;
-      border: 10px solid transparent;
-      transform: rotate(135deg);
-      transition: border 0.4s ease-in-out;
-      background-color: ${color.neutral[800]};
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: max-content;
+    max-width: 380px;
+    ${({ position, arrowPosition }) =>
+      getTooltipPosition(position as string, arrowPosition as string)};
+    & span {
+      ${FONT_BODY_SM}
     }
-  }
-  &:hover .tooltip {
-    display: block;
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      ${({ position, arrowPosition }) =>
+        getTooltipArrowPosition(position as string, arrowPosition as string)}
+      border-width: 8px;
+      border-style: solid;
+      border-color: ${color.neutral[800]} transparent transparent transparent;
+    }
   }
 `
