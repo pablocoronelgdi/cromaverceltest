@@ -6,77 +6,77 @@ const meta: Meta<typeof Image> = {
   component: PinInput,
   tags: ['autodocs'],
   argTypes: {
-    type: { 
-      description: "Se aplica el type o tipo de input a mostrar (text, password)",
+    type: {
+      description: 'Se aplica el type o tipo de input a mostrar (text, password)',
       options: ['text', 'password'],
-      control: { 
+      control: {
         type: 'select',
         table: {
           defaultValue: { summary: "'text'" },
           type: { summary: 'string' }
         }
-      } 
+      }
     },
-    length: { 
-      description: "Maneja la cantidad de bloques o inputs a mostrar para llenar",
-      control: { 
+    length: {
+      description: 'Maneja la cantidad de bloques o inputs a mostrar para llenar',
+      control: {
         type: 'number',
         table: {
           defaultValue: { summary: 6 },
           type: { summary: 'number' }
         }
-      } 
+      }
     },
-    title: { 
-      description: "Se le puede agregar un título al componente pin input",
-      control: { 
+    title: {
+      description: 'Se le puede agregar un título al componente pin input',
+      control: {
         type: 'text',
         table: {
-          defaultValue: { summary: "Título de ejemplo" },
+          defaultValue: { summary: 'Título de ejemplo' },
           type: { summary: 'string' }
         }
-      } 
+      }
     },
-    label: { 
-      description: "Se le puede agregar un label o mensaje al componente",
-      control: { 
+    label: {
+      description: 'Se le puede agregar un label o mensaje al componente',
+      control: {
         type: 'text',
         table: {
-          defaultValue: { summary: "Supporting text" },
+          defaultValue: { summary: 'Supporting text' },
           type: { summary: 'string' }
         }
-      } 
+      }
     },
-    errorMessage: { 
-      description: "Se le puede agregar un mensaje de error en remplazo del default label al componente",
-      control: { 
+    errorMessage: {
+      description: 'Se le puede agregar un mensaje de error en remplazo del default label al componente',
+      control: {
         type: 'text',
         table: {
-          defaultValue: { summary: "¡El código cargado no es correcto!" },
+          defaultValue: { summary: '¡El código cargado no es correcto!' },
           type: { summary: 'string' }
         }
-      } 
+      }
     },
-    error: { 
-      description: "Activa el estado error para mostrar mensaje y styles para ese caso",
-      control: { 
+    error: {
+      description: 'Activa el estado error para mostrar mensaje y styles para ese caso',
+      control: {
         type: 'boolean',
         table: {
           defaultValue: { summary: false },
           type: { summary: 'boolean' }
         }
-      } 
+      }
     },
-    disabled: { 
-      description: "Activa el estado disabled para impedir poder llenar los campos",
-      control: { 
+    disabled: {
+      description: 'Activa el estado disabled para impedir poder llenar los campos',
+      control: {
         type: 'boolean',
         table: {
           defaultValue: { summary: false },
           type: { summary: 'boolean' }
         }
-      } 
-    },
+      }
+    }
   }
 }
 
@@ -122,7 +122,7 @@ export const Disabled: Story = {
 export const Password: Story = {
   args: {
     length: 6,
-    type: "password",
-    label: 'Validá tu idenatidad',
+    type: 'password',
+    label: 'Validá tu idenatidad'
   }
 }
