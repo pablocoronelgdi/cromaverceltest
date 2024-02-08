@@ -1,8 +1,11 @@
 import type { ReactNode } from 'react'
 
+export type AdjustementTyoes = {
+  oposite: string
+  others: string[]
+}
 export type BorderPositions = 'top' | 'right' | 'bottom' | 'left'
-type LinePositions = 'start' | 'middle' | 'end'
-
+export type LinePositions = 'start' | 'middle' | 'end'
 export type TooltipPositionTypes = {
   position: BorderPositions
 }

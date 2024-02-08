@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect, type SetStateAction } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import type { BorderPositions, TooltipPropTypes } from './types'
 import { TooltipContainer } from './styles'
-
+import { checkSpaceAndAdjust } from './functions'
 const Tooltip: React.FC<TooltipPropTypes> = ({
-  position,
+  position = 'right',
   label,
   children,
   arrowPosition = 'middle'
@@ -14,44 +14,38 @@ const Tooltip: React.FC<TooltipPropTypes> = ({
   const tooltipRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const checkSpaceAndAdjust = (): void => {
-      if (isVisible) {
-        if (tooltipRef.current) {
-          const tooltipRect = tooltipRef.current.getBoundingClientRect()
-          const adjustments: Record<string, { oposite: string; others: string[] }> = {
-            top: { oposite: 'bottom', others: ['left', 'right'] },
-            right: { oposite: 'left', others: ['top', 'bottom'] },
-            bottom: { oposite: 'top', others: ['left', 'right'] },
-            left: { oposite: 'left', others: ['top', 'bottom'] }
-          }
-          console.log(tooltipRect)
-          console.log(window.innerWidth)
-          console.log(window.innerWidth < tooltipRect.right)
-
-          if (tooltipRect[position] < 0) {
-            setAdjustedPosition(
-              adjustments[adjustedPosition].oposite as SetStateAction<BorderPositions>
-            )
-            adjustments[adjustedPosition].others.forEach((item: BorderPositions) => {
-              if (tooltipRect[item] - window.innerWidth < 1 && arrowPosition !== 'middle') {
-                item === 'left' || item === 'top'
-                  ? setAdjustedArrow('end')
-                  : setAdjustedArrow('start')
-              }
-            })
-          }
-        }
-      } else {
-        setAdjustedPosition(position)
-        setAdjustedArrow(arrowPosition)
-      }
+    if (isVisible) {
+      checkSpaceAndAdjust(
+        tooltipRef,
+        setAdjustedPosition,
+        setAdjustedArrow,
+        position,
+        adjustedPosition
+      )
+    } else {
+      setAdjustedPosition(position)
+      setAdjustedArrow(arrowPosition)
     }
 
-    checkSpaceAndAdjust()
-
-    window.addEventListener('resize', checkSpaceAndAdjust)
+    window.addEventListener('resize', () => {
+      checkSpaceAndAdjust(
+        tooltipRef,
+        setAdjustedPosition,
+        setAdjustedArrow,
+        position,
+        adjustedPosition
+      )
+    })
     return () => {
-      window.removeEventListener('resize', checkSpaceAndAdjust)
+      window.removeEventListener('resize', () => {
+        checkSpaceAndAdjust(
+          tooltipRef,
+          setAdjustedPosition,
+          setAdjustedArrow,
+          position,
+          adjustedPosition
+        )
+      })
     }
   }, [position, isVisible])
 
@@ -66,13 +60,12 @@ const Tooltip: React.FC<TooltipPropTypes> = ({
     <TooltipContainer
       position={adjustedPosition}
       arrowPosition={adjustedArrow}
-      style={{ position: 'relative', display: 'inline-block' }}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
     >
       {children}
       {isVisible && (
-        <div className="croma_tooltip" ref={tooltipRef}>
+        <div className="croma_tooltip_text" ref={tooltipRef}>
           <span>{label}</span>
         </div>
       )}
