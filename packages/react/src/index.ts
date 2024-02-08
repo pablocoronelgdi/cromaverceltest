@@ -30,6 +30,6 @@ export {
   Switch,
   TextArea,
   TextField,
-  Tooltip,
-  ThemeWrapper
+  ThemeWrapper,
+  Tooltip
 }
