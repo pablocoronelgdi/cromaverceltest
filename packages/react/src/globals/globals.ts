@@ -30,6 +30,12 @@ export const FLEX_COLUMN_CENTER = css`
   justify-content: center;
   align-self: center;
 `
+export const FLEX_COLUMN_START = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+`
 
 // Typography
 export const FONT_DISPLAY_XL = css`
