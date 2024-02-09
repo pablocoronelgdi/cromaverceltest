@@ -1,4 +1,3 @@
-
 import Agro from './agro.svg'
 import BankLimited from './bank-limited.svg'
 import BankLimitedVertical from './bank-limited-vertical.svg'
@@ -19,22 +18,22 @@ import Tagline from './tagline.svg'
 import Wink from './wink.svg'
 
 export {
-    Agro, 
-    BankLimited,
-    BankLimitedVertical,
-    ClickDePagoWhite,
-    ClickDePago,
-    Fiducia,
-    Fondos,
-    Iso,
-    MacroHorizontal, 
-    MacroTagLine,
-    MacroVertical,
-    Premia,
-    PremiaGold,
-    Privado,
-    Securities,
-    Selecta,
-    Tagline,
-    Wink
+  Agro,
+  BankLimited,
+  BankLimitedVertical,
+  ClickDePagoWhite,
+  ClickDePago,
+  Fiducia,
+  Fondos,
+  Iso,
+  MacroHorizontal,
+  MacroTagLine,
+  MacroVertical,
+  Premia,
+  PremiaGold,
+  Privado,
+  Securities,
+  Selecta,
+  Tagline,
+  Wink
 }
