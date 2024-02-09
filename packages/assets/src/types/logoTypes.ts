@@ -1,5 +1,5 @@
-export type LogoCatalog =
-'MacroTagLine' |
+export type LogoCatalog = 
+'MacroTagLine' | 
 'Agro' |
 'BankLimited' |
 'BankLimitedVertical' |
@@ -18,4 +18,4 @@ export type LogoCatalog =
 'Selecta' |
 'Tagline' |
 'Wink' |
-undefined
+undefined   
