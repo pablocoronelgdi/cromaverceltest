@@ -4,6 +4,7 @@ import { Checkbox } from './components/checkbox'
 import { Icon } from './components/icon'
 import { Image } from './components/image'
 import { Link } from './components/link'
+import { ListItem } from './components/listitem'
 import { PinInput } from './components/pin-input'
 import { ProgressBar } from './components/progressbar'
 import { Radio } from './components/radio'
@@ -22,6 +23,7 @@ export {
   Icon,
   Image,
   Link,
+  ListItem,
   PinInput,
   ProgressBar,
   Radio,
