@@ -264,7 +264,7 @@ body {
 *,*::before,*::after {
     box-sizing: inherit
 }
-p, h2, h3, h4, h5, h6, span {
+p, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 h1{
