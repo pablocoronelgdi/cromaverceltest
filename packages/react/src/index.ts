@@ -13,6 +13,7 @@ import { Switch } from './components/switch'
 import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
+import { Tooltip } from './components/tooltip'
 
 export {
   Badge,
@@ -29,5 +30,6 @@ export {
   Switch,
   TextArea,
   TextField,
-  ThemeWrapper
+  ThemeWrapper,
+  Tooltip
 }

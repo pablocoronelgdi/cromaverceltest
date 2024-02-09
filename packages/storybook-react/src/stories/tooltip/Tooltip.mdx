@@ -1,0 +1,35 @@
+import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
+import * as TooltipStories from './Tooltip.stories';
+
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+Los tooltips son contenidos que explican conceptos, imágenes o íconos complejos.
+Muestran información que no es imprescindible para la experiencia. Por eso se oculta detrás de una acción.
+<br />
+
+<Primary />
+
+## Información Importante
+El tooltip intentará en lo posible no superar los limites del viewport. Por lo cual si se le ordena renderizarse
+a la izquierda de un elemento y no tiene espacio, se ubicara a la derecha. Es por eso que a veces su comportamiento
+puede parecer que no obedece las props indicadas. 
+<br />
+<br />
+
+## Usos
+
+### Posicionamiento
+En combinacion con la propiedad "position" y "arrowPosition" se pueden lograr diferentes combinaciones respecto
+a la ubicación del Tooltip respecto a la posicion de su elemento relativo .
+
+<Story of={TooltipStories.SimpleTooltipGrid} />
+<Source of={TooltipStories.SimpleTooltipGrid} />
+
+## Props
+El componente Tooltip los siguientes parametros:
+
+<ArgTypes />
+
