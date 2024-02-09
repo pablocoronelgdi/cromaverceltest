@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {
   FLEX_START,
-  FLEX_BETWEEN,
+  FLEX_BETWEEN_COLUMN,
   FLEX_COLUMN_START,
   FONT_HEADING_MD,
   FONT_BODY_SM,
@@ -92,7 +92,7 @@ export const StyledPinInput = styled.div<PinInputPropsTypes>`
 
 export const StyledLabel = styled.div<PinInputPropsTypes>`
   width: 100%;
-  ${FLEX_BETWEEN}
+  ${FLEX_BETWEEN_COLUMN}
 `
 
 export const StyledLabelIcon = styled.div<PinInputPropsTypes>`
