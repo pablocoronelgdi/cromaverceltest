@@ -16,6 +16,7 @@ html {
 }
 * {
   box-sizing: border-box;
+  font-family: 'Public Sans';
   margin: 0;
 }
 *::before,
