@@ -5,6 +5,7 @@ import { Icon } from './components/icon'
 import { Image } from './components/image'
 import { Link } from './components/link'
 import { ListItem } from './components/listitem'
+import { Logo } from './components/logo'
 import { PinInput } from './components/pin-input'
 import { ProgressBar } from './components/progressbar'
 import { Radio } from './components/radio'
@@ -15,6 +16,7 @@ import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
 import { Tooltip } from './components/tooltip'
+
 
 export {
   Badge,
