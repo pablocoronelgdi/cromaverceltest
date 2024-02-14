@@ -18,7 +18,18 @@ export const FLEX_END = css`
   justify-content: flex-end;
   align-items: center;
 `
+export const FLEX_AROUND = css`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
 export const FLEX_BETWEEN = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+`
+export const FLEX_BETWEEN_COLUMN = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,6 +40,12 @@ export const FLEX_COLUMN_CENTER = css`
   flex-direction: column;
   justify-content: center;
   align-self: center;
+`
+export const FLEX_COLUMN_START = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
 `
 
 // Typography
@@ -239,14 +256,17 @@ ${normalize()}
 
 html{
    ${FONT_BODY_MD}
-    box-sizing: border-box
+    box-sizing: border-box;
 }
-
+body {
+  background-color: #f2f2f2;
+}
 *,*::before,*::after {
     box-sizing: inherit
 }
-
-
+p, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
 h1{
   ${FONT_DISPLAY_XL}
 }

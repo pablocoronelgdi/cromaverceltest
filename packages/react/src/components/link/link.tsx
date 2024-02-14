@@ -45,8 +45,8 @@ const Link: React.FC<LinkPropsTypes> = ({
 
   return (
     <StyledLink
-      link={disabled ? '#' : link}
-      href={disabled ? '#' : link}
+      link={disabled ? '' : link}
+      href={disabled ? '' : link}
       alt={alt}
       title={title}
       content={content}

@@ -7,7 +7,7 @@ export type LinkPropsTypes = {
   title: string
   iconRight?: boolean
   iconLeft?: boolean
-  iconName: string
+  iconName?: string
   className?: string
   target?: unknown
   disabled?: boolean
