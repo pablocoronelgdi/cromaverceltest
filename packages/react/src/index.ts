@@ -26,6 +26,7 @@ export {
   ListItem,
   PinInput,
   ProgressBar,
+  Logo,
   Radio,
   RoundedImage,
   Spinner,
