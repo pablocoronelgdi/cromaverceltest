@@ -5,7 +5,6 @@ import AssetLoader from '../assetLoader/AssetLoader'
 
 const Logo: React.FC<LogoPropTypes> = ({
   name,
-  width = 'auto',
   height = 'auto',
   colorPrimary = color.navy.main,
   colorSecondary = color.neutral[50],
@@ -17,7 +16,7 @@ const Logo: React.FC<LogoPropTypes> = ({
     <AssetLoader
       name={name}
       type={'logo'}
-      width={width}
+      width="auto"
       height={height}
       colorPrimary={colorPrimary}
       colorSecondary={colorSecondary}

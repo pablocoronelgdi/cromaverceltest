@@ -2,7 +2,6 @@ export const logoMap = [
   'Agro',
   'BankLimited',
   'BankLimitedVertical',
-  'ClickDePagoWhite',
   'ClickDePago',
   'Fiducia',
   'Fondos',
@@ -11,9 +10,8 @@ export const logoMap = [
   'MacroTagLine',
   'MacroVertical',
   'Premia',
-  'PremiaGold',
-  'Privado',
   'Securities',
+  'SelectaPrivado',
   'Selecta',
   'Tagline',
   'Wink'

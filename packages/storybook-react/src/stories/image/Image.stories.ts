@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Image } from '@cromaui/react'
 
 const meta: Meta<typeof Image> = {
-  title: 'Images',
+  title: 'Assets/Images',
   component: Image,
   tags: ['autodocs'],
   argTypes: {

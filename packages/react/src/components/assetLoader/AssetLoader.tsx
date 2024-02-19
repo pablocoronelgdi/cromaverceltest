@@ -28,7 +28,7 @@ const AssetLoader: React.FC<AssetPropTypes> = ({
   children
 }) => {
   const sanitizedChildren = sanitizeChildren(children)
-  const svgTemplate = getAsset(name)
+  const svgTemplate = getAsset(name, 'logo')
   const replacedSvg = svgTemplate
     .replaceAll(/colorPrimary/g, colorPrimary)
     .replaceAll(/colorSecondary/g, colorSecondary)

@@ -20,6 +20,9 @@ const getAsset = (name: AssetName, type: string | undefined): string => {
     case 'pictogram':
       asset = importedPictograms[name as string]
       return asset ? asset.toString() : 'Svg not found'
+    case 'logo':
+      asset = importedLogo[name as string]
+      return asset ? asset.toString() : 'Svg not found'
     default:
       asset = importedLogo[name as string]
       return asset ? asset.toString() : 'Svg not found'
