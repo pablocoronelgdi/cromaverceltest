@@ -1,0 +1,20 @@
+import { Meta, Story,Stories,Source } from '@storybook/blocks';
+import * as LogoStories from './Logos.stories';
+
+<Meta of={LogoStories} />
+
+
+### Default
+<Story of={LogoStories.DocLogoDefault} />
+<Source of={LogoStories.DocLogoDefault} />
+
+### Logo with imported SVG
+<Story of={LogoStories.DocLogoWithImportedSVG} />
+<Source of={LogoStories.DocLogoWithImportedSVG} />
+
+### Logo with html children
+<Story of={LogoStories.DocLogoWithChildren} />
+<Source of={LogoStories.DocLogoWithChildren} />
+
+
+
