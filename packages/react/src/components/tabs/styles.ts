@@ -39,7 +39,7 @@ export const TabContainer = styled.div<TabsItemProps>`
     background: ${color.neutral[50]};
     height: 100%;
     z-index: 2;
-    display: flex!important;
+    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -52,7 +52,6 @@ export const TabContainer = styled.div<TabsItemProps>`
     z-index: 2;
     background: ${color.neutral[50]};
     height: 100%;
-    z-index: 2;
     display: flex!important;
     justify-content: center;
     align-items: center;
@@ -81,10 +80,11 @@ export const Tab = styled.div<TabsItemProps>`
     background: ${color.blue.extraSoft};
    }
 
-  p {
+  span.label {
     color: ${(props) => (props.active ? color.neutral[900] : color.neutral[700])};
     ${(props) => (props.active ? FONT_BODY_MD : FONT_BODY_SM)};
     ${(props) => (props.active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+    margin: 0 ${spacings.space4}
   }
 `
 export const TabContent = styled.div<TabsItemProps>`

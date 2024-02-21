@@ -110,7 +110,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
                       onClick={() => { handleTabClick(index) }}
                     >
                         <Flex tabs={tabs} vertical={vertical}>
-                            {iconLeft && <Icon name={`${tab.iconLeftName}`} size='small'/>}<p>{label && tab.label}</p>{iconRight && <Icon name={`${tab.iconRightName}`} size='small'/>}
+                            {iconLeft && <Icon name={`${tab.iconLeftName}`} size='small'/>}
+                            <span className='label'>{label && tab.label}</span>
+                            {iconRight && <Icon name={`${tab.iconRightName}`} size='small'/>}
                         </Flex>
                     </Tab>
                 </Foco>
@@ -134,7 +136,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
               onClick={() => { handleTabClick(index) }}
             >
                 <Flex tabs={tabs} vertical={vertical}>
-                    {iconLeft && <Icon name={`${tab.iconLeftName}`} size='medium'/>}<p>{label && tab.label}</p>{iconRight && <Icon name={`${tab.iconRightName}`} size='medium'/>}
+                    {iconLeft && <Icon name={`${tab.iconLeftName}`} size='medium'/>}
+                    <span className='label'>{label && tab.label}</span>
+                    {iconRight && <Icon name={`${tab.iconRightName}`} size='medium'/>}
                 </Flex>
             </Tab>
           </Foco>
