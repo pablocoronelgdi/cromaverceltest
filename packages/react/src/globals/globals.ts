@@ -39,7 +39,7 @@ export const FLEX_COLUMN_CENTER = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 `
 export const FLEX_COLUMN_START = css`
   display: flex;
