@@ -4,7 +4,7 @@ import LogoAgro from './agro.svg'
 import { color } from '@cromaui/foundations'
 
 const meta = {
-  title: 'Assets/Logos',
+  title: 'Assets/Logo',
   component: Logo,
   argTypes: {
     name: {
@@ -53,9 +53,9 @@ const meta = {
     colorSecondary: {
       control: { type: 'text' },
       description:
-        'El color secondary debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo. Es importante aclarar que no todos los logos tienen color secundario',
+        'El color secondary solo se debe usar en Logos que necesiten 2 colores, debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo. Es importante aclarar que no todos los logos tienen color secundario',
       table: {
-        defaultValue: { summary: color.navy.main },
+        defaultValue: { summary: color.green.main },
         type: { summary: 'string' }
       }
     },
@@ -64,27 +64,6 @@ const meta = {
       description:
         'El children se debe usar en caso de no tener el Logo dentro del Content Design System. Puede ser un SVG o un link',
       table: {
-        defaultValue: {
-          summary: `
-        <svg width="142" height="40" viewBox="0 0 142 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_2542_5506)">
-        <path d="M23.5312 14.1094C15.4572 14.1094 8.77223 20.3577 8.31005 28.3347C8.29728 28.5339 8.36878 28.7254 8.50922 28.871C8.64966 29.0165 8.84628 29.1008 9.048 29.1008H14.4256C14.8086 29.1008 15.1227 28.8097 15.1584 28.4241C15.5644 24.1241 19.1648 20.8812 23.5312 20.8812C27.8977 20.8812 31.4955 24.1241 31.9015 28.4241C31.9372 28.8097 32.2539 29.1008 32.6369 29.1008H38.0119C38.2136 29.1008 38.4128 29.0165 38.5533 28.871C38.6937 28.7254 38.7626 28.5339 38.7524 28.3347C38.2928 20.3577 31.6078 14.1094 23.5363 14.1094" fill="#111111"/>
-        <path d="M23.531 22.36C19.7187 22.36 16.6162 25.4344 16.6162 29.211C16.6162 32.9875 19.7187 36.0644 23.531 36.0644C27.3433 36.0644 30.4458 32.9901 30.4458 29.211C30.4458 25.4318 27.3433 22.36 23.531 22.36Z" fill="#111111"/>
-        <path d="M23.5307 5.88235C17.3947 5.88235 11.5856 8.20856 7.17321 12.432C2.77105 16.6426 0.225245 22.2935 0.000540209 28.3375C-0.00712018 28.5418 0.0669302 28.7333 0.207371 28.8788C0.347811 29.0244 0.536767 29.1035 0.738491 29.1035H6.07778C6.47101 29.1035 6.7953 28.7997 6.81318 28.409C7.23705 19.5587 14.5808 12.6286 23.5307 12.6286C32.4806 12.6286 39.8218 19.5613 40.2482 28.409C40.2661 28.7971 40.5878 29.1035 40.9811 29.1035H46.3203C46.5221 29.1035 46.7085 29.0244 46.8515 28.8788C46.9919 28.7333 47.0659 28.5418 47.0583 28.3375C46.8336 22.2935 44.2878 16.6426 39.8856 12.4294C35.4732 8.20856 29.6667 5.88235 23.5307 5.88235Z" fill="#111111"/>
-        <path d="M77.8364 7.77466H71.4603C71.3673 7.77466 71.2876 7.83576 71.2637 7.92609L67.2759 23.452H67.2228L63.3865 7.92609C63.3652 7.83576 63.2829 7.772 63.1899 7.772H56.5454C56.4391 7.772 56.3488 7.85436 56.3435 7.96063L54.97 28.444C54.9673 28.4998 54.9859 28.5529 55.0231 28.5954C55.063 28.6353 55.1161 28.6592 55.1719 28.6592H58.615C58.7239 28.6592 58.8116 28.5768 58.8169 28.4705L59.8212 11.4091H59.8557L64.396 28.5104C64.4199 28.5981 64.4996 28.6592 64.5926 28.6592H69.3429C69.4332 28.6592 69.5129 28.5981 69.5394 28.5104L74.2339 11.4091H74.2658L75.0017 28.4679C75.007 28.5768 75.0947 28.6592 75.2036 28.6592H79.2126C79.2684 28.6592 79.3215 28.6379 79.3614 28.5954C79.4012 28.5556 79.4198 28.4998 79.4172 28.444L78.041 7.96063C78.033 7.85436 77.9453 7.772 77.8391 7.772" fill="#111111"/>
-        <path d="M88.115 12.5723C86.4732 12.5723 83.9493 12.83 82.605 13.1355C82.512 13.1568 82.4482 13.2391 82.4482 13.3321V16.2306C82.4482 16.2917 82.4775 16.3502 82.5253 16.3874C82.5731 16.4245 82.6369 16.4405 82.6953 16.4272C83.6145 16.2226 85.7426 15.8746 87.8786 15.8746C91.4094 15.8746 91.5103 16.7168 91.513 18.9511H91.2021C88.0088 18.9511 84.3983 18.9378 82.5651 20.7524C81.8 21.5095 81.4121 22.535 81.4121 23.8049C81.4121 28.2576 84.9429 28.9244 88.7579 28.9802C89.106 28.9909 89.454 28.9935 89.802 28.9935C91.5847 28.9935 93.4444 28.8713 95.9285 28.6003C96.0321 28.5897 96.1091 28.5047 96.1091 28.4011V17.8964C96.1091 16.3395 95.6654 15.1174 94.794 14.2593C93.2531 12.745 90.6681 12.5617 88.1097 12.575M91.5077 22.0116V25.7682C90.7106 25.8745 90.0544 25.917 89.2866 25.917C87.488 25.917 86.2155 25.7762 86.2155 23.9537C86.2155 22.1312 87.488 21.9877 89.2866 21.9877C90.3493 21.9877 91.0932 21.9957 91.5077 22.009" fill="#111111"/>
-        <path d="M111.592 25.3033L111.321 25.3405C110.569 25.4388 109.862 25.5345 108.635 25.5345C104.604 25.5345 102.96 24.1344 102.96 20.7019C102.96 17.2694 104.551 15.957 108.635 15.957C109.551 15.957 110.369 16.0314 111.477 16.1589C111.536 16.1642 111.592 16.1456 111.637 16.1084C111.679 16.0712 111.706 16.0154 111.706 15.9596V13.2126C111.706 13.1196 111.639 13.0372 111.546 13.016C110.223 12.7211 108.698 12.5723 107.011 12.5723C100.896 12.5723 98.1592 16.5547 98.1592 20.5C98.1592 25.8108 101.536 28.9802 107.189 28.9802C108.879 28.9802 110.3 28.8208 111.669 28.4781C111.759 28.4569 111.823 28.3745 111.823 28.2815V25.5052C111.823 25.4468 111.796 25.391 111.754 25.3538C111.711 25.3166 111.65 25.298 111.594 25.3033" fill="#111111"/>
-        <path d="M124.308 12.9791C124.308 12.8675 124.218 12.7772 124.106 12.7772H123.83C122.448 12.7665 120.74 12.7612 118.256 14.1507V13.096C118.256 12.9844 118.166 12.8941 118.051 12.8941H114.335C114.223 12.8941 114.133 12.9844 114.133 13.096V28.4571C114.133 28.5687 114.223 28.6591 114.335 28.6591H118.527C118.639 28.6591 118.729 28.5687 118.729 28.4571V17.4743C120.118 16.5657 122.374 16.5763 123.87 16.571H124.106C124.218 16.571 124.308 16.4806 124.308 16.3691V12.9764V12.9791Z" fill="#111111"/>
-        <path d="M132.768 12.543C127.542 12.543 124.296 15.6912 124.296 20.7629C124.296 25.8346 127.542 28.9802 132.768 28.9802C137.72 28.9802 141.177 25.6008 141.177 20.7629C141.177 15.925 137.954 12.543 132.768 12.543ZM136.4 20.8187C136.4 24.3335 135.34 25.7682 132.739 25.7682C130.138 25.7682 129.043 24.3335 129.043 20.8187C129.043 17.3039 130.114 15.84 132.739 15.84C135.364 15.84 136.4 17.2826 136.4 20.8187Z" fill="#111111"/>
-        </g>
-        <defs>
-        <clipPath id="clip0_2542_5506">
-        <rect width="141.176" height="40" fill="white"/>
-        </clipPath>
-        </defs>
-        </svg>
-        `
-        },
         type: { summary: 'string' }
       }
     }
@@ -99,10 +78,20 @@ export const LogoDefault: Story = {
   args: {
     name: 'MacroHorizontal',
     colorPrimary: color.navy.main,
-    colorSecondary: color.green.main,
     height: 40
   }
 }
+
+export const LogoWithColorSecondary: Story = {
+  name: 'Logo con color secundario',
+  args: {
+    name: 'Premia',
+    colorPrimary: color.gold.main,
+    colorSecondary: color.black.main,
+    height: 96
+  }
+}
+
 export const LogoWithImportedSvg: Story = {
   name: 'Con svg importado',
   args: {
@@ -206,7 +195,7 @@ export const DocLogoDefault: Story = {
         dark: true,
         code: `
         return (
-          <Logo name="MacroHorizontal" height={40} />
+          <Logo name="MacroHorizontal" height={40} colorPrimary={color.navy.main} />
         )
         `
       }
@@ -219,11 +208,54 @@ export const DocLogoDefault: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Logo name="MacroHorizontal" height={40} />
+        <Logo name="MacroHorizontal" height={40} colorPrimary={color.navy.main} />
       </div>
     )
   }
 }
+
+export const DocLogoColorSecondary: Story = {
+  name: 'Logo component with colorSecondary',
+  tags: ['docs-only'],
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'tsx',
+        dark: true,
+        code: `
+        return (
+          <Logo name="Agro" height={56} colorPrimary={color.navy.main} colorSecondary={color.green.main} />
+          <Logo name="Premia" height={96} colorPrimary={color.black.main} colorSecondary={color.gold.main} />
+        )
+        `
+      }
+    }
+  },
+  args: {
+    children: 'text'
+  },
+
+  render: function Render() {
+    return (
+      <div style={{ width: '50%', padding: '1rem', display: 'flex', gap: 24 }}>
+        <Logo
+          name="Agro"
+          height={56}
+          colorPrimary={color.navy.main}
+          colorSecondary={color.green.main}
+        />
+        <Logo
+          name="Premia"
+          height={96}
+          colorPrimary={color.black.main}
+          colorSecondary={color.gold.main}
+        />
+      </div>
+    )
+  }
+}
+
 export const DocLogoWithImportedSvg: Story = {
   name: 'Logo con children SVG',
   tags: ['docs-only'],
@@ -254,8 +286,9 @@ export const DocLogoWithImportedSvg: Story = {
     )
   }
 }
+
 export const DocLogoWithChildren: Story = {
-  name: 'Logo con children SVG',
+  name: 'Logo con SVG incrustrado',
   tags: ['docs-only'],
   parameters: {
     docs: {
@@ -376,6 +409,60 @@ export const DocLogoWithChildren: Story = {
             </defs>
           </svg>
         </Logo>
+      </div>
+    )
+  }
+}
+
+export const DocAllLogos: Story = {
+  name: 'Logos disponibles',
+  tags: ['docs-only'],
+  parameters: {
+    docs: {}
+  },
+  args: {
+    children: 'text'
+  },
+
+  render: function Render() {
+    return (
+      <div style={{ width: '50%', padding: '1rem', display: 'flex', gap: 24 }}>
+        <Logo
+          name="Agro"
+          height={56}
+          colorPrimary={color.navy.main}
+          colorSecondary={color.green.main}
+        />
+        <Logo
+          name="Premia"
+          height={96}
+          colorPrimary={color.black.main}
+          colorSecondary={color.gold.main}
+        />
+        <Logo
+          name="Agro"
+          height={56}
+          colorPrimary={color.navy.main}
+          colorSecondary={color.green.main}
+        />
+        <Logo
+          name="Premia"
+          height={96}
+          colorPrimary={color.black.main}
+          colorSecondary={color.gold.main}
+        />
+        <Logo
+          name="Agro"
+          height={56}
+          colorPrimary={color.navy.main}
+          colorSecondary={color.green.main}
+        />
+        <Logo
+          name="Premia"
+          height={96}
+          colorPrimary={color.black.main}
+          colorSecondary={color.gold.main}
+        />
       </div>
     )
   }

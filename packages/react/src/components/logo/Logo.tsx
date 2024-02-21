@@ -14,7 +14,7 @@ const Logo: React.FC<LogoPropTypes> = ({
     <AssetLoader>{children}</AssetLoader>
   ) : (
     <AssetLoader
-      name={name}
+      name={name || 'MacroHorizontal'}
       type={'logo'}
       width="auto"
       height={height}
