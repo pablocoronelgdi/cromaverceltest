@@ -1,13 +1,11 @@
 import { color } from '@cromaui/foundations'
 import { Logo, ThemeWrapper } from '@cromaui/react'
-// import Cashin from './pictogram-cash.svg'
 
 function App(): JSX.Element {
   return (
     <>
       <ThemeWrapper $theme="macro">
         <div style={{ gap: 24, display: 'flex', flexDirection: 'column', padding: 24 }}>
-          {/* <Logo>{Cashin}</Logo> */}
           Macro horizontal
           <Logo name="MacroHorizontal" colorPrimary={color.navy.main} height={40} />
           <Logo name="MacroHorizontal" colorPrimary={color.navy.main} height={32} />
