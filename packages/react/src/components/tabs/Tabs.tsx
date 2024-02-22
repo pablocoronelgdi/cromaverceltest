@@ -25,30 +25,25 @@ function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Ele
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slidesToShow, label }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [focusedTab, setFocusedTab] = useState<number | null>(null)
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleTabClick = (index: number) => {
+  const handleTabClick = (index: number): void => {
     setActiveTab(index)
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleTabFocus = (index: number) => {
+  const handleTabFocus = (index: number): void => {
     setFocusedTab(index)
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleTabBlur = () => {
+  const handleTabBlur = (): void => {
     setFocusedTab(null)
   }
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    const handleResize = () => {
+    const handleResize = (): void => {
       setWindowWidth(window.innerWidth)
     }
 
