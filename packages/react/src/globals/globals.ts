@@ -25,7 +25,6 @@ export const FLEX_AROUND = css`
 `
 export const FLEX_BETWEEN = css`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-self: center;
 `
