@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import type { TextfieldPropTypes } from './types'
 import { borders, color, shapes, spacings } from '@cromaui/foundations'
 import {
+  FLEX_BETWEEN,
   FLEX_BETWEEN_COLUMN,
   FLEX_CENTER,
   FLEX_END,
@@ -89,7 +90,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
 
   // Div que envuelve el mensaje de error y el contador. Se ubica debajo del label
   & > div {
-    ${({ helperText }) => (helperText ? FLEX_BETWEEN_COLUMN : FLEX_END)}
+    ${({ helperText }) => (helperText ? FLEX_BETWEEN : FLEX_END)}
     align-items:flex-start;
     gap: ${spacings.space4};
     padding: ${spacings.space4};

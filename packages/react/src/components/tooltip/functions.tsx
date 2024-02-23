@@ -1,7 +1,7 @@
-import type { RefObject, SetStateAction } from 'react'
-import type { AdjustementTyoes, BorderPositions, LinePositions } from './types'
+import React, { Children, type ReactNode, type RefObject, type SetStateAction } from 'react'
+import type { AdjustementTypes, BorderPositions, LinePositions } from './types'
 
-const adjustments: Record<string, AdjustementTyoes> = {
+const adjustments: Record<string, AdjustementTypes> = {
   top: { oposite: 'bottom', others: ['left', 'right'] },
   right: { oposite: 'left', others: ['top', 'bottom'] },
   bottom: { oposite: 'top', others: ['left', 'right'] },
@@ -77,4 +77,55 @@ export const checkSpaceAndAdjust = (
         break
     }
   }
+}
+export const renderToogletipActions = (
+  actionLinks: ReactNode,
+  actionButtons: ReactNode
+): ReactNode => {
+  // Convertimos el JSX de las props actionLinks y actionButtons en arrays
+  let arrayChildrenLinks: ReactNode[] = actionLinks ? Children.toArray(actionLinks) : []
+  let arrayChildrenButtons: ReactNode[] = actionButtons ? Children.toArray(actionButtons) : []
+
+  // Si solo habia un children, le agregamos un fragment para siempre usar una misma estructura
+  if (arrayChildrenButtons[0]?.type !== React.Fragment) {
+    const addedFragment = <>{actionButtons}</>
+    arrayChildrenButtons = Children.toArray(addedFragment)
+  }
+  if (arrayChildrenLinks[0]?.type !== React.Fragment) {
+    const addedFragment = <>{actionLinks}</>
+    arrayChildrenLinks = Children.toArray(addedFragment)
+  }
+
+  // Filtramos por Link o por Button. Volvemos a convertir en array para evitar childrens type obj
+  arrayChildrenLinks = Children.toArray(arrayChildrenLinks[0]?.props?.children).filter(
+    (e) => e.type.name === 'Link'
+  )
+  arrayChildrenButtons = Children.toArray(arrayChildrenButtons[0]?.props?.children).filter(
+    (e) => e.type.name === 'Button'
+  )
+
+  // Unimos los arrays filtrados
+  const filteredArray = [...arrayChildrenLinks, ...arrayChildrenButtons]
+  // Objecto que usamos para contruir el return
+  const buildObj = { content: [], divClass: '', countlinks: 0, countbuttons: 0 }
+
+  filteredArray.forEach((e) => {
+    if (e.type.name === 'Link' && buildObj.countlinks < 2) {
+      buildObj.content.push(e)
+      buildObj.divClass = 'croma_toogletip_card_actions_start'
+      buildObj.countlinks++
+    }
+    if (e.type.name === 'Button' && buildObj.countlinks + buildObj.countbuttons < 2) {
+      if (buildObj.countlinks === 0) {
+        buildObj.content.push(e)
+        buildObj.divClass = 'croma_toogletip_card_actions_end'
+        buildObj.countbuttons++
+      } else {
+        buildObj.content.push(e)
+        buildObj.divClass = 'croma_toogletip_card_actions_between'
+        buildObj.countbuttons++
+      }
+    }
+  })
+  return <div className={buildObj.divClass}>{buildObj.content}</div>
 }

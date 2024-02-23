@@ -1,2 +1,3 @@
 import Tooltip from './Tooltip'
-export { Tooltip }
+import Toogletip from './Toogletip'
+export { Tooltip, Toogletip }
