@@ -26,13 +26,13 @@ export const FLEX_AROUND = css`
 export const FLEX_BETWEEN = css`
   display: flex;
   justify-content: space-between;
-  align-self: center;
+  align-items: center;
 `
 export const FLEX_BETWEEN_COLUMN = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: center;
+  align-items: center;
 `
 export const FLEX_COLUMN_CENTER = css`
   display: flex;
@@ -44,7 +44,7 @@ export const FLEX_COLUMN_START = css`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-self: flex-start;
+  align-items: flex-start;
 `
 
 // Typography

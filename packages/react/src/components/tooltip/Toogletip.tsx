@@ -42,12 +42,12 @@ const Toogletip: React.FC<Omit<ToogletipPropTypes, 'isVisible' & 'setIsVisible' 
                   <p>
                     {step} de {steps?.length}
                   </p>
-                  <Button variant="icon" iconName="close" onClick={handleClose} />
+                  <Button variant="link" iconName="close" onClick={handleClose} />
                 </div>
               )}
               <div className="croma_toogletip_card_header">
                 <p>{steps?.[step - 1]?.title || title}</p>
-                {!steps && <Button variant="icon" iconName="close" onClick={handleClose} />}
+                {!steps && <Button variant="link" iconName="close" onClick={handleClose} />}
               </div>
               <div className="croma_toogletip_card_body">
                 <p>{steps?.[step - 1]?.label || label}</p>
