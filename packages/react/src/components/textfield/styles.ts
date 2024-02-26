@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import type { TextfieldPropTypes } from './types'
 import { borders, color, shapes, spacings } from '@cromaui/foundations'
 import {
-  FLEX_BETWEEN_COLUMN,
+  FLEX_BETWEEN,
   FLEX_CENTER,
   FLEX_END,
   FONT_BODY_SM,
@@ -33,7 +33,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
     /* ---------- Input area  (div) ---------- */
     // Div que envuelve el input y el icono. Proporciona el borde visible del componente
     & > div {
-      ${({ iconName }) => (iconName ? FLEX_BETWEEN_COLUMN : FLEX_END)}
+      ${({ iconName }) => (iconName ? FLEX_BETWEEN : FLEX_END)}
       flex-direction: ${({ type, iconPosition }) =>
         iconPosition === 'right' && type === 'text' ? 'row-reverse' : 'row'};
       gap: ${spacings.space8};
@@ -51,8 +51,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
       }
       &:focus-within {
         outline: ${borders.br2};
-        outline-color: ${({ error }) =>
-          error ? color.error.main : color.blue.main};
+        outline-color: ${({ error }) => (error ? color.error.main : color.blue.main)};
       }
       ${({ error }) =>
         error &&
@@ -89,7 +88,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
 
   // Div que envuelve el mensaje de error y el contador. Se ubica debajo del label
   & > div {
-    ${({ helperText }) => (helperText ? FLEX_BETWEEN_COLUMN : FLEX_END)}
+    ${({ helperText }) => (helperText ? FLEX_BETWEEN : FLEX_END)}
     align-items:flex-start;
     gap: ${spacings.space4};
     padding: ${spacings.space4};

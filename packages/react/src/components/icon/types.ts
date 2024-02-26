@@ -5,4 +5,5 @@ export type IconPropTypes = {
   color?: string
   style?: object
   theme?: object
+  onClick?: () => void
 }
