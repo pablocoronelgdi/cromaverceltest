@@ -46,7 +46,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const TresTabs: Story = {
-  args: { tabs3 },
+  args: { tabs: tabs3 },
   decorators: [
     () => (
       <TabSegmented tabs={tabs3} />
@@ -55,7 +55,7 @@ export const TresTabs: Story = {
 }
 
 export const DosTabs: Story = {
-  args: { tabs2 },
+  args: { tabs: tabs2 },
   decorators: [
     () => (
       <TabSegmented tabs={tabs2} />
