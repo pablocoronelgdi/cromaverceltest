@@ -1,4 +1,11 @@
-import React, { Children, type ReactNode, type RefObject, type SetStateAction } from 'react'
+import React, {
+  Children,
+  type ReactElement,
+  isValidElement,
+  type ReactNode,
+  type RefObject,
+  type SetStateAction
+} from 'react'
 import type { AdjustementTypes, BorderPositions, LinePositions } from './types'
 
 const adjustments: Record<string, AdjustementTypes> = {
@@ -79,37 +86,41 @@ export const checkSpaceAndAdjust = (
   }
 }
 export const renderToogletipActions = (
-  actionLinks: ReactNode,
-  actionButtons: ReactNode
+  actionLinks: React.ReactNode,
+  actionButtons: React.ReactNode
 ): ReactNode => {
   // Convertimos el JSX de las props actionLinks y actionButtons en arrays
   let arrayChildrenLinks: ReactNode[] = actionLinks ? Children.toArray(actionLinks) : []
   let arrayChildrenButtons: ReactNode[] = actionButtons ? Children.toArray(actionButtons) : []
 
   // Si solo habia un children, le agregamos un fragment para siempre usar una misma estructura
-  if (arrayChildrenButtons[0]?.type !== React.Fragment) {
-    const addedFragment = <>{actionButtons}</>
+  if (isValidElement(arrayChildrenButtons[0]) && arrayChildrenButtons[0]?.type !== React.Fragment) {
+    const addedFragment: React.ReactNode = <>{actionButtons}</>
     arrayChildrenButtons = Children.toArray(addedFragment)
   }
-  if (arrayChildrenLinks[0]?.type !== React.Fragment) {
-    const addedFragment = <>{actionLinks}</>
+  if (isValidElement(arrayChildrenLinks[0]) && arrayChildrenLinks[0]?.type !== React.Fragment) {
+    const addedFragment: React.ReactNode = <>{actionLinks}</>
     arrayChildrenLinks = Children.toArray(addedFragment)
   }
 
+  // Para que TS no se queje de que props no existe en el elemento del array lo parseamos a ReactElement.
+  const parsedArrayChildrenLinks = arrayChildrenLinks[0] as ReactElement<any>
+  const parsedArrayChildrenButtons = arrayChildrenButtons[0] as ReactElement<any>
+
   // Filtramos por Link o por Button. Volvemos a convertir en array para evitar childrens type obj
-  arrayChildrenLinks = Children.toArray(arrayChildrenLinks[0]?.props?.children).filter(
-    (e) => e.type.name === 'Link'
-  )
-  arrayChildrenButtons = Children.toArray(arrayChildrenButtons[0]?.props?.children).filter(
-    (e) => e.type.name === 'Button'
-  )
+  arrayChildrenLinks = Children.toArray(
+    parsedArrayChildrenLinks?.props?.children as ReactElement<any>
+  ).filter((e: JSX.Element) => e.type.name === 'Link')
+  arrayChildrenButtons = Children.toArray(
+    parsedArrayChildrenButtons.props?.children as ReactElement<any>
+  ).filter((e: JSX.Element) => e.type.name === 'Button')
 
   // Unimos los arrays filtrados
   const filteredArray = [...arrayChildrenLinks, ...arrayChildrenButtons]
   // Objecto que usamos para contruir el return
-  const buildObj = { content: [], divClass: '', countlinks: 0, countbuttons: 0 }
+  const buildObj: any = { content: [], divClass: '', countlinks: 0, countbuttons: 0 }
 
-  filteredArray.forEach((e) => {
+  filteredArray.forEach((e: JSX.Element) => {
     if (e.type.name === 'Link' && buildObj.countlinks < 2) {
       buildObj.content.push(e)
       buildObj.divClass = 'croma_toogletip_card_actions_start'

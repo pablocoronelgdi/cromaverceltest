@@ -1,4 +1,4 @@
-import { color, elevations, shapes, spacings } from '@cromaui/foundations'
+import { color, elevations, opacities, shapes, spacings } from '@cromaui/foundations'
 import styled, { css, type RuleSet } from 'styled-components'
 import type { TooltipArrowPositionTypes, TooltipPositionTypes } from './types'
 import {
@@ -154,18 +154,18 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
     background-color: ${color.Info.extraSoft};
     border-radius: ${shapes.sm};
     box-shadow: ${elevations.level3};
-
     ${({ position, arrowPosition }) =>
       getTooltipPosition(position as string, arrowPosition as string)};
 
-    &:before {
+    &:after {
       content: ' ';
       color: ${color.Info.extraSoft};
       position: absolute;
       width: 0;
       height: 0;
       ${({ position, arrowPosition }) =>
-        getTooltipArrowPosition(position as string, arrowPosition as string, color.Info.extraSoft)}
+        getTooltipArrowPosition(position as string, arrowPosition as string, color.Info.extraSoft)};
+      filter: ${`drop-shadow(-2px -1px 2px ${color.neutral[900] + opacities.opacity15})`};
     }
 
     & .croma_toogletip_card_steps {

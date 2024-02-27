@@ -30,13 +30,12 @@ export type TooltipPropTypes = {
   children: ReactNode
   position: BorderPositions
   arrowPosition: LinePositions
-  isVisible?: boolean
-  setIsVisible?: React.Dispatch<React.SetStateAction<boolean>>
   tooltipref?: RefObject<any>
+  onToogletipClose?: () => void
 }
 export type ToogletipPropTypes = {
   title: string
   actionButtons?: ReactNode
   actionLinks?: ReactNode
-  steps?: Array<{ title?: string; label?: string }>
+  steps?: Array<{ title?: string, label?: string }>
 } & TooltipPropTypes

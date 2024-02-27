@@ -1,16 +1,25 @@
 import React, { useRef, useState, useEffect } from 'react'
-import type { BorderPositions, ToogletipPropTypes, TooltipPropTypes } from './types'
+import type { BorderPositions, ToogletipPropTypes } from './types'
 import { TooltipContainerStyled } from './styles'
 import { checkSpaceAndAdjust } from './functions'
 
-const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes | TooltipPropTypes> => {
-  const ComponentHoc: React.FC<ToogletipPropTypes | TooltipPropTypes> = (props) => {
+const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
+  const ComponentHoc: React.FC<ToogletipPropTypes> = (props) => {
     const [isVisible, setIsVisible] = useState<boolean>(false)
     const [adjustedPosition, setAdjustedPosition] = useState<BorderPositions>(props.position)
     const [adjustedArrow, setAdjustedArrow] = useState<'start' | 'middle' | 'end'>(
       props.arrowPosition
     )
     const tooltipRef = useRef<HTMLDivElement>(null)
+
+    const onCloseModified = (): void => {
+      if (setIsVisible) {
+        setIsVisible(false)
+      }
+      if (props.onToogletipClose) {
+        props.onToogletipClose()
+      }
+    }
 
     useEffect(() => {
       if (isVisible) {
@@ -35,6 +44,7 @@ const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes | TooltipPropTy
           adjustedPosition
         )
       })
+
       return () => {
         window.removeEventListener('resize', () => {
           checkSpaceAndAdjust(
@@ -61,12 +71,15 @@ const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes | TooltipPropTy
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
       >
-        <Component
-          {...props}
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
-          tooltipref={tooltipRef}
-        />
+        {props.children}
+        {isVisible && (
+          <Component
+            {...props}
+            setIsVisible={setIsVisible}
+            tooltipref={tooltipRef}
+            onToogletipClose={onCloseModified}
+          />
+        )}
       </TooltipContainerStyled>
     )
   }
