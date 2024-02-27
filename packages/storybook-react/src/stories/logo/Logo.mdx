@@ -1,0 +1,97 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source, IconGallery, IconItem } from '@storybook/blocks';
+import * as LogoStories from './Logo.stories';
+import { Logo } from '@cromaui/react'
+import { color } from '@cromaui/foundations'
+
+<Meta of={LogoStories} />
+
+# Logo
+
+Mediante el componente Logo se podran elegir entre una variedad de Logos del ecosistema Macro. 
+<br />
+
+<Primary />
+
+## Usos
+
+### Default
+Mediante las props "name", "height" y "colorPrimary" se puede renderizar el componente. 
+
+<Story of={LogoStories.DocLogoDefault} />
+<Source of={LogoStories.DocLogoDefault} />
+
+### Los Logos disponibles son:
+<br />
+<IconGallery>
+  <IconItem name="MacroHorizontal">
+    <Logo name="MacroHorizontal" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="MacroTagLine">
+    <Logo name="MacroTagLine" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="MacroVertical">
+    <Logo name="MacroVertical" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Iso">
+    <Logo name="Iso" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Wink">
+    <Logo name="Wink" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="ClickDePago">
+    <Logo name="ClickDePago" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Securities">
+    <Logo name="Securities" colorPrimary={color.neutral[900]} height={56} />
+  </IconItem>
+  <IconItem name="Fondos">
+    <Logo name="Fondos" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Fiducia">
+    <Logo name="Fiducia" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Premia">
+    <Logo name="Premia" colorPrimary={color.gold.main} colorSecondary={color.black.main} height={56} />
+  </IconItem>
+  <IconItem name="BankLimitedVertical">
+    <Logo name="BankLimitedVertical" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="BankLimited">
+    <Logo name="BankLimited" colorPrimary={color.navy.main} height={56} />
+  </IconItem>
+  <IconItem name="Selecta">
+    <Logo name="Selecta" colorPrimary={color.black.main} height={56} />
+  </IconItem>
+  <IconItem name="SelectaPrivado">
+    <Logo name="SelectaPrivado" colorPrimary={color.black.main} height={56} />
+  </IconItem>
+  <IconItem name="Agro">
+    <Logo name="Agro" colorPrimary={color.navy.main} colorSecondary={color.green.main} height={56} />
+  </IconItem>
+</IconGallery>
+
+### Logo con color secundario
+Algunos logos necesitan la prop "colorSecondary", ya que puede variar según la documentación.
+- "Agro"
+- "Premia"
+
+<Story of={LogoStories.DocLogoColorSecondary} />
+<Source of={LogoStories.DocLogoColorSecondary} />
+
+
+### Logo con SVG importado
+Envolviendo a un SVG importado entre el componente Logo se podría utilizar un Logo que no esté disponible en el CDS.
+
+<Story of={LogoStories.DocLogoWithImportedSvg} />
+<Source of={LogoStories.DocLogoWithImportedSvg} />
+
+### Logo con HTML como children
+Incrustando un SVG directamente entre el componente Logo se podría utilizar un Logo que no esté disponible en el CDS.
+
+<Story of={LogoStories.DocLogoWithChildren} />
+<Source of={LogoStories.DocLogoWithChildren} />
+
+## Props
+El componente Logo acepta, los siguientes parametros:
+
+<ArgTypes />

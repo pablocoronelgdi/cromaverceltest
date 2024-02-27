@@ -3,6 +3,7 @@ import type { ToogletipPropTypes } from './types'
 import TooltipHOC from './TooltipHOC'
 import { renderToogletipActions } from './functions'
 import { Button } from '../button'
+import { Icon } from '../icon'
 
 const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
   ({
@@ -34,28 +35,29 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
         <div className="croma_toogletip_card" ref={props.tooltipref}>
           {steps && (
             <div className="croma_toogletip_card_steps">
-              <p>
+              <span>
                 {step} de {steps?.length}
-              </p>
-              <Button variant="link" iconName="close" onClick={handleClose} />
+              </span>
+              <Icon name="close" onClick={handleClose} />
             </div>
           )}
           <div className="croma_toogletip_card_header">
-            <p>{steps?.[step - 1]?.title || title}</p>
-            {!steps && <Button variant="link" iconName="close" onClick={handleClose} />}
+            <span>{steps?.[step - 1]?.title || title}</span>
+            {!steps && <Icon name="close" onClick={handleClose} />}
           </div>
           <div className="croma_toogletip_card_body">
-            <p>{steps?.[step - 1]?.label || label}</p>
+            <span>{steps?.[step - 1]?.label || label}</span>
           </div>
           {!step && renderToogletipActions(actionLinks as ReactNode, actionButtons as ReactNode)}
           <div className="croma_toogletip_card_actions_end">
             {step > 1 && (
-              <Button variant="link" onClick={handleStepBack}>
+              <Button variant="text" onClick={handleStepBack} size="small">
                 Anterior
               </Button>
             )}
             <Button
               variant="filled"
+              size="small"
               onClick={!steps || step === steps.length ? handleClose : handleStepFoward}
             >
               {!steps || step === steps.length ? 'Confirmar' : 'Siguiente'}

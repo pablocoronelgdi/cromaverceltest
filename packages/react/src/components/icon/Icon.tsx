@@ -41,9 +41,9 @@ const StyledIcon = styled.span<IconPropTypes>`
   -webkit-font-smoothing: antialiased;
 `
 
-const Icon: React.FC<IconPropTypes> = ({ name = 'info', size, color }) => {
+const Icon: React.FC<IconPropTypes> = ({ name = 'info', size, color, onClick }) => {
   return (
-    <StyledIcon color={color} size={size}>
+    <StyledIcon color={color} size={size} onClick={onClick}>
       {name}
     </StyledIcon>
   )

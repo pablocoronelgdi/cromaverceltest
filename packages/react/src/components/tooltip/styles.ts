@@ -3,6 +3,7 @@ import styled, { css, type RuleSet } from 'styled-components'
 import type { TooltipArrowPositionTypes, TooltipPositionTypes } from './types'
 import {
   FLEX_BETWEEN,
+  FLEX_COLUMN_CENTER,
   FLEX_END,
   FLEX_START,
   FONT_BODY_MD,
@@ -148,7 +149,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
 
   & .croma_toogletip_card {
     position: absolute;
-    display: block;
+    ${FLEX_COLUMN_CENTER}
     width: 328px;
     padding: ${spacings.space16};
     background-color: ${color.Info.extraSoft};
@@ -170,7 +171,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
 
     & .croma_toogletip_card_steps {
       ${FLEX_BETWEEN}
-      & p {
+      & > span:first-of-type {
         ${FONT_CAPTION};
         ${FONT_TYPE_SEMIBOLD}
         color: ${color.Info.main};
@@ -178,15 +179,14 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
     }
     & .croma_toogletip_card_header {
       ${FLEX_BETWEEN}
-      align-items:flex-start;
       gap: ${spacings.space4};
-      & p {
+      & span {
         ${FONT_BODY_MD}
         ${FONT_TYPE_BOLD}
       }
     }
     & .croma_toogletip_card_body {
-      & p {
+      & span {
         ${FONT_BODY_SM}
         ${FONT_TYPE_REGULAR}
       }

@@ -38,7 +38,7 @@ export const FLEX_COLUMN_CENTER = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 `
 export const FLEX_COLUMN_START = css`
   display: flex;
@@ -165,7 +165,7 @@ export const FONT_LINK_SM = css`
   letter-spacing: ${typography.link.sm.letterSpacing};
   line-height: ${typography.link.sm.lineHeight};
 `
-export const FONT_BUTTOM_MD = css`
+export const FONT_BUTTON_MD = css`
   font-size: ${typography.button.md.fontSize};
   text-decoration: ${typography.button.md.textDecoration};
   font-family: ${typography.button.md.fontFamily};
@@ -174,7 +174,7 @@ export const FONT_BUTTOM_MD = css`
   letter-spacing: ${typography.button.md.letterSpacing};
   line-height: ${typography.button.md.lineHeight};
 `
-export const FONT_BUTTOM_SM = css`
+export const FONT_BUTTON_SM = css`
   font-size: ${typography.button.sm.fontSize};
   text-decoration: ${typography.button.sm.textDecoration};
   font-family: ${typography.button.sm.fontFamily};
@@ -285,7 +285,7 @@ h6{
   ${FONT_HEADING_SM}
 }
 button{
-${FONT_BUTTOM_MD}
+${FONT_BUTTON_MD}
 }
 
 `

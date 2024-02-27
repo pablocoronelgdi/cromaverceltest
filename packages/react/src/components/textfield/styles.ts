@@ -3,7 +3,6 @@ import type { TextfieldPropTypes } from './types'
 import { borders, color, shapes, spacings } from '@cromaui/foundations'
 import {
   FLEX_BETWEEN,
-  FLEX_BETWEEN_COLUMN,
   FLEX_CENTER,
   FLEX_END,
   FONT_BODY_SM,
@@ -34,7 +33,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
     /* ---------- Input area  (div) ---------- */
     // Div que envuelve el input y el icono. Proporciona el borde visible del componente
     & > div {
-      ${({ iconName }) => (iconName ? FLEX_BETWEEN_COLUMN : FLEX_END)}
+      ${({ iconName }) => (iconName ? FLEX_BETWEEN : FLEX_END)}
       flex-direction: ${({ type, iconPosition }) =>
         iconPosition === 'right' && type === 'text' ? 'row-reverse' : 'row'};
       gap: ${spacings.space8};
@@ -52,8 +51,7 @@ export const TextfieldContainerStyled = styled.div<TextfieldPropTypes>`
       }
       &:focus-within {
         outline: ${borders.br2};
-        outline-color: ${({ error }) =>
-          error ? color.error.main : color.blue.main};
+        outline-color: ${({ error }) => (error ? color.error.main : color.blue.main)};
       }
       ${({ error }) =>
         error &&
