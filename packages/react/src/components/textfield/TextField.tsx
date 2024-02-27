@@ -52,7 +52,7 @@ const TextField: React.FC<TextfieldPropTypes> = ({
           />
           {type === 'password' && (
             <Button
-              variant="link"
+              variant="text"
               onClick={() => {
                 if (!props.disabled) {
                   toogleVisibility()

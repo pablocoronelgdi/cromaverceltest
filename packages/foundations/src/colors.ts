@@ -1,7 +1,7 @@
 export const navy = {
   dark: '#021B4D',
   main: '#053575',
-  soft: '#92BEF2',
+  soft: '#376DB8',
   extraSoft: '#E2EFFD'
 }
 

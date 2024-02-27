@@ -14,7 +14,7 @@ import { Radio } from './components/radio'
 import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
-import { Tabs } from './components/tabs'
+import { Tabs, TabSegmented } from './components/tabs'
 import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
@@ -38,6 +38,7 @@ export {
   Spinner,
   Switch,
   Tabs,
+  TabSegmented,
   TextArea,
   TextField,
   ThemeWrapper,
