@@ -23,25 +23,24 @@ export const StyledTabContainer = styled.div<TabsItemProps>`
   background: ${color.neutral[50]};
 
   &.flex {
-    display: flex;
-    align-items: center;
+    ${FLEX_CENTER}
   }
 
   .slick-slide {
     display: flex;
 
     div {
-      width: 100%;
+      width: ${spacings.spaceFull};
       ${FLEX_CENTER}
     }
   }
   div {
-      width: 100%;
+    width: ${spacings.spaceFull};
   }
   .slick-arrow.slick-prev {
     left: 0;
     background: ${color.neutral[50]};
-    height: 100%;
+    height: ${spacings.spaceFull};
     z-index: 2;
     ${FLEX_CENTER}
 
@@ -53,7 +52,7 @@ export const StyledTabContainer = styled.div<TabsItemProps>`
     right: 0;
     z-index: 2;
     background: ${color.neutral[50]};
-    height: 100%;
+    height: ${spacings.spaceFull};
     ${FLEX_CENTER}
 
     span {
@@ -68,7 +67,7 @@ export const StyledTabContainer = styled.div<TabsItemProps>`
   }
 `
 export const Tab = styled.div<TabsItemProps>`
-  width: 100%;
+  width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
   padding: ${spacings.space8} ${spacings.space16};
@@ -99,6 +98,7 @@ export const Flex = styled.div<TabsProps>`
 /* =============================================
 =                   TABS SEGMENTED              =
 ============================================= */
+
 export const StyledTabContainerSegmented = styled.ul<TabsItemProps>`
   background: ${color.neutral[200]};
   border-radius: ${shapes.full};
@@ -108,16 +108,13 @@ export const StyledTabContainerSegmented = styled.ul<TabsItemProps>`
   &.flex {
     ${FLEX_CENTER}
   }
-  div {
-    width: 100%;
-  }
 `
 export const FlexList = styled.li<TabsProps>`
-  width: 100%;
+  width: ${spacings.spaceFull};
   ${(props) => (props.vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 `
 export const StyledTabSegmented = styled.div<TabsProps>`
-  width: 100%;
+  width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
   background: ${(props) => (props.active ? color.neutral[50] : 'transparent')};
@@ -134,10 +131,11 @@ export const FlexSegmented = styled.div<TabsProps>`
    ${(props) => (props.vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 
    span {
-    width: 100%;
+    width: ${spacings.spaceFull};
    }
 `
 export const StyledFocoSegmented = styled.div<TabsItemProps>`
+    width: ${spacings.spaceFull};
     border: ${(props) => (props.focused ? borders.br2 + color.blue.main : borders.br2 + ' transparent')};
     padding: ${spacings.space2};
     border-radius: ${shapes.full};
@@ -154,8 +152,8 @@ export const TabContent = styled.div<TabsItemProps>`
    margin-top: ${spacings.space20};
 `
 export const Divider = styled.div<TabsItemProps>`
-  width: 1px;
-  height: 20px;
+  width: ${spacings.space1};
+  height: ${spacings.space20};
   background: ${color.neutral[400]};
   margin: 0 ${spacings.space10};
   visibility: ${(props) => (props.hide ? 'hidden' : 'visible')};

@@ -45,7 +45,7 @@ const TabSegmented: React.FC<TabsProps> = ({ tabs }) => {
                   </FlexSegmented>
               </StyledTabSegmented>
             </StyledFocoSegmented>
-            {index !== tabs.length - 1 && <Divider hide={index + 1 === activeTab} style={{ width: 1, height: 28, background: 'black' }} />}
+            {index !== tabs.length - 1 && <Divider hide={index + 1 === activeTab} />}
           </FlexList>
         ))}
       </StyledTabContainerSegmented>
