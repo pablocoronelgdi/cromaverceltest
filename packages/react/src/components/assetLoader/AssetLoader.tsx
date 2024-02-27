@@ -25,18 +25,19 @@ const AssetLoader: React.FC<AssetPropTypes> = ({
   height = 'auto',
   colorPrimary = color.navy.main,
   colorSecondary = color.neutral[50],
-  children
+  children,
+  type
 }) => {
   const sanitizedChildren = sanitizeChildren(children)
-  const svgTemplate = getAsset(name, 'logo')
+  const svgTemplate = getAsset(name, type)
   const replacedSvg = svgTemplate
     .replaceAll(/colorPrimary/g, colorPrimary)
     .replaceAll(/colorSecondary/g, colorSecondary)
-    .replaceAll(/logoWidth/g, `${width}`)
-    .replaceAll(/logoHeight/g, `${height}`)
+    .replaceAll(/assetWidth/g, `${width}`)
+    .replaceAll(/assetHeight/g, `${height}`)
 
   return children && typeof children === 'string' ? (
-    <img alt={'logo macro'} title={'logo macro'} src={sanitizedChildren} />
+    <img alt={`${type} macro`} title={`${type} macro`} src={sanitizedChildren} />
   ) : children && isValidElement(children) && children.type === 'svg' ? (
     <SvgContainerStyled dangerouslySetInnerHTML={{ __html: sanitizedChildren }} />
   ) : (

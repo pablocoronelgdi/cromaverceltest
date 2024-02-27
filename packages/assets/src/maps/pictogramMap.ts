@@ -1,1 +1,24 @@
-export const pictogramMap = ['Cash', 'Clock']
+export const pictogramMap = [
+  'Alert',
+  'Bag',
+  'Calendar',
+  'Car',
+  'CardSmile',
+  'Card',
+  'Cart',
+  'Cash',
+  'Clock',
+  'Doc',
+  'Home',
+  'Laptop',
+  'Location',
+  'Lock',
+  'Message',
+  'Microphone',
+  'Plus',
+  'Question',
+  'Smartphone',
+  'Trash',
+  'User',
+  'Validation'
+]
