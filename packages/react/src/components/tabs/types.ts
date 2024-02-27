@@ -5,6 +5,7 @@ export type TabsItemProps = {
   content?: React.ReactNode | undefined
   active?: boolean
   focused?: boolean
+  hide?: boolean
 }
 
 export type TabsProps = {
@@ -15,5 +16,6 @@ export type TabsProps = {
   vertical?: boolean
   className?: string
   slidesToShow?: number
+  active?: boolean
   label?: boolean
 }

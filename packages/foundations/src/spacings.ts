@@ -1,4 +1,5 @@
 export const spacings = {
+  space1: '1px',
   space2: '2px',
   space4: '4px',
   space6: '6px',
@@ -21,5 +22,6 @@ export const spacings = {
   space80: '80px',
   space96: '96px',
   space112: '112px',
-  space160: '160px'
+  space160: '160px',
+  spaceFull: '100%'
 }
