@@ -18,7 +18,7 @@ import { Tabs, TabSegmented } from './components/tabs'
 import { TextArea } from './components/textarea'
 import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
-import { Tooltip } from './components/tooltip'
+import { Tooltip, Toogletip } from './components/tooltip'
 
 export {
   Badge,
@@ -42,5 +42,6 @@ export {
   TextArea,
   TextField,
   ThemeWrapper,
+  Toogletip,
   Tooltip
 }

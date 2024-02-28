@@ -1,0 +1,75 @@
+import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
+import * as ToogletipStories from './Toogletip.stories';
+
+
+<Meta of={ToogletipStories} />
+
+# Tooltip
+
+Los Toogletip poseen la misma lógica de aparición que posee el Tooltip con la diferencia que este componente muestra el contenido en
+una card con la posibilidad de agregar enlaces y botones de acción. 
+Muestran información que no es imprescindible para la experiencia. Por eso se oculta detrás de una acción.
+<br />
+
+<Primary />
+
+## Información Importante
+El tooltip intentará en lo posible no superar los limites del viewport. Por lo cual si se le ordena renderizarse
+a la izquierda de un elemento y no tiene espacio, se ubicara a la derecha. Es por eso que a veces su comportamiento
+puede parecer que no obedece las props indicadas. 
+<br />
+<br />
+
+## Usos
+
+### Posicionamiento
+En combinacion con la propiedad "position" y "arrowPosition" se pueden lograr diferentes combinaciones respecto
+a la ubicación del Tooltip respecto a la posicion de su elemento relativo .
+
+<Story of={ToogletipStories.SimpleToogletipGrid} />
+<Source of={ToogletipStories.SimpleToogletipGrid} />
+
+
+### Links de Accion
+La propiedad 'actionLinks' permite agregar componentes Link del cds como links de accion que se mostrarán en la parte
+inferior del componente. 
+<br />
+<Story of={ToogletipStories.WithActionLinks} />
+<Source of={ToogletipStories.WithActionLinks} />
+<br />
+<br />
+
+### Bottones de Accion
+La propiedad 'actionButtons' permite agregar componentes Button del cds como botones de accion que se mostrarán en la parte
+inferior del componente. 
+<br />
+
+
+<Story of={ToogletipStories.WithActionButtons} />
+<Source of={ToogletipStories.WithActionButtons} />
+<br />
+<br />
+
+### Información importante sobre el orden de renderizado de botones de acción
+El componente aplica una restricción en la cual limita a solo 2 componentes de acción. 
+Para eso prioriza los componentes de la siguiente manera: Link - Link - Button - Button
+
+Es decir:
+- Si en las props se le pasan 2 o mas Links y [n] cantidad de Buttons, el Toogletip mostrara solo dos primeros links. 
+- Si solo muestra un Link y 1 o + cantidad de Buttons, el toogletip mostrará el link y el primer Button. 
+- Si no hay links y hay 1 o + cantidad de buttons, el toogletip mostrara los 2 primeros Buttons. 
+
+
+### Toogletip con pasos
+El componente posee una prop llama step que recibe un array de objectos con propiedades 'title' y 'label'.
+Si esta prop se define, el Toogletip mostrara un label indicando el paso actual y botones de Anterior y Siguiente para recorrer
+los diferentes pasos o estadíos del mismo. 
+
+<Story of={ToogletipStories.StepperToogletip} />
+<Source of={ToogletipStories.StepperToogletip} />
+
+## Props
+El componente toogletip acepta los siguientes parametros:
+
+<ArgTypes />
+

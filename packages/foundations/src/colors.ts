@@ -91,7 +91,7 @@ export const Info = {
   dark: '#153990',
   main: '#0865D7',
   soft: '#5AB8FF',
-  extraSoft: '#BADFFF'
+  extraSoft: '#E3F3FF'
 }
 
 export const brandRed = {
