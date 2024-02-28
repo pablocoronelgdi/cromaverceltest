@@ -1,0 +1,6 @@
+<svg width="assetWidth" height="assetHeight" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M54 20H10V60H54V20Z" stroke="colorPrimary" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.0898 12C24.0898 7.58 27.6698 4 32.0898 4C36.5098 4 40.0898 7.58 40.0898 12" stroke="colorSecondary" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M10.6299 34H25.9999" stroke="colorPrimary" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M10.6299 46H25.9999" stroke="colorPrimary" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square"/>
+</svg>

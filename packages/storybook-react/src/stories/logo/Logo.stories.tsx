@@ -257,7 +257,7 @@ export const DocLogoColorSecondary: Story = {
 }
 
 export const DocLogoWithImportedSvg: Story = {
-  name: 'Logo con children SVG',
+  name: 'Logo con children SVG importado',
   tags: ['docs-only'],
   parameters: {
     docs: {

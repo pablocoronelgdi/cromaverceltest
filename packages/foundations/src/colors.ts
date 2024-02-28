@@ -93,3 +93,24 @@ export const Info = {
   soft: '#5AB8FF',
   extraSoft: '#BADFFF'
 }
+
+export const brandRed = {
+  dark: '#C80018',
+  main: '#FF4351',
+  soft: '#F36C73',
+  extraSoft: '#FFCBD4'
+}
+
+export const brandGreen = {
+  dark: '#005A1D',
+  main: '#00AC69',
+  soft: '#96D5B3',
+  extraSoft: '#E5F5EC'
+}
+
+export const brandBlue = {
+  dark: '#0318A5',
+  main: '#203AE9',
+  soft: '#4860FF',
+  extraSoft: '#DBE9FF'
+}

@@ -1,4 +1,4 @@
-<svg width="logoWidth" height="logoHeight" viewBox="0 0 170 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="assetWidth" height="assetHeight" viewBox="0 0 170 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M65.71 28.9448H58.7161V33.8079H65.1439V37.4294H58.7161V45.1315H54.2501V25.3086H65.71V28.9448Z" fill="colorPrimary"/>
 <mask id="mask0_4920_895" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="54" y="25" width="12" height="21">
 <path d="M65.71 28.9448H58.7161V33.8079H65.1439V37.4294H58.7161V45.1315H54.2501V25.3086H65.71V28.9448Z" fill="white"/>
