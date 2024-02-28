@@ -18,18 +18,41 @@ import {
   Tagline,
   Wink
 } from './logos'
-import { Cash, Clock } from './pictograms'
+import {
+  Alert,
+  Bag,
+  Calendar,
+  Car,
+  Card,
+  CardSmile,
+  Cart,
+  Cash,
+  Clock,
+  Doc,
+  Home,
+  Laptop,
+  Location,
+  Lock,
+  Message,
+  Microphone,
+  Plus,
+  Question,
+  Smartphone,
+  Trash,
+  User,
+  Validation
+} from './pictograms'
 import { HandTeamMacro, Hand } from './illustrations'
 import type { IllustrationCatalog } from './types/illustrationTypes'
 import type { LogoCatalog } from './types/logoTypes'
 import type { PictogramCatalog } from './types/pictogramTypes'
 export {
+  getAsset,
+  LogoCatalog,
   Agro,
   BankLimited,
   BankLimitedVertical,
   ClickDePago,
-  Cash,
-  Clock,
   Fiducia,
   Fondos,
   HandTeamMacro,
@@ -44,8 +67,28 @@ export {
   Selecta,
   Tagline,
   Wink,
-  getAsset,
-  LogoCatalog,
   PictogramCatalog,
+  Alert,
+  Bag,
+  Calendar,
+  Car,
+  CardSmile,
+  Card,
+  Cart,
+  Cash,
+  Clock,
+  Doc,
+  Home,
+  Laptop,
+  Location,
+  Lock,
+  Message,
+  Microphone,
+  Plus,
+  Question,
+  Smartphone,
+  Trash,
+  User,
+  Validation,
   IllustrationCatalog
 }

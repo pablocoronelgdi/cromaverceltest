@@ -1,2 +1,3 @@
 import Tabs from './Tabs'
-export { Tabs }
+import TabSegmented from './TabSegmented'
+export { Tabs, TabSegmented }

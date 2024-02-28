@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React, { useEffect, useState } from 'react'
-import { TabContainer, Tab, TabContent, Flex, Foco } from './styles'
+import { StyledTabContainer, Tab, TabContent, Flex, StyledFoco } from './styles'
 import { breakpoints } from '@cromaui/foundations'
 import type { TabsProps } from './types'
 import { Icon } from '../icon'
@@ -30,22 +29,12 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [focusedTab, setFocusedTab] = useState<number | null>(null)
 
-  const handleTabClick = (index: number): void => {
-    setActiveTab(index)
-  }
-
-  const handleTabFocus = (index: number): void => {
-    setFocusedTab(index)
-  }
-
-  const handleTabBlur = (): void => {
-    setFocusedTab(null)
-  }
+  const handleTabClick = (index: number): void => { setActiveTab(index) }
+  const handleTabFocus = (index: number): void => { setFocusedTab(index) }
+  const handleTabBlur = (): void => { setFocusedTab(null) }
 
   useEffect(() => {
-    const handleResize = (): void => {
-      setWindowWidth(window.innerWidth)
-    }
+    const handleResize = (): void => { setWindowWidth(window.innerWidth) }
 
     window.addEventListener('resize', handleResize)
 
@@ -93,10 +82,10 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
   if (showSlider) { // Trasforma a el componente tabs comun en un slider
     return (
     <div>
-        <TabContainer>
+        <StyledTabContainer>
             <Slider {...settings}>
                 {tabs.map((tab, index) => (
-                <Foco key={index}>
+                <StyledFoco key={index}>
                     <Tab
                       focused={index === focusedTab}
                       onFocus={() => { handleTabFocus(index) }}
@@ -110,19 +99,19 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
                             {iconRight && <Icon name={`${tab.iconRightName}`} size='small'/>}
                         </Flex>
                     </Tab>
-                </Foco>
+                </StyledFoco>
                 ))}
             </Slider>
-        </TabContainer>
+        </StyledTabContainer>
         <TabContent>{tabs[activeTab].content}</TabContent>
     </div>
     )
   }
   return (
     <div>
-      <TabContainer className='flex'>
+      <StyledTabContainer className='flex'>
         {tabs.map((tab, index) => (
-          <Foco key={index}>
+          <StyledFoco key={index}>
             <Tab
               focused={index === focusedTab}
               onFocus={() => { handleTabFocus(index) }}
@@ -136,9 +125,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
                     {iconRight && <Icon name={`${tab.iconRightName}`} size='medium'/>}
                 </Flex>
             </Tab>
-          </Foco>
+          </StyledFoco>
         ))}
-      </TabContainer>
+      </StyledTabContainer>
       <TabContent>{tabs[activeTab].content}</TabContent>
     </div>
   )
