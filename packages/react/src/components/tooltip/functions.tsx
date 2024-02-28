@@ -112,7 +112,7 @@ export const renderToogletipActions = (
     parsedArrayChildrenLinks?.props?.children as ReactElement<any>
   ).filter((e: JSX.Element) => e.type.name === 'Link')
   arrayChildrenButtons = Children.toArray(
-    parsedArrayChildrenButtons.props?.children as ReactElement<any>
+    parsedArrayChildrenButtons?.props?.children as ReactElement<any>
   ).filter((e: JSX.Element) => e.type.name === 'Button')
 
   // Unimos los arrays filtrados

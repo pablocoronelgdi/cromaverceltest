@@ -19,6 +19,7 @@ const getSize = (size?: IconSizeType): string => {
 }
 
 const StyledIcon = styled.span<IconPropTypes>`
+  cursor: ${(props) => (props.onClick ? 'pointer' : '')};
   white-space: nowrap;
   word-wrap: normal;
   margin: 0;

@@ -36,33 +36,38 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
           {steps && (
             <div className="croma_toogletip_card_steps">
               <span>
-                {step} de {steps?.length}
+                Paso {step} de {steps?.length}
               </span>
-              <Icon name="close" onClick={handleClose} />
+              <Icon name="close" size='small' onClick={handleClose} />
             </div>
           )}
           <div className="croma_toogletip_card_header">
             <span>{steps?.[step - 1]?.title || title}</span>
-            {!steps && <Icon name="close" onClick={handleClose} />}
+            {!steps && <Icon name="close" size='small' onClick={handleClose} />}
           </div>
           <div className="croma_toogletip_card_body">
             <span>{steps?.[step - 1]?.label || label}</span>
           </div>
-          {!step && renderToogletipActions(actionLinks as ReactNode, actionButtons as ReactNode)}
-          <div className="croma_toogletip_card_actions_end">
-            {step > 1 && (
-              <Button variant="text" onClick={handleStepBack} size="small">
-                Anterior
+          {!steps ? (
+            renderToogletipActions(actionLinks as ReactNode, actionButtons as ReactNode)
+          ) : (
+            <div className="croma_toogletip_card_actions_end">
+              {step > 1 && (
+                <>
+                  <Button variant="text" onClick={handleStepBack} size="small">
+                    Anterior
+                  </Button>
+                </>
+              )}
+              <Button
+                variant="filled"
+                size="small"
+                onClick={!steps || step === steps.length ? handleClose : handleStepFoward}
+              >
+                {!steps || step === steps.length ? 'Confirmar' : 'Siguiente'}
               </Button>
-            )}
-            <Button
-              variant="filled"
-              size="small"
-              onClick={!steps || step === steps.length ? handleClose : handleStepFoward}
-            >
-              {!steps || step === steps.length ? 'Confirmar' : 'Siguiente'}
-            </Button>
-          </div>
+            </div>
+          )}
         </div>
       </>
     )

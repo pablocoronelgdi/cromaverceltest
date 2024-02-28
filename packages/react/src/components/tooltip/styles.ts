@@ -1,4 +1,4 @@
-import { color, elevations, opacities, shapes, spacings } from '@cromaui/foundations'
+import { color, elevations, shapes, spacings } from '@cromaui/foundations'
 import styled, { css, type RuleSet } from 'styled-components'
 import type { TooltipArrowPositionTypes, TooltipPositionTypes } from './types'
 import {
@@ -148,8 +148,10 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
   }
 
   & .croma_toogletip_card {
-    position: absolute;
     ${FLEX_COLUMN_CENTER}
+    gap: ${spacings.space6};
+    position: absolute;
+    z-index: 1;
     width: 328px;
     padding: ${spacings.space16};
     background-color: ${color.Info.extraSoft};
@@ -166,10 +168,10 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       height: 0;
       ${({ position, arrowPosition }) =>
         getTooltipArrowPosition(position as string, arrowPosition as string, color.Info.extraSoft)};
-      filter: ${`drop-shadow(-2px -1px 2px ${color.neutral[900] + opacities.opacity15})`};
     }
 
     & .croma_toogletip_card_steps {
+      width: 100%;
       ${FLEX_BETWEEN}
       & > span:first-of-type {
         ${FONT_CAPTION};
@@ -178,14 +180,17 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       }
     }
     & .croma_toogletip_card_header {
+      width: 100%;
       ${FLEX_BETWEEN}
+      align-items:flex-start;
       gap: ${spacings.space4};
-      & span {
+      & span:first-of-type {
         ${FONT_BODY_MD}
         ${FONT_TYPE_BOLD}
       }
     }
     & .croma_toogletip_card_body {
+      width: 100%;
       & span {
         ${FONT_BODY_SM}
         ${FONT_TYPE_REGULAR}
@@ -193,12 +198,15 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
     }
 
     & .croma_toogletip_card_actions_start {
+      width: 100%;
       ${FLEX_START}
     }
     & .croma_toogletip_card_actions_between {
+      width: 100%;
       ${FLEX_BETWEEN}
     }
     & .croma_toogletip_card_actions_end {
+      width: 100%;
       ${FLEX_END}
     }
   }

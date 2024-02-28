@@ -4,7 +4,6 @@ import TooltipHOC from './TooltipHOC'
 
 const Tooltip: React.FC<Omit<TooltipPropTypes, 'isVisible' & 'tooltipref'>> = TooltipHOC(
   ({ label, tooltipref }: TooltipPropTypes) => {
-    console.log(tooltipref)
     return (
       <>
         <div className="croma_tooltip_text" ref={tooltipref}>
