@@ -471,7 +471,7 @@ export const WithActionLinks: Story = {
             </>
           }
         >
-          Botones de Acción
+          Links de Acción
         </Toogletip>
       </div>
     )
