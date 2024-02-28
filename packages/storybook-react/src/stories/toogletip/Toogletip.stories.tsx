@@ -84,11 +84,9 @@ export const WithButtons: Story = {
     actionButtons: (
       <>
         <Button size="small" variant="text">
-          {' '}
           Cancelar
         </Button>
         <Button size="small" variant="filled">
-          {' '}
           Confirmar
         </Button>
       </>
@@ -125,7 +123,6 @@ export const WithLinksAndButtons: Story = {
     actionButtons: (
       <>
         <Button variant="filled" size="small">
-          {' '}
           Confirmar
         </Button>
       </>

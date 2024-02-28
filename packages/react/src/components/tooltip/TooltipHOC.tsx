@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import type { BorderPositions, ToogletipPropTypes } from './types'
 import { TooltipContainerStyled } from './styles'
-import { checkSpaceAndAdjust } from './functions'
+import { checkSpaceAndAdjust } from './utils'
 
 const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
   const ComponentHoc: React.FC<ToogletipPropTypes> = (props) => {
