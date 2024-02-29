@@ -1,7 +1,7 @@
 import React, { type ReactNode, useState } from 'react'
 import type { ToogletipPropTypes } from './types'
 import TooltipHOC from './TooltipHOC'
-import { renderToogletipActions } from './functions'
+import { renderToogletipActions } from './utils'
 import { Button } from '../button'
 import { Icon } from '../icon'
 
