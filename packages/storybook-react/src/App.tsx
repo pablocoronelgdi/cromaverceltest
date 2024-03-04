@@ -1,13 +1,22 @@
 import { ThemeWrapper } from '@cromaui/react'
+import FormBond from './templates/formBond'
 
 function App(): JSX.Element {
   return (
-    <>
+    <main
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '4rem'
+      }}
+    >
       <ThemeWrapper $theme="macro">
-        <div style={{ gap: 24, display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', padding: 24 }}>
-        </div>
+        <FormBond />
       </ThemeWrapper>
-    </>
+    </main>
   )
 }
 
