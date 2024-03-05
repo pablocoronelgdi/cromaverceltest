@@ -1,0 +1,61 @@
+import React from 'react'
+import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
+import './dashboard.css'
+import Movimientos from './Movimientos'
+import Inicio from './Inicio'
+import ValidacionMobile from './ValidacionMobile'
+
+const tabs = [
+
+  {
+    label: 'Inicio',
+    iconLeftName: 'home',
+    iconRightName: 'home',
+    content: <Inicio />
+  },
+  {
+    label: 'Trasnferencias',
+    iconLeftName: 'expand_circle_down',
+    iconRightName: 'expand_circle_down',
+    content: <Movimientos />
+  },
+  {
+    label: 'Validacion Movil',
+    iconLeftName: 'expand_circle_down',
+    iconRightName: 'expand_circle_down',
+    content: <ValidacionMobile />
+  }
+]
+
+const Dashboard: React.FC = () => {
+  return (
+    <>
+      <nav>
+        <div>
+          <Logo name="MacroHorizontal" colorPrimary="white" />
+        </div>
+        <div>
+          <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
+          <Icon name="notifications" style={{ color: 'white' }} size="large" />
+          <Badge count={1000} color="pink" backgroundType="dark" />
+          <RoundedImage
+            size="large"
+            photo={{
+              width: '100%',
+              height: '100%',
+              image:
+                'https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg',
+              alt: 'Chayanne',
+              title: 'Chayanne'
+            }}
+          />
+        </div>
+      </nav>
+      <main>
+        <Tabs tabs={tabs} label iconLeft iconRight />
+      </main>
+    </>
+  )
+}
+
+export default Dashboard

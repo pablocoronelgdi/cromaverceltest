@@ -8,5 +8,5 @@ export default {
     sourcemap: true,
     preserveModules: true
   },
-  plugins: [typescript(), commonjs()]
+  plugins: [commonjs(), typescript()]
 }

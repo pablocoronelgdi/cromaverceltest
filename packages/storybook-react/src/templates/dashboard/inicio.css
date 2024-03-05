@@ -1,0 +1,12 @@
+.grid {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.gridItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
