@@ -1,0 +1,35 @@
+.form_bond__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid #f2f2f2;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #cccccc;
+}
+
+.form_bond__title {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  color: #003057;
+}
+
+.form_bond__form {
+  max-width: 768px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form_bond__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
