@@ -1,0 +1,15 @@
+nav {
+  width: 100%;
+  padding: 8px 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #053575;
+}
+
+nav > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
