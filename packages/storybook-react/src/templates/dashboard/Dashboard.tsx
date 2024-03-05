@@ -4,6 +4,8 @@ import './dashboard.css'
 import Movimientos from './Movimientos'
 import Inicio from './Inicio'
 import ValidacionMobile from './ValidacionMobile'
+import Login from '../login/login'
+import FormBond from '../formBond'
 
 const tabs = [
 
@@ -14,16 +16,28 @@ const tabs = [
     content: <Inicio />
   },
   {
-    label: 'Trasnferencias',
+    label: 'Transferencias',
     iconLeftName: 'expand_circle_down',
     iconRightName: 'expand_circle_down',
     content: <Movimientos />
   },
   {
-    label: 'Validacion Movil',
+    label: 'Validación Móvil',
     iconLeftName: 'expand_circle_down',
     iconRightName: 'expand_circle_down',
     content: <ValidacionMobile />
+  },
+  {
+    label: 'Login Form',
+    iconLeftName: 'expand_circle_down',
+    iconRightName: 'expand_circle_down',
+    content: <Login />
+  },
+  {
+    label: 'Solicitud de Bono',
+    iconLeftName: 'person',
+    iconRightName: 'person',
+    content: <FormBond />
   }
 ]
 
