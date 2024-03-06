@@ -1,4 +1,4 @@
-import { Button, Link, Logo, Switch, TextField, Toogletip } from '@cromaui/react'
+import { Button, Link, Logo, Switch, InputField, Toogletip } from '@cromaui/react'
 import React, { useState } from 'react'
 
 const Login: React.FC = () => {
@@ -23,7 +23,7 @@ const Login: React.FC = () => {
   const handleAgeCheck = (): void => {
     const checked = !formData.ageChecked
     setFormData({ ...formData, ageChecked: checked })
-    setFormErrors({ ...formErrors, ageChecked: '' })
+    setFormErrors({ ...formErrors, ageChecked: checked })
   }
 
   const handleSubmit = (event: React.FormEvent): void => {
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
     }
 
     if (!formData.ageChecked) {
-      newErrors.ageChecked = 'Por favor confirmar edad'
+      newErrors.ageChecked = false
       hasErrors = true
     }
 
@@ -57,75 +57,92 @@ const Login: React.FC = () => {
 
   return (
     <form
+      style={{
+        width: '100%',
+        maxWidth: 450,
+        background: 'white',
+        height: 'auto',
+        padding: 20,
+        borderRadius: 8,
+        boxShadow: '6px 9px 14px -4px rgba(0,0,0,0.28)'
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Toogletip
+          title="Titulo del toogletip"
+          label="Información que va en el cuerpo del Toogletip"
+          position="top"
+          arrowPosition="end"
+          actionButtons={
+            <>
+              <Button size="small">Acción1</Button>
+              <Button size="small">Acción2</Button>
+            </>
+          }
+        >
+          <Logo name="MacroHorizontal" height={40} />
+        </Toogletip>
+      </div>
+      <div>
+        <label>Usuario</label>
+        <InputField
+          type="text"
+          name="user"
+          value={formData.user}
+          onChange={handleChange}
+          $error={!!formErrors.user}
+          $helperText={formErrors.user && formErrors.user}
+        />
+      </div>
+      <div>
+        <label>Clave</label>
+        <InputField
+          style={{ width: '100%' }}
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          $error={!!formErrors.password}
+          $helperText={formErrors.password && formErrors.password}
+        />
+      </div>
+      <div
         style={{
-          width: '100%',
-          maxWidth: 450,
-          background: 'white',
-          height: 'auto',
-          padding: 20,
-          borderRadius: 8,
-          boxShadow: '6px 9px 14px -4px rgba(0,0,0,0.28)'
-        }}>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Toogletip
-                title="Titulo del toogletip"
-                label="Información que va en el cuerpo del Toogletip"
-                position="top"
-                arrowPosition="end"
-                actionButtons={
-                    <>
-                      <Button size="small">Acción1</Button>
-                      <Button size="small">Acción2</Button>
-                    </>
-            }>
-                <Logo name="MacroHorizontal" height={40} />
-            </Toogletip>
-        </div>
-        <div>
-            <label>Usuario</label>
-            <TextField
-                type="text"
-                name="user"
-                value={formData.user}
-                onChange={handleChange}
-                error={formErrors.user}
-                helperText={formErrors.user && formErrors.user}
-            />
-        </div>
-        <div>
-            <label>Clave</label>
-            <TextField
-                style={{ width: '100%' }}
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                error={formErrors.password}
-                helperText={formErrors.password && formErrors.password}
-            />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
-            <label>Soy mayor de edad:</label>
-            <Switch
-                checked={formData.ageChecked}
-                onChange={handleAgeCheck}
-                name="ageChecked"
-                color="primary"
-            />
-            {formErrors.ageChecked && <span>{formErrors.ageChecked}</span>}
-        </div>
-        <div>
-            <Button
-                type="submit"
-                onClick={handleSubmit}
-                disabled={!formData.ageChecked}
-                style={{ width: '100%' }}>
-                Acceder
-            </Button>
-        </div>
-        <div style={{ marginTop: 10 }}>
-            <Link content='olvide mi clave' target='_blank' link='https://google.com' alt='#' title='#' />
-        </div>
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 20
+        }}
+      >
+        <label>Soy mayor de edad:</label>
+        <Switch
+          checked={formData.ageChecked}
+          onChange={handleAgeCheck}
+          /* Agregar estas props?
+          name="ageChecked"
+          color="primary" */
+        />
+        {formErrors.ageChecked && <span>{formErrors.ageChecked}</span>}
+      </div>
+      <div>
+        <Button
+          type="submit"
+          onClick={() => handleSubmit}
+          disabled={!formData.ageChecked}
+          style={{ width: '100%' }}
+        >
+          Acceder
+        </Button>
+      </div>
+      <div style={{ marginTop: 10 }}>
+        <Link
+          content="olvide mi clave"
+          target="_blank"
+          link="https://google.com"
+          alt="#"
+          title="#"
+        />
+      </div>
     </form>
   )
 }

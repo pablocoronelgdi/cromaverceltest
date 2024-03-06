@@ -255,13 +255,12 @@ ${normalize()}
 
 html{
    ${FONT_BODY_MD}
-    box-sizing: border-box;
 }
 body {
   background-color: #f2f2f2;
 }
 *,*::before,*::after {
-    box-sizing: inherit
+  box-sizing: border-box;
 }
 p, h2, h3, h4, h5, h6 {
   margin: 0;
