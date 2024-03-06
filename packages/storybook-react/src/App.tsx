@@ -1,5 +1,5 @@
 import { ThemeWrapper } from '@cromaui/react'
-import Dashboard from './templates/dashboard/Dashboard'
+import FormBond from './templates/formBond'
 
 function App(): JSX.Element {
   return (
@@ -7,11 +7,14 @@ function App(): JSX.Element {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh'
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '4rem'
       }}
     >
       <ThemeWrapper $theme="macro">
-        <Dashboard />
+        <FormBond />
       </ThemeWrapper>
     </main>
   )
