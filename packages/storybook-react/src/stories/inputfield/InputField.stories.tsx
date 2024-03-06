@@ -1,11 +1,11 @@
 /* eslint-disable no-useless-escape */
 import { useArgs } from '@storybook/preview-api'
-import { TextField } from '@cromaui/react'
+import { InputField } from '@cromaui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Inputs/Textfield',
-  component: TextField,
+  title: 'Inputs/InputField',
+  component: InputField,
   argTypes: {
     disabled: {
       description:
@@ -15,14 +15,14 @@ const meta = {
         defaultValue: { summary: 'false' }
       }
     },
-    label: {
+    $label: {
       description: 'Texto que se ubica por encima del input.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: undefined }
       }
     },
-    helperText: {
+    $helperText: {
       description:
         'Texto que se ubica por debajo del input. Cambia de color si la propiedad "error" es `true`.',
       table: {
@@ -30,7 +30,7 @@ const meta = {
         defaultValue: { summary: undefined }
       }
     },
-    error: {
+    $error: {
       description:
         'Texto que se ubica por debajo del input. Cambia de color si la propiedad "error" es `true`.',
       table: {
@@ -38,7 +38,7 @@ const meta = {
         defaultValue: { summary: false }
       }
     },
-    type: {
+    $type: {
       description:
         'Define entre `text` o `password` el tipo de input que renderizará.',
       options: ['text', 'password'],
@@ -50,15 +50,15 @@ const meta = {
         defaultValue: { summary: 'text' }
       }
     },
-    characterCount: {
+    $maxCharacterCount: {
       description:
-        'Si se setea un valor numérico, se mostrara debajo del input un contador de caracteres.',
+        'Si se setea un valor numérico máximo de carácteres, se mostrara debajo del input junto a un contador.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: undefined }
       }
     },
-    iconName: {
+    $iconName: {
       description:
         'Permite mostrar un icono dentro el input. Solo válido para type="text".',
       table: {
@@ -66,7 +66,7 @@ const meta = {
         defaultValue: { summary: undefined }
       }
     },
-    iconPosition: {
+    $iconPosition: {
       description:
         'Define entre "left" o "right" la posicion del icono dentro del input.',
       options: ['left', 'right'],
@@ -85,7 +85,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof TextField>
+} satisfies Meta<typeof InputField>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -99,11 +99,11 @@ export const TextInput: Story = {
     type: 'text',
     value: '',
     placeholder: 'Escribí acá',
-    label: 'Editá este label',
-    helperText: 'Editá este helper text',
-    iconName: 'person',
-    iconPosition: 'left',
-    characterCount: 20
+    $label: 'Editá este label',
+    $helperText: 'Editá este helper text',
+    $iconName: 'person',
+    $iconPosition: 'left',
+    $maxCharacterCount: 20
   }
 }
 
@@ -121,7 +121,7 @@ export const Disabled: Story = {
         code: `
 
         return (
-          <Textfield disabled placeholder="Input deshabilitado" />
+          <InputField disabled placeholder="Input deshabilitado" />
         )
         `
       }
@@ -134,7 +134,7 @@ export const Disabled: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <TextField disabled placeholder="Input deshabilitado" />
+        <InputField disabled placeholder="Input deshabilitado" />
       </div>
     )
   }
@@ -153,7 +153,7 @@ export const TypeText: Story = {
 
       return (
        <>
-          <Textfield type="text" label="Input de tipo texto" />
+          <InputField $type="text" $label="Input de tipo texto" />
        </>
        )
         `
@@ -167,7 +167,7 @@ export const TypeText: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <TextField type="text" label="Input de tipo texto" />
+        <InputField $type="text" $label="Input de tipo texto" />
       </div>
     )
   }
@@ -185,7 +185,7 @@ export const TypePassword: Story = {
 
       return (
        <>
-          <Textfield type="password" label="Input de tipo password" />
+          <InputField $type="password" $label="Input de tipo password" />
        </>
        )
         `
@@ -199,7 +199,7 @@ export const TypePassword: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <TextField type="password" label="Input de tipo password" />
+        <InputField $type="password" $label="Input de tipo password" />
       </div>
     )
   }
@@ -218,11 +218,11 @@ export const WithIcon: Story = {
 
       return (
        <>
-       <TextField iconName="email" label="Input con icono default" />
-       <TextField
-         iconName="email"
-         iconPosition="right"
-         label="Input con icono a la derecha"
+       <InputField $iconName="email" $label="Input con icono default" />
+       <InputField
+         $iconName="email"
+         $iconPosition="right"
+         $label="Input con icono a la derecha"
        />
        </>
        )
@@ -237,11 +237,11 @@ export const WithIcon: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <TextField iconName="email" label="Input con icono default" />
-        <TextField
-          iconName="email"
-          iconPosition="right"
-          label="Input con icono a la derecha"
+        <InputField $iconName="email" $label="Input con icono default" />
+        <InputField
+          $iconName="email"
+          $iconPosition="right"
+          $label="Input con icono a la derecha"
         />
       </div>
     )
@@ -262,15 +262,15 @@ export const ErrorInput: Story = {
         const [name , setName] = useState();
 
         return (
-          <TextField
-          iconName="person"
-          label={'Nombre Completo'}
+          <InputField
+          $iconName="person"
+          $label={'Nombre Completo'}
           value={name}
           onChange={(e) => {
             setValue(e.target.value)
           }}
-          error={!isValidName.test(name)}
-          helperText={
+          $error={!isValidName.test(name)}
+          $helperText={
             !regexp.test(name)
               ? 'No se deben ingresar caracteres numéricos '
               : 'Ingrese su nombre completo'
@@ -291,15 +291,15 @@ export const ErrorInput: Story = {
 
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <TextField
-          iconName="person"
-          label="Nombre Completo"
+        <InputField
+          $iconName="person"
+          $label="Nombre Completo"
           value={value}
           onChange={(e) => {
             setValue({ value: e.target.value })
           }}
-          error={!regexp.test(value as string)}
-          helperText={
+          $error={!regexp.test(value as string)}
+          $helperText={
             !regexp.test(value as string)
               ? 'Solo se permiten caracteres alfabéticos '
               : 'Ingrese su nombre completo'

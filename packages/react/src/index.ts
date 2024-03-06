@@ -4,6 +4,7 @@ import { Checkbox } from './components/checkbox'
 import { Icon } from './components/icon'
 import { Illustration } from './components/illustration'
 import { Image } from './components/image'
+import { InputField } from './components/inputfield'
 import { Link } from './components/link'
 import { ListItem } from './components/listitem'
 import { Logo } from './components/logo'
@@ -16,7 +17,6 @@ import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { Tabs, TabSegmented } from './components/tabs'
 import { TextArea } from './components/textarea'
-import { TextField } from './components/textfield'
 import { ThemeWrapper } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
 
@@ -27,6 +27,7 @@ export {
   Icon,
   Illustration,
   Image,
+  InputField,
   Link,
   ListItem,
   Logo,
@@ -40,7 +41,6 @@ export {
   Tabs,
   TabSegmented,
   TextArea,
-  TextField,
   ThemeWrapper,
   Toogletip,
   Tooltip
