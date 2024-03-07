@@ -1,74 +1,59 @@
-import React, { useState } from 'react'
-import {
-  StyledContent,
-  StyledLabel,
-  StyledTextArea,
-  StyledLabelIcon
-} from './styles'
+import React, { type ChangeEvent, useId, useState } from 'react'
+import { TextAreaContainerStyled } from './styles'
 import { Icon } from '../icon'
-import { color } from '@cromaui/foundations'
-import type { StyledTextAreaProps } from './types'
+import type { TextAreaPropTypes } from './types'
 
-const TextArea: React.FC<StyledTextAreaProps> = ({
-  text = 'Hola',
-  title = null,
-  errorMessage = 'error de ejemplo',
-  label = 'Texto de ayuda.',
-  error = false,
-  disabled = false,
-  maxLength = 100,
-  characterCounter = false
+const TextArea: React.FC<TextAreaPropTypes> = ({
+  $error,
+  $helperText,
+  $label,
+  $maxCharacterCount,
+  ...props
 }) => {
-  const [textValue, setTextValue] = useState<string>(text)
-  const [caracters, setText] = useState('')
+  const defaultId = useId()
+  const [textValue, setTextValue] = useState<string>()
+  const maxLimit =
+    $maxCharacterCount && $maxCharacterCount < 50 && $maxCharacterCount > 0
+      ? $maxCharacterCount
+      : 50
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    setTextValue(event.target.value)
-    const newText = event.target.value
-
-    if (newText.length <= maxLength) {
-      setText(newText)
-    }
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
+    setTextValue(e.target.value)
   }
 
   return (
-    <StyledContent error={error} disabled={disabled} label={label}>
-      {title && <p>{title}</p>}
-      <StyledTextArea
-        maxLength={100}
-        value={textValue}
-        onChange={handleInputChange}
-        placeholder={text}
-        disabled={disabled}
-        error={error}
-        label={label}
+    <TextAreaContainerStyled
+      $label={$label}
+      $helperText={$helperText}
+      $error={$error}
+      $maxCharacterCount={$maxCharacterCount}
+      {...props}
+    >
+      <label htmlFor={props.name ?? defaultId}>{$label}</label>
+      <textarea
+        name={props.name}
+        placeholder={props.placeholder}
+        disabled={props.disabled}
+        maxLength={maxLimit}
+        onChange={(e) => {
+          handleInputChange(e)
+        }}
+        aria-describedby={props.name ?? defaultId}
       >
-        {text}
-      </StyledTextArea>
-      {label && (
-        <label>
-          <StyledLabel error={error} label={label}>
-            <StyledLabelIcon error={error} label={label}>
-              {error && (
-                <Icon
-                  name="info_outlined"
-                  color={color.error.main}
-                  size="small"
-                />
-              )}
-              <p>{errorMessage}</p>
-            </StyledLabelIcon>
-            {characterCounter && (
-              <div>
-                <p>{`${maxLength - caracters.length}/${maxLength}`}</p>
-              </div>
-            )}
-          </StyledLabel>
-        </label>
-      )}
-    </StyledContent>
+        {textValue}
+      </textarea>
+      <div>
+        <span id={props.name ?? defaultId}>
+          {$error && $helperText && <Icon name="info_outlined" size="small" />}
+          {$helperText}
+        </span>
+        {$maxCharacterCount && (
+          <small>
+            {textValue?.length ? textValue.length : 0}/{maxLimit}
+          </small>
+        )}
+      </div>
+    </TextAreaContainerStyled>
   )
 }
 

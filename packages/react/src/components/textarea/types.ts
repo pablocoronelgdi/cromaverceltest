@@ -1,10 +1,8 @@
-export type StyledTextAreaProps = {
-  text?: string
-  title?: string
-  label: string
-  error: boolean
-  disabled?: boolean
-  characterCounter?: boolean
-  errorMessage?: string
-  maxLength?: number
-}
+import type { TextareaHTMLAttributes } from 'react'
+
+export type TextAreaPropTypes = {
+  $error?: boolean | ((arg: any) => boolean)
+  $helperText?: string
+  $label?: string
+  $maxCharacterCount?: number
+} & TextareaHTMLAttributes<HTMLTextAreaElement>

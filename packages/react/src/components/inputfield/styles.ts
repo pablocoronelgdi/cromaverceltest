@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import type { InputfieldPropTypes } from './types'
+import type { InputFieldPropTypes } from './types'
 import { borders, color, shapes, spacings } from '@cromaui/foundations'
 import {
   FLEX_BETWEEN,
@@ -10,7 +10,6 @@ import {
   FONT_TYPE_REGULAR,
   FONT_TYPE_SEMIBOLD
 } from '../../globals/globals'
-import { neutral } from '@cromaui/foundations/dist/colors'
 
 /* =============================================
 =            ESTILOS DEL COMPONENTE TEXTFIELD     =
@@ -19,7 +18,7 @@ import { neutral } from '@cromaui/foundations/dist/colors'
 /* ----------  Inputfield Container  (div) ---------- */
 
 // Container general de todo el componente
-export const InputfieldContainerStyled = styled.div<InputfieldPropTypes>`
+export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
   width: ${({ width }) => width ?? 'auto'};
   display: flex;
   flex-direction: column;
@@ -43,6 +42,7 @@ export const InputfieldContainerStyled = styled.div<InputfieldPropTypes>`
     padding: ${spacings.space12};
     background-color: ${color.neutral[50]};
     border-radius: ${shapes.sm};
+    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
     outline: ${borders.br1};
     outline-color: ${color.neutral[400]};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -104,7 +104,6 @@ export const InputfieldContainerStyled = styled.div<InputfieldPropTypes>`
       $helperText || $maxCharacterCount ? 'flex' : 'none'};
     align-items: flex-start;
     gap: ${spacings.space4};
-    padding: ${spacings.space4};
     max-width: '100%';
     width: '100%';
 
@@ -113,7 +112,7 @@ export const InputfieldContainerStyled = styled.div<InputfieldPropTypes>`
       ${FLEX_CENTER}
       align-items: flex-start;
       color: ${({ disabled, $error }) =>
-        disabled ? color.neutral[400] : $error ? color.error.main : neutral[800]};
+        disabled ? color.neutral[400] : $error ? color.error.main : color.neutral[700]};
       ${FONT_CAPTION}
       ${FONT_TYPE_REGULAR}
       gap: ${spacings.space4};
