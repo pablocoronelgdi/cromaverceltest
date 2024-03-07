@@ -5,5 +5,6 @@ export type IconPropTypes = {
   color?: string
   style?: object
   theme?: object
+  variant?: 'filled' | 'outlined'
   onClick?: () => void
-}
+} & React.HTMLAttributes<HTMLSpanElement>
