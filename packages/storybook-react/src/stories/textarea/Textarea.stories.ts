@@ -6,23 +6,16 @@ const meta = {
   component: TextArea,
   tags: ['autodocs'],
   argTypes: {
-    title: {
-      description: 'Se le puede agregar un título al componente',
+    $label: {
+      description: 'Se le puede agregar un label al componente',
       control: { type: 'text' }
     },
-    label: {
-      description: 'Se le puede agregar un label o mensaje al componente',
+    $helperText: {
+      description:
+        'Se le puede agregar un mensaje de error en remplazo del default label al componente',
       control: { type: 'text' }
     },
-    text: {
-      description: 'Se le puede manejar el tipo de input por ejemplo text o password, al componente',
-      control: { type: 'text' }
-    },
-    errorMessage: {
-      description: 'Se le puede agregar un mensaje de error en remplazo del default label al componente',
-      control: { type: 'text' }
-    },
-    error: {
+    $error: {
       description: 'Activa el estado error para mostrar mensaje y styles para ese caso',
       control: { type: 'boolean' }
     },
@@ -30,11 +23,10 @@ const meta = {
       description: 'Activa el estado disabled para impedir poder llenar los campos',
       control: { type: 'boolean' }
     },
-    maxLength: {
-      description: 'Maneja la cantidad de caracteres',
+    $maxCharacterCount: {
+      description: 'Maneja la cantidad de caracteres permitidos',
       control: { type: 'number' }
-    },
-    characterCounter: { control: { type: 'boolean' } }
+    }
   }
 } satisfies Meta<typeof TextArea>
 
@@ -43,49 +35,39 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    label: 'Texto de ejemplo',
-    text: 'Quiero comunicar que...',
-    errorMessage: 'Texto de referencia',
-    error: false,
-    disabled: false,
-    maxLength: 100
+    placeholder: 'Quiero comunicar que...'
   }
 }
 
-export const Title: Story = {
+export const Label: Story = {
   args: {
-    title: 'Dejar comentario',
-    label: 'Texto de ejemplo',
-    text: 'Quiero comunicar que...',
-    errorMessage: 'Texto de referencia',
-    error: false,
+    $label: 'Comentario',
+    $helperText: 'Texto de ayuda',
+    $error: false,
     disabled: false,
-    maxLength: 100,
-    characterCounter: true
+    placeholder: 'Quiero comunicar que...',
+    $maxCharacterCount: 100
   }
 }
 
 export const Error: Story = {
   args: {
-    title: 'Dejar comentario',
-    label: 'Texto de ejemplo',
-    text: 'Quiero comunicar que...',
-    errorMessage:
-      'Se supero el limite de caracteres, que se requiere en este tipo de formularios',
-    error: true,
-    disabled: false
+    $label: 'Comentario',
+    $helperText: 'Texto de ayuda',
+    $error: true,
+    disabled: false,
+    placeholder: 'Quiero comunicar que...',
+    $maxCharacterCount: 100
   }
 }
 
 export const Disabled: Story = {
   args: {
-    title: 'Dejar comentario',
-    label: 'Texto de ejemplo',
-    text: 'Quiero comunicar que...',
-    errorMessage: 'Se supero el limite de caracteres',
-    error: false,
+    $label: 'Comentario',
+    $helperText: 'Texto de ayuda',
+    $error: false,
     disabled: true,
-    maxLength: 100,
-    characterCounter: true
+    placeholder: 'Quiero comunicar que...',
+    $maxCharacterCount: 100
   }
 }
