@@ -1,4 +1,4 @@
-import { Button, Checkbox, TextArea, TextField } from '@cromaui/react'
+import { Button, Checkbox, TextArea, InputField } from '@cromaui/react'
 
 import './styles.css'
 import { type FormEvent, useState } from 'react'
@@ -6,7 +6,7 @@ import { type FormEvent, useState } from 'react'
 function FormBond(): JSX.Element {
   const [isError, setIsError] = useState(false)
   const helperMessageError = isError ? 'Ocurrio un error con tu email?' : ''
-  const [name, setName] = useState('')
+  const [name, setName] = useState<string>('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isReminder, setIsReminder] = useState(false)
@@ -25,32 +25,32 @@ function FormBond(): JSX.Element {
       <h1 className="form_bond__title">Formulario para solicitar bono</h1>
       <form className="form_bond__form" onSubmit={handleForm}>
         <aside>
-          <TextField
-            label="Nombre completo"
+          <InputField
+            $label="Nombre completo"
+            $error={isError}
+            $helperText={helperMessageError}
             placeholder="Jhon Doe"
             name={name}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setName(e.target.value)
             }}
           />
-          <TextField
+          <InputField
             placeholder="ejemplo@macro.com.ar"
-            label="Correo electrónico"
-            error={isError}
-            helperText={helperMessageError}
+            $label="Correo electrónico"
             name={email}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setEmail(e.target.value)
             }}
-            iconName="email"
-            characterCount={30}
-            iconPosition="right"
+            $iconName="email"
+            $maxCharacterCount={30}
+            $iconPosition="right"
           />
-          <TextField
-            label="Clave del campus"
-            type="password"
+          <InputField
+            $label="Clave del campus"
+            $type="password"
             name={password}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setPassword(e.target.value)
             }}
           />
@@ -58,7 +58,7 @@ function FormBond(): JSX.Element {
         <TextArea title="¿Por qué necesitas el bono?" label="no funciona" error={isError} />
         <Checkbox
           checked={isReminder}
-          onChange={(e) => {
+          onChange={() => {
             setIsReminder(!isReminder)
           }}
         />
