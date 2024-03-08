@@ -50,7 +50,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     &:focus,
     &:focus-within,
     &:focus-visible {
-      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
+      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
       outline: ${({ disabled }) => (disabled ? borders.br1 : borders.br2)};
       outline-color: ${({ disabled, $error }) =>
         disabled ? color.neutral[400] : $error ? color.error.main : color.blue.soft};
