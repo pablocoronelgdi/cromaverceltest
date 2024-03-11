@@ -21,7 +21,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     ${FONT_BODY_SM}
     ${FONT_TYPE_SEMIBOLD}
     color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
   }
 
   & > textarea {
@@ -31,7 +31,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     border: none;
     border-radius: ${shapes.sm};
     color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
     min-height: 120px;
     outline: ${borders.br1};
     outline-color: ${color.neutral[400]};

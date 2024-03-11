@@ -28,7 +28,7 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
   // Label que contiene el texto label del componente + Input area
   & label {
     color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
     ${FONT_BODY_SM}
     ${FONT_TYPE_SEMIBOLD}
   }
@@ -45,7 +45,7 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
     color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
     outline: ${borders.br1};
     outline-color: ${color.neutral[400]};
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
 
     & span {
       color: ${({ disabled }) => (disabled ? color.neutral[400] : color.navy.main)};
@@ -82,7 +82,7 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
       width: 100%;
       border: none;
       padding: 0;
-      cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+      cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
 
       &:focus {
         border: none;
