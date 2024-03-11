@@ -9,17 +9,17 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    link: { control: { type: 'text' } },
-    content: { control: { type: 'text' } },
-    alt: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
-    iconRight: { control: { type: 'boolean' } },
-    iconLeft: { control: { type: 'boolean' } },
-    target: {
+    $to: { control: { type: 'text' } },
+    $children: { control: { type: 'text' } },
+    $alt: { control: { type: 'text' } },
+    $disabled: { control: { type: 'boolean' } },
+    $iconRight: { control: { type: 'boolean' } },
+    $iconLeft: { control: { type: 'boolean' } },
+    $target: {
       options: ['_self', '_blank'],
       control: { type: 'select' }
     },
-    size: {
+    $size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'select' }
     }
@@ -31,58 +31,58 @@ type Story = StoryObj<typeof meta>
 
 export const LinkDefault: Story = {
   args: {
-    title: 'title',
-    iconName: 'check',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
-    alt: 'Texto de referencia',
-    target: '_self'
+    $title: 'title',
+    $iconName: 'check',
+    $to: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
+    $alt: 'Texto de referencia',
+    $target: '_self'
   }
 }
 
 export const LinkDisabled: Story = {
   args: {
-    title: 'title',
-    iconName: 'check',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
-    alt: 'Texto de referencia',
-    target: '_self',
-    disabled: true
+    $title: 'Macro ejemplo',
+    $iconName: 'check',
+    $to: 'https://google.com.ar',
+    children: 'Link de Ejemplo',
+    $alt: 'Texto de referencia',
+    $target: '_self',
+    $disabled: true
   }
 }
 
 export const LinkIconRight: Story = {
   args: {
-    title: 'title',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
-    alt: 'Texto de referencia',
-    target: '_self',
-    iconRight: true,
-    iconName: 'send'
+    $title: 'title',
+    $to: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
+    $alt: 'Texto de referencia',
+    $target: '_self',
+    $iconRight: true,
+    $iconName: 'send'
   }
 }
 
 export const LinkIconLeft: Story = {
   args: {
-    title: 'title',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
-    alt: 'Texto de referencia',
-    target: '_self',
-    iconLeft: true,
-    iconName: 'send'
+    $title: 'title',
+    $to: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
+    $alt: 'Texto de referencia',
+    $target: '_self',
+    $iconLeft: true,
+    $iconName: 'send'
   }
 }
 
 export const LinkTargetBlank: Story = {
   args: {
-    iconName: 'send',
-    title: 'text',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
-    alt: 'Texto de referencia',
-    target: '_blank'
+    $iconName: 'send',
+    $title: 'text',
+    $to: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
+    $alt: 'Texto de referencia',
+    $target: '_blank'
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { color } from '@cromaui/foundations'
 import { StyledLink } from './styles'
 import { Icon } from '../icon'
@@ -18,20 +18,20 @@ export const getSize = (size?: LinkSizeType): string => {
 }
 
 const Link: React.FC<LinkPropsTypes> = ({
-  link = '',
-  content = 'terminos y condiciones',
-  alt = 'terminos y condiciones',
-  title = 'terminos y condiciones',
-  target,
-  disabled = false,
-  size,
-  className = 'no-drop',
-  iconLeft = false,
-  iconRight = false,
-  iconName = 'attachment'
+  $to = '',
+  $children = 'macro',
+  $alt = 'Macro',
+  $title = 'Macro',
+  $target,
+  $disabled = false,
+  $size,
+  $className = 'no-drop',
+  $iconLeft = false,
+  $iconRight = false,
+  $iconName = ''
 }) => {
   const iconSize: LinkSizeType = (() => {
-    switch (size) {
+    switch ($size) {
       case 'small':
         return 'small'
       case 'medium':
@@ -43,31 +43,32 @@ const Link: React.FC<LinkPropsTypes> = ({
     }
   })()
 
+  const defaultId = useId()
+
   return (
     <StyledLink
-      link={disabled ? '' : link}
-      href={disabled ? '' : link}
-      alt={alt}
-      title={title}
-      content={content}
-      target={target}
-      disabled={disabled}
-      className={`${className} size`}
-      iconName={iconName}
-      size={size}
+      $to={$disabled ? '#' : $to}
+      href={$disabled ? '#' : $to}
+      $alt={$alt || defaultId}
+      title={$title || defaultId}
+      $target={$target}
+      $disabled={$disabled}
+      className={`${$className} size`}
+      $iconName={$iconName}
+      $size={$size}
     >
-      {iconRight && (
+      {$iconRight && (
         <Icon
-          color={disabled ? color.neutral[400] : color.blue.main}
-          name={iconName}
+          color={$disabled ? color.neutral[400] : color.blue.main}
+          name={$iconName}
           size={iconSize}
         />
       )}
-      <p>{content}</p>
-      {iconLeft && (
+      <p>{$children}</p>
+      {$iconLeft && (
         <Icon
-          color={disabled ? color.neutral[400] : color.blue.main}
-          name={iconName}
+          color={$disabled ? color.neutral[400] : color.blue.main}
+          name={$iconName}
           size={iconSize}
         />
       )}

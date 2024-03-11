@@ -10,29 +10,30 @@ import { color, borders, shapes, spacings } from '@cromaui/foundations'
 import type { LinkPropsTypes } from './types'
 
 /* =============================================
-=            ESTILOS DEL COMPONENTE LINK     =
+    =      ESTILOS DEL COMPONENTE LINK     =
 ============================================= */
 
 export const StyledLink = styled.a<LinkPropsTypes>`
   ${FLEX_CENTER}
-  color: ${(props) => (props.disabled ? color.neutral[400] : color.blue.main)};
+  width: auto;
+  color: ${(props) => (props.$disabled ? color.neutral[400] : color.blue.main)};
   padding: ${spacings.space2};
   text-decoration: none;
-  cursor: ${(props) => (props.disabled ? 'no-drop' : 'pointer')};
+  cursor: ${(props) => (props.$disabled ? 'no-drop' : 'pointer')};
   ${FONT_TYPE_REGULAR}
 
   ${(props) =>
-    props.size === 'large' &&
+    props.$size === 'large' &&
     css`
       ${FONT_LINK_LG}
     `}
   ${(props) =>
-    props.size === 'medium' &&
+    props.$size === 'medium' &&
     css`
       ${FONT_LINK_MD}
     `}
     ${(props) =>
-    props.size === 'small' &&
+    props.$size === 'small' &&
     css`
       ${FONT_LINK_SM}
     `}
@@ -50,11 +51,11 @@ export const StyledLink = styled.a<LinkPropsTypes>`
   }
 
   &:hover {
-    ${(props) => (props.disabled ? color.neutral[400] : color.blue.soft)};
+    color: ${(props) => (props.$disabled ? color.neutral[400] : color.blue.soft)};
   }
 
   &:focus {
-    border: ${borders.br2} ${color.blue.main};
+    border: ${(props) => (props.$disabled ? 'none' : borders.br2 + color.blue.main)};
     border-radius: ${shapes.xs};
   }
 `
