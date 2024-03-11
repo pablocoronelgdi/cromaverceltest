@@ -1,2 +1,2 @@
-import PinInput from './pininput'
+import PinInput from './PinInput'
 export { PinInput }
