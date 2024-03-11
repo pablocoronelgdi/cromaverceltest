@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React from 'react'
 import { color } from '@cromaui/foundations'
 import { StyledLink } from './styles'
 import { Icon } from '../icon'
@@ -18,17 +18,19 @@ export const getSize = (size?: LinkSizeType): string => {
 }
 
 const Link: React.FC<LinkPropsTypes> = ({
-  $to = '',
+  $href = '',
   $children = 'macro',
-  $alt = 'Macro',
+  alt = 'Macro',
   $title = 'Macro',
-  $target,
+  $target = '_self',
   $disabled = false,
   $size,
   $className = 'no-drop',
   $iconLeft = false,
   $iconRight = false,
-  $iconName = ''
+  $iconName = '',
+  $id,
+  ...props
 }) => {
   const iconSize: LinkSizeType = (() => {
     switch ($size) {
@@ -43,19 +45,18 @@ const Link: React.FC<LinkPropsTypes> = ({
     }
   })()
 
-  const defaultId = useId()
-
   return (
     <StyledLink
-      $to={$disabled ? '#' : $to}
-      href={$disabled ? '#' : $to}
-      $alt={$alt || defaultId}
-      title={$title || defaultId}
-      $target={$target}
+      $id={$id}
+      href={$href || '#'}
+      alt={alt || $href}
+      title={$title || $href}
+      target={$target}
       $disabled={$disabled}
       className={`${$className} size`}
       $iconName={$iconName}
       $size={$size}
+      {...props}
     >
       {$iconRight && (
         <Icon

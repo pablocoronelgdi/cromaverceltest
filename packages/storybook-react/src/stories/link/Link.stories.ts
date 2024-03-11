@@ -9,7 +9,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    $to: { control: { type: 'text' } },
+    $href: { control: { type: 'text' } },
     $children: { control: { type: 'text' } },
     $alt: { control: { type: 'text' } },
     $disabled: { control: { type: 'boolean' } },
@@ -33,7 +33,7 @@ export const LinkDefault: Story = {
   args: {
     $title: 'title',
     $iconName: 'check',
-    $to: 'https://google.com.ar',
+    $href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
     $alt: 'Texto de referencia',
     $target: '_self'
@@ -44,7 +44,7 @@ export const LinkDisabled: Story = {
   args: {
     $title: 'Macro ejemplo',
     $iconName: 'check',
-    $to: 'https://google.com.ar',
+    $href: 'https://google.com.ar',
     children: 'Link de Ejemplo',
     $alt: 'Texto de referencia',
     $target: '_self',
@@ -55,7 +55,7 @@ export const LinkDisabled: Story = {
 export const LinkIconRight: Story = {
   args: {
     $title: 'title',
-    $to: 'https://google.com.ar',
+    $href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
     $alt: 'Texto de referencia',
     $target: '_self',
@@ -67,7 +67,7 @@ export const LinkIconRight: Story = {
 export const LinkIconLeft: Story = {
   args: {
     $title: 'title',
-    $to: 'https://google.com.ar',
+    $href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
     $alt: 'Texto de referencia',
     $target: '_self',
@@ -80,7 +80,7 @@ export const LinkTargetBlank: Story = {
   args: {
     $iconName: 'send',
     $title: 'text',
-    $to: 'https://google.com.ar',
+    $href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
     $alt: 'Texto de referencia',
     $target: '_blank'

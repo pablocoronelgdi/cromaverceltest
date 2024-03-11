@@ -45,16 +45,20 @@ export const StyledLink = styled.a<LinkPropsTypes>`
 
   & span:first-child {
     margin-right: ${spacings.space8};
+    color: inherit
   }
   & span:last-child {
     margin-left: ${spacings.space8};
+    color: inherit
   }
 
   &:hover {
     color: ${(props) => (props.$disabled ? color.neutral[400] : color.blue.soft)};
   }
 
-  &:focus {
+  &:focus,
+  &:focus-within,
+  &:focus-visible {
     border: ${(props) => (props.$disabled ? 'none' : borders.br2 + color.blue.main)};
     border-radius: ${shapes.xs};
   }
