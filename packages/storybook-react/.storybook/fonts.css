@@ -65,12 +65,6 @@
     U+FFFD;
 }
 @font-face {
-  font-family: 'Material Icons Filled';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-}
-@font-face {
   font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;

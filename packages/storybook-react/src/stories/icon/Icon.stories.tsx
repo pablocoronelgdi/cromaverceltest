@@ -6,14 +6,6 @@ const meta = {
   title: 'Inputs/Icon',
   component: Icon,
   argTypes: {
-    variant: {
-      description:
-        'Puede ser filled o outlined, dependiendo de lo que se elija el componente mostrara diferentes estilos de ícono.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'filled' }
-      }
-    },
     name: {
       description:
         'El nombre del icono, se utiliza la nomenclatura de Material Icons de google. Puede utilizarse el children en reemplazo de esta prop',
@@ -51,42 +43,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /* ----------  DOC STORIES ---------- */
-
-export const VariantIcon: Story = {
-  name: 'Variantes del Icono',
-  tags: ['docs-only'],
-  parameters: {
-    docs: {
-      source: {
-        format: 'dedent',
-        language: 'tsx',
-        dark: true,
-        code: `
-      
-        // Si no se especifica la prop variant se utilizará filled por default
-        return (
-        <>
-        <Icon name="person" variant="filled" />
-        <Icon name="person" variant="outlined"/>
-        </>
-        `
-      }
-    }
-  },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
-  render: function Render() {
-    return (
-      <>
-        <Icon name="person" variant="filled" />
-        <Icon name="person" variant="outlined" />
-      </>
-    )
-  }
-}
 
 export const SizeIcon: Story = {
   name: 'Tamaños del Icono',
@@ -165,7 +121,6 @@ export const Default: Story = {
   args: {
     size: 'large',
     name: 'person',
-    variant: 'filled',
     color: 'inherit',
     onClick: () => {
       console.log('Icon clicked')

@@ -9,7 +9,6 @@ const Icon: React.FC<IconPropTypes> = ({
   onClick,
   className,
   children,
-  variant = 'filled',
   ...props
 }) => {
   return (
@@ -18,7 +17,6 @@ const Icon: React.FC<IconPropTypes> = ({
       color={color}
       size={size}
       onClick={onClick}
-      variant={variant}
       {...props}
     >
       {name != null ? name : typeof children === 'string' ? children : ''}

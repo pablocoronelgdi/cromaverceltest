@@ -3,6 +3,7 @@ import type { IconPropTypes } from './types'
 import { shapes } from '@cromaui/foundations'
 
 export const StyledIcon = styled.span<IconPropTypes>`
+  // @TODO: Remover linea 7 cuando se cree la variante extra-small en el size de Button
   cursor: ${({ onClick }) => (onClick ? 'pointer' : '')};
   white-space: nowrap;
   word-wrap: normal;
@@ -11,7 +12,7 @@ export const StyledIcon = styled.span<IconPropTypes>`
   vertical-align: top;
   color: ${({ color }) => color ?? 'inherit'};
   background-color: transparent;
-  font-family: ${({ variant }) => 'Material Icons ' + variant};
+  font-family: 'Material Icons Outlined';
   font-weight: normal;
   font-style: normal;
   letter-spacing: normal;
