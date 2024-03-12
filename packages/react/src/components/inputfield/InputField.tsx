@@ -42,7 +42,7 @@ const InputField: React.FC<InputFieldPropTypes> = ({
     >
       <label htmlFor={props.name ?? defaultId}>{$label}</label>
       <div>
-        {$iconName && $type !== 'password' && <Icon name={$iconName} />}
+        {$iconName && $type !== 'password' && <Icon $name={$iconName} />}
         <input
           name={props.name}
           placeholder={props.placeholder}
@@ -71,7 +71,7 @@ const InputField: React.FC<InputFieldPropTypes> = ({
       </div>
       <div>
         <span id={props.name ?? defaultId}>
-          {$error && $helperText && <Icon name="info_outlined" size="small" />}
+          {$error && $helperText && <Icon $name="info_outlined" $size="small" />}
           {$helperText}
         </span>
         {$maxCharacterCount && (

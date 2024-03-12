@@ -55,7 +55,7 @@ const meta = {
     $iconName: {
       control: { type: 'text' },
       description:
-        'La prop iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
+        'La prop $iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
       table: {
         defaultValue: { summary: "'person'" },
         type: { summary: 'string' }
@@ -76,7 +76,6 @@ export const RoundedImageDefault: Story = {
 export const RoundedImageWithIcon: Story = {
   args: {
     $size: 'small',
-    $disabled: false,
     $iconName: 'mood'
   }
 }
@@ -92,7 +91,6 @@ export const RoundedImageDisabled: Story = {
 export const RoundedImageWithMonogram: Story = {
   args: {
     $size: 'large',
-    $disabled: false,
     $monogram: 'ar'
   }
 }
@@ -100,7 +98,6 @@ export const RoundedImageWithMonogram: Story = {
 export const RoundedImageWithPhoto: Story = {
   args: {
     $size: 'extra-large',
-    $disabled: false,
     $src: PHOTO_DATA_MOCK.image,
     $alt: PHOTO_DATA_MOCK.alt
   }

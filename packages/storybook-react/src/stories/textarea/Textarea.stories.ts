@@ -12,11 +12,11 @@ const meta = {
     },
     $helperText: {
       description:
-        'Se le puede agregar un mensaje de error en remplazo del default label al componente',
+        'Se le puede agregar un mensaje de ayuda o error en remplazo del default label al componente',
       control: { type: 'text' }
     },
     $error: {
-      description: 'Activa el estado error para mostrar mensaje y styles para ese caso',
+      description: 'Activa el estado error',
       control: { type: 'boolean' }
     },
     disabled: {

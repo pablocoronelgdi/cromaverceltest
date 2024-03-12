@@ -79,7 +79,7 @@ const Switch: React.FC<SwitchProps> = ({
           onChange={handleCheck}
         />
         <div>
-          {checked ?? isChecked ? <Icon size="medium" name="check" /> : null}
+          {checked ?? isChecked ? <Icon $size="medium" $name="check" /> : null}
         </div>
       </label>
     </SwitchContainer>
