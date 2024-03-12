@@ -4,57 +4,65 @@ import {
   FONT_LINK_LG,
   FONT_LINK_MD,
   FONT_LINK_SM,
-  FONT_TYPE_REGULAR
+  FONT_TYPE_REGULAR,
+  FONT_TYPE_SEMIBOLD
 } from '../../globals/globals'
 import { color, borders, shapes, spacings } from '@cromaui/foundations'
 import type { LinkPropsTypes } from './types'
 
 /* =============================================
-=            ESTILOS DEL COMPONENTE LINK     =
+    =     ESTILOS DEL COMPONENTE LINK     =
 ============================================= */
 
 export const StyledLink = styled.a<LinkPropsTypes>`
   ${FLEX_CENTER}
+  width: auto;
   color: ${(props) => (props.disabled ? color.neutral[400] : color.blue.main)};
   padding: ${spacings.space2};
   text-decoration: none;
   cursor: ${(props) => (props.disabled ? 'no-drop' : 'pointer')};
-  ${FONT_TYPE_REGULAR}
+  
+  ${(props) => props.$weightRegular ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
 
   ${(props) =>
-    props.size === 'large' &&
+    props.$size === 'large' &&
     css`
       ${FONT_LINK_LG}
     `}
   ${(props) =>
-    props.size === 'medium' &&
+    props.$size === 'medium' &&
     css`
       ${FONT_LINK_MD}
     `}
     ${(props) =>
-    props.size === 'small' &&
+    props.$size === 'small' &&
     css`
       ${FONT_LINK_SM}
     `}
 
     & p {
-    margin: 0;
-    border-bottom: ${borders.br2};
+      margin: 0;
+      border-bottom: ${borders.br2};
+      font-weight: ${(props) => props.$weightRegular ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
   }
 
   & span:first-child {
     margin-right: ${spacings.space8};
+    color: inherit
   }
   & span:last-child {
     margin-left: ${spacings.space8};
+    color: inherit
   }
 
   &:hover {
-    ${(props) => (props.disabled ? color.neutral[400] : color.blue.soft)};
+    color: ${(props) => (props.disabled ? color.neutral[400] : color.blue.soft)};
   }
 
-  &:focus {
-    border: ${borders.br2} ${color.blue.main};
+  &:focus,
+  &:focus-within,
+  &:focus-visible {
+    border: ${(props) => (props.disabled ? 'none' : borders.br2 + color.blue.soft)};
     border-radius: ${shapes.xs};
   }
 `
