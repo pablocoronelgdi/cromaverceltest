@@ -3,7 +3,6 @@ import type { IconPropTypes } from './types'
 import { shapes } from '@cromaui/foundations'
 
 export const StyledIcon = styled.span<IconPropTypes>`
-  // @TODO: Remover linea 7 cuando se cree la variante extra-small en el size de Button
   cursor: ${({ onClick }) => (onClick ? 'pointer' : '')};
   white-space: nowrap;
   word-wrap: normal;
