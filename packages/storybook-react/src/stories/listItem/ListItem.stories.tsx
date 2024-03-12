@@ -64,7 +64,7 @@ export const Default: Story = {
 
 export const AvatarSwich: Story = {
   args: {
-    contentLeft: <RoundedImage size="medium" iconName="person" />,
+    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
     title: 'Título',
     subtitle: 'Texto informativo',
     contentRight: <Switch />
@@ -73,7 +73,7 @@ export const AvatarSwich: Story = {
 
 export const AvatarRadio: Story = {
   args: {
-    contentLeft: <RoundedImage size="medium" iconName="person" />,
+    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
     title: 'Título',
     subtitle: 'Texto informativo',
     contentRight:
@@ -107,7 +107,7 @@ export const AvatarLink: Story = {
 
 export const AvatarIcon: Story = {
   args: {
-    contentLeft: <RoundedImage size="medium" iconName="person" />,
+    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
     title: 'Título',
     subtitle: 'Texto informativo',
     contentRight:
@@ -122,6 +122,6 @@ export const Disabled: Story = {
     disabled: true,
     subtitle: 'Texto informativo',
     contentRight:
-      <RoundedImage size="medium" iconName="person" disabled />
+      <RoundedImage $size="medium" $iconName="person" $disabled />
   }
 }
