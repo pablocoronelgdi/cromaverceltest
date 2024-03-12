@@ -29,6 +29,7 @@ const Link: React.FC<LinkPropsTypes> = ({
   $iconLeft = false,
   $iconRight = false,
   $iconName = '',
+  $weight,
   $id,
   ...props
 }) => {
@@ -48,6 +49,7 @@ const Link: React.FC<LinkPropsTypes> = ({
   return (
     <StyledLink
       $id={$id}
+      $weight={$weight}
       href={$href || '#'}
       alt={alt || $href}
       title={$title || $href}

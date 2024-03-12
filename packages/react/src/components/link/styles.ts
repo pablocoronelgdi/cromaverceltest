@@ -4,7 +4,8 @@ import {
   FONT_LINK_LG,
   FONT_LINK_MD,
   FONT_LINK_SM,
-  FONT_TYPE_REGULAR
+  FONT_TYPE_REGULAR,
+  FONT_TYPE_SEMIBOLD
 } from '../../globals/globals'
 import { color, borders, shapes, spacings } from '@cromaui/foundations'
 import type { LinkPropsTypes } from './types'
@@ -20,7 +21,8 @@ export const StyledLink = styled.a<LinkPropsTypes>`
   padding: ${spacings.space2};
   text-decoration: none;
   cursor: ${(props) => (props.$disabled ? 'no-drop' : 'pointer')};
-  ${FONT_TYPE_REGULAR}
+  
+  ${(props) => props.$weight ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
 
   ${(props) =>
     props.$size === 'large' &&
@@ -39,8 +41,9 @@ export const StyledLink = styled.a<LinkPropsTypes>`
     `}
 
     & p {
-    margin: 0;
-    border-bottom: ${borders.br2};
+      margin: 0;
+      border-bottom: ${borders.br2};
+      font-weight: ${(props) => (props.$weight)};
   }
 
   & span:first-child {
@@ -59,7 +62,7 @@ export const StyledLink = styled.a<LinkPropsTypes>`
   &:focus,
   &:focus-within,
   &:focus-visible {
-    border: ${(props) => (props.$disabled ? 'none' : borders.br2 + color.blue.main)};
+    border: ${(props) => (props.$disabled ? 'none' : borders.br2 + color.blue.soft)};
     border-radius: ${shapes.xs};
   }
 `

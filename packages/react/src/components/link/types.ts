@@ -14,5 +14,5 @@ export type LinkPropsTypes = {
   $target?: string
   $disabled?: boolean
   $size?: LinkSizeType
-  $weight: string
+  $weight?: boolean
 } & AnchorHTMLAttributes<HTMLAnchorElement>
