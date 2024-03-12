@@ -7,7 +7,7 @@ const meta = {
   title: 'Assets/Pictogram',
   component: Pictogram,
   argTypes: {
-    name: {
+    $name: {
       control: { type: 'select' },
       options: [
         'Alert',
@@ -39,7 +39,7 @@ const meta = {
         type: { summary: 'string' }
       }
     },
-    size: {
+    $size: {
       control: { type: 'select' },
       options: ['LG', 'MD', 'SM'],
       description: 'La prop size define el tamaño del Pictograma',
@@ -48,7 +48,7 @@ const meta = {
         type: { summary: 'string' }
       }
     },
-    segmentName: {
+    $segmentName: {
       control: { type: 'select' },
       options: ['Individuos', 'Selecta', 'Empresas', 'Agro', 'Gobierno'],
       description:
@@ -58,7 +58,7 @@ const meta = {
         type: { summary: 'string' }
       }
     },
-    backgroundColor: {
+    $backgroundColor: {
       control: { type: 'select' },
       options: ['Light', 'Dark'],
       description:
@@ -68,7 +68,7 @@ const meta = {
         type: { summary: 'string' }
       }
     },
-    individuosColor: {
+    $individuosColor: {
       control: { type: 'select' },
       options: ['Blue', 'Pink'],
       description:
@@ -95,73 +95,73 @@ type Story = StoryObj<typeof meta>
 export const PictogramDefault: Story = {
   name: 'Default',
   args: {
-    name: 'Cash',
-    size: 'MD',
-    segmentName: 'Individuos',
-    backgroundColor: 'Light',
-    individuosColor: 'Blue'
+    $name: 'Cash',
+    $size: 'medium',
+    $segmentName: 'Individuos',
+    $backgroundColor: 'Light',
+    $individuosColor: 'Blue'
   }
 }
 
 export const PictogramWithBackgroundDark: Story = {
   name: 'Pictogram con fondo Dark',
   args: {
-    name: 'Alert',
-    size: 'LG',
-    segmentName: 'Individuos',
-    backgroundColor: 'Dark',
-    individuosColor: 'Blue'
+    $name: 'Alert',
+    $size: 'large',
+    $segmentName: 'Individuos',
+    $backgroundColor: 'Dark',
+    $individuosColor: 'Blue'
   }
 }
 
 export const PictogramWithIndividuosPink: Story = {
   name: 'Pictogram en segmento Individuos, color secundario Rosa',
   args: {
-    name: 'Bag',
-    size: 'LG',
-    segmentName: 'Individuos',
-    backgroundColor: 'Light',
-    individuosColor: 'Pink'
+    $name: 'Bag',
+    $size: 'large',
+    $segmentName: 'Individuos',
+    $backgroundColor: 'Light',
+    $individuosColor: 'Pink'
   }
 }
 
 export const PictogramSelecta: Story = {
   name: 'Pictogram en segmento Selecta',
   args: {
-    name: 'Calendar',
-    size: 'LG',
-    segmentName: 'Selecta',
-    backgroundColor: 'Light'
+    $name: 'Calendar',
+    $size: 'large',
+    $segmentName: 'Selecta',
+    $backgroundColor: 'Light'
   }
 }
 
 export const PictogramEmpresas: Story = {
   name: 'Pictogram en segmento Empresas',
   args: {
-    name: 'Car',
-    size: 'LG',
-    segmentName: 'Empresas',
-    backgroundColor: 'Light'
+    $name: 'Car',
+    $size: 'large',
+    $segmentName: 'Empresas',
+    $backgroundColor: 'Light'
   }
 }
 
 export const PictogramAgro: Story = {
   name: 'Pictogram en segmento Agro',
   args: {
-    name: 'CardSmile',
-    size: 'LG',
-    segmentName: 'Agro',
-    backgroundColor: 'Light'
+    $name: 'CardSmile',
+    $size: 'large',
+    $segmentName: 'Agro',
+    $backgroundColor: 'Light'
   }
 }
 
 export const PictogramGobierno: Story = {
   name: 'Pictogram en segmento Gobierno',
   args: {
-    name: 'Card',
-    size: 'LG',
-    segmentName: 'Gobierno',
-    backgroundColor: 'Light'
+    $name: 'Card',
+    $size: 'large',
+    $segmentName: 'Gobierno',
+    $backgroundColor: 'Light'
   }
 }
 
@@ -228,11 +228,11 @@ export const DocPictogramDefault: Story = {
         code: `
         return (
           <Pictogram
-            name="Card"
-            size="MD"
-            segmentName="Individuos"
-            backgroundColor="Light"
-            individuosColor="Blue"
+            $name="Card"
+            $size="medium"
+            $segmentName="Individuos"
+            $backgroundColor="Light"
+            $individuosColor="Blue"
           />
         )
         `
@@ -247,11 +247,11 @@ export const DocPictogramDefault: Story = {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
         <Pictogram
-          name="Card"
-          size="MD"
-          segmentName="Individuos"
-          backgroundColor="Light"
-          individuosColor="Blue"
+          $name="Card"
+          $size="medium"
+          $segmentName="Individuos"
+          $backgroundColor="Light"
+          $individuosColor="Blue"
         />
       </div>
     )
@@ -270,18 +270,18 @@ export const DocPictogramWithBackgroundColor: Story = {
         code: `
         return (
           <Pictogram
-            name="Alert"
-            size="LG"
-            segmentName="Individuos"
-            backgroundColor="Light"
-            individuosColor="Blue"
+            $name="Alert"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Light"
+            $individuosColor="Blue"
           />
           <Pictogram
-            name="Alert"
-            size="LG"
-            segmentName="Individuos"
-            backgroundColor="Dark"
-            individuosColor="Blue"
+            $name="Alert"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Dark"
+            $individuosColor="Blue"
           />
         )
         `
@@ -296,19 +296,19 @@ export const DocPictogramWithBackgroundColor: Story = {
     return (
       <div style={{ width: '100%', padding: '1rem', display: 'flex', gap: 24 }}>
         <Pictogram
-          name="Alert"
-          size="LG"
-          segmentName="Individuos"
-          backgroundColor="Light"
-          individuosColor="Blue"
+          $name="Alert"
+          $size="large"
+          $segmentName="Individuos"
+          $backgroundColor="Light"
+          $individuosColor="Blue"
         />
         <div style={{ padding: '1rem', backgroundColor: color.navy.main, borderRadius: '4px' }}>
           <Pictogram
-            name="Alert"
-            size="LG"
-            segmentName="Individuos"
-            backgroundColor="Dark"
-            individuosColor="Blue"
+            $name="Alert"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Dark"
+            $individuosColor="Blue"
           />
         </div>
       </div>
@@ -328,18 +328,18 @@ export const DocPictogramWithIndividuosColor: Story = {
         code: `
         return (
           <Pictogram
-            name="Bag"
-            size="LG"
-            segmentName="Individuos"
-            backgroundColor="Light"
-            individuosColor="Blue"
+            $name="Bag"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Light"
+            $individuosColor="Blue"
            />
           <Pictogram
-            name="Bag"
-            size="LG"
-            segmentName="Individuos"
-            backgroundColor="Light"
-            individuosColor="Pink"
+            $name="Bag"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Light"
+            $individuosColor="Pink"
           />
         )
         `
@@ -354,18 +354,18 @@ export const DocPictogramWithIndividuosColor: Story = {
     return (
       <div style={{ width: '50%', padding: '1rem', display: 'flex', gap: 24 }}>
         <Pictogram
-          name="Bag"
-          size="LG"
-          segmentName="Individuos"
-          backgroundColor="Light"
-          individuosColor="Blue"
+          $name="Bag"
+          $size="large"
+          $segmentName="Individuos"
+          $backgroundColor="Light"
+          $individuosColor="Blue"
         />
         <Pictogram
-          name="Bag"
-          size="LG"
-          segmentName="Individuos"
-          backgroundColor="Light"
-          individuosColor="Pink"
+          $name="Bag"
+          $size="large"
+          $segmentName="Individuos"
+          $backgroundColor="Light"
+          $individuosColor="Pink"
         />
       </div>
     )
@@ -384,10 +384,10 @@ export const DocPictogramSelecta: Story = {
         code: `
         return (
           <Pictogram
-            name="Calendar"
-            size="LG"
-            segmentName="Selecta"
-            backgroundColor="Light"
+            $name="Calendar"
+            $size="large"
+            $segmentName="Selecta"
+            $backgroundColor="Light"
           />
         )
         `
@@ -401,7 +401,7 @@ export const DocPictogramSelecta: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Pictogram name="Calendar" size="LG" segmentName="Selecta" backgroundColor="Light" />
+        <Pictogram $name="Calendar" $size="large" $segmentName="Selecta" $backgroundColor="Light" />
       </div>
     )
   }
@@ -419,10 +419,10 @@ export const DocPictogramEmpresas: Story = {
         code: `
         return (
           <Pictogram
-            name="Car"
-            size="LG"
-            segmentName="Empresas"
-            backgroundColor="Light"
+            $name="Car"
+            $size="large"
+            $segmentName="Empresas"
+            $backgroundColor="Light"
           />
         )
         `
@@ -436,7 +436,7 @@ export const DocPictogramEmpresas: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Pictogram name="Car" size="LG" segmentName="Empresas" backgroundColor="Light" />
+        <Pictogram $name="Car" $size="large" $segmentName="Empresas" $backgroundColor="Light" />
       </div>
     )
   }
@@ -454,10 +454,10 @@ export const DocPictogramAgro: Story = {
         code: `
         return (
           <Pictogram
-            name="CardSmile"
-            size="LG"
-            segmentName="Agro"
-            backgroundColor="Light"
+            $name="CardSmile"
+            $size="large"
+            $segmentName="Agro"
+            $backgroundColor="Light"
           />
         )
         `
@@ -471,7 +471,7 @@ export const DocPictogramAgro: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Pictogram name="CardSmile" size="LG" segmentName="Agro" backgroundColor="Light" />
+        <Pictogram $name="CardSmile" $size="large" $segmentName="Agro" $backgroundColor="Light" />
       </div>
     )
   }
@@ -489,10 +489,10 @@ export const DocPictogramGobierno: Story = {
         code: `
         return (
           <Pictogram
-            name="Card"
-            size="LG"
-            segmentName="Gobierno"
-            backgroundColor="Light"
+            $name="Card"
+            $size="large"
+            $segmentName="Gobierno"
+            $backgroundColor="Light"
           />
         )
         `
@@ -506,7 +506,7 @@ export const DocPictogramGobierno: Story = {
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Pictogram name="Card" size="LG" segmentName="Gobierno" backgroundColor="Light" />
+        <Pictogram $name="Card" $size="large" $segmentName="Gobierno" $backgroundColor="Light" />
       </div>
     )
   }

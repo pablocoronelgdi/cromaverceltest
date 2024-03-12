@@ -5,31 +5,33 @@ import AssetLoader from '../assetLoader/AssetLoader'
 import { getPictogramColors, getPictogramSize } from './utils'
 
 const Pictogram: React.FC<PictogramPropTypes> = ({
-  name = 'Cash',
-  size = 'MD',
-  segmentName = 'Individuos',
-  backgroundColor = 'Light',
-  individuosColor = 'Blue',
+  $name = 'Cash',
+  $size = 'medium',
+  $segmentName = 'Individuos',
+  $backgroundColor = 'Light',
+  $individuosColor = 'Blue',
+  $id,
   children
 }) => {
   const { colorPrimary, colorSecondary } = getPictogramColors(
-    segmentName,
-    backgroundColor,
-    individuosColor
+    $segmentName,
+    $backgroundColor,
+    $individuosColor
   )
 
-  const { height, width } = getPictogramSize(size)
+  const { height, width } = getPictogramSize($size)
 
   return children ? (
-    <AssetLoader>{children}</AssetLoader>
+    <AssetLoader $id={$id}>{children}</AssetLoader>
   ) : (
     <AssetLoader
-      name={name}
-      type={'pictogram'}
-      height={height}
-      width={width}
-      colorPrimary={colorPrimary || color.navy.main}
-      colorSecondary={colorSecondary || color.neutral[50]}
+      $type={'pictogram'}
+      $name={$name}
+      $height={height}
+      $width={width}
+      $colorPrimary={colorPrimary || color.navy.main}
+      $colorSecondary={colorSecondary || color.neutral[50]}
+      $id={$id}
     />
   )
 }

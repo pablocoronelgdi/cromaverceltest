@@ -8,7 +8,6 @@ import Login from '../login/login'
 import FormBond from '../formBond'
 
 const tabs = [
-
   {
     label: 'Inicio',
     iconLeftName: 'home',
@@ -46,22 +45,16 @@ const Dashboard: React.FC = () => {
     <>
       <nav>
         <div>
-          <Logo name="MacroHorizontal" colorPrimary="white" />
+          <Logo $name="MacroHorizontal" $colorPrimary="white" />
         </div>
         <div>
           <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
           <Icon name="notifications" style={{ color: 'white' }} size="large" />
           <Badge count={1000} color="pink" backgroundType="dark" />
           <RoundedImage
-            size="large"
-            photo={{
-              width: '100%',
-              height: '100%',
-              image:
-                'https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg',
-              alt: 'Chayanne',
-              title: 'Chayanne'
-            }}
+            $size="large"
+            $src="https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg"
+            $alt="Chayanne"
           />
         </div>
       </nav>

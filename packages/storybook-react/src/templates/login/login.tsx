@@ -80,7 +80,7 @@ const Login: React.FC = () => {
             </>
           }
         >
-          <Logo name="MacroHorizontal" height={40} />
+          <Logo $name="MacroHorizontal" $size="medium" />
         </Toogletip>
       </div>
       <div>

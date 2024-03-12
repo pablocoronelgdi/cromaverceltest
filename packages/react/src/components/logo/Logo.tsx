@@ -2,24 +2,28 @@ import React from 'react'
 import type { LogoPropTypes } from './types'
 import { color } from '@cromaui/foundations'
 import AssetLoader from '../assetLoader/AssetLoader'
+import { getLogoSize } from './utils'
 
 const Logo: React.FC<LogoPropTypes> = ({
-  name,
-  height = 'auto',
-  colorPrimary = color.navy.main,
-  colorSecondary = color.neutral[50],
+  $colorPrimary = color.navy.main,
+  $colorSecondary = color.neutral[50],
+  $name = 'MacroHorizontal',
+  $size = 'medium',
+  $id,
   children
 }) => {
+  const logoHeight = getLogoSize($name, $size)
   return children ? (
-    <AssetLoader>{children}</AssetLoader>
+    <AssetLoader $id={$id}>{children}</AssetLoader>
   ) : (
     <AssetLoader
-      name={name || 'MacroHorizontal'}
-      type={'logo'}
-      width="auto"
-      height={height}
-      colorPrimary={colorPrimary}
-      colorSecondary={colorSecondary}
+      $type="logo"
+      $width="auto"
+      $name={$name}
+      $height={logoHeight}
+      $colorPrimary={$colorPrimary}
+      $colorSecondary={$colorSecondary}
+      $id={$id}
     />
   )
 }
