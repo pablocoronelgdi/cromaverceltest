@@ -13,8 +13,10 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   border-radius: 100px;
   background-color: ${color.navy.extraSoft};
   color: ${color.navy.main};
-  height: ${(props: RoundedImagePropsTypes) => getSize(props.size)};
-  width: ${(props: RoundedImagePropsTypes) => getSize(props.size)};
+  height: ${(props: RoundedImagePropsTypes) => getSize(props.$size)};
+  width: ${(props: RoundedImagePropsTypes) => getSize(props.$size)};
+  min-height: ${(props: RoundedImagePropsTypes) => getSize(props.$size)};
+  min-width: ${(props: RoundedImagePropsTypes) => getSize(props.$size)};
   text-align: center;
   overflow: hidden;
 
@@ -23,7 +25,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
     font-family: ${typography.body.sm.fontFamily};
 
     ${(props) =>
-      props.size === 'extra-small' &&
+      props.$size === 'extra-small' &&
       css`
         font-size: ${typography.body.sm.fontSize};
         line-height: 1.1em;
@@ -31,7 +33,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
       `}
 
     ${(props) =>
-      props.size === 'small' &&
+      props.$size === 'small' &&
       css`
     font-size: ${typography.body.md.fontSize};
     letter-spacing: ${typography.body.md.letterSpacing};
@@ -39,7 +41,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
     `}
 
     ${(props) =>
-      (props.size === 'medium' || props.size === 'large') &&
+      (props.$size === 'medium' || props.$size === 'large') &&
       css`
     font-size: ${typography.body.lg.fontSize};
     letter-spacing: ${typography.body.lg.letterSpacing};
@@ -47,7 +49,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
     `}
     
     ${(props) =>
-      props.size === 'extra-large' &&
+      props.$size === 'extra-large' &&
       css`
     font-size: ${typography.heading.sm.fontSize};
     letter-spacing: ${typography.heading.sm.letterSpacing};
@@ -56,7 +58,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
   }
 
   ${(props) =>
-    props.disabled &&
+    props.$disabled &&
     css`
       background-color: ${color.neutral[200]};
       border-color: ${color.neutral[400]};
@@ -66,7 +68,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
 
   & > img {
     ${(props) =>
-      props.disabled &&
+      props.$disabled &&
       css`
         opacity: 50%;
         filter: grayscale(100%);
@@ -76,7 +78,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImagePropsTypes>`
 
   & > span {
     ${(props) =>
-      props.disabled &&
+      props.$disabled &&
       css`
         color: ${color.neutral[400]};
       `}
