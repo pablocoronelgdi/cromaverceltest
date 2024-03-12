@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>
 
 /* ----------  DOC STORIES ---------- */
 
-export const sizeIcon: Story = {
+export const SizeIcon: Story = {
   name: 'Tamaños del Icono',
   tags: ['docs-only'],
   parameters: {
@@ -73,7 +73,7 @@ export const sizeIcon: Story = {
   }
 }
 
-export const colorIcon: Story = {
+export const ColorIcon: Story = {
   name: 'colores del icono',
   tags: ['docs-only'],
   parameters: {
