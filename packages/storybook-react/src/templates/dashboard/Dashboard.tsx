@@ -49,7 +49,7 @@ const Dashboard: React.FC = () => {
         </div>
         <div>
           <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
-          <Icon name="notifications" style={{ color: 'white' }} size="large" />
+          <Icon $name="notifications" style={{ color: 'white' }} $size="large" />
           <Badge count={1000} color="pink" backgroundType="dark" />
           <RoundedImage
             $size="large"

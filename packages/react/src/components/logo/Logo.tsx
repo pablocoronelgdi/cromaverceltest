@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import type { LogoPropTypes } from './types'
 import { color } from '@cromaui/foundations'
 import AssetLoader from '../assetLoader/AssetLoader'
@@ -13,17 +13,19 @@ const Logo: React.FC<LogoPropTypes> = ({
   children
 }) => {
   const logoHeight = getLogoSize($name, $size)
+  const defaultId = useId()
+
   return children ? (
-    <AssetLoader $id={$id}>{children}</AssetLoader>
+    <AssetLoader $id={$id || defaultId}>{children}</AssetLoader>
   ) : (
     <AssetLoader
       $type="logo"
-      $width="auto"
+      $width="100%"
       $name={$name}
       $height={logoHeight}
       $colorPrimary={$colorPrimary}
       $colorSecondary={$colorSecondary}
-      $id={$id}
+      $id={$id || defaultId}
     />
   )
 }

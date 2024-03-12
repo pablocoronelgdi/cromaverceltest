@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import type { PictogramPropTypes } from './types'
 import { color } from '@cromaui/foundations'
 import AssetLoader from '../assetLoader/AssetLoader'
@@ -13,6 +13,7 @@ const Pictogram: React.FC<PictogramPropTypes> = ({
   $id,
   children
 }) => {
+  const defaultId = useId()
   const { colorPrimary, colorSecondary } = getPictogramColors(
     $segmentName,
     $backgroundColor,
@@ -22,7 +23,7 @@ const Pictogram: React.FC<PictogramPropTypes> = ({
   const { height, width } = getPictogramSize($size)
 
   return children ? (
-    <AssetLoader $id={$id}>{children}</AssetLoader>
+    <AssetLoader $id={$id || defaultId}>{children}</AssetLoader>
   ) : (
     <AssetLoader
       $type={'pictogram'}
@@ -31,7 +32,7 @@ const Pictogram: React.FC<PictogramPropTypes> = ({
       $width={width}
       $colorPrimary={colorPrimary || color.navy.main}
       $colorSecondary={colorSecondary || color.neutral[50]}
-      $id={$id}
+      $id={$id || defaultId}
     />
   )
 }

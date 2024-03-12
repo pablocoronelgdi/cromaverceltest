@@ -21,8 +21,8 @@ const sanitizeChildren = (unsafeChildren: ReactNode): string => {
 
 const AssetLoader: React.FC<AssetPropTypes> = ({
   $name,
-  $width = 'auto',
-  $height = 'auto',
+  $width = '100%',
+  $height = '100%',
   $colorPrimary = color.navy.main,
   $colorSecondary = color.neutral[50],
   children,

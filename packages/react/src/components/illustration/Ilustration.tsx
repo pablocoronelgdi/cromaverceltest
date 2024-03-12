@@ -5,8 +5,8 @@ import AssetLoader from '../assetLoader/AssetLoader'
 
 const Illustration: React.FC<IllustrationPropTypes> = ({
   name,
-  width = 'auto',
-  height = 'auto',
+  width = '100%',
+  height = '100%',
   colorPrimary = color.navy.main,
   colorSecondary = color.neutral[50],
   children
@@ -15,12 +15,12 @@ const Illustration: React.FC<IllustrationPropTypes> = ({
     <AssetLoader>{children}</AssetLoader>
   ) : (
     <AssetLoader
-      name={name}
-      type={'illustration'}
-      width={width}
-      height={height}
-      colorPrimary={colorPrimary}
-      colorSecondary={colorSecondary}
+      $name={name}
+      $type={'illustration'}
+      $width={width}
+      $height={height}
+      $colorPrimary={colorPrimary}
+      $colorSecondary={colorSecondary}
     />
   )
 }
