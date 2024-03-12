@@ -56,18 +56,11 @@ const Link: React.FC<LinkPropsTypes> = ({
       {...props}
     >
       {$iconRight && (
-        <Icon
-          color={props.disabled ? color.neutral[400] : color.blue.main}
-          name={$iconName}
-          size={iconSize}
-        />
+        <Icon color={props.disabled ? color.neutral[400] : color.blue.main} name={$iconName} size={iconSize} />
       )}
       <p>{$children}</p>
       {$iconLeft && (
-        <Icon
-          color={props.disabled ? color.neutral[400] : color.blue.main}
-          name={$iconName}
-          size={iconSize}
+        <Icon color={props.disabled ? color.neutral[400] : color.blue.main} name={$iconName} size={iconSize}
         />
       )}
     </StyledLink>
