@@ -9,13 +9,13 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    $href: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
     $children: { control: { type: 'text' } },
-    $alt: { control: { type: 'text' } },
-    $disabled: { control: { type: 'boolean' } },
+    alt: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
     $iconRight: { control: { type: 'boolean' } },
     $iconLeft: { control: { type: 'boolean' } },
-    $target: {
+    target: {
       options: ['_self', '_blank'],
       control: { type: 'select' }
     },
@@ -33,10 +33,10 @@ export const LinkDefault: Story = {
   args: {
     $title: 'title',
     $iconName: 'check',
-    $href: 'https://google.com.ar',
+    href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
-    $alt: 'Texto de referencia',
-    $target: '_self'
+    alt: 'Texto de referencia',
+    target: '_self'
   }
 }
 
@@ -44,21 +44,21 @@ export const LinkDisabled: Story = {
   args: {
     $title: 'Macro ejemplo',
     $iconName: 'check',
-    $href: 'https://google.com.ar',
+    href: 'https://google.com.ar',
     children: 'Link de Ejemplo',
-    $alt: 'Texto de referencia',
-    $target: '_self',
-    $disabled: true
+    alt: 'Texto de referencia',
+    target: '_self',
+    disabled: true
   }
 }
 
 export const LinkIconRight: Story = {
   args: {
     $title: 'title',
-    $href: 'https://google.com.ar',
+    href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
-    $alt: 'Texto de referencia',
-    $target: '_self',
+    alt: 'Texto de referencia',
+    target: '_self',
     $iconRight: true,
     $iconName: 'send'
   }
@@ -67,10 +67,10 @@ export const LinkIconRight: Story = {
 export const LinkIconLeft: Story = {
   args: {
     $title: 'title',
-    $href: 'https://google.com.ar',
+    href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
-    $alt: 'Texto de referencia',
-    $target: '_self',
+    alt: 'Texto de referencia',
+    target: '_self',
     $iconLeft: true,
     $iconName: 'send'
   }
@@ -80,9 +80,9 @@ export const LinkTargetBlank: Story = {
   args: {
     $iconName: 'send',
     $title: 'text',
-    $href: 'https://google.com.ar',
+    href: 'https://google.com.ar',
     $children: 'Link de Ejemplo',
-    $alt: 'Texto de referencia',
-    $target: '_blank'
+    alt: 'Texto de referencia',
+    target: '_blank'
   }
 }

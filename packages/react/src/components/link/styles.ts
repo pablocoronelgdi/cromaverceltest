@@ -11,18 +11,18 @@ import { color, borders, shapes, spacings } from '@cromaui/foundations'
 import type { LinkPropsTypes } from './types'
 
 /* =============================================
-    =      ESTILOS DEL COMPONENTE LINK     =
+    =     ESTILOS DEL COMPONENTE LINK     =
 ============================================= */
 
 export const StyledLink = styled.a<LinkPropsTypes>`
   ${FLEX_CENTER}
   width: auto;
-  color: ${(props) => (props.$disabled ? color.neutral[400] : color.blue.main)};
+  color: ${(props) => (props.disabled ? color.neutral[400] : color.blue.main)};
   padding: ${spacings.space2};
   text-decoration: none;
-  cursor: ${(props) => (props.$disabled ? 'no-drop' : 'pointer')};
+  cursor: ${(props) => (props.disabled ? 'no-drop' : 'pointer')};
   
-  ${(props) => props.$weight ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
+  ${(props) => props.$weightRegular ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
 
   ${(props) =>
     props.$size === 'large' &&
@@ -43,7 +43,7 @@ export const StyledLink = styled.a<LinkPropsTypes>`
     & p {
       margin: 0;
       border-bottom: ${borders.br2};
-      font-weight: ${(props) => (props.$weight)};
+      font-weight: ${(props) => props.$weightRegular ? FONT_TYPE_REGULAR : FONT_TYPE_SEMIBOLD}
   }
 
   & span:first-child {
@@ -56,13 +56,13 @@ export const StyledLink = styled.a<LinkPropsTypes>`
   }
 
   &:hover {
-    color: ${(props) => (props.$disabled ? color.neutral[400] : color.blue.soft)};
+    color: ${(props) => (props.disabled ? color.neutral[400] : color.blue.soft)};
   }
 
   &:focus,
   &:focus-within,
   &:focus-visible {
-    border: ${(props) => (props.$disabled ? 'none' : borders.br2 + color.blue.soft)};
+    border: ${(props) => (props.disabled ? 'none' : borders.br2 + color.blue.soft)};
     border-radius: ${shapes.xs};
   }
 `

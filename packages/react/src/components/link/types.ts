@@ -4,15 +4,15 @@ export type LinkSizeType = 'small' | 'medium' | 'large'
 export type LinkPropsTypes = {
   $id?: number
   $children?: ReactNode
-  $href?: string
+  href?: string
   alt?: string
   $title?: string
   $iconRight?: boolean
   $iconLeft?: boolean
   $iconName?: string
   $className?: string
-  $target?: string
-  $disabled?: boolean
+  target?: string
+  disabled?: boolean
   $size?: LinkSizeType
-  $weight?: boolean
+  $weightRegular?: boolean
 } & AnchorHTMLAttributes<HTMLAnchorElement>

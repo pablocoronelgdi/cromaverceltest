@@ -18,18 +18,13 @@ export const getSize = (size?: LinkSizeType): string => {
 }
 
 const Link: React.FC<LinkPropsTypes> = ({
-  $href = '',
   $children = 'macro',
-  alt = 'Macro',
-  $title = 'Macro',
-  $target = '_self',
-  $disabled = false,
   $size,
   $className = 'no-drop',
   $iconLeft = false,
   $iconRight = false,
   $iconName = '',
-  $weight,
+  $weightRegular,
   $id,
   ...props
 }) => {
@@ -49,12 +44,12 @@ const Link: React.FC<LinkPropsTypes> = ({
   return (
     <StyledLink
       $id={$id}
-      $weight={$weight}
-      href={$href || '#'}
-      alt={alt || $href}
-      title={$title || $href}
-      target={$target}
-      $disabled={$disabled}
+      $weightRegular={$weightRegular}
+      href={props.href || '#'}
+      alt={props.alt || props.href}
+      title={props.title || props.href}
+      target={props.target}
+      disabled={props.disabled}
       className={`${$className} size`}
       $iconName={$iconName}
       $size={$size}
@@ -62,7 +57,7 @@ const Link: React.FC<LinkPropsTypes> = ({
     >
       {$iconRight && (
         <Icon
-          color={$disabled ? color.neutral[400] : color.blue.main}
+          color={props.disabled ? color.neutral[400] : color.blue.main}
           name={$iconName}
           size={iconSize}
         />
@@ -70,7 +65,7 @@ const Link: React.FC<LinkPropsTypes> = ({
       <p>{$children}</p>
       {$iconLeft && (
         <Icon
-          color={$disabled ? color.neutral[400] : color.blue.main}
+          color={props.disabled ? color.neutral[400] : color.blue.main}
           name={$iconName}
           size={iconSize}
         />
