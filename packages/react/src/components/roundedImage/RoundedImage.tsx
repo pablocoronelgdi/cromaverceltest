@@ -58,7 +58,7 @@ const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
         />
       )}
       {((!photo && !monogram) || !isNaN(Number(monogram))) && (
-        <Icon size={iconSize} name={iconName?.toLowerCase() ?? 'person'} />
+        <Icon $size={iconSize} $name={iconName?.toLowerCase() ?? 'person'} />
       )}
     </RoundedImageContainerStyled>
   )

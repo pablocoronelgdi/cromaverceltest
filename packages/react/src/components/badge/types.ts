@@ -6,7 +6,7 @@ export type BadgeBackgroundType = 'light' | 'dark'
 
 export type BadgePropsTypes = {
   count?: number
-  iconName?: IconPropTypes['name']
+  iconName?: IconPropTypes['$name']
   text?: string
   size?: BadgeSizeType
   color?: BadgeColorType

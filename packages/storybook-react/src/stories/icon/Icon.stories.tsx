@@ -6,7 +6,7 @@ const meta = {
   title: 'Inputs/Icon',
   component: Icon,
   argTypes: {
-    name: {
+    $name: {
       description:
         'El nombre del icono, se utiliza la nomenclatura de Material Icons de google. Puede utilizarse el children en reemplazo de esta prop',
       table: {
@@ -14,22 +14,14 @@ const meta = {
         defaultValue: { summary: 'filled' }
       }
     },
-    size: {
+    $size: {
       description: 'Define el tamaño del icono',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'large' }
       }
     },
-    onClick: {
-      description: 'Función que se ejecuta cuando se clickea el icono.',
-      action: 'onChange',
-      table: {
-        type: { summary: 'function' },
-        defaultValue: { summary: 'void' }
-      }
-    },
-    color: {
+    $color: {
       description: 'Define el color del icono',
       table: {
         type: { summary: 'string' },
@@ -44,7 +36,7 @@ type Story = StoryObj<typeof meta>
 
 /* ----------  DOC STORIES ---------- */
 
-export const SizeIcon: Story = {
+export const sizeIcon: Story = {
   name: 'Tamaños del Icono',
   tags: ['docs-only'],
   parameters: {
@@ -54,40 +46,35 @@ export const SizeIcon: Story = {
         language: 'tsx',
         dark: true,
         code: `
-      const [value,setValue] = useState("El valor del Icon es: false");
-      const getValorDelIcon = (isChecked) => {
-        setValue("El nuevo valor es:" + isChecked)
-        }
-
-      return (
-       <>
-          <Icon onChange={getValorDelIcon} defaultValue={false} />
-          <p>{value}</p>
-       </>
-       )
+        <>
+          <Icon $name="person" $size="small" />
+          <Icon $name="person" $size="medium" />
+          <Icon $name="person" $size="large" />
+          <Icon $name="person" $size="extra-large" />
+        </>
         `
       }
     }
   },
   args: {
-    size: 'large',
-    name: 'person'
+    $size: 'large',
+    $name: 'person'
   },
 
   render: function Render() {
     return (
       <>
-        <Icon name="person" size="small" />
-        <Icon name="person" size="medium" />
-        <Icon name="person" size="large" />
-        <Icon name="person" size="extra-large" />
+        <Icon $name="person" $size="small" />
+        <Icon $name="person" $size="medium" />
+        <Icon $name="person" $size="large" />
+        <Icon $name="person" $size="extra-large" />
       </>
     )
   }
 }
 
-export const ColorIcon: Story = {
-  name: 'Colores del icono',
+export const colorIcon: Story = {
+  name: 'colores del icono',
   tags: ['docs-only'],
   parameters: {
     docs: {
@@ -96,7 +83,12 @@ export const ColorIcon: Story = {
         language: 'tsx',
         dark: true,
         code: `
-          <Icon defaultValue={true} />
+        <>
+          <Icon $name="person" $color="pink" />
+          <Icon $name="person" $color={rgba(10, 141, 43, 1)} />
+          <Icon $name="person" $color={navy} />
+          <Icon $name="person" $color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)} />
+        </>
         `
       }
     }
@@ -106,10 +98,13 @@ export const ColorIcon: Story = {
     const navy = '#053575'
     return (
       <>
-        <Icon name="person" color="pink" />
-        <Icon name="person" color={rgba(10, 141, 43, 1)} />
-        <Icon name="person" color={navy} />
-        <Icon name="person" color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)} />
+        <Icon $name="person" $color="pink" />
+        <Icon $name="person" $color={rgba(10, 141, 43, 1)} />
+        <Icon $name="person" $color={navy} />
+        <Icon
+          $name="person"
+          $color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)}
+        />
       </>
     )
   }
@@ -119,11 +114,8 @@ export const ColorIcon: Story = {
 
 export const Default: Story = {
   args: {
-    size: 'large',
-    name: 'person',
-    color: 'inherit',
-    onClick: () => {
-      console.log('Icon clicked')
-    }
+    $size: 'large',
+    $name: 'person',
+    $color: 'inherit'
   }
 }

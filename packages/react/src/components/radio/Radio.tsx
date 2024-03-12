@@ -5,14 +5,7 @@ import { color } from '@cromaui/foundations'
 import { RadioContainer } from './styles'
 import type { RadioPropTypes } from './types'
 
-const Radio: React.FC<RadioPropTypes> = ({
-  onChange,
-  disabled,
-  checked,
-  value,
-  id,
-  name
-}) => {
+const Radio: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, id, name }) => {
   const [isPressed, setIsPressed] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
 
@@ -41,11 +34,7 @@ const Radio: React.FC<RadioPropTypes> = ({
   }
 
   return (
-    <RadioContainer
-      isPressed={isPressed}
-      isFocused={isFocused}
-      disabled={disabled}
-    >
+    <RadioContainer isPressed={isPressed} isFocused={isFocused} disabled={disabled}>
       <label
         onMouseDown={(e) => {
           handlePress(e)
@@ -71,8 +60,8 @@ const Radio: React.FC<RadioPropTypes> = ({
           }}
         />
         <Icon
-          color={disabled ? color.neutral[400] : color.navy.main}
-          name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
+          $color={disabled ? color.neutral[400] : color.navy.main}
+          $name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
         />
       </label>
     </RadioContainer>

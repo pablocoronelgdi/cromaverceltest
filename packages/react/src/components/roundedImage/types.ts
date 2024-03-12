@@ -10,7 +10,7 @@ export type RoundedImageSizeType =
 
 export type RoundedImagePropsTypes = {
   monogram?: string
-  iconName?: IconPropTypes['name']
+  iconName?: IconPropTypes['$name']
   photo?: StyledImageProps
   disabled?: boolean
   size: RoundedImageSizeType
