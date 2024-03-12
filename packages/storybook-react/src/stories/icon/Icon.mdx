@@ -1,0 +1,34 @@
+import { Meta, Primary, ArgTypes, Story, Stories, Source, Title } from '@storybook/blocks'
+import * as IconStories from './Icon.stories'
+
+<Meta of={IconStories} />
+
+# Icon
+
+Este componente representa un icono que puede ser utilizado para mejorar la estética y la funcionalidad de la interfaz de usuario. Los iconos son una forma efectiva de comunicar visualmente acciones, conceptos o información de manera rápida y clara.
+
+<br />
+
+<Primary />
+
+## Propiedades
+
+### Tamaños del Icono
+
+Mediante la prop size se pueden definir diferentes tamaños estandarizados para el Icono
+
+<Story of={IconStories.SizeIcon} />
+<Source of={IconStories.SizeIcon} />
+
+### Colores del icono
+
+El componente soporta diferentes formatos de color en su prop "color"
+
+<Story of={IconStories.ColorIcon} />
+<Source of={IconStories.ColorIcon} />
+
+## Props
+
+El componente Icon acepta, ademas de los atributos de html, los siguientes parametros:
+
+<ArgTypes />

@@ -89,9 +89,9 @@ const PinInput: React.FC<PinInputPropsTypes> = ({ length, onComplete, disabled, 
             <StyledLabelIcon onComplete={onComplete} length={length}>
               {error && (
                 <Icon
-                  name="info_outlined"
-                  color={color.error.main}
-                  size="small"
+                  $name="info_outlined"
+                  $color={color.error.main}
+                  $size="small"
                 />
               )}
               <p>{label || errorMessage}</p>

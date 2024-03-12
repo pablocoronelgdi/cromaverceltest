@@ -11,7 +11,7 @@ import 'slick-carousel/slick/slick-theme.css'
 function SampleNextArrow({ className = '', onClick = undefined }): React.JSX.Element {
   return (
     <button className={className} style={{ display: 'block' }} onClick={onClick}>
-      <Icon name='arrow_forward_ios' size='small' />
+      <Icon $name="arrow_forward_ios" $size="small" />
     </button>
   )
 }
@@ -19,22 +19,37 @@ function SampleNextArrow({ className = '', onClick = undefined }): React.JSX.Ele
 function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Element {
   return (
     <button className={className} style={{ display: 'block' }} onClick={onClick}>
-      <Icon name='arrow_back_ios' size='small' />
+      <Icon $name="arrow_back_ios" $size="small" />
     </button>
   )
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slidesToShow, label }) => {
+const Tabs: React.FC<TabsProps> = ({
+  tabs,
+  vertical,
+  iconLeft,
+  iconRight,
+  slidesToShow,
+  label
+}) => {
   const [activeTab, setActiveTab] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [focusedTab, setFocusedTab] = useState<number | null>(null)
 
-  const handleTabClick = (index: number): void => { setActiveTab(index) }
-  const handleTabFocus = (index: number): void => { setFocusedTab(index) }
-  const handleTabBlur = (): void => { setFocusedTab(null) }
+  const handleTabClick = (index: number): void => {
+    setActiveTab(index)
+  }
+  const handleTabFocus = (index: number): void => {
+    setFocusedTab(index)
+  }
+  const handleTabBlur = (): void => {
+    setFocusedTab(null)
+  }
 
   useEffect(() => {
-    const handleResize = (): void => { setWindowWidth(window.innerWidth) }
+    const handleResize = (): void => {
+      setWindowWidth(window.innerWidth)
+    }
 
     window.addEventListener('resize', handleResize)
 
@@ -54,7 +69,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     onclick,
-    responsive: [ // Respomsive Slider
+    responsive: [
+      // Respomsive Slider
       {
         breakpoint: breakpoints.lg,
         settings: {
@@ -79,51 +95,62 @@ const Tabs: React.FC<TabsProps> = ({ tabs, vertical, iconLeft, iconRight, slides
     ]
   }
 
-  if (showSlider) { // Trasforma a el componente tabs comun en un slider
+  if (showSlider) {
+    // Trasforma a el componente tabs comun en un slider
     return (
-    <div>
+      <div>
         <StyledTabContainer>
-            <Slider {...settings}>
-                {tabs.map((tab, index) => (
-                <StyledFoco key={index}>
-                    <Tab
-                      focused={index === focusedTab}
-                      onFocus={() => { handleTabFocus(index) }}
-                      onBlur={handleTabBlur}key={index}
-                      active={index === activeTab}
-                      onClick={() => { handleTabClick(index) }}
-                    >
-                        <Flex tabs={tabs} vertical={vertical}>
-                            {iconLeft && <Icon name={`${tab.iconLeftName}`} size='small'/>}
-                            <span className='label'>{label && tab.label}</span>
-                            {iconRight && <Icon name={`${tab.iconRightName}`} size='small'/>}
-                        </Flex>
-                    </Tab>
-                </StyledFoco>
-                ))}
-            </Slider>
+          <Slider {...settings}>
+            {tabs.map((tab, index) => (
+              <StyledFoco key={index}>
+                <Tab
+                  focused={index === focusedTab}
+                  onFocus={() => {
+                    handleTabFocus(index)
+                  }}
+                  onBlur={handleTabBlur}
+                  key={index}
+                  active={index === activeTab}
+                  onClick={() => {
+                    handleTabClick(index)
+                  }}
+                >
+                  <Flex tabs={tabs} vertical={vertical}>
+                    {iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="small" />}
+                    <span className="label">{label && tab.label}</span>
+                    {iconRight && <Icon $name={`${tab.iconRightName}`} $size="small" />}
+                  </Flex>
+                </Tab>
+              </StyledFoco>
+            ))}
+          </Slider>
         </StyledTabContainer>
         <TabContent>{tabs[activeTab].content}</TabContent>
-    </div>
+      </div>
     )
   }
   return (
     <div>
-      <StyledTabContainer className='flex'>
+      <StyledTabContainer className="flex">
         {tabs.map((tab, index) => (
           <StyledFoco key={index}>
             <Tab
               focused={index === focusedTab}
-              onFocus={() => { handleTabFocus(index) }}
-              onBlur={handleTabBlur}key={index}
+              onFocus={() => {
+                handleTabFocus(index)
+              }}
+              onBlur={handleTabBlur}
+              key={index}
               active={index === activeTab}
-              onClick={() => { handleTabClick(index) }}
+              onClick={() => {
+                handleTabClick(index)
+              }}
             >
-                <Flex tabs={tabs} vertical={vertical}>
-                    {iconLeft && <Icon name={`${tab.iconLeftName}`} size='medium'/>}
-                    <span className='label'>{label && tab.label}</span>
-                    {iconRight && <Icon name={`${tab.iconRightName}`} size='medium'/>}
-                </Flex>
+              <Flex tabs={tabs} vertical={vertical}>
+                {iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="medium" />}
+                <span className="label">{label && tab.label}</span>
+                {iconRight && <Icon $name={`${tab.iconRightName}`} $size="medium" />}
+              </Flex>
             </Tab>
           </StyledFoco>
         ))}

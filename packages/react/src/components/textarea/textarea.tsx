@@ -44,7 +44,7 @@ const TextArea: React.FC<TextAreaPropTypes> = ({
       </textarea>
       <div>
         <span id={props.name ?? defaultId}>
-          {$error && $helperText && <Icon name="info_outlined" size="small" />}
+          {$error && $helperText && <Icon $name="info_outlined" $size="small" />}
           {$helperText}
         </span>
         {$maxCharacterCount && (
