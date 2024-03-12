@@ -9,17 +9,17 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    link: { control: { type: 'text' } },
-    content: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
+    $children: { control: { type: 'text' } },
     alt: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
-    iconRight: { control: { type: 'boolean' } },
-    iconLeft: { control: { type: 'boolean' } },
+    $iconRight: { control: { type: 'boolean' } },
+    $iconLeft: { control: { type: 'boolean' } },
     target: {
       options: ['_self', '_blank'],
       control: { type: 'select' }
     },
-    size: {
+    $size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'select' }
     }
@@ -31,10 +31,10 @@ type Story = StoryObj<typeof meta>
 
 export const LinkDefault: Story = {
   args: {
-    title: 'title',
-    iconName: 'check',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
+    $title: 'title',
+    $iconName: 'check',
+    href: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_self'
   }
@@ -42,10 +42,10 @@ export const LinkDefault: Story = {
 
 export const LinkDisabled: Story = {
   args: {
-    title: 'title',
-    iconName: 'check',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
+    $title: 'Macro ejemplo',
+    $iconName: 'check',
+    href: 'https://google.com.ar',
+    children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_self',
     disabled: true
@@ -54,34 +54,34 @@ export const LinkDisabled: Story = {
 
 export const LinkIconRight: Story = {
   args: {
-    title: 'title',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
+    $title: 'title',
+    href: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_self',
-    iconRight: true,
-    iconName: 'send'
+    $iconRight: true,
+    $iconName: 'send'
   }
 }
 
 export const LinkIconLeft: Story = {
   args: {
-    title: 'title',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
+    $title: 'title',
+    href: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_self',
-    iconLeft: true,
-    iconName: 'send'
+    $iconLeft: true,
+    $iconName: 'send'
   }
 }
 
 export const LinkTargetBlank: Story = {
   args: {
-    iconName: 'send',
-    title: 'text',
-    link: 'https://google.com.ar',
-    content: 'Link de Ejemplo',
+    $iconName: 'send',
+    $title: 'text',
+    href: 'https://google.com.ar',
+    $children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_blank'
   }
