@@ -1,10 +1,10 @@
 import React, { type ChangeEvent, useState, useId } from 'react'
-import type { InputfieldPropTypes } from './types'
+import type { InputFieldPropTypes } from './types'
 import { InputfieldContainerStyled } from './styles'
 import { Icon } from '../icon'
 import { Button } from '../button'
 
-const InputField: React.FC<InputfieldPropTypes> = ({
+const InputField: React.FC<InputFieldPropTypes> = ({
   $error,
   $helperText,
   $iconName,

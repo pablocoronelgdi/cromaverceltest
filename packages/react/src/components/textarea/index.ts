@@ -1,2 +1,2 @@
-import TextArea from './textarea'
+import TextArea from './TextArea'
 export { TextArea }
