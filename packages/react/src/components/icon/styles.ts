@@ -11,7 +11,7 @@ export const StyledIcon = styled.span<IconPropTypes>`
   vertical-align: top;
   color: ${({ color }) => color ?? 'inherit'};
   background-color: transparent;
-  font-family: ${({ variant }) => 'Material Icons ' + variant};
+  font-family: 'Material Icons Outlined';
   font-weight: normal;
   font-style: normal;
   letter-spacing: normal;

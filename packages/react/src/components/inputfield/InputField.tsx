@@ -1,10 +1,10 @@
 import React, { type ChangeEvent, useState, useId } from 'react'
-import type { InputfieldPropTypes } from './types'
+import type { InputFieldPropTypes } from './types'
 import { InputfieldContainerStyled } from './styles'
 import { Icon } from '../icon'
 import { Button } from '../button'
 
-const InputField: React.FC<InputfieldPropTypes> = ({
+const InputField: React.FC<InputFieldPropTypes> = ({
   $error,
   $helperText,
   $iconName,
@@ -42,7 +42,7 @@ const InputField: React.FC<InputfieldPropTypes> = ({
     >
       <label htmlFor={props.name ?? defaultId}>{$label}</label>
       <div>
-        {$iconName && $type !== 'password' && <Icon name={$iconName} />}
+        {$iconName && $type !== 'password' && <Icon $name={$iconName} />}
         <input
           name={props.name}
           placeholder={props.placeholder}
@@ -71,7 +71,7 @@ const InputField: React.FC<InputfieldPropTypes> = ({
       </div>
       <div>
         <span id={props.name ?? defaultId}>
-          {$error && $helperText && <Icon name="info_outlined" size="small" />}
+          {$error && $helperText && <Icon $name="info_outlined" $size="small" />}
           {$helperText}
         </span>
         {$maxCharacterCount && (

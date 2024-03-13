@@ -15,7 +15,6 @@ import {
   Securities,
   SelectaPrivado,
   Selecta,
-  Tagline,
   Wink
 } from './logos'
 import {
@@ -65,7 +64,6 @@ export {
   Securities,
   SelectaPrivado,
   Selecta,
-  Tagline,
   Wink,
   PictogramCatalog,
   Alert,

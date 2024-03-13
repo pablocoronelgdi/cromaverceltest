@@ -38,12 +38,12 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
               <span>
                 Paso {step} de {steps?.length}
               </span>
-              <Icon name="close" size='small' onClick={handleClose} />
+              <Icon $name="close" $size='small' onClick={handleClose} />
             </div>
           )}
           <div className="croma_toogletip_card_header">
             <span>{steps?.[step - 1]?.title || title}</span>
-            {!steps && <Icon name="close" size='small' onClick={handleClose} />}
+            {!steps && <Icon $name="close" $size='small' onClick={handleClose} />}
           </div>
           <div className="croma_toogletip_card_body">
             <span>{steps?.[step - 1]?.label || label}</span>

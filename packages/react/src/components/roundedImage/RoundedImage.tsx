@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import { RoundedImageContainerStyled } from './styles'
 import { Icon } from '../icon'
 import { Image } from '../image'
@@ -8,16 +8,19 @@ import type { RoundedImagePropsTypes } from './types'
 
 /** Descripcion del componente RoundedImage WIP */
 const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
-  size = 'small',
-  disabled = false,
-  monogram,
-  photo,
-  iconName
+  $size = 'small',
+  $disabled = false,
+  $monogram,
+  $src,
+  $iconName,
+  $alt,
+  $id
 }) => {
+  const defaultId = useId()
   const [monogramCustom, setMonogramCustom] = useState<string | null>('AR')
   const maxLenghtMonogram = 2
   const iconSize: IconSizeType = (() => {
-    switch (size) {
+    switch ($size) {
       case 'extra-small':
         return 'medium'
       case 'small':
@@ -32,33 +35,23 @@ const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
   })()
 
   useEffect(() => {
-    if (monogram && monogram.length <= maxLenghtMonogram) {
-      setMonogramCustom(monogramRegex(monogram))
-    } else if (monogram && monogram.length >= maxLenghtMonogram) {
-      setMonogramCustom(
-        monogramRegex(monogram?.charAt(0).concat(monogram?.charAt(1)))
-      )
-    } else if (monogram && monogram.trim() === '') {
+    if ($monogram && $monogram.length <= maxLenghtMonogram) {
+      setMonogramCustom(monogramRegex($monogram))
+    } else if ($monogram && $monogram.length >= maxLenghtMonogram) {
+      setMonogramCustom(monogramRegex($monogram?.charAt(0).concat($monogram?.charAt(1))))
+    } else if ($monogram && $monogram.trim() === '') {
       setMonogramCustom(null)
     }
-  }, [monogram])
+  }, [$monogram])
 
   return (
-    <RoundedImageContainerStyled size={size} disabled={disabled}>
-      {monogram && !photo && (!iconName || iconName) && (
-        <small>{monogramCustom}</small>
+    <RoundedImageContainerStyled $size={$size} $disabled={$disabled} $id={$id || defaultId}>
+      {$monogram && !$src && (!$iconName || $iconName) && <small>{monogramCustom}</small>}
+      {$src && $alt && (!$monogram || $monogram) && (!$iconName || $iconName) && (
+        <Image alt={$alt} title={$alt} image={$src} height="100%" width="100%" />
       )}
-      {photo?.image && (!monogram || monogram) && (!iconName || iconName) && (
-        <Image
-          alt={photo?.alt}
-          height={photo.height}
-          width={photo.width}
-          title={photo?.alt}
-          image={photo?.image}
-        />
-      )}
-      {((!photo && !monogram) || !isNaN(Number(monogram))) && (
-        <Icon size={iconSize} name={iconName?.toLowerCase() ?? 'person'} />
+      {((!$src && !$monogram) || !isNaN(Number($monogram))) && (
+        <Icon $size={iconSize} $name={$iconName?.toLowerCase() ?? 'person'} />
       )}
     </RoundedImageContainerStyled>
   )

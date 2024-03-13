@@ -1,10 +1,6 @@
 export type IconSizeType = 'small' | 'medium' | 'large' | 'extra-large'
 export type IconPropTypes = {
-  name?: string
-  size?: IconSizeType
-  color?: string
-  style?: object
-  theme?: object
-  variant?: 'filled' | 'outlined'
-  onClick?: () => void
+  $name?: string
+  $size?: IconSizeType
+  $color?: string
 } & React.HTMLAttributes<HTMLSpanElement>

@@ -1,7 +1,7 @@
-import { Button, Checkbox, TextArea, InputField } from '@cromaui/react'
+import { Button, Checkbox, TextArea, InputField, Logo, Pictogram } from '@cromaui/react'
 
 import './styles.css'
-import { type FormEvent, useState } from 'react'
+import React, { type FormEvent, useState } from 'react'
 
 function FormBond(): JSX.Element {
   const [isError, setIsError] = useState(false)
@@ -9,28 +9,35 @@ function FormBond(): JSX.Element {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [comment, setComment] = useState('')
   const [isReminder, setIsReminder] = useState(false)
 
   const handleForm = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    setIsError(isError)
-    console.log('Usuario:', name)
-    console.log('Email:', email)
-    console.log('Password:', password)
-    console.log('Recordar contraseña:', isReminder)
+    setIsError(!isError)
+    if (name && email && password && comment) {
+      setIsError(false)
+      console.log('Usuario:', name)
+      console.log('Email:', email)
+      console.log('Password:', password)
+      console.log('Comentario:', comment)
+      console.log('Recordar contraseña:', isReminder)
+    }
   }
 
   return (
     <section className="form_bond__section">
       <h1 className="form_bond__title">Formulario para solicitar bono</h1>
       <form className="form_bond__form" onSubmit={handleForm}>
+        <Logo $name="MacroTagLine" $size="large" />
+        <Pictogram $size="small" $name="Alert" $segmentName="Individuos" />
         <aside>
           <InputField
             $label="Nombre completo"
             $error={isError}
             $helperText={helperMessageError}
             placeholder="Jhon Doe"
-            name={name}
+            name={'name'}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setName(e.target.value)
             }}
@@ -38,7 +45,7 @@ function FormBond(): JSX.Element {
           <InputField
             placeholder="ejemplo@macro.com.ar"
             $label="Correo electrónico"
-            name={email}
+            name={'email'}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setEmail(e.target.value)
             }}
@@ -49,13 +56,22 @@ function FormBond(): JSX.Element {
           <InputField
             $label="Clave del campus"
             $type="password"
-            name={password}
+            name={'password'}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setPassword(e.target.value)
             }}
           />
         </aside>
-        <TextArea title="¿Por qué necesitas el bono?" label="no funciona" error={isError} />
+        <TextArea
+          placeholder="Quiero comentar que necesito el bono para poder ayudar a mi familia"
+          $label="Justifica por qué deberíamos darte el bono"
+          $helperText="Que tenga fundamentos"
+          $maxCharacterCount={30}
+          $error={isError}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            setComment(e.target.value)
+          }}
+        />
         <Checkbox
           checked={isReminder}
           onChange={() => {

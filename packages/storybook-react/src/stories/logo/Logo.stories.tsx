@@ -7,7 +7,7 @@ const meta = {
   title: 'Assets/Logo',
   component: Logo,
   argTypes: {
-    name: {
+    $name: {
       control: { type: 'select' },
       options: [
         'Agro',
@@ -24,36 +24,40 @@ const meta = {
         'Securities',
         'SelectaPrivado',
         'Selecta',
-        'Tagline',
         'Wink'
       ],
-      description: 'La prop name indica el logo de Macro que se quiere mostrar',
+      description: 'La prop $name indica el logo de Macro que se quiere mostrar',
       table: {
         defaultValue: { summary: "'MacroHorizontal'" },
         type: { summary: 'string' }
       }
     },
-    height: {
-      control: { type: 'number' },
-      description: 'La prop height define el alto del Logo',
+    $size: {
+      control: { type: 'select' },
+      options: [
+        'small',
+        'medium',
+        'large'
+      ],
+      description: 'La prop $size define el tamaño del Logo',
       table: {
-        defaultValue: { summary: 40 },
-        type: { summary: 'number' }
+        defaultValue: { summary: "'medium'" },
+        type: { summary: 'string' }
       }
     },
-    colorPrimary: {
+    $colorPrimary: {
       control: { type: 'text' },
       description:
-        'El color primary debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo',
+        'La prop $colorPrimary debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo',
       table: {
         defaultValue: { summary: color.navy.main },
         type: { summary: 'string' }
       }
     },
-    colorSecondary: {
+    $colorSecondary: {
       control: { type: 'text' },
       description:
-        'El color secondary solo se debe usar en Logos que necesiten 2 colores, debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo. Es importante aclarar que no todos los logos tienen color secundario',
+        'El $colorSecondary solo se debe usar en Logos que necesiten 2 colores, debe ser un string definido en la documentación de las foundations del Content Design System y respetando el color adecuado para cada Logo. Es importante aclarar que no todos los logos tienen color secundario',
       table: {
         defaultValue: { summary: color.green.main },
         type: { summary: 'string' }
@@ -76,19 +80,19 @@ type Story = StoryObj<typeof meta>
 export const LogoDefault: Story = {
   name: 'Default',
   args: {
-    name: 'MacroHorizontal',
-    colorPrimary: color.navy.main,
-    height: 40
+    $name: 'MacroHorizontal',
+    $colorPrimary: color.navy.main,
+    $size: 'medium'
   }
 }
 
 export const LogoWithColorSecondary: Story = {
   name: 'Logo con color secundario',
   args: {
-    name: 'Premia',
-    colorPrimary: color.gold.main,
-    colorSecondary: color.black.main,
-    height: 96
+    $name: 'Premia',
+    $colorPrimary: color.gold.main,
+    $colorSecondary: color.black.main,
+    $size: 'large'
   }
 }
 
@@ -195,20 +199,17 @@ export const DocLogoDefault: Story = {
         dark: true,
         code: `
         return (
-          <Logo name="MacroHorizontal" height={40} colorPrimary={color.navy.main} />
+          <Logo $name="MacroHorizontal" $size="large" $colorPrimary={color.navy.main} />
         )
         `
       }
     }
   },
-  args: {
-    children: 'text'
-  },
 
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem' }}>
-        <Logo name="MacroHorizontal" height={40} colorPrimary={color.navy.main} />
+        <Logo $name="MacroHorizontal" $size="medium" $colorPrimary={color.navy.main} />
       </div>
     )
   }
@@ -225,31 +226,28 @@ export const DocLogoColorSecondary: Story = {
         dark: true,
         code: `
         return (
-          <Logo name="Agro" height={56} colorPrimary={color.navy.main} colorSecondary={color.green.main} />
-          <Logo name="Premia" height={96} colorPrimary={color.black.main} colorSecondary={color.gold.main} />
+          <Logo $name="Agro" $size="medium" $colorPrimary={color.navy.main} $colorSecondary={color.green.main} />
+          <Logo $name="Premia" $size="large" $colorPrimary={color.black.main} $colorSecondary={color.gold.main} />
         )
         `
       }
     }
-  },
-  args: {
-    children: 'text'
   },
 
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem', display: 'flex', gap: 24 }}>
         <Logo
-          name="Agro"
-          height={56}
-          colorPrimary={color.navy.main}
-          colorSecondary={color.green.main}
+          $name="Agro"
+          $size="medium"
+          $colorPrimary={color.navy.main}
+          $colorSecondary={color.green.main}
         />
         <Logo
-          name="Premia"
-          height={96}
-          colorPrimary={color.black.main}
-          colorSecondary={color.gold.main}
+          $name="Premia"
+          $size="large"
+          $colorPrimary={color.black.main}
+          $colorSecondary={color.gold.main}
         />
       </div>
     )
@@ -420,48 +418,45 @@ export const DocAllLogos: Story = {
   parameters: {
     docs: {}
   },
-  args: {
-    children: 'text'
-  },
 
   render: function Render() {
     return (
       <div style={{ width: '50%', padding: '1rem', display: 'flex', gap: 24 }}>
         <Logo
-          name="Agro"
-          height={56}
-          colorPrimary={color.navy.main}
-          colorSecondary={color.green.main}
+          $name="Agro"
+          $size="medium"
+          $colorPrimary={color.navy.main}
+          $colorSecondary={color.green.main}
         />
         <Logo
-          name="Premia"
-          height={96}
-          colorPrimary={color.black.main}
-          colorSecondary={color.gold.main}
+          $name="Premia"
+          $size="large"
+          $colorPrimary={color.black.main}
+          $colorSecondary={color.gold.main}
         />
         <Logo
-          name="Agro"
-          height={56}
-          colorPrimary={color.navy.main}
-          colorSecondary={color.green.main}
+          $name="Agro"
+          $size="medium"
+          $colorPrimary={color.navy.main}
+          $colorSecondary={color.green.main}
         />
         <Logo
-          name="Premia"
-          height={96}
-          colorPrimary={color.black.main}
-          colorSecondary={color.gold.main}
+          $name="Premia"
+          $size="large"
+          $colorPrimary={color.black.main}
+          $colorSecondary={color.gold.main}
         />
         <Logo
-          name="Agro"
-          height={56}
-          colorPrimary={color.navy.main}
-          colorSecondary={color.green.main}
+          $name="Agro"
+          $size="medium"
+          $colorPrimary={color.navy.main}
+          $colorSecondary={color.green.main}
         />
         <Logo
-          name="Premia"
-          height={96}
-          colorPrimary={color.black.main}
-          colorSecondary={color.gold.main}
+          $name="Premia"
+          $size="large"
+          $colorPrimary={color.black.main}
+          $colorSecondary={color.gold.main}
         />
       </div>
     )

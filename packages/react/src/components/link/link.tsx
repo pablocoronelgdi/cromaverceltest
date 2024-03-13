@@ -18,20 +18,18 @@ export const getSize = (size?: LinkSizeType): string => {
 }
 
 const Link: React.FC<LinkPropsTypes> = ({
-  link = '',
-  content = 'terminos y condiciones',
-  alt = 'terminos y condiciones',
-  title = 'terminos y condiciones',
-  target,
-  disabled = false,
-  size,
-  className = 'no-drop',
-  iconLeft = false,
-  iconRight = false,
-  iconName = 'attachment'
+  $children = 'macro',
+  $size,
+  $className = 'no-drop',
+  $iconLeft = false,
+  $iconRight = false,
+  $iconName = '',
+  $weightRegular,
+  $id,
+  ...props
 }) => {
   const iconSize: LinkSizeType = (() => {
-    switch (size) {
+    switch ($size) {
       case 'small':
         return 'small'
       case 'medium':
@@ -45,30 +43,31 @@ const Link: React.FC<LinkPropsTypes> = ({
 
   return (
     <StyledLink
-      link={disabled ? '' : link}
-      href={disabled ? '' : link}
-      alt={alt}
-      title={title}
-      content={content}
-      target={target}
-      disabled={disabled}
-      className={`${className} size`}
-      iconName={iconName}
-      size={size}
+      $id={$id}
+      $weightRegular={$weightRegular}
+      href={props.href || '#'}
+      alt={props.alt || props.href}
+      title={props.title || props.href}
+      target={props.target}
+      disabled={props.disabled}
+      className={`${$className} size`}
+      $iconName={$iconName}
+      $size={$size}
+      {...props}
     >
-      {iconRight && (
+      {$iconRight && (
         <Icon
-          color={disabled ? color.neutral[400] : color.blue.main}
-          name={iconName}
-          size={iconSize}
+          $color={props.disabled ? color.neutral[400] : color.blue.main}
+          $name={$iconName}
+          $size={iconSize}
         />
       )}
-      <p>{content}</p>
-      {iconLeft && (
+      <p>{$children}</p>
+      {$iconLeft && (
         <Icon
-          color={disabled ? color.neutral[400] : color.blue.main}
-          name={iconName}
-          size={iconSize}
+          $color={props.disabled ? color.neutral[400] : color.blue.main}
+          $name={$iconName}
+          $size={iconSize}
         />
       )}
     </StyledLink>

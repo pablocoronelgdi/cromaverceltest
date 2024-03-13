@@ -1,10 +1,13 @@
 import type { LogoCatalog } from '@cromaui/assets'
 import type { ReactNode } from 'react'
 
+export type LogoSizes = 'small' | 'medium' | 'large'
+
 export type LogoPropTypes = {
-  name?: LogoCatalog
-  height?: number | string
-  colorPrimary?: string
-  colorSecondary?: string
+  $colorPrimary?: string
+  $colorSecondary?: string
+  $name?: LogoCatalog
+  $size?: LogoSizes
+  $id?: string
   children?: ReactNode
 }

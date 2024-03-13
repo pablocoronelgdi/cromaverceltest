@@ -20,28 +20,29 @@ const sanitizeChildren = (unsafeChildren: ReactNode): string => {
 }
 
 const AssetLoader: React.FC<AssetPropTypes> = ({
-  name,
-  width = 'auto',
-  height = 'auto',
-  colorPrimary = color.navy.main,
-  colorSecondary = color.neutral[50],
+  $name,
+  $width = '100%',
+  $height = '100%',
+  $colorPrimary = color.navy.main,
+  $colorSecondary = color.neutral[50],
   children,
-  type
+  $type,
+  $id
 }) => {
   const sanitizedChildren = sanitizeChildren(children)
-  const svgTemplate = getAsset(name, type)
+  const svgTemplate = getAsset($name, $type)
   const replacedSvg = svgTemplate
-    .replaceAll(/colorPrimary/g, colorPrimary)
-    .replaceAll(/colorSecondary/g, colorSecondary)
-    .replaceAll(/assetWidth/g, `${width}`)
-    .replaceAll(/assetHeight/g, `${height}`)
+    .replaceAll(/colorPrimary/g, $colorPrimary)
+    .replaceAll(/colorSecondary/g, $colorSecondary)
+    .replaceAll(/assetWidth/g, `${$width}`)
+    .replaceAll(/assetHeight/g, `${$height}`)
 
   return children && typeof children === 'string' ? (
-    <img alt={`${type} macro`} title={`${type} macro`} src={sanitizedChildren} />
+    <img alt={`${$type} macro`} title={`${$type} macro`} src={sanitizedChildren} id={$id} />
   ) : children && isValidElement(children) && children.type === 'svg' ? (
-    <SvgContainerStyled dangerouslySetInnerHTML={{ __html: sanitizedChildren }} />
+    <SvgContainerStyled id={$id} dangerouslySetInnerHTML={{ __html: sanitizedChildren }} />
   ) : (
-    <SvgContainerStyled dangerouslySetInnerHTML={{ __html: replacedSvg }} />
+    <SvgContainerStyled id={$id} dangerouslySetInnerHTML={{ __html: replacedSvg }} />
   )
 }
 

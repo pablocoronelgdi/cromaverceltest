@@ -42,8 +42,8 @@ const Badge: React.FC<BadgePropsTypes> = ({
     >
       {iconName && (
         <Icon
-          size={iconSize}
-          name={iconName ? iconName.toLocaleLowerCase() : 'check'}
+          $size={iconSize}
+          $name={iconName ? iconName.toLocaleLowerCase() : 'check'}
         />
       )}
       {(text ?? count) && <small>{badgeRegex(text) ?? customCount}</small>}

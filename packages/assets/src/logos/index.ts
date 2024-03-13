@@ -12,7 +12,6 @@ import Premia from './premia.svg'
 import Securities from './securities.svg'
 import SelectaPrivado from './selecta-privado.svg'
 import Selecta from './selecta.svg'
-import Tagline from './tagline.svg'
 import Wink from './wink.svg'
 
 export {
@@ -30,6 +29,5 @@ export {
   SelectaPrivado,
   Securities,
   Selecta,
-  Tagline,
   Wink
 }
