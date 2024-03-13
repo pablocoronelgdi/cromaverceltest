@@ -1,0 +1,63 @@
+import { Meta, Primary, ArgTypes, Story, Stories, Source, Title } from '@storybook/blocks'
+import * as PinInputStories from './PinInput.stories'
+
+<Meta of={PinInputStories} />
+
+# PinInput
+
+<br />
+
+<Primary />
+
+## Usos
+
+
+
+### Titulo y label
+
+El Pin Input posee un titulo y un label que se pueden personalizar mediante la prop 'title' y la prop '$label'
+
+<Story of={PinInputStories.TitleAndLabel} />
+<Source of={PinInputStories.TitleAndLabel} />
+
+### Limite del pin
+
+La longitud del pin puede modificarse mediante la propiedad $DPinInputStories.ifferentPinLength
+
+<Story of={PinInputStories.DifferentPinLength} />
+<Source of={PinInputStories.DifferentPinLength} />
+
+### Componente Controlado
+
+El input puede ser controlado si se le pasa un valor a la propiedad "value" y una funcion de cambio de estado a '$onPinChange"'
+
+<Story of={PinInputStories.ControlledComponent} />
+<Source of={PinInputStories.ControlledComponent} />
+
+### On Complete
+
+La prop $onComplete recibe una funcion que se ejecutará cuando todos los casilleros del pin input hayan sido completados
+
+<Story of={PinInputStories.OnCompleted} />
+<Source of={PinInputStories.OnCompleted} />
+
+
+### Deshabilitado
+
+Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso.
+
+<Story of={PinInputStories.Disabled} />
+<Source of={PinInputStories.Disabled} />
+
+### Error
+
+La prop '$errorMessage' es similar al label con la diferencia que se muestra cuando la condicion de la prop $error es true. 
+
+<Story of={PinInputStories.Error} />
+<Source of={PinInputStories.Error} />
+
+## Props
+
+El componente PinInput acepta, ademas de los atributos de html, los siguientes parametros:
+
+<ArgTypes />

@@ -1,26 +1,41 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { PinInputPropTypes } from './types'
 import { StyledLabel, StyledLabelIcon, StyledPinInput } from './styles'
 import { color } from '@cromaui/foundations'
 import { Icon } from '../icon'
 
 const PinInput: React.FC<PinInputPropTypes> = ({
-  length = 6,
-  onComplete,
-  label,
-  error,
-  errorMessage,
+  $pinLength = 6,
+  $onComplete,
+  $onPinChange,
+  $label,
+  $secret,
+  $error,
+  $errorMessage,
+  value,
   ...props
 }) => {
-  const [pin, setPin] = useState<Array<number | undefined>>(new Array(length))
+  const [pin, setPin] = useState<Array<number | string | undefined>>(new Array($pinLength))
   const inputRefs = useRef<HTMLInputElement[]>([])
+
+  useEffect(() => {
+    if (value) {
+      const valueToArray = value.toString().split('')
+      const newPin = [...pin]
+      for (let i = 0; i < $pinLength; i++) {
+        newPin[i] = valueToArray[i]
+      }
+      setPin(newPin)
+    }
+  }, [])
 
   // Funcion que se va a encargar de setear el array de numeros modificados en base a la logica o eventos
   const changePin = (newValue: number | undefined, index: number): void => {
     const newPin = [...pin]
-    newPin[index] = newValue
+    newPin[index] = newValue?.toString()
     setPin(newPin)
     validatePinOnComplete(newPin)
+    $onPinChange && $onPinChange(newPin.join(''))
   }
 
   const changePinFocus = (index: number): void => {
@@ -28,24 +43,22 @@ const PinInput: React.FC<PinInputPropTypes> = ({
     ref && ref.focus()
   }
 
-  const validatePinOnComplete = (newPin: Array<number | undefined>): void => {
+  const validatePinOnComplete = (newPin: Array<number | string | undefined>): void => {
     const fullPinValue = newPin.join('')
-    console.log(fullPinValue)
-    if (fullPinValue.length === length) {
-      onComplete(fullPinValue)
+    if (fullPinValue.length === $pinLength) {
+      $onComplete && $onComplete(fullPinValue)
     }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number): void => {
-    const value = e.target.value
-    const pinNumber = Number(value.trim())
-    if (isNaN(pinNumber) || value.length === 0) {
+    const newValue = e.target.value
+    const pinNumber = Number(newValue.trim())
+    if (isNaN(pinNumber) || newValue.length === 0) {
       return
     }
-
     if (pinNumber >= 0 && pinNumber <= 9) {
       changePin(pinNumber, index)
-      if (index < length - 1) {
+      if (index < $pinLength - 1) {
         changePinFocus(index + 1)
       }
     }
@@ -92,11 +105,12 @@ const PinInput: React.FC<PinInputPropTypes> = ({
     const filteredData = pastedData.replace(/\D/g, '')
     const newPin = [...pin]
 
-    for (let i = 0; i < filteredData.length && currentIndex + i < length; i++) {
+    for (let i = 0; i < filteredData.length && currentIndex + i < $pinLength; i++) {
       newPin[currentIndex + i] = Number(filteredData[i])
     }
-
     setPin(newPin)
+    $onPinChange && $onPinChange(newPin.join(''))
+
     if (filteredData.length >= pin.length) {
       changePinFocus(pin.length - 1)
     } else {
@@ -104,20 +118,20 @@ const PinInput: React.FC<PinInputPropTypes> = ({
     }
 
     const filledCode = newPin.join('')
-    if (filledCode.length === length) {
-      onComplete(filledCode)
+    if (filledCode.length === $pinLength) {
+      $onComplete && $onComplete(filledCode)
     }
   }
 
   return (
-    <StyledPinInput onComplete={onComplete} length={length}>
+    <StyledPinInput $onComplete={$onComplete} $pinLength={$pinLength} $error={$error}>
       {props.title && <p className="title">{props.title}</p>}
       <div className="content-input">
-        {Array.from({ length }, (_, index) => {
+        {Array.from(pin, (_, index) => {
           return (
             <input
               key={index}
-              type="text"
+              type={$secret ? 'password' : 'text'}
               value={pin[index] || ''}
               ref={(e) => {
                 if (e) inputRefs.current[index] = e
@@ -131,17 +145,18 @@ const PinInput: React.FC<PinInputPropTypes> = ({
               onPaste={(e) => {
                 handlePaste(e, index)
               }}
+              aria-label={`Dígito ${index}`}
               {...props}
             />
           )
         })}
       </div>
-      {label && (
+      {$label && (
         <label>
-          <StyledLabel onComplete={onComplete} length={length}>
-            <StyledLabelIcon onComplete={onComplete} length={length}>
-              {error && <Icon name="info_outlined" color={color.error.main} size="small" />}
-              <p>{label || errorMessage}</p>
+          <StyledLabel>
+            <StyledLabelIcon>
+              {$error && <Icon name="info_outlined" color={color.error.main} size="small" />}
+              <p>{$error ? $errorMessage : $label}</p>
             </StyledLabelIcon>
           </StyledLabel>
         </label>
