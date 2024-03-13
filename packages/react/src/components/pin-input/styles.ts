@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   FLEX_START,
   FLEX_BETWEEN_COLUMN,
@@ -47,8 +47,14 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
   input {
     ${FONT_HEADING_MD};
     ${FONT_TYPE_SEMIBOLD};
-    width: 48px;
-    height: 48px;
+    ${({ $secret }) =>
+      $secret &&
+      css`
+        font-size: ${spacings.space40};
+        font-family: 'Public Sans';
+      `}
+    width: ${spacings.space48};
+    height: ${spacings.space48};
     margin-right: ${spacings.space8};
     background: ${(props) => (props.disabled ? color.neutral[200] : color.neutral[50])};
     color: ${(props) => (props.disabled ? color.neutral[400] : color.neutral[700])};

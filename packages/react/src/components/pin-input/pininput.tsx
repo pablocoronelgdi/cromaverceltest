@@ -124,7 +124,12 @@ const PinInput: React.FC<PinInputPropTypes> = ({
   }
 
   return (
-    <StyledPinInput $onComplete={$onComplete} $pinLength={$pinLength} $error={$error}>
+    <StyledPinInput
+      $onComplete={$onComplete}
+      $pinLength={$pinLength}
+      $error={$error}
+      $secret={$secret}
+    >
       {props.title && <p className="title">{props.title}</p>}
       <div className="content-input">
         {Array.from(pin, (_, index) => {
