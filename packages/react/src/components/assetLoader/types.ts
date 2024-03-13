@@ -2,11 +2,12 @@ import type { IllustrationCatalog, LogoCatalog, PictogramCatalog } from '@cromau
 import type { ReactNode } from 'react'
 
 export type AssetPropTypes = {
-  name?: LogoCatalog | PictogramCatalog | IllustrationCatalog
-  type?: 'logo' | 'pictogram' | 'illustration'
-  width?: number | string
-  height?: number | string
-  colorPrimary?: string
-  colorSecondary?: string
+  $name?: LogoCatalog | PictogramCatalog | IllustrationCatalog
+  $type?: 'logo' | 'pictogram' | 'illustration'
+  $width?: number | string
+  $height?: number | string
+  $colorPrimary?: string
+  $colorSecondary?: string
+  $id?: string
   children?: ReactNode
 }

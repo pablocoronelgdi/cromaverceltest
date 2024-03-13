@@ -1,4 +1,4 @@
-import { Button, Checkbox, TextArea, InputField } from '@cromaui/react'
+import { Button, Checkbox, TextArea, InputField, Logo, Pictogram } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
@@ -29,6 +29,8 @@ function FormBond(): JSX.Element {
     <section className="form_bond__section">
       <h1 className="form_bond__title">Formulario para solicitar bono</h1>
       <form className="form_bond__form" onSubmit={handleForm}>
+        <Logo $name="MacroTagLine" $size="large" />
+        <Pictogram $size="small" $name="Alert" $segmentName="Individuos" />
         <aside>
           <InputField
             $label="Nombre completo"

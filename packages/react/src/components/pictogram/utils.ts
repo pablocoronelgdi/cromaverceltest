@@ -45,11 +45,11 @@ export const getPictogramColors = (
 
 export const getPictogramSize = (size: PictogramSize): { height: string, width: string } => {
   switch (size) {
-    case 'LG':
+    case 'large':
       return { height: '64px', width: '64px' }
-    case 'MD':
+    case 'medium':
       return { height: '32px', width: '32px' }
-    case 'SM':
+    case 'small':
       return { height: '24px', width: '24px' }
     default:
       return { height: '32px', width: '32px' }

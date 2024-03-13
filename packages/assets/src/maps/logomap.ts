@@ -13,6 +13,5 @@ export const logoMap = [
   'Securities',
   'SelectaPrivado',
   'Selecta',
-  'Tagline',
   'Wink'
 ]

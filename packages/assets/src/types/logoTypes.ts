@@ -14,6 +14,5 @@ export type LogoCatalog =
   | 'Securities'
   | 'SelectaPrivado'
   | 'Selecta'
-  | 'Tagline'
   | 'Wink'
   | undefined
