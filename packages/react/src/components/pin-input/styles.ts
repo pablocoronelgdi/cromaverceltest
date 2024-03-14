@@ -35,7 +35,7 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
     }
   }
 
-  .title {
+  .croma-pininput-label {
     ${FONT_BODY_SM};
     ${FONT_TYPE_REGULAR};
     margin: 0;
@@ -47,11 +47,12 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
   input {
     ${FONT_HEADING_MD};
     ${FONT_TYPE_SEMIBOLD};
-    ${({ $secret }) =>
-      $secret &&
+    ${({ $visibility }) =>
+      !$visibility &&
       css`
         font-size: ${spacings.space40};
         font-family: 'Public Sans';
+        color: ${color.neutral[800]};
       `}
     width: ${spacings.space48};
     height: ${spacings.space48};
@@ -79,7 +80,9 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
         disabled ? color.neutral[400] : $error ? color.error.main : color.neutral[700]};
     }
 
-    &:focus {
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
       border: ${borders.br2};
       border-color: ${({ $error }) => !$error && color.blue.soft};
     }

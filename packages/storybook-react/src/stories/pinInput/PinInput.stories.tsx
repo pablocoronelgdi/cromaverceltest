@@ -16,7 +16,7 @@ const meta: Meta<typeof Image> = {
         }
       }
     },
-    title: {
+    $label: {
       description: 'Se le puede agregar un título al componente pin input',
       control: {
         type: 'text',
@@ -26,7 +26,7 @@ const meta: Meta<typeof Image> = {
         }
       }
     },
-    $label: {
+    $helperText: {
       description: 'Se le puede agregar un label o mensaje al componente',
       control: {
         type: 'text',
@@ -57,12 +57,12 @@ const meta: Meta<typeof Image> = {
         }
       }
     },
-    $secret: {
+    $visibility: {
       description: 'Si su estado es true, se mostrará ',
       control: {
         type: 'boolean',
         table: {
-          defaultValue: { summary: false },
+          defaultValue: { summary: true },
           type: { summary: 'boolean' }
         }
       }
@@ -281,7 +281,7 @@ export const Error: Story = {
 }
 
 export const OnCompleted: Story = {
-  name: 'Error',
+  name: 'On Completed',
   tags: ['docs-only'],
   parameters: {
     docs: {
@@ -338,6 +338,36 @@ export const OnCompleted: Story = {
         $onComplete={handleCompleted}
       />
     )
+  }
+}
+
+export const Visibility: Story = {
+  name: 'Visibility',
+  tags: ['docs-only'],
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'tsx',
+        dark: true,
+        code: `
+        return (
+          <PinInput
+          title="Ingrese un pin"
+          $visibility={false}
+        />
+        )
+        `
+      }
+    }
+  },
+  args: {
+    size: 'large',
+    name: 'person'
+  },
+
+  render: function Render() {
+    return <PinInput title="Ingrese un pin" $visibility={false} />
   }
 }
 

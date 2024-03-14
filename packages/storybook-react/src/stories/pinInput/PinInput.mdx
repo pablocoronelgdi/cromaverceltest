@@ -11,8 +11,6 @@ import * as PinInputStories from './PinInput.stories'
 
 ## Usos
 
-
-
 ### Titulo y label
 
 El Pin Input posee un titulo y un label que se pueden personalizar mediante la prop 'title' y la prop '$label'
@@ -41,7 +39,6 @@ La prop $onComplete recibe una funcion que se ejecutará cuando todos los casill
 <Story of={PinInputStories.OnCompleted} />
 <Source of={PinInputStories.OnCompleted} />
 
-
 ### Deshabilitado
 
 Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso.
@@ -51,13 +48,20 @@ Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su us
 
 ### Error
 
-La prop '$errorMessage' es similar al label con la diferencia que se muestra cuando la condicion de la prop $error es true. 
+La prop '$errorMessage' es similar al label con la diferencia que se muestra cuando la condicion de la prop $error es true.
 
 <Story of={PinInputStories.Error} />
 <Source of={PinInputStories.Error} />
 
+### Dígitos no visibles
+
+La prop '$visibility' con un valor false oculta los digitos del input similar a un input type="password"
+
+<Story of={PinInputStories.Visibility} />
+<Source of={PinInputStories.Visibility} />
+
 ## Props
 
-El componente PinInput acepta, ademas de los atributos de html, los siguientes parametros:
+El componente PinInput acepta, ademas de los atributos de html input, los siguientes parametros:
 
 <ArgTypes />

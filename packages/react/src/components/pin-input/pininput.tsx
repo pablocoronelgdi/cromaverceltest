@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useId, useRef, useState } from 'react'
 import type { PinInputPropTypes } from './types'
 import { StyledLabel, StyledLabelIcon, StyledPinInput } from './styles'
 import { color } from '@cromaui/foundations'
@@ -8,15 +8,17 @@ const PinInput: React.FC<PinInputPropTypes> = ({
   $pinLength = 6,
   $onComplete,
   $onPinChange,
-  $label,
-  $secret,
+  $helperText,
+  $visibility = true,
   $error,
   $errorMessage,
+  $label,
   value,
   ...props
 }) => {
   const [pin, setPin] = useState<Array<number | string | undefined>>(new Array($pinLength))
   const inputRefs = useRef<HTMLInputElement[]>([])
+  const cromaID = useId()
 
   useEffect(() => {
     if (value) {
@@ -128,15 +130,16 @@ const PinInput: React.FC<PinInputPropTypes> = ({
       $onComplete={$onComplete}
       $pinLength={$pinLength}
       $error={$error}
-      $secret={$secret}
+      $visibility={$visibility}
+      id={props.id ?? cromaID}
     >
-      {props.title && <p className="title">{props.title}</p>}
+      {$label && <p className="croma-pininput-label">{$label}</p>}
       <div className="content-input">
         {Array.from(pin, (_, index) => {
           return (
             <input
               key={index}
-              type={$secret ? 'password' : 'text'}
+              type={$visibility ? 'text' : 'password'}
               value={pin[index] || ''}
               ref={(e) => {
                 if (e) inputRefs.current[index] = e
@@ -156,12 +159,12 @@ const PinInput: React.FC<PinInputPropTypes> = ({
           )
         })}
       </div>
-      {$label && (
+      {$helperText && (
         <label>
           <StyledLabel>
             <StyledLabelIcon>
               {$error && <Icon $name="info_outlined" $color={color.error.main} $size="small" />}
-              <p>{$error ? $errorMessage : $label}</p>
+              <p>{$error ? $errorMessage : $helperText}</p>
             </StyledLabelIcon>
           </StyledLabel>
         </label>
