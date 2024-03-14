@@ -57,7 +57,7 @@ const InputField: React.FC<InputFieldPropTypes> = ({
         {/* @TODO: Utilizar IconButton en lugar de Button cuando se haya definido el componente IconButton en el equipo de Diseño */}
         {$type === 'password' && (
           <Button
-            variant="text"
+            variant="ghost"
             type="button"
             onClick={() => {
               if (!props.disabled) {

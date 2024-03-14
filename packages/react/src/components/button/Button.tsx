@@ -74,7 +74,18 @@ const Button: React.FC<ButtonPropTypes> = ({
         {...props}
       >
         {children}
-        {iconName && <Icon $name={iconName} $size={size !== 'small' ? 'large' : 'medium'} />}
+        {iconName && (
+          <Icon
+            $name={iconName}
+            $size={
+              size === 'extra-small'
+                ? 'small'
+                : size === 'medium' || size === 'large'
+                  ? 'large'
+                  : 'medium'
+            }
+          />
+        )}
       </ButtonStyled>
     </ButtonContainerStyled>
   )

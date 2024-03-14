@@ -246,17 +246,21 @@ export const typography = {
     },
     sm: {
       fontSize: '14px',
-
       textDecoration: 'none',
-
       fontFamily: 'Public Sans',
-
       fontStyle: 'normal',
-
       fontStretch: 'normal',
-
       letterSpacing: '0.025px',
-
+      lineHeight: '20px',
+      textCase: 'none'
+    },
+    xsm: {
+      fontSize: '14px',
+      textDecoration: 'none',
+      fontFamily: 'Public Sans',
+      fontStyle: 'normal',
+      fontStretch: 'normal',
+      letterSpacing: '0.025px',
       lineHeight: '16px',
       textCase: 'none'
     }
