@@ -6,7 +6,7 @@ const meta: Meta<typeof Image> = {
   component: ListItem,
   tags: ['autodocs'],
   argTypes: {
-    title: {
+    $title: {
       description: 'Se le puede agregar un título al componente pin input',
       control: {
         type: 'text',
@@ -16,19 +16,19 @@ const meta: Meta<typeof Image> = {
         }
       }
     },
-    contentLeft: {
-      description: '',
+    $contentLeft: {
+      description: 'En este caso se pueden agregar componentes internos como (Switch, Radio, Checkbox entre otros)',
       control: {
         type: ''
       }
     },
-    contentRight: {
-      description: '',
+    $contentRight: {
+      description: 'En este caso se pueden agregar componentes internos como (Switch, Radio, Checkbox entre otros)',
       control: {
         type: ''
       }
     },
-    subtitle: {
+    $subtitle: {
       description: 'Se le puede agregar un label o mensaje al componente',
       control: {
         type: 'text',
@@ -38,7 +38,7 @@ const meta: Meta<typeof Image> = {
         }
       }
     },
-    disabled: {
+    $disabled: {
       description: 'Activa el estado disabled para impedir poder llenar los campos',
       control: {
         type: 'boolean',
@@ -56,27 +56,27 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight: <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon name='arrow_forward_ios' size='small' /></div>
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight: <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon $name='arrow_forward_ios' $size='small' /></div>
   }
 }
 
 export const AvatarSwich: Story = {
   args: {
-    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight: <Switch />
+    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight: <Switch />
   }
 }
 
 export const AvatarRadio: Story = {
   args: {
-    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight:
+    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight:
       <Radio
         name="defaults"
         value="radio1"
@@ -87,41 +87,51 @@ export const AvatarRadio: Story = {
 
 export const SwichCheckbox: Story = {
   args: {
-    contentLeft: <Switch />,
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight:
+    $contentLeft: <Switch />,
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight:
       <Checkbox />
   }
 }
 
 export const AvatarLink: Story = {
   args: {
-    contentLeft: <Switch />,
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight:
-      <Link content={'Click acá'} link={'#'} alt={'#'} title={'#'} />
+    $contentLeft: <Switch />,
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight:
+      <Link content={'Click acá'} href={'#'} alt={'#'} title={'#'} />
   }
 }
 
 export const AvatarIcon: Story = {
   args: {
-    contentLeft: <RoundedImage $size="medium" $iconName="person" />,
-    title: 'Título',
-    subtitle: 'Texto informativo',
-    contentRight:
-    <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon name='arrow_forward_ios' size='small' /></div>
+    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $title: 'Título',
+    $subtitle: 'Texto informativo',
+    $contentRight:
+    <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon $name='arrow_forward_ios' $size='small' /></div>
   }
 }
 
 export const Disabled: Story = {
   args: {
-    contentLeft: <Switch disabled />,
-    title: 'Título',
-    disabled: true,
-    subtitle: 'Texto informativo',
-    contentRight:
+    $contentLeft: <Switch disabled />,
+    $title: 'Título',
+    $disabled: true,
+    $subtitle: 'Texto informativo',
+    $contentRight:
       <RoundedImage $size="medium" $iconName="person" $disabled />
+  }
+}
+
+export const Medium: Story = {
+  args: {
+    $contentLeft: <Switch disabled />,
+    $title: 'Título',
+    $disabled: true,
+    $contentRight:
+      <RoundedImage $size="small" $iconName="person" $disabled />
   }
 }
