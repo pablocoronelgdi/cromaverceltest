@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useId } from 'react'
 import type { BorderPositions, ToogletipPropTypes } from './types'
 import { TooltipContainerStyled } from './styles'
 import { checkSpaceAndAdjust } from './utils'
@@ -6,18 +6,19 @@ import { checkSpaceAndAdjust } from './utils'
 const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
   const ComponentHoc: React.FC<ToogletipPropTypes> = (props) => {
     const [isVisible, setIsVisible] = useState<boolean>(false)
-    const [adjustedPosition, setAdjustedPosition] = useState<BorderPositions>(props.position)
+    const [adjustedPosition, setAdjustedPosition] = useState<BorderPositions>(props.$position)
     const [adjustedArrow, setAdjustedArrow] = useState<'start' | 'middle' | 'end'>(
-      props.arrowPosition
+      props.$arrowPosition
     )
     const tooltipRef = useRef<HTMLDivElement>(null)
+    const defaultId = useId()
 
     const onCloseModified = (): void => {
       if (setIsVisible) {
         setIsVisible(false)
       }
-      if (props.onToogletipClose) {
-        props.onToogletipClose()
+      if (props.$onToogletipClose) {
+        props.$onToogletipClose()
       }
     }
 
@@ -27,12 +28,12 @@ const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
           tooltipRef,
           setAdjustedPosition,
           setAdjustedArrow,
-          props.position,
+          props.$position,
           adjustedPosition
         )
       } else {
-        setAdjustedPosition(props.position)
-        setAdjustedArrow(props.arrowPosition)
+        setAdjustedPosition(props.$position)
+        setAdjustedArrow(props.$arrowPosition)
       }
 
       window.addEventListener('resize', () => {
@@ -40,7 +41,7 @@ const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
           tooltipRef,
           setAdjustedPosition,
           setAdjustedArrow,
-          props.position,
+          props.$position,
           adjustedPosition
         )
       })
@@ -51,33 +52,39 @@ const TooltipHOC = (Component: any): React.FC<ToogletipPropTypes> => {
             tooltipRef,
             setAdjustedPosition,
             setAdjustedArrow,
-            props.position,
+            props.$position,
             adjustedPosition
           )
         })
       }
-    }, [props.position, isVisible])
+    }, [props.$position, isVisible])
 
     const showTooltip = (): void => {
-      setIsVisible(true)
+      if (!props.$onToogletipClose) {
+        setIsVisible(true)
+      }
     }
     const hideTooltip = (): void => {
-      setIsVisible(false)
+      if (!props.$onToogletipClose) {
+        setIsVisible(false)
+      }
     }
+
     return (
       <TooltipContainerStyled
-        position={adjustedPosition}
-        arrowPosition={adjustedArrow}
+        $position={adjustedPosition}
+        $arrowPosition={adjustedArrow}
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
       >
         {props.children}
-        {isVisible && (
+        {(isVisible || props.$visible) && (
           <Component
             {...props}
+            $id={props.$id || defaultId}
             setIsVisible={setIsVisible}
-            tooltipref={tooltipRef}
-            onToogletipClose={onCloseModified}
+            $tooltipRef={tooltipRef}
+            $onToogletipClose={onCloseModified}
           />
         )}
       </TooltipContainerStyled>

@@ -2,6 +2,7 @@ import { Button, Link, Logo, Switch, InputField, Toogletip } from '@cromaui/reac
 import React, { useState } from 'react'
 
 const Login: React.FC = () => {
+  const [showToogletip, setShowToogletip] = useState(false)
   const [formData, setFormData] = useState({
     user: '',
     password: '',
@@ -55,6 +56,10 @@ const Login: React.FC = () => {
     }
   }
 
+  const handleShowToogletip = (): void => {
+    setShowToogletip(!showToogletip)
+  }
+
   return (
     <form
       style={{
@@ -69,18 +74,22 @@ const Login: React.FC = () => {
     >
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Toogletip
-          title="Titulo del toogletip"
-          label="Información que va en el cuerpo del Toogletip"
-          position="top"
-          arrowPosition="end"
-          actionButtons={
+          $title="Titulo del toogletip"
+          $description="Información que va en el cuerpo del Toogletip"
+          $position="top"
+          $arrowPosition="end"
+          $actionButtons={
             <>
               <Button size="small">Acción1</Button>
               <Button size="small">Acción2</Button>
             </>
           }
+          $visible={showToogletip}
+          $onToogletipClose={handleShowToogletip}
         >
-          <Logo $name="MacroHorizontal" $size="medium" />
+          <Button onClick={handleShowToogletip} variant='outlined' type='button'>
+            <Logo $name="MacroHorizontal" $size="medium" />
+          </Button>
         </Toogletip>
       </div>
       <div>
@@ -138,7 +147,7 @@ const Login: React.FC = () => {
         <Link
           content="olvide mi clave"
           target="_blank"
-          link="https://google.com"
+          href="https://google.com"
           alt="#"
           title="#"
         />

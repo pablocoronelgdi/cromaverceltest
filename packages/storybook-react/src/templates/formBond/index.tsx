@@ -1,4 +1,4 @@
-import { Button, Checkbox, TextArea, InputField, Logo, Pictogram } from '@cromaui/react'
+import { Button, Checkbox, TextArea, InputField, Logo, Toogletip, Icon } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
@@ -24,13 +24,38 @@ function FormBond(): JSX.Element {
       console.log('Recordar contraseña:', isReminder)
     }
   }
+  const [showToogletip, setShowToogletip] = useState(false)
+
+  const handleToogle = (): void => {
+    setShowToogletip(!showToogletip)
+    console.log('click')
+  }
 
   return (
     <section className="form_bond__section">
       <h1 className="form_bond__title">Formulario para solicitar bono</h1>
       <form className="form_bond__form" onSubmit={handleForm}>
         <Logo $name="MacroTagLine" $size="large" />
-        <Pictogram $size="small" $name="Alert" $segmentName="Individuos" />
+        <Toogletip
+          $title="Solicita tu bono"
+          $arrowPosition="middle"
+          $position="right"
+          $description="Este bono es importante para ayudar a nuestros alumnos a solventar gastos durante el ciclo lectivo"
+          $visible={showToogletip}
+          $onToogletipClose={handleToogle}
+          $actionButtons={
+            <>
+              <Button variant="outlined" type="button" onClick={handleToogle}>
+                Cerrar
+              </Button>
+              <Button type="button" onClick={handleToogle}>
+                Entendido
+              </Button>
+            </>
+          }
+        >
+          <Icon $name="info" onClick={handleToogle} />
+        </Toogletip>
         <aside>
           <InputField
             $label="Nombre completo"
