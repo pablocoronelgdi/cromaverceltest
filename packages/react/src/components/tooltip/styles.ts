@@ -175,7 +175,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
     & .croma_toogletip_card_steps {
       width: 100%;
       ${FLEX_BETWEEN}
-      & > span:first-of-type {
+      & > small:first-of-type {
         ${FONT_CAPTION};
         ${FONT_TYPE_SEMIBOLD}
         color: ${color.Info.main};
@@ -184,9 +184,8 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
     & .croma_toogletip_card_header {
       width: 100%;
       ${FLEX_BETWEEN}
-      align-items:flex-start;
       gap: ${spacings.space4};
-      & span:first-of-type {
+      & small:first-of-type {
         ${FONT_BODY_MD}
         ${FONT_TYPE_BOLD}
       }

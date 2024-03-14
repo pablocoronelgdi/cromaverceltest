@@ -3,7 +3,6 @@ import type { ToogletipPropTypes } from './types'
 import TooltipHOC from './TooltipHOC'
 import { renderToogletipActions } from './utils'
 import { Button } from '../button'
-import { Icon } from '../icon'
 
 const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
   ({
@@ -36,20 +35,16 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
         <div className="croma_toogletip_card" ref={props.$tooltipRef}>
           {$steps && (
             <div className="croma_toogletip_card_steps">
-              <span>
+              <small>
                 Paso {step} de {$steps?.length}
-              </span>
-              <Button variant="ghost" size="extra-small" onClick={handleClose}>
-                <Icon $name="close" $size="medium" />
-              </Button>
+              </small>
+              <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
             </div>
           )}
           <div className="croma_toogletip_card_header">
-            <span>{$steps?.[step - 1]?.title || $title}</span>
+            <small>{$steps?.[step - 1]?.title || $title}</small>
             {!$steps && (
-              <Button variant="ghost" size="extra-small" onClick={handleClose}>
-                <Icon $name="close" $size="medium" />
-              </Button>
+              <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
             )}
           </div>
           <div className="croma_toogletip_card_body">

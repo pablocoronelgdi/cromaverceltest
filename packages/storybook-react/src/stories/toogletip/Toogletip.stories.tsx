@@ -110,7 +110,7 @@ export const SimpleToogleTip: Story = {
           $visible={isVisibleBottomMiddle}
           $onToogletipClose={handleOnClickBottomMiddle}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>
           Ver Toogletip
           </Button>
         </Toogletip>
@@ -143,7 +143,7 @@ export const SimpleToogleTip: Story = {
           $visible={isVisibleBottomMiddle}
           $onToogletipClose={handleOnClickBottomMiddle}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>
             Ver Toogletip
           </Button>
         </Toogletip>
@@ -200,7 +200,7 @@ export const WithActionLinks: Story = {
           $visible={isVisibleBottomMiddle}
           $onToogletipClose={handleOnClickBottomMiddle}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomEnd}>Toogletip con links</Button>
+          <Button variant="ghost" onClick={handleOnClickBottomEnd}>Toogletip con links</Button>
         </Toogletip>
         )
         `
@@ -248,7 +248,7 @@ export const WithActionLinks: Story = {
           $visible={isVisibleBottomEnd}
           $onToogletipClose={handleOnClickBottomEnd}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomEnd}>
+          <Button variant="ghost" onClick={handleOnClickBottomEnd}>
             Toogletip con links
           </Button>
         </Toogletip>
@@ -295,7 +295,7 @@ export const WithLinkAndButtons: Story = {
             </Button>
           }
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>Toogletip con link y botón</Button>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>Toogletip con link y botón</Button>
         </Toogletip>
         )
         `
@@ -340,7 +340,7 @@ export const WithLinkAndButtons: Story = {
             </Button>
           }
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>
             Toogletip con link y botón
           </Button>
         </Toogletip>
@@ -387,7 +387,7 @@ export const WithActionButtons: Story = {
           $visible={isVisibleActionButtons}
           $onToogletipClose={handleOnClickActionButtons}
         >
-        <Button variant="outlined" onClick={handleOnClickActionButtons}>
+        <Button variant="ghost" onClick={handleOnClickActionButtons}>
         Ver Toogletip con botones
       </Button>
         </Toogletip>
@@ -427,7 +427,7 @@ export const WithActionButtons: Story = {
           $visible={isVisibleActionButtons}
           $onToogletipClose={handleOnClickActionButtons}
         >
-          <Button variant="outlined" onClick={handleOnClickActionButtons}>
+          <Button variant="ghost" onClick={handleOnClickActionButtons}>
             Ver Toogletip con botones
           </Button>
         </Toogletip>
@@ -477,7 +477,7 @@ export const StepperToogletip: Story = {
           $visible={isVisibleBottomMiddle}
           $onToogletipClose={handleOnClickBottomMiddle}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>
           Ver Toogletip con steps
           </Button>
         </Toogletip>
@@ -515,7 +515,7 @@ export const StepperToogletip: Story = {
           $visible={isVisibleBottomMiddle}
           $onToogletipClose={handleOnClickBottomMiddle}
         >
-          <Button variant="outlined" onClick={handleOnClickBottomMiddle}>
+          <Button variant="ghost" onClick={handleOnClickBottomMiddle}>
             Ver Toogletip con steps
           </Button>
         </Toogletip>
