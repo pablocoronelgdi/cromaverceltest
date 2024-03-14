@@ -48,9 +48,6 @@ export const SwitchContainer = styled.div<SwitchInnerProps>`
       opacity: 0;
       width: 0;
       height: 0;
-      :focus-visible div {
-        background-color: red;
-      }
     }
 
     /* ----------  Switch Thumb ---------- */

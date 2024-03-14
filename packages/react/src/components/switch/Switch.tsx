@@ -18,7 +18,7 @@ const Switch: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
     defaultValue?.toString().toLocaleLowerCase() === 'true' ?? false
   )
   const [isPressed, setIsPressed] = useState(false)
-  const cromaId = useId()
+  const defaultID = useId()
 
   /**
    * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
@@ -51,7 +51,7 @@ const Switch: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
 
   return (
     <SwitchContainer
-      id={props.id ?? cromaId}
+      id={props.id ?? defaultID}
       $isChecked={checked ?? isChecked}
       $isPressed={isPressed}
       onMouseDown={(e) => {
