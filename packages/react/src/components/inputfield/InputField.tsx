@@ -54,17 +54,15 @@ const InputField: React.FC<InputFieldPropTypes> = ({
           }}
           aria-describedby={props.name ?? defaultId}
         />
-        {/* @TODO: Utilizar IconButton en lugar de Button cuando se haya definido el componente IconButton en el equipo de Diseño */}
         {$type === 'password' && (
           <Button
             variant="ghost"
-            type="button"
+            size="extra-small"
             onClick={() => {
               if (!props.disabled) {
                 toogleVisibility()
               }
             }}
-            style={{ padding: 0, background: 'transparent' }}
             iconName={passVisible ? 'visibility' : 'visibility_off'}
           />
         )}

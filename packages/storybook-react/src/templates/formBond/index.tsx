@@ -1,4 +1,4 @@
-import { Button, Checkbox, TextArea, InputField, Logo, Toogletip, Icon } from '@cromaui/react'
+import { Button, Checkbox, TextArea, InputField, Logo, Toogletip } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
@@ -33,8 +33,8 @@ function FormBond(): JSX.Element {
 
   return (
     <section className="form_bond__section">
-      <h1 className="form_bond__title">Formulario para solicitar bono</h1>
-      <form className="form_bond__form" onSubmit={handleForm}>
+      <div className="form_bond__header">
+        <h1 className="form_bond__title">Formulario para solicitar bono</h1>
         <Logo $name="MacroTagLine" $size="large" />
         <Toogletip
           $title="Solicita tu bono"
@@ -45,17 +45,29 @@ function FormBond(): JSX.Element {
           $onToogletipClose={handleToogle}
           $actionButtons={
             <>
-              <Button variant="outlined" type="button" onClick={handleToogle}>
+              <Button variant="outlined" onClick={handleToogle}>
                 Cerrar
               </Button>
-              <Button type="button" onClick={handleToogle}>
-                Entendido
-              </Button>
+              <Button onClick={handleToogle}>Entendido</Button>
             </>
           }
+          $steps={[
+            { title: 'Paso 1', label: 'Este es el contenido del mensaje del paso 1' },
+            { title: 'Paso 2', label: 'Este es el contenido del mensaje del paso 2' },
+            { title: 'Paso 3', label: 'Este es el contenido del mensaje del paso 3' }
+          ]}
         >
-          <Icon $name="info" onClick={handleToogle} />
+          <Button
+            variant="ghost"
+            size="extra-small"
+            iconName="info"
+            onClick={handleToogle}
+          >
+            Más información acá
+          </Button>
         </Toogletip>
+      </div>
+      <form className="form_bond__form" onSubmit={handleForm}>
         <aside>
           <InputField
             $label="Nombre completo"
@@ -104,7 +116,9 @@ function FormBond(): JSX.Element {
           }}
         />
         <div className="form_bond__buttons">
-          <Button size="medium">Iniciar sesion</Button>
+          <Button size="medium" type="submit">
+            Enviar
+          </Button>
           <Button variant="outlined">Registrame</Button>
         </div>
       </form>

@@ -41,4 +41,7 @@ export type ToogletipPropTypes = {
   $steps?: Array<{ title?: string, label?: string }>
   $onToogletipClose: () => void
   $visible: boolean
+  $ariaTitelledBy?: string
+  $ariaDescripbedBy?: string
+  $ariaModal?: boolean
 } & TooltipPropTypes

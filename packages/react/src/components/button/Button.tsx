@@ -12,6 +12,7 @@ const Button: React.FC<ButtonPropTypes> = ({
   disabled,
   background = 'dark',
   onClick,
+  type = 'button',
   ...props
 }) => {
   const [isPressed, setIsPressed] = useState(false)

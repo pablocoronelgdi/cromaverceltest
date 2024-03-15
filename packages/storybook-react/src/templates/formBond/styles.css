@@ -10,6 +10,14 @@
   box-shadow: 0 0 8px #cccccc;
 }
 
+.form_bond__header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  align-items: center;
+}
+
 .form_bond__title {
   font-size: 26px;
   font-weight: 400;

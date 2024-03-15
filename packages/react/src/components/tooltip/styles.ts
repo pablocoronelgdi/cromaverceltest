@@ -118,6 +118,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
   position: relative;
   display: inline-block;
   width: fit-content;
+  border: none;
 
   & .croma_tooltip_text {
     position: absolute;
@@ -150,6 +151,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
   }
 
   & .croma_toogletip_card {
+    border: none;
     ${FLEX_COLUMN_CENTER}
     gap: ${spacings.space4};
     position: absolute;
@@ -171,7 +173,6 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       ${({ $position, $arrowPosition }) =>
         getTooltipArrowPosition($position as string, $arrowPosition as string, color.Info.extraSoft)};
     }
-
     & .croma_toogletip_card_steps {
       width: 100%;
       ${FLEX_BETWEEN}
@@ -185,7 +186,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       width: 100%;
       ${FLEX_BETWEEN}
       gap: ${spacings.space4};
-      & small:first-of-type {
+      & h2:first-of-type {
         ${FONT_BODY_MD}
         ${FONT_TYPE_BOLD}
       }
@@ -194,12 +195,11 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       ${FLEX_COLUMN_START}
       gap: ${spacings.space8};
       width: 100%;
-      & span {
+      & p {
         ${FONT_BODY_SM}
         ${FONT_TYPE_REGULAR}
       }
     }
-
     & .croma_toogletip_card_actions_start {
       width: 100%;
       ${FLEX_START}
