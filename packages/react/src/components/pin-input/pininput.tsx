@@ -1,100 +1,170 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { StyledPinInput, StyledLabel, StyledLabelIcon } from './styles'
-import type { PinInputPropsTypes } from './types'
+import React, { useEffect, useId, useRef, useState } from 'react'
+import type { PinInputPropTypes } from './types'
+import { StyledLabel, StyledLabelIcon, StyledPinInput } from './styles'
 import { color } from '@cromaui/foundations'
 import { Icon } from '../icon'
 
-const PinInput: React.FC<PinInputPropsTypes> = ({ length, onComplete, disabled, title, label, error, errorMessage, type = 'text' }) => {
-  const [code, setCode] = useState<string[]>(Array(length).fill(''))
-  const inputRefs = useRef<Array<HTMLInputElement | null>>([])
+const PinInput: React.FC<PinInputPropTypes> = ({
+  $pinLength = 6,
+  $onComplete,
+  $onPinChange,
+  $helperText,
+  $visibility = true,
+  $error,
+  $errorMessage,
+  $label,
+  value,
+  ...props
+}) => {
+  const [pin, setPin] = useState<Array<number | string | undefined>>(new Array($pinLength))
+  const inputRefs = useRef<HTMLInputElement[]>([])
+  const cromaID = useId()
 
   useEffect(() => {
-    inputRefs.current = inputRefs.current.slice(0, length)
-  }, [length])
+    if (value) {
+      const valueToArray = value.toString().split('')
+      const newPin = [...pin]
+      for (let i = 0; i < $pinLength; i++) {
+        newPin[i] = valueToArray[i]
+      }
+      setPin(newPin)
+    }
+  }, [])
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleChange = (index: number, value: string) => { // Permitemanejar el foco y avanzar con el codigo aplcado.
-    const newCode = [...code]
-    newCode[index] = value
-    setCode(newCode)
+  // Funcion que se va a encargar de setear el array de numeros modificados en base a la logica o eventos
+  const changePin = (newValue: number | undefined, index: number): void => {
+    const newPin = [...pin]
+    newPin[index] = newValue?.toString()
+    setPin(newPin)
+    validatePinOnComplete(newPin)
+    $onPinChange && $onPinChange(newPin.join(''))
+  }
 
-    const filledCode = newCode.join('')
-    if (filledCode.length === length) {
-      onComplete(filledCode)
-    } else if (value !== '' && index < length - 1) {
-      inputRefs.current[index + 1]?.focus()
+  const changePinFocus = (index: number): void => {
+    const ref = inputRefs.current[index]
+    ref && ref.focus()
+  }
+
+  const validatePinOnComplete = (newPin: Array<number | string | undefined>): void => {
+    const fullPinValue = newPin.join('')
+    if (fullPinValue.length === $pinLength) {
+      $onComplete && $onComplete(fullPinValue)
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => { // Permite modificar / borrar de atras para adelante.
-    if (e.key === 'Enter') {
-      e.preventDefault()
-
-      if (index < length - 1) {
-        inputRefs.current[index + 1]?.focus()
-      }
-    } else if (e.key === 'Backspace' || (e.key === 'Delete' && process.platform === 'darwin')) {
-      if (index === length - 1 && code[index] === '') {
-        e.preventDefault()
-        return
-      }
-
-      if (index > 0) {
-        inputRefs.current[index - 1]?.focus()
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number): void => {
+    const newValue = e.target.value
+    const pinNumber = Number(newValue.trim())
+    if (isNaN(pinNumber) || newValue.length === 0) {
+      return
+    }
+    if (pinNumber >= 0 && pinNumber <= 9) {
+      changePin(pinNumber, index)
+      if (index < $pinLength - 1) {
+        changePinFocus(index + 1)
       }
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>, currentIndex: number) => { // Permite copiar y pegar codigo.
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number): void => {
+    const keyBoardKeyCode = e.nativeEvent.code
+
+    switch (keyBoardKeyCode) {
+      case 'Backspace':
+        if (pin[index] === undefined) {
+          changePinFocus(index - 1)
+        } else {
+          changePin(undefined, index)
+        }
+        break
+      case 'Delete':
+        {
+          const newPin = [...pin]
+          for (let i = 0; i < newPin.length; i++) {
+            if (i > index) {
+              newPin[i] = newPin[i + 1]
+            }
+          }
+          newPin[newPin.length - 1] = undefined
+          setPin(newPin)
+        }
+        break
+      case 'ArrowLeft':
+        changePinFocus(index - 1)
+        break
+      case 'ArrowRight':
+        changePinFocus(index + 1)
+        break
+      default:
+        break
+    }
+  }
+
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>, currentIndex: number): void => {
+    // Permite copiar y pegar codigo.
     e.preventDefault()
     const pastedData = e.clipboardData.getData('text')
-    const newCode = [...code]
+    const filteredData = pastedData.replace(/\D/g, '')
+    const newPin = [...pin]
 
-    for (let i = 0; i < pastedData.length && currentIndex + i < length; i++) {
-      newCode[currentIndex + i] = pastedData[i]
+    for (let i = 0; i < filteredData.length && currentIndex + i < $pinLength; i++) {
+      newPin[currentIndex + i] = Number(filteredData[i])
+    }
+    setPin(newPin)
+    $onPinChange && $onPinChange(newPin.join(''))
+
+    if (filteredData.length >= pin.length) {
+      changePinFocus(pin.length - 1)
+    } else {
+      changePinFocus(filteredData.length)
     }
 
-    setCode(newCode)
-    const filledCode = newCode.join('')
-    if (filledCode.length === length) {
-      onComplete(filledCode)
+    const filledCode = newPin.join('')
+    if (filledCode.length === $pinLength) {
+      $onComplete && $onComplete(filledCode)
     }
   }
 
   return (
-    <StyledPinInput onComplete={onComplete} length={length}>
-      {title && <p className='title'>{title}</p>}
-      <div className='content-input'>
-        {code.map((digit, index) => (
-          <input
-            key={index}
-            disabled={disabled}
-            type={type}
-            inputMode="numeric"
-            pattern="[0-9]*"
-            maxLength={1} // Parámetro el cual por ahora no voy a dejar que sea manejado por fuera.
-            value={digit}
-            onChange={(e) => { handleChange(index, e.target.value) }}
-            onKeyDown={(e) => { handleKeyDown(index, e) }}
-            onPaste={(e) => { handlePaste(e, index) }}
-            ref={(el) => (inputRefs.current[index] = el)}
-          />
-        ))}
+    <StyledPinInput
+      $onComplete={$onComplete}
+      $pinLength={$pinLength}
+      $error={$error}
+      $visibility={$visibility}
+      id={props.id ?? cromaID}
+    >
+      {$label && <p className="croma-pininput-label">{$label}</p>}
+      <div className="content-input">
+        {Array.from(pin, (_, index) => {
+          return (
+            <input
+              key={index}
+              type={$visibility ? 'text' : 'password'}
+              value={pin[index] || ''}
+              ref={(e) => {
+                if (e) inputRefs.current[index] = e
+              }}
+              onChange={(e) => {
+                handleChange(e, index)
+              }}
+              onKeyDown={(e) => {
+                handleKeyDown(e, index)
+              }}
+              onPaste={(e) => {
+                handlePaste(e, index)
+              }}
+              aria-label={`Dígito ${index}`}
+              {...props}
+            />
+          )
+        })}
       </div>
-      {label && (
+      {$helperText && (
         <label>
-          <StyledLabel onComplete={onComplete} length={length}>
-            <StyledLabelIcon onComplete={onComplete} length={length}>
-              {error && (
-                <Icon
-                  $name="info_outlined"
-                  $color={color.error.main}
-                  $size="small"
-                />
-              )}
-              <p>{label || errorMessage}</p>
+          <StyledLabel>
+            <StyledLabelIcon>
+              {$error && <Icon $name="info_outlined" $color={color.error.main} $size="small" />}
+              <p>{$error ? $errorMessage : $helperText}</p>
             </StyledLabelIcon>
           </StyledLabel>
         </label>
