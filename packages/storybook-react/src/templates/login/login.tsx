@@ -1,4 +1,4 @@
-import { Button, Link, Logo, Switch, InputField, Toogletip } from '@cromaui/react'
+import { Button, Link, Logo, Switch, InputField } from '@cromaui/react'
 import React, { useState } from 'react'
 
 const Login: React.FC = () => {
@@ -68,20 +68,7 @@ const Login: React.FC = () => {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Toogletip
-          title="Titulo del toogletip"
-          label="Información que va en el cuerpo del Toogletip"
-          position="top"
-          arrowPosition="end"
-          actionButtons={
-            <>
-              <Button size="small">Acción1</Button>
-              <Button size="small">Acción2</Button>
-            </>
-          }
-        >
-          <Logo $name="MacroHorizontal" $size="medium" />
-        </Toogletip>
+        <Logo $name="MacroHorizontal" $size="medium" />
       </div>
       <div>
         <label>Usuario</label>
@@ -138,7 +125,7 @@ const Login: React.FC = () => {
         <Link
           content="olvide mi clave"
           target="_blank"
-          link="https://google.com"
+          href="https://google.com"
           alt="#"
           title="#"
         />

@@ -20,9 +20,9 @@ const movimientosBancarios = [
 
 const DescargarComprobante: React.FC<{ idComprobante: number }> = ({ idComprobante }) => {
   return (
-    <Tooltip label="Descargar comprobante" position="top" arrowPosition="middle">
+    <Tooltip $description="Descargar comprobante" position="top" $arrowPosition="middle">
       <Icon
-        name="download"
+        $name="download"
         onClick={() => {
           alert(`Comprobante N°${idComprobante} descargado con éxito`)
         }}
@@ -60,7 +60,7 @@ const Movimientos: React.FC = () => {
                   <ListItem
                     key={movimiento.id}
                     contentLeft={
-                      <Icon name={movimiento.monto > 0 ? 'arrow_downward' : 'arrow_upward'} />
+                      <Icon $name={movimiento.monto > 0 ? 'arrow_downward' : 'arrow_upward'} />
                     }
                     title={`$${movimiento.monto.toLocaleString()}`}
                     subtitle={movimiento.descripcion}
@@ -80,7 +80,7 @@ const Movimientos: React.FC = () => {
             title="imagen"
           />
           <h6> Ahora podes realizar esta consulta desde tu telefono. </h6>
-          <Link link="/" alt="pin input" content="Continuar en mobile" title="holis" />
+          <Link href="/" alt="pin input" content="Continuar en mobile" title="holis" />
         </div>
       </div>
     </>

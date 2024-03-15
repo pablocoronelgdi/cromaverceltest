@@ -10,32 +10,38 @@ export type BorderPositions = 'top' | 'right' | 'bottom' | 'left'
 export type LinePositions = 'start' | 'middle' | 'end'
 export type TooltipContainerPropTypes = {
   position?: BorderPositions
-  arrowPosition?: LinePositions
+  $arrowPosition?: LinePositions
   children?: ReactNode
 }
 
 /* ----------  Position Types  ---------- */
 
 export type TooltipPositionTypes = {
-  position: BorderPositions
+  $position: BorderPositions
 }
 export type TooltipArrowPositionTypes = {
-  arrowPosition: LinePositions
+  $arrowPosition: LinePositions
 }
 
 /* ----------  Component Types  ---------- */
 
 export type TooltipPropTypes = {
-  label: string
+  $description?: string
   children: ReactNode
-  position: BorderPositions
-  arrowPosition: LinePositions
-  tooltipref?: RefObject<any>
-  onToogletipClose?: () => void
+  $position: BorderPositions
+  $arrowPosition: LinePositions
+  $tooltipRef?: RefObject<any>
+  $id?: string
 }
+
 export type ToogletipPropTypes = {
-  title: string
-  actionButtons?: ReactNode
-  actionLinks?: ReactNode
-  steps?: Array<{ title?: string, label?: string }>
+  $title: string
+  $actionButtons?: ReactNode
+  $actionLinks?: ReactNode
+  $steps?: Array<{ title?: string, label?: string }>
+  $onToogletipClose: () => void
+  $visible: boolean
+  $ariaTitelledBy?: string
+  $ariaDescripbedBy?: string
+  $ariaModal?: boolean
 } & TooltipPropTypes

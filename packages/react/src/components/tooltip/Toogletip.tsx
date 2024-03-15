@@ -3,20 +3,23 @@ import type { ToogletipPropTypes } from './types'
 import TooltipHOC from './TooltipHOC'
 import { renderToogletipActions } from './utils'
 import { Button } from '../button'
-import { Icon } from '../icon'
 
 const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
   ({
-    title,
-    label,
-    actionLinks,
-    actionButtons,
+    $title,
+    $description = 'Descripción del Toogletip',
+    $visible,
+    $actionLinks,
+    $actionButtons,
     children,
-    steps,
-    onToogletipClose,
+    $steps,
+    $ariaTitelledBy,
+    $ariaDescripbedBy,
+    $ariaModal,
+    $onToogletipClose,
     ...props
   }: ToogletipPropTypes) => {
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState<number>(1)
 
     const handleStepFoward = (): void => {
       setStep(step + 1)
@@ -25,36 +28,57 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
     const handleStepBack = (): void => {
       setStep(step - 1)
     }
-    const handleClose = (): void => {
-      if (onToogletipClose) {
-        onToogletipClose()
+
+    const onEsc = (e: React.KeyboardEvent<HTMLElement>): void => {
+      if (e.key === 'Escape') {
+        $onToogletipClose()
       }
     }
+
+    const handleClose = (): void => {
+      if ($onToogletipClose) {
+        $onToogletipClose()
+      }
+    }
+
     return (
-      <>
-        <div className="croma_toogletip_card" ref={props.tooltipref}>
-          {steps && (
-            <div className="croma_toogletip_card_steps">
-              <span>
-                Paso {step} de {steps?.length}
-              </span>
-              <Icon $name="close" $size='small' onClick={handleClose} />
-            </div>
+      <dialog
+        className="croma_toogletip_card"
+        ref={props.$tooltipRef}
+        open={$visible}
+        onKeyUp={(e): void => {
+          onEsc(e)
+        }}
+        onKeyDown={(e): void => {
+          onEsc(e)
+        }}
+        aria-labelledby={$ariaTitelledBy ?? 'toogletip_title'}
+        aria-describedby={$ariaDescripbedBy ?? 'toogletip_description'}
+        aria-modal={$ariaModal ?? true}
+      >
+        {$steps && (
+          <div className="croma_toogletip_card_steps">
+            <small>
+              Paso {step} de {$steps?.length}
+            </small>
+            <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
+          </div>
+        )}
+        <div className="croma_toogletip_card_header">
+          <h2 id={$ariaTitelledBy ?? 'toogletip_title'}>{$steps?.[step - 1]?.title || $title}</h2>
+          {!$steps && (
+            <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
           )}
-          <div className="croma_toogletip_card_header">
-            <span>{steps?.[step - 1]?.title || title}</span>
-            {!steps && <Icon $name="close" $size='small' onClick={handleClose} />}
-          </div>
-          <div className="croma_toogletip_card_body">
-            <span>{steps?.[step - 1]?.label || label}</span>
-          </div>
-          {!steps ? (
-            renderToogletipActions(actionLinks as ReactNode, actionButtons as ReactNode)
+        </div>
+        <div className="croma_toogletip_card_body" id={$ariaDescripbedBy ?? 'toogletip_description'}>
+          <p>{$steps?.[step - 1]?.label || $description}</p>
+          {!$steps ? (
+            renderToogletipActions($actionLinks as ReactNode, $actionButtons as ReactNode)
           ) : (
             <div className="croma_toogletip_card_actions_end">
               {step > 1 && (
                 <>
-                  <Button variant="text" onClick={handleStepBack} size="small">
+                  <Button variant="ghost" onClick={handleStepBack} size="small">
                     Anterior
                   </Button>
                 </>
@@ -62,14 +86,14 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
               <Button
                 variant="filled"
                 size="small"
-                onClick={!steps || step === steps.length ? handleClose : handleStepFoward}
+                onClick={!$steps || step === $steps.length ? handleClose : handleStepFoward}
               >
-                {!steps || step === steps.length ? 'Confirmar' : 'Siguiente'}
+                {!$steps || step === $steps.length ? 'Confirmar' : 'Siguiente'}
               </Button>
             </div>
           )}
         </div>
-      </>
+      </dialog>
     )
   }
 )

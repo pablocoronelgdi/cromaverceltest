@@ -184,6 +184,16 @@ export const FONT_BUTTON_SM = css`
   line-height: ${typography.button.sm.lineHeight};
 `
 
+export const FONT_BUTTON_XSM = css`
+  font-size: ${typography.button.xsm.fontSize};
+  text-decoration: ${typography.button.xsm.textDecoration};
+  font-family: ${typography.button.xsm.fontFamily};
+  font-style: ${typography.button.xsm.fontStyle};
+  font-stretch: ${typography.button.xsm.fontStretch};
+  letter-spacing: ${typography.button.xsm.letterSpacing};
+  line-height: ${typography.button.xsm.lineHeight};
+`
+
 export const FONT_TYPE_REGULAR = css`
   font-weight: 400;
 `

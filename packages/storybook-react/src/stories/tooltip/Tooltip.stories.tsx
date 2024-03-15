@@ -6,7 +6,7 @@ const meta = {
   title: 'Data Display/Tooltip',
   component: Tooltip,
   argTypes: {
-    position: {
+    $position: {
       description:
         'Indica de que lado del componente se mostrará. Si no hay espacio, se ubicará del lado contrario.',
       options: ['top', 'right', 'bottom', 'left'],
@@ -17,14 +17,14 @@ const meta = {
         defaultValue: { summary: 'right' }
       }
     },
-    label: {
+    $description: {
       description: 'Texto que mostrará el tooltip.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
       }
     },
-    arrowPosition: {
+    $arrowPosition: {
       description: 'La posición de la flecha del tooltip.',
       options: ['start', 'middle', 'end'],
       control: { type: 'select' },
@@ -45,9 +45,9 @@ type Story = StoryObj<typeof meta>
 export const SimpleToolTip: Story = {
   name: 'Tooltip simple',
   args: {
-    position: 'bottom',
-    label: 'Texto the ejemplo proveniente la prop label',
-    arrowPosition: 'middle',
+    $position: 'bottom',
+    $description: 'Texto the ejemplo proveniente la prop label',
+    $arrowPosition: 'middle',
     children: <button>Confirmar</button>
   }
 }
@@ -57,7 +57,7 @@ export const SimpleToolTip: Story = {
 export const SimpleTooltipGrid: Story = {
   name: 'Simple Tooltip',
   tags: ['docs-only'],
-  args: { label: '', arrowPosition: 'middle', position: 'bottom', children: '' },
+  args: { $description: '', $arrowPosition: 'middle', $position: 'bottom', children: '' },
   parameters: {
     docs: {
       source: {
@@ -68,40 +68,40 @@ export const SimpleTooltipGrid: Story = {
 
         return (
           <div className="grid">
-            <Tooltip position="top" label={'test de contenido'} arrowPosition="start">
+            <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="start">
               <div>Top start</div>
             </Tooltip>
-            <Tooltip position="top" label={'test de contenido'} arrowPosition="middle">
+            <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="middle">
               <div>Top middle</div>
             </Tooltip>
-            <Tooltip position="top" label={'test de contenido'} arrowPosition="end">
+            <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="end">
               <div>Top end</div>
             </Tooltip>
-            <Tooltip position="bottom" label={'test de contenido'} arrowPosition="start">
+            <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="start">
               <div>Bottom start</div>
             </Tooltip>
-            <Tooltip position="bottom" label={'test de contenido'} arrowPosition="middle">
+            <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="middle">
               <div>Bottom middle</div>
             </Tooltip>
-            <Tooltip position="bottom" label={'test de contenido'} arrowPosition="end">
+            <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="end">
               <div>Bottom end</div>
             </Tooltip>
-            <Tooltip position="left" label={'test de contenido'} arrowPosition="start">
+            <Tooltip $position="left" $description={'test de contenido'} $arrowPosition="start">
               <div>Left start</div>
             </Tooltip>
-            <Tooltip position="left" label={'test de contenido'} arrowPosition="middle">
+            <Tooltip $position="left" $description={'test de contenido'} $arrowPosition="middle">
               <div>Left middle</div>
             </Tooltip>
-            <Tooltip position="left" label={'test de contenido '} arrowPosition="end">
+            <Tooltip $position="left" $description={'test de contenido '} $arrowPosition="end">
               <div>Left end</div>
             </Tooltip>
-            <Tooltip position="right" label={'test de contenido'} arrowPosition="start">
+            <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="start">
               <div>Right start</div>
             </Tooltip>
-            <Tooltip position="right" label={'test de contenido'} arrowPosition="middle">
+            <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="middle">
               <div>Right middle</div>
             </Tooltip>
-            <Tooltip position="right" label={'test de contenido'} arrowPosition="end">
+            <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="end">
               <div>Right end</div>
             </Tooltip>
         </>
@@ -133,13 +133,13 @@ export const SimpleTooltipGrid: Story = {
             gap: '12px'
           }}
         >
-          <Tooltip position="top" label={'test de contenido'} arrowPosition="start">
+          <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="start">
             <div>Top start</div>
           </Tooltip>
-          <Tooltip position="top" label={'test de contenido'} arrowPosition="middle">
+          <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="middle">
             <div>Top middle</div>
           </Tooltip>
-          <Tooltip position="top" label={'test de contenido'} arrowPosition="end">
+          <Tooltip $position="top" $description={'test de contenido'} $arrowPosition="end">
             <div>Top end</div>
           </Tooltip>
         </div>
@@ -153,13 +153,13 @@ export const SimpleTooltipGrid: Story = {
             gap: '12px'
           }}
         >
-          <Tooltip position="bottom" label={'test de contenido'} arrowPosition="start">
+          <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="start">
             <div>Bottom start</div>
           </Tooltip>
-          <Tooltip position="bottom" label={'test de contenido'} arrowPosition="middle">
+          <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="middle">
             <div>Bottom middle</div>
           </Tooltip>
-          <Tooltip position="bottom" label={'test de contenido'} arrowPosition="end">
+          <Tooltip $position="bottom" $description={'test de contenido'} $arrowPosition="end">
             <div>Bottom end</div>
           </Tooltip>
         </div>
@@ -173,13 +173,13 @@ export const SimpleTooltipGrid: Story = {
             gap: '12px'
           }}
         >
-          <Tooltip position="left" label={'test de contenido'} arrowPosition="start">
+          <Tooltip $position="left" $description={'test de contenido'} $arrowPosition="start">
             <div>Left start</div>
           </Tooltip>
-          <Tooltip position="left" label={'test de contenido'} arrowPosition="middle">
+          <Tooltip $position="left" $description={'test de contenido'} $arrowPosition="middle">
             <div>Left middle</div>
           </Tooltip>
-          <Tooltip position="left" label={'test de contenido '} arrowPosition="end">
+          <Tooltip $position="left" $description={'test de contenido '} $arrowPosition="end">
             <div>Left end</div>
           </Tooltip>
         </div>
@@ -194,13 +194,13 @@ export const SimpleTooltipGrid: Story = {
             gap: '12px'
           }}
         >
-          <Tooltip position="right" label={'test de contenido'} arrowPosition="start">
+          <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="start">
             <div>Right start</div>
           </Tooltip>
-          <Tooltip position="right" label={'test de contenido'} arrowPosition="middle">
+          <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="middle">
             <div>Right middle</div>
           </Tooltip>
-          <Tooltip position="right" label={'test de contenido'} arrowPosition="end">
+          <Tooltip $position="right" $description={'test de contenido'} $arrowPosition="end">
             <div>Right end</div>
           </Tooltip>
         </div>
