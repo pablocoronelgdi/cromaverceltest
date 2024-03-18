@@ -16,26 +16,25 @@ import type { ListItemPropsTypes } from './types'
 
 export const StyledListItem = styled.div<ListItemPropsTypes>`
   ${FLEX_AROUND}
-  background: ${(props) => props.$disabled ? color.neutral[200] : color.neutral[50]};
-  color: ${(props) => props.$disabled ? color.neutral[400] : color.neutral[700]};
+  background: ${(props) => (props.$disabled ? color.neutral[200] : color.neutral[50])};
+  color: ${(props) => (props.$disabled ? color.neutral[400] : color.neutral[700])};
   width: 100%;
   max-width: 1024px;
   padding: ${spacings.space12};
   border-bottom: ${borders.br1} ${color.neutral[300]};
   transition: all 0.3s ease-in-out;
-  cursor: ${(props) => props.$disabled ? 'no-drop' : 'pointer'};
-
+  cursor: ${(props) => (props.$disabled ? 'no-drop' : 'pointer')};
   &:hover {
-    box-shadow: ${(props) => props.$disabled ? 'none' : elevations.level3};
+    box-shadow: ${(props) => (props.$disabled ? 'none' : elevations.level3)};
     transition: 0.3s;
   }
   &:focus,
   &:focus-within,
   &:focus-visible {
-    border: ${borders.br2} ${color.blue.main}
+    border: ${borders.br2} ${color.blue.main};
   }
   &.pressed {
-    background: ${(props) => props.$disabled ? color.neutral[200] : color.navy.extraSoft};
+    background: ${(props) => (props.$disabled ? color.neutral[200] : color.navy.extraSoft)};
   }
 `
 export const RightContent = styled.div`
@@ -56,13 +55,13 @@ export const TextContent = styled.div`
     color: ${color.neutral[900]};
     text-align: left;
     width: 100%;
-    margin: 0
+    margin: 0;
   }
   span {
     ${FONT_BODY_SM}
     ${FONT_TYPE_REGULAR}
     text-align: left;
     width: 100%;
-    margin: 0
+    margin: 0;
   }
 `
