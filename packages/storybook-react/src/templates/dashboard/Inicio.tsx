@@ -11,7 +11,7 @@ const Inicio: React.FC = () => {
         <Tooltip
           $description="Controla y analizá tus inversiones desde este panel."
           $arrowPosition="middle"
-          position="top"
+          $position="top"
         >
           <div className="gridItem">
             <Pictogram $name="Cash" $segmentName="Individuos" />
@@ -20,7 +20,7 @@ const Inicio: React.FC = () => {
             </Button>
           </div>
         </Tooltip>
-        <Tooltip $description="Conoceé el estado de tus puntos" $arrowPosition="end" position="bottom">
+        <Tooltip $description="Conoceé el estado de tus puntos" $arrowPosition="end" $position="bottom">
           <div className="gridItem">
             <Pictogram $name="Card" $segmentName="Gobierno" />
             <Button variant="outlined" size="small">
@@ -31,7 +31,7 @@ const Inicio: React.FC = () => {
         <Tooltip
           $description="Contacta con nuestro equipo de soporte para consultas y asistencias."
           $arrowPosition="start"
-          position="left"
+          $position="left"
         >
           <div className="gridItem">
             <Pictogram $name="Laptop" $segmentName="Selecta" />
@@ -43,7 +43,7 @@ const Inicio: React.FC = () => {
         <Tooltip
           $description="Esta opcion no hace nada pero nos gusta dejarla aquí"
           $arrowPosition="start"
-          position="left"
+          $position="left"
         >
           <div className="gridItem">
             <Pictogram $name="Question" $segmentName="Empresas" />

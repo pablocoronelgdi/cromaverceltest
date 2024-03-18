@@ -1,18 +1,16 @@
 import styled, { css } from 'styled-components'
 import { FLEX_CENTER, FONT_TYPE_SEMIBOLD } from '../../globals/globals'
 import { borders, color, spacings, typography } from '@cromaui/foundations'
-import type { BadgePropsTypes } from './types'
+import type { BadgePropTypes } from './types'
 
-export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
+export const BadgeContainerStyled = styled.div<BadgePropTypes>`
   ${FLEX_CENTER}
   border-radius: 100px;
-  outline: ${(props) => !props.text && borders.br2};
-  outline-color: ${(props) =>
-    props.backgroundType === 'light' ? color.neutral[50] : color.navy.main};
-  gap: ${(props) =>
-    props.size === 'large' && !!props.iconName
-      ? spacings.space4
-      : spacings.space2};
+  outline: ${({ $text }) => !$text && borders.br2};
+  outline-color: ${({ $backgroundType }) =>
+    $backgroundType === 'light' ? color.neutral[50] : color.navy.main};
+  gap: ${({ $iconName, $size }) =>
+    $size === 'large' && !!$iconName ? spacings.space4 : spacings.space2};
   overflow: hidden;
   text-align: center;
   width: fit-content;
@@ -24,18 +22,18 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
     overflow: hidden;
     text-overflow: ellipsis;
 
-    ${(props) =>
-      (props.size === 'small' || props.size === 'medium') &&
-      (props.text || props.count) &&
+    ${({ $size, $text, $count }) =>
+      ($size === 'small' || $size === 'medium') &&
+      ($text || $count) &&
       css`
         font-size: ${typography.caption.fontSize};
         line-height: 1.1em;
         letter-spacing: ${typography.caption.letterSpacing};
       `}
 
-    ${(props) =>
-      props.size === 'large' &&
-      (props.text || props.count) &&
+    ${({ $size, $text, $count }) =>
+      $size === 'large' &&
+      ($text || $count) &&
       css`
         font-size: ${typography.body.sm.fontSize};
         line-height: ${typography.body.sm.lineHeight};
@@ -43,29 +41,19 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       `}
   }
 
-  ${(props) =>
-    props.text &&
+  ${({ $text, $size, $iconName }) =>
+    $text &&
     css`
-      padding-top: ${props.size === 'small'
-        ? '1px'
-        : props.size === 'medium'
-        ? '2px'
-        : '0'};
-      padding-bottom: ${props.size === 'small'
-        ? '1px'
-        : props.size === 'medium'
-        ? '2px'
-        : '0'};
-      padding-left: ${props.size === 'small' || props.size === 'medium'
-        ? props.iconName
+      padding-top: ${$size === 'small' ? '1px' : $size === 'medium' ? '2px' : '0'};
+      padding-bottom: ${$size === 'small' ? '1px' : $size === 'medium' ? '2px' : '0'};
+      padding-left: ${$size === 'small' || $size === 'medium'
+        ? $iconName
           ? spacings.space4
           : spacings.space6
-        : props.iconName
+        : $iconName
         ? spacings.space6
         : spacings.space8};
-      padding-right: ${props.size === 'large'
-        ? spacings.space8
-        : spacings.space6};
+      padding-right: ${$size === 'large' ? spacings.space8 : spacings.space6};
       width: max-content;
       white-space: nowrap;
       justify-content: start;
@@ -73,57 +61,64 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       text-overflow: ellipsis;
     `}
 
-  ${(props) =>
-    props.color === 'pink' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'pink' &&
     css`
       background-color: ${color.pink.main};
       color: ${color.neutral[900]};
     `}
 
-  ${(props) =>
-    props.color === 'blue' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'blue' &&
     css`
       background-color: ${color.Info.main};
       color: ${color.neutral[50]};
     `}
 
-  ${(props) =>
-    props.color === 'green' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'green' &&
     css`
       background-color: ${color.success[700]};
       color: ${color.neutral[50]};
     `}
 
-  ${(props) =>
-    props.size === 'small' &&
-    !props.text &&
-    !props.count &&
+    ${({ $backgroundColor }) =>
+    $backgroundColor === 'light-blue' &&
+    css`
+      background-color: ${color.blue.extraSoft};
+      color: ${color.neutral[900]};
+    `}
+
+  ${({ $size, $text, $count }) =>
+    $size === 'small' &&
+    !$text &&
+    !$count &&
     css`
       height: ${spacings.space6};
       width: ${spacings.space6};
     `}
 
-  ${(props) =>
-    props.size === 'medium' &&
-    !props.text &&
-    !props.count &&
+  ${({ $size, $text, $count }) =>
+    $size === 'medium' &&
+    !$text &&
+    !$count &&
     css`
       height: ${spacings.space8};
       width: ${spacings.space8};
     `}
 
-  ${(props) =>
-    props.size === 'large' &&
-    !props.text &&
-    !props.count &&
+  ${({ $size, $text, $count }) =>
+    $size === 'large' &&
+    !$text &&
+    !$count &&
     css`
       height: ${spacings.space10};
       width: ${spacings.space10};
     `}
     
-  ${(props) =>
-    props.size === 'small' &&
-    props.count &&
+  ${({ $size, $count }) =>
+    $size === 'small' &&
+    $count &&
     css`
       height: ${spacings.space16};
       min-width: ${spacings.space16};
@@ -133,9 +128,9 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       padding-right: ${spacings.space4};
     `}
 
-  ${(props) =>
-    props.size === 'medium' &&
-    props.count &&
+  ${({ $size, $count }) =>
+    $size === 'medium' &&
+    $count &&
     css`
       height: ${spacings.space20};
       min-width: ${spacings.space20};
@@ -144,9 +139,9 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       padding-right: ${spacings.space6};
     `}
 
-  ${(props) =>
-    props.size === 'large' &&
-    props.count &&
+  ${({ $size, $count }) =>
+    $size === 'large' &&
+    $count &&
     css`
       height: ${spacings.space24};
       min-width: ${spacings.space24};
@@ -155,53 +150,60 @@ export const BadgeContainerStyled = styled.div<BadgePropsTypes>`
       padding-right: ${spacings.space8};
     `}
 
-  ${(props) =>
-    props.size === 'small' &&
-    props.iconName &&
-    !props.text &&
+  ${({ $size, $iconName, $text }) =>
+    $size === 'small' &&
+    $iconName &&
+    !$text &&
     css`
       height: ${spacings.space16};
       width: ${spacings.space16};
     `}
 
-  ${(props) =>
-    props.size === 'medium' &&
-    props.iconName &&
-    !props.text &&
+  ${({ $size, $iconName, $text }) =>
+    $size === 'medium' &&
+    $iconName &&
+    !$text &&
     css`
       height: ${spacings.space20};
       width: ${spacings.space20};
     `}
 
-  ${(props) =>
-    props.size === 'large' &&
-    props.iconName &&
-    !props.text &&
+  ${({ $size, $iconName, $text }) =>
+    $size === 'large' &&
+    $iconName &&
+    !$text &&
     css`
       height: ${spacings.space24};
       width: ${spacings.space24};
     `}
   
   & > span {
-    ${(props) =>
-      props.color === 'pink' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'pink' &&
       css`
         background-color: ${color.pink.main};
         color: ${color.neutral[900]};
       `}
 
-    ${(props) =>
-      props.color === 'blue' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'blue' &&
       css`
         background-color: ${color.Info.main};
         color: ${color.neutral[50]};
       `}
 
-    ${(props) =>
-      props.color === 'green' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'green' &&
       css`
         background-color: ${color.success[700]};
         color: ${color.neutral[50]};
+      `}
+
+      ${({ $backgroundColor }) =>
+      $backgroundColor === 'light-blue' &&
+      css`
+        background-color: ${color.blue.extraSoft};
+        color: ${color.neutral[900]};
       `}
   }
 `

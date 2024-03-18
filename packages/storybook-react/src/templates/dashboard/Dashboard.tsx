@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
         <div>
           <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
           <Icon $name="notifications" style={{ color: 'white' }} $size="large" />
-          <Badge count={1000} color="pink" backgroundType="dark" />
+          <Badge $count={1000} $color="pink" $backgroundType="dark" />
           <RoundedImage
             $size="large"
             $src="https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg"
