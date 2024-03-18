@@ -1,34 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useId } from 'react'
 import { StyledListItem, TextContent, RightContent, LeftContent } from './styles'
 import type { ListItemPropsTypes } from './types'
 
-const ListItem: React.FC<ListItemPropsTypes> = ({ title, subtitle, contentLeft, contentRight, disabled = false }) => {
+const ListItem: React.FC<ListItemPropsTypes> = ({
+  title,
+  $description,
+  $contentLeft,
+  $contentRight,
+  $disabled = false,
+  ...props
+}) => {
   const [pressed, setPressed] = useState<boolean>(false)
+  const defaultId = useId()
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handlePress = () => {
-    setPressed(true)
-    setTimeout(() => {
-      setPressed(false)
-    }, 1000)
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    if (!$disabled) {
+      setPressed(!pressed)
+    }
   }
 
   return (
-    <StyledListItem title={title} className={`${pressed ? 'pressed' : ''} ${disabled ? 'disabled' : ''}`} onClick={handlePress}>
-      { contentLeft &&
-        <LeftContent title={title}>
-        { contentLeft }
-        </LeftContent>
-      }
+    <StyledListItem
+      id={props.id || defaultId}
+      title={title}
+      $disabled={$disabled}
+      className={`${pressed ? 'pressed' : ''}`}
+      onMouseDown={(e) => {
+        handlePress(e)
+      }}
+      onMouseUp={(e) => {
+        handlePress(e)
+      }}
+      {...props}
+    >
+      {$contentLeft && <LeftContent title={title}>{$contentLeft}</LeftContent>}
       <TextContent title={title}>
-        <h3>{title}</h3>
-        <p>{subtitle}</p>
+        <p>{title}</p>
+        <span>{$description}</span>
       </TextContent>
-      { contentRight &&
-        <RightContent title={title}>
-        { contentRight }
-        </RightContent>
-      }
+      {$contentRight && <RightContent title={title}>{$contentRight}</RightContent>}
     </StyledListItem>
   )
 }
