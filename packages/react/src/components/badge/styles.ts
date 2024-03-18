@@ -61,29 +61,29 @@ export const BadgeContainerStyled = styled.div<BadgePropTypes>`
       text-overflow: ellipsis;
     `}
 
-  ${({ $color }) =>
-    $color === 'pink' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'pink' &&
     css`
       background-color: ${color.pink.main};
       color: ${color.neutral[900]};
     `}
 
-  ${({ $color }) =>
-    $color === 'blue' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'blue' &&
     css`
       background-color: ${color.Info.main};
       color: ${color.neutral[50]};
     `}
 
-  ${({ $color }) =>
-    $color === 'green' &&
+  ${({ $backgroundColor }) =>
+    $backgroundColor === 'green' &&
     css`
       background-color: ${color.success[700]};
       color: ${color.neutral[50]};
     `}
 
-    ${({ $color }) =>
-    $color === 'light-blue' &&
+    ${({ $backgroundColor }) =>
+    $backgroundColor === 'light-blue' &&
     css`
       background-color: ${color.blue.extraSoft};
       color: ${color.neutral[900]};
@@ -178,29 +178,29 @@ export const BadgeContainerStyled = styled.div<BadgePropTypes>`
     `}
   
   & > span {
-    ${({ $color }) =>
-      $color === 'pink' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'pink' &&
       css`
         background-color: ${color.pink.main};
         color: ${color.neutral[900]};
       `}
 
-    ${({ $color }) =>
-      $color === 'blue' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'blue' &&
       css`
         background-color: ${color.Info.main};
         color: ${color.neutral[50]};
       `}
 
-    ${({ $color }) =>
-      $color === 'green' &&
+    ${({ $backgroundColor }) =>
+      $backgroundColor === 'green' &&
       css`
         background-color: ${color.success[700]};
         color: ${color.neutral[50]};
       `}
 
-      ${({ $color }) =>
-      $color === 'light-blue' &&
+      ${({ $backgroundColor }) =>
+      $backgroundColor === 'light-blue' &&
       css`
         background-color: ${color.blue.extraSoft};
         color: ${color.neutral[900]};

@@ -9,7 +9,7 @@ export type BadgePropTypes = {
   $iconName?: IconPropTypes['$name']
   $text?: string
   $size?: BadgeSizeType
-  $color?: BadgeColorType
+  $backgroundColor?: BadgeColorType
   $backgroundType?: BadgeBackgroundType
-  $id?: string
+  id?: string
 } & React.HTMLAttributes<HTMLDivElement>

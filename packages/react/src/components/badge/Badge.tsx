@@ -8,11 +8,11 @@ import type { IconSizeType } from '../icon/types'
 const Badge: React.FC<BadgePropTypes> = ({
   $backgroundType = 'light',
   $size = 'small',
-  $color = 'pink',
+  $backgroundColor = 'pink',
   $count,
   $iconName,
   $text,
-  $id,
+  id,
   ...props
 }) => {
   const defaultId = useId()
@@ -33,12 +33,12 @@ const Badge: React.FC<BadgePropTypes> = ({
   return (
     <BadgeContainerStyled
       $backgroundType={$backgroundType}
-      $color={$color}
+      $backgroundColor={$backgroundColor}
       $size={$size}
       $text={$text}
       $count={$count}
       $iconName={$iconName}
-      $id={$id ?? defaultId}
+      id={id ?? defaultId}
       {...props}
     >
       {$iconName && (

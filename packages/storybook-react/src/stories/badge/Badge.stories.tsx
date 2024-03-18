@@ -41,10 +41,10 @@ const meta = {
         type: { summary: 'string' }
       }
     },
-    $color: {
+    $backgroundColor: {
       control: { type: 'select' },
       options: ['pink', 'blue', 'green', 'light-blue'],
-      description: 'La prop $color es que indica el color del componente Badge',
+      description: 'La prop $backgroundColor es que indica el color del componente Badge',
       table: {
         defaultValue: { summary: "'pink'" },
         type: { summary: 'string' }
@@ -69,14 +69,14 @@ type Story = StoryObj<typeof meta>
 export const BadgeDefault: Story = {
   args: {
     $size: 'small',
-    $color: 'pink'
+    $backgroundColor: 'pink'
   }
 }
 
 export const BadgeWithTextOrPill: Story = {
   args: {
     $size: 'small',
-    $color: 'blue',
+    $backgroundColor: 'blue',
     $text: 'Nuevo servicio'
   }
 }
@@ -84,7 +84,7 @@ export const BadgeWithTextOrPill: Story = {
 export const BadgeWithCount: Story = {
   args: {
     $size: 'medium',
-    $color: 'green',
+    $backgroundColor: 'green',
     $count: 300
   }
 }
@@ -92,7 +92,7 @@ export const BadgeWithCount: Story = {
 export const BadgeWithExcedentCount: Story = {
   args: {
     $size: 'large',
-    $color: 'light-blue',
+    $backgroundColor: 'light-blue',
     $count: 9999
   }
 }
@@ -100,7 +100,7 @@ export const BadgeWithExcedentCount: Story = {
 export const BadgeWithIcon: Story = {
   args: {
     $size: 'large',
-    $color: 'pink',
+    $backgroundColor: 'pink',
     $iconName: 'checked'
   }
 }
@@ -108,7 +108,7 @@ export const BadgeWithIcon: Story = {
 export const BadgeWithIconAndText: Story = {
   args: {
     $size: 'large',
-    $color: 'blue',
+    $backgroundColor: 'blue',
     $iconName: 'checked',
     $text: 'Pago recibido'
   }
@@ -117,7 +117,7 @@ export const BadgeWithIconAndText: Story = {
 export const BadgeWithBackgroundDark: Story = {
   args: {
     $size: 'large',
-    $color: 'green',
+    $backgroundColor: 'green',
     $backgroundType: 'dark',
     $count: 3
   }
@@ -139,7 +139,7 @@ export const BadgeNotification: Story = {
             <Icon $name="notifications" style={{ color: 'white' }} $size="large" />
             <Badge
               $count={1000}
-              $color="light-blue"
+              $backgroundColor="light-blue"
               $backgroundType="dark"
               style={{ position: 'absolute', top: '-8px', right: '-26px' }}
             />
@@ -157,7 +157,7 @@ export const BadgeNotification: Story = {
           <Icon $name="notifications" $size="large" />
           <Badge
             $count={1000}
-            $color="light-blue"
+            $backgroundColor="light-blue"
             $backgroundType="dark"
             style={{ position: 'absolute', top: '-8px', right: '-26px' }}
           />
