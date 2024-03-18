@@ -1,10 +1,13 @@
-export type PinInputPropsTypes = {
-  length: number
-  disabled?: boolean
-  title?: string
-  label?: string
-  type?: string
-  errorMessage?: string
-  error?: boolean
-  onComplete: (pin: string) => void
-}
+import type { InputHTMLAttributes } from 'react'
+
+export type PinInputPropTypes = {
+  $pinLength?: number
+  $label?: string
+  $helperText?: string
+  $visibility?: boolean
+  $errorMessage?: string
+  $error?: boolean
+  $onComplete?: (pin: string) => void
+  $onPinChange?: (pin: string) => void
+
+} & InputHTMLAttributes<HTMLInputElement>

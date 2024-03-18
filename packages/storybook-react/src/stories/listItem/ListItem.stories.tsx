@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ListItem, RoundedImage, Switch, Radio, Checkbox, Link, Icon } from '@cromaui/react'
 
 const meta: Meta<typeof Image> = {
-  title: 'ListItem',
+  title: 'Data Display/ListItem',
   component: ListItem,
   tags: ['autodocs'],
   argTypes: {
@@ -58,7 +58,7 @@ export const Default: Story = {
   args: {
     title: 'Título',
     subtitle: 'Texto informativo',
-    contentRight: <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon name='arrow_forward_ios' size='small' /></div>
+    contentRight: <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon $name='arrow_forward_ios' $size='small' /></div>
   }
 }
 
@@ -101,7 +101,7 @@ export const AvatarLink: Story = {
     title: 'Título',
     subtitle: 'Texto informativo',
     contentRight:
-      <Link content={'Click acá'} link={'#'} alt={'#'} title={'#'} />
+      <Link content={'Click acá'} href={'#'} alt={'#'} title={'#'} />
   }
 }
 
@@ -111,7 +111,7 @@ export const AvatarIcon: Story = {
     title: 'Título',
     subtitle: 'Texto informativo',
     contentRight:
-    <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon name='arrow_forward_ios' size='small' /></div>
+    <div style={{ padding: 8, display: 'flex', justifyContent: 'center' }}><Icon $name='arrow_forward_ios' $size='small' /></div>
   }
 }
 

@@ -23,7 +23,7 @@ const meta = {
     },
     variant: {
       description: 'Las variantes de estilo que posee el componente.',
-      options: ['filled', 'outlined', 'text'],
+      options: ['filled', 'outlined', 'ghost'],
       control: { type: 'select' },
       table: {
         type: { summary: 'bool' },
@@ -32,7 +32,7 @@ const meta = {
     },
     size: {
       description: 'Define el tamaño del componente.',
-      options: ['small', 'medium', 'large'],
+      options: ['extra-small', 'small', 'medium', 'large'],
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },

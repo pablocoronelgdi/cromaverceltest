@@ -1,10 +1,10 @@
-import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
+import { Meta, Primary, ArgTypes, Story, Stories, Source, Title } from '@storybook/blocks';
 import * as ToogletipStories from './Toogletip.stories';
 
 
 <Meta of={ToogletipStories} />
 
-# Tooltip
+# Toogletip
 
 Los Toogletip poseen la misma lógica de aparición que posee el Tooltip con la diferencia que este componente muestra el contenido en
 una card con la posibilidad de agregar enlaces y botones de acción. 
@@ -12,6 +12,15 @@ Muestran información que no es imprescindible para la experiencia. Por eso se o
 <br />
 
 <Primary />
+## Visibilidad
+
+### $visible
+El componente posee una prop llamada $visible que recibe un valor de tipo boolean, si es true, se muestra el Toogletip, si es false (por default) el Toogletip se mantendrá oculto 
+
+### $onToogletipClose
+El componente posee una prop llamada $onToogletipClose que sirve para cerrar y ocultar la visibilidad del componente 
+<br />
+<br />
 
 ## Información Importante
 El tooltip intentará en lo posible no superar los limites del viewport. Por lo cual si se le ordena renderizarse
@@ -22,8 +31,9 @@ puede parecer que no obedece las props indicadas.
 
 ## Usos
 
+
 ### Posicionamiento
-En combinacion con la propiedad "position" y "arrowPosition" se pueden lograr diferentes combinaciones respecto
+En combinacion con la propiedad "$position" y "$arrowPosition" se pueden lograr diferentes combinaciones respecto
 a la ubicación del Tooltip respecto a la posicion de su elemento relativo .
 
 <Story of={ToogletipStories.SimpleToogletipGrid} />
@@ -31,7 +41,7 @@ a la ubicación del Tooltip respecto a la posicion de su elemento relativo .
 
 
 ### Links de Accion
-La propiedad 'actionLinks' permite agregar componentes Link del cds como links de accion que se mostrarán en la parte
+La propiedad '$actionLinks' permite agregar componentes Link del cds como links de accion que se mostrarán en la parte
 inferior del componente. 
 <br />
 <Story of={ToogletipStories.WithActionLinks} />
@@ -39,8 +49,8 @@ inferior del componente.
 <br />
 <br />
 
-### Bottones de Accion
-La propiedad 'actionButtons' permite agregar componentes Button del cds como botones de accion que se mostrarán en la parte
+### Botones de Accion
+La propiedad '$actionButtons' permite agregar componentes Button del cds como botones de accion que se mostrarán en la parte
 inferior del componente. 
 <br />
 
@@ -60,10 +70,10 @@ Es decir:
 - Si no hay links y hay 1 o + cantidad de buttons, el toogletip mostrara los 2 primeros Buttons. 
 
 
-### Toogletip con pasos
-El componente posee una prop llama step que recibe un array de objectos con propiedades 'title' y 'label'.
+### Toogletip con steps
+El componente posee una prop llamada $steps que recibe un array de objectos con propiedades 'title' y 'label'.
 Si esta prop se define, el Toogletip mostrara un label indicando el paso actual y botones de Anterior y Siguiente para recorrer
-los diferentes pasos o estadíos del mismo. 
+los diferentes steps o estadíos del mismo. 
 
 <Story of={ToogletipStories.StepperToogletip} />
 <Source of={ToogletipStories.StepperToogletip} />

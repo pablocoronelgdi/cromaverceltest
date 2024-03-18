@@ -17,8 +17,8 @@ const ValidacionMobile: React.FC = () => {
         <h2>Hola Elmer</h2>
         <h5>Pega aqui tu codigo recibido de tu telefono</h5>
         <PinInput
-          length={6}
-          onComplete={(e) => {
+          $pinLength={6}
+          $onComplete={(e: string): void => {
             validarNumeros(e)
           }}
         />

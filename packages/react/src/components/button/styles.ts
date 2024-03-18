@@ -5,6 +5,7 @@ import {
   FLEX_CENTER,
   FONT_BUTTON_MD,
   FONT_BUTTON_SM,
+  FONT_BUTTON_XSM,
   FONT_TYPE_SEMIBOLD
 } from '../../globals/globals'
 
@@ -20,8 +21,12 @@ export const ButtonStyled = styled.button<InnerButtonProps>`
   padding: ${({ size }) =>
     size === 'large'
       ? `${spacings.space12} ${spacings.space16}`
+      : size === 'extra-small'
+      ? `${spacings.space4}`
       : `${spacings.space8} ${spacings.space12}`};
-  ${({ size }) => (size === 'small' ? FONT_BUTTON_SM : FONT_BUTTON_MD)}
+
+  ${({ size }) =>
+    size === 'small' ? FONT_BUTTON_SM : size === 'extra-small' ? FONT_BUTTON_XSM : FONT_BUTTON_MD}
 
   &:focus {
     outline: solid;
@@ -93,7 +98,7 @@ export const ButtonStyled = styled.button<InnerButtonProps>`
       cursor: not-allowed;
     }
   }
-  &.croma-button-text {
+  &.croma-button-ghost {
     border-color: transparent;
     background-color: transparent;
     & > span {
@@ -102,11 +107,19 @@ export const ButtonStyled = styled.button<InnerButtonProps>`
     ${({ isPressed }) =>
       isPressed &&
       css`
+        color: ${color.navy.dark};
         background-color: ${color.neutral[200]};
       `}
 
     &:hover {
       background-color: ${({ isPressed }) => !isPressed && color.navy.extraSoft};
+    }
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      border-color: ${({ isPressed }) => !isPressed && color.blue.soft};
+      background-color: ${({ isPressed }) => !isPressed && 'transparent'};
+      color: ${({ isPressed }) => !isPressed && color.neutral[900]};
     }
     &:disabled {
       cursor: not-allowed;
@@ -117,6 +130,7 @@ export const ButtonStyled = styled.button<InnerButtonProps>`
       }
     }
   }
+
   &.croma-button-light-filled {
     border-color: ${color.neutral[100]};
     background-color: ${color.neutral[100]};
@@ -184,7 +198,7 @@ export const ButtonStyled = styled.button<InnerButtonProps>`
       cursor: not-allowed;
     }
   }
-  &.croma-button-light-text {
+  &.croma-button-light-ghost {
     border-color: transparent;
     background-color: transparent;
     color: ${color.neutral[50]};
