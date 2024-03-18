@@ -1,2 +1,3 @@
 import SwitchIcon from './Switch'
-export { SwitchIcon }
+import CromaSwitch from './newSwitch'
+export { SwitchIcon, CromaSwitch }

@@ -1,9 +1,8 @@
 import type { PressableProps } from 'react-native'
 
 export type SwitchProps = {
-  disabled?: boolean
-  onPress?: any
-  value: boolean
+  value?: boolean
+  defaultValue?: boolean
 } & PressableProps
 
 export type SwitchAreaProps = {

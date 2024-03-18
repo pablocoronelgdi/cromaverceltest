@@ -15,21 +15,23 @@ import type { ListItemPropsTypes } from './types'
 ============================================= */
 
 export const StyledListItem = styled.div<ListItemPropsTypes>`
-  width: 100%;
-  min-width: 300px;
-  max-width: 1024px;
-  background: ${color.neutral[50]};
   ${FLEX_AROUND}
+  background: ${color.neutral[50]};
+  color: ${color.neutral[700]};
+  width: 100%;
+  max-width: 1024px;
   padding: ${spacings.space12};
   border-bottom: ${borders.br1} ${color.neutral[300]};
   transition: 0.3s;
-  color: ${color.neutral[700]};
+  cursor: ${(props) => props.$disabled ? 'no-drop' : 'pointer'};
 
   &:hover {
     box-shadow: ${elevations.level3};
     transition: 0.3s;
   }
-  &:focus {
+  &:focus,
+  &:focus-within,
+  &:focus-visible {
     border: ${borders.br2} ${color.blue.main}
   }
   &.pressed {
@@ -40,21 +42,21 @@ export const StyledListItem = styled.div<ListItemPropsTypes>`
     color: ${color.neutral[400]};
 
     &:hover {
-    box-shadow: none;
-    transition: 0.3s;
-  }
+      box-shadow: none;
+      transition: 0.3s;
+    }
   }
 `
-export const RightContent = styled.div<ListItemPropsTypes>`
+export const RightContent = styled.div`
   ${FLEX_END}
   margin-left: ${spacings.space16};
   width: 100%;
 `
-export const LeftContent = styled.div<ListItemPropsTypes>`
+export const LeftContent = styled.div`
   ${FLEX_CENTER}
   margin-right: ${spacings.space16};
 `
-export const TextContent = styled.div<ListItemPropsTypes>`
+export const TextContent = styled.div`
   width: 100%;
 
   h3 {
@@ -62,11 +64,13 @@ export const TextContent = styled.div<ListItemPropsTypes>`
     ${FONT_TYPE_REGULAR}
     text-align: left;
     width: 100%;
+    margin: 0
   }
   p {
     ${FONT_BODY_SM}
     ${FONT_TYPE_REGULAR}
     text-align: left;
     width: 100%;
+    margin: 0
   }
 `

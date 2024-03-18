@@ -1,9 +1,10 @@
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 export type ListItemPropsTypes = {
-  title: string
-  subtitle?: string
-  contentLeft?: ReactNode | undefined
-  contentRight?: ReactNode | undefined
-  disabled?: boolean
-}
+  id?: number | undefined
+  $title: string
+  $subtitle?: string
+  $contentLeft?: ReactNode | undefined
+  $contentRight?: ReactNode | undefined
+  $disabled?: boolean
+} & HTMLElement
