@@ -20,7 +20,7 @@ const movimientosBancarios = [
 
 const DescargarComprobante: React.FC<{ idComprobante: number }> = ({ idComprobante }) => {
   return (
-    <Tooltip $description="Descargar comprobante" position="top" $arrowPosition="middle">
+    <Tooltip $description="Descargar comprobante" $position="top" $arrowPosition="middle">
       <Icon
         $name="download"
         onClick={() => {
@@ -54,17 +54,17 @@ const Movimientos: React.FC = () => {
             </div>
           ) : (
             <div className="list">
-              <ListItem title="" contentLeft={<h6>Últimos Movimientos</h6>} />
+              <ListItem title="" $contentLeft={<h6>Últimos Movimientos</h6>} />
               {movimientosBancarios.map((movimiento) => {
                 return (
                   <ListItem
                     key={movimiento.id}
-                    contentLeft={
+                    $contentLeft={
                       <Icon $name={movimiento.monto > 0 ? 'arrow_downward' : 'arrow_upward'} />
                     }
                     title={`$${movimiento.monto.toLocaleString()}`}
-                    subtitle={movimiento.descripcion}
-                    contentRight={<DescargarComprobante idComprobante={movimiento.id} />}
+                    $description={movimiento.descripcion}
+                    $contentRight={<DescargarComprobante idComprobante={movimiento.id} />}
                   />
                 )
               })}
