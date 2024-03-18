@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useId } from 'react'
 import { StyledListItem, TextContent, RightContent, LeftContent } from './styles'
 import type { ListItemPropsTypes } from './types'
 
 const ListItem: React.FC<ListItemPropsTypes> = ({
-  id,
   $title,
-  $subtitle,
+  $description,
   $contentLeft,
   $contentRight,
   $disabled = false
 }) => {
   const [pressed, setPressed] = useState<boolean>(false)
+  const defaultId = useId()
 
   const handlePress = (): void => {
     setPressed(true)
@@ -21,7 +21,7 @@ const ListItem: React.FC<ListItemPropsTypes> = ({
 
   return (
     <StyledListItem
-      id={id}
+      id={defaultId}
       $title={$title}
       $disabled={$disabled}
       className={`${pressed ? 'pressed' : ''} ${$disabled ? 'disabled' : ''}`}
@@ -33,8 +33,8 @@ const ListItem: React.FC<ListItemPropsTypes> = ({
         </LeftContent>
       }
       <TextContent title={$title}>
-        <h3>{$title}</h3>
-        <p>{$subtitle}</p>
+        <p>{$title}</p>
+        <span>{$description}</span>
       </TextContent>
       { $contentRight &&
         <RightContent title={$title}>

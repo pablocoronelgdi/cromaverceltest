@@ -16,8 +16,8 @@ import type { ListItemPropsTypes } from './types'
 
 export const StyledListItem = styled.div<ListItemPropsTypes>`
   ${FLEX_AROUND}
-  background: ${color.neutral[50]};
-  color: ${color.neutral[700]};
+  background: ${(props) => props.$disabled ? color.neutral[200] : color.neutral[50]};
+  color: ${(props) => props.$disabled ? color.neutral[400] : color.neutral[700]};
   width: 100%;
   max-width: 1024px;
   padding: ${spacings.space12};
@@ -26,7 +26,7 @@ export const StyledListItem = styled.div<ListItemPropsTypes>`
   cursor: ${(props) => props.$disabled ? 'no-drop' : 'pointer'};
 
   &:hover {
-    box-shadow: ${elevations.level3};
+    box-shadow: ${(props) => props.$disabled ? 'none' : elevations.level3};
     transition: 0.3s;
   }
   &:focus,
@@ -35,16 +35,7 @@ export const StyledListItem = styled.div<ListItemPropsTypes>`
     border: ${borders.br2} ${color.blue.main}
   }
   &.pressed {
-    background: ${color.navy.extraSoft}
-  }
-  &.disabled {   
-    background: ${color.neutral[200]};
-    color: ${color.neutral[400]};
-
-    &:hover {
-      box-shadow: none;
-      transition: 0.3s;
-    }
+    background: ${(props) => props.$disabled ? color.neutral[200] : color.navy.extraSoft};
   }
 `
 export const RightContent = styled.div`
@@ -59,14 +50,15 @@ export const LeftContent = styled.div`
 export const TextContent = styled.div`
   width: 100%;
 
-  h3 {
+  p {
     ${FONT_BODY_MD}
     ${FONT_TYPE_REGULAR}
+    color: ${color.neutral[900]};
     text-align: left;
     width: 100%;
     margin: 0
   }
-  p {
+  span {
     ${FONT_BODY_SM}
     ${FONT_TYPE_REGULAR}
     text-align: left;
