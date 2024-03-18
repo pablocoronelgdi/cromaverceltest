@@ -31,7 +31,7 @@ export const StyledListItem = styled.div<ListItemPropsTypes>`
   &:focus,
   &:focus-within,
   &:focus-visible {
-    border: ${borders.br2} ${color.blue.main};
+    border: ${({ $disabled }) => !$disabled && borders.br2 + color.blue.main};
   }
   &.pressed {
     background: ${(props) => (props.$disabled ? color.neutral[200] : color.navy.extraSoft)};

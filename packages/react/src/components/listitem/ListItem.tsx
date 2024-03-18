@@ -25,7 +25,7 @@ const ListItem: React.FC<ListItemPropsTypes> = ({
       id={props.id || defaultId}
       title={title}
       $disabled={$disabled}
-      className={`${pressed ? 'pressed' : ''} ${$disabled ? 'disabled' : ''}`}
+      className={`${pressed ? 'pressed' : ''}`}
       onMouseDown={(e) => {
         handlePress(e)
       }}
