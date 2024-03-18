@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { Icon } from '../icon'
 import { BadgeContainerStyled } from './styles'
 import { badgeRegex } from '../../utils/stringsUtils'
-import type { BadgePropsTypes } from './types'
+import type { BadgePropTypes } from './types'
 import type { IconSizeType } from '../icon/types'
 
-/** Descripción del componente Badge WIP */
-const Badge: React.FC<BadgePropsTypes> = ({
-  backgroundType = 'light',
-  size = 'small',
-  color = 'pink',
-  count,
-  iconName,
-  text
+const Badge: React.FC<BadgePropTypes> = ({
+  $backgroundType = 'light',
+  $size = 'small',
+  $color = 'pink',
+  $count,
+  $iconName,
+  $text,
+  $id,
+  ...props
 }) => {
+  const defaultId = useId()
   const iconSize: IconSizeType = (() => {
-    switch (size) {
+    switch ($size) {
       case 'small':
       case 'medium':
         return 'small'
@@ -26,27 +28,23 @@ const Badge: React.FC<BadgePropsTypes> = ({
     }
   })()
   const maxCount = '999'
-  const customCount =
-    count !== undefined && count > 999
-      ? maxCount?.concat('+')
-      : count
+  const customCount = $count !== undefined && $count > 999 ? maxCount?.concat('+') : $count
 
   return (
     <BadgeContainerStyled
-      backgroundType={backgroundType}
-      color={color}
-      size={size}
-      text={text}
-      count={count}
-      iconName={iconName}
+      $backgroundType={$backgroundType}
+      $color={$color}
+      $size={$size}
+      $text={$text}
+      $count={$count}
+      $iconName={$iconName}
+      $id={$id ?? defaultId}
+      {...props}
     >
-      {iconName && (
-        <Icon
-          $size={iconSize}
-          $name={iconName ? iconName.toLocaleLowerCase() : 'check'}
-        />
+      {$iconName && (
+        <Icon $size={iconSize} $name={$iconName ? $iconName.toLocaleLowerCase() : 'check'} />
       )}
-      {(text ?? count) && <small>{badgeRegex(text) ?? customCount}</small>}
+      {($text ?? $count) && <small>{badgeRegex($text) ?? customCount}</small>}
     </BadgeContainerStyled>
   )
 }
