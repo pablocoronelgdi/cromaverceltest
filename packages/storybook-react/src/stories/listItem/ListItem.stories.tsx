@@ -130,7 +130,7 @@ export const Medium: Story = {
   args: {
     $contentLeft: <Switch disabled />,
     $title: 'Título',
-    $disabled: true,
+    $disabled: false,
     $contentRight:
       <RoundedImage $size="small" $iconName="person" $disabled />
   }
