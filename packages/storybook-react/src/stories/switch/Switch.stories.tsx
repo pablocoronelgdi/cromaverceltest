@@ -32,9 +32,9 @@ const meta = {
     },
     defaultValue: {
       description:
-        "Valor por defecto del switch. Solo válido cuando no se establece la propiedad 'checked'.",
+        "String con el valor por defecto del switch. Solo válido cuando no se establece la propiedad 'checked'.",
       table: {
-        type: { summary: 'bool' },
+        type: { summary: 'string' },
         defaultValue: { summary: 'null' }
       }
     }
@@ -92,8 +92,8 @@ export const UnControlledSwitch: Story = {
         dark: true,
         code: `
       const [value,setValue] = useState("El valor del switch es: false");
-      const getValorDelSwitch = (isChecked) => {
-        setValue("El nuevo valor es:" + isChecked)
+      const getValorDelSwitch = (e) => {
+        setValue("El nuevo valor es:" + e.target.checked)
         }
 
       return (
@@ -110,14 +110,18 @@ export const UnControlledSwitch: Story = {
     checked: false
   },
 
-  render: function Render(args) {
+  render: function Render() {
     const [value, setValue] = useState('El valor del switch es: false')
-    const getValorDelSwitch = (isChecked: boolean): void => {
-      setValue(`El valor del switch es: ${isChecked}`)
+    const getValorDelSwitch = (e: React.ChangeEvent<HTMLInputElement>): void => {
+      setValue(`El nuevo valor es: ${e.target.checked}`)
     }
     return (
       <>
-        <Switch {...args} onChange={getValorDelSwitch} defaultValue={false} />
+        <Switch
+          onChange={(e) => {
+            getValorDelSwitch(e)
+          }}
+        />
         <p>{value}</p>
       </>
     )
@@ -139,7 +143,7 @@ export const DefaultValue: Story = {
     }
   },
   args: {
-    defaultValue: true
+    defaultValue: 'true'
   },
 
   render: function Render({ ...args }) {
@@ -160,8 +164,8 @@ export const Disabled: Story = {
         language: 'tsx',
         dark: true,
         code: `
-          <Switch disabled defaultValue={true} />
-          <Switch disabled defaultValue={false} />
+          <Switch disabled defaultValue={'true'} />
+          <Switch disabled defaultValue={'false'} />
         `
       }
     }
@@ -170,11 +174,11 @@ export const Disabled: Story = {
     disabled: true
   },
 
-  render: function Render({ ...args }) {
+  render: function Render() {
     return (
       <>
-        <Switch {...args} defaultValue={true} />
-        <Switch {...args} defaultValue={false} />
+        <Switch disabled defaultValue={'true'} />
+        <Switch disabled defaultValue={'false'} />
       </>
     )
   }
