@@ -1,11 +1,12 @@
 import { create } from '@storybook/theming/create'
 import { color } from '@cromaui/foundations'
+import cromaLogo from '../public/logo-croMa.svg'
 
 export default create({
   base: 'light',
   brandTitle: 'Croma UI',
   brandUrl: '',
-  brandImage: 'https://media-asgard.s3.eu-west-1.amazonaws.com/23/10/31/4224bca7-5df5-4013-898b-0a5c5b0c5bdf_garaje-logo-l---negr.png',
+  brandImage: cromaLogo,
   brandTarget: '_self',
 
   // Colors
