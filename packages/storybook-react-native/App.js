@@ -11,12 +11,6 @@ function App() {
   }
   return (
     <View style={styles.container}>
-      <SwitchIcon
-        value={value}
-        onPress={() => {
-          setvalue(!value)
-        }}
-      />
       <CromaSwitch onChange={handlePress} defaultValue={false} disabled />
       <CromaSwitch value={value} onChange={() => setvalue(!value)} />
     </View>

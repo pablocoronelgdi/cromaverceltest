@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import { Icon } from '../icon'
-import { Animated, Pressable, StyleSheet, View } from 'react-native'
+import {
+  Animated,
+  Pressable,
+  StyleSheet,
+  View,
+  type NativeSyntheticEvent,
+  type TargetedEvent
+} from 'react-native'
 import { color, opacities } from '@cromaui/foundations'
 import type { SwitchProps } from './types'
 import { spacingsNative } from '@cromaui/foundations/dist/spacings'
@@ -13,7 +20,9 @@ const CromaSwitch: React.FC<SwitchProps> = ({
   disabled,
   ...props
 }: SwitchProps) => {
-  const [pressed, setpressed] = useState(false)
+  const [pressed, setPressed] = useState(false)
+  const [focused, setFocused] = useState(false)
+
   const [innerValue, setInnerValue] = useState(value || defaultValue || false)
   const [animation] = useState(new Animated.Value(innerValue ? 1 : 0))
 
@@ -36,16 +45,33 @@ const CromaSwitch: React.FC<SwitchProps> = ({
       onChange && onChange(!innerValue)
     }
   }
+  const handleFocus = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(true)
+      props.onFocus && props.onFocus(e)
+      console.log(e)
+    }
+  }
+  const handleBlur = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(false)
+      props.onBlur && props.onBlur(e)
+    }
+  }
   return (
     <Pressable
-      onPressIn={() => {
-        setpressed(true)
+      onPressIn={(e) => {
+        setPressed(true)
+        props.onPressIn && props.onPressIn(e)
       }}
-      onPressOut={() => {
-        setpressed(false)
+      onPressOut={(e) => {
+        setPressed(false)
+        props.onPressOut && props.onPressOut(e)
       }}
       onPress={handlePress}
-      style={{}}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      style={[styles.pressable, focused && styles.withFocus]}
       {...props}
     >
       <View
@@ -80,8 +106,14 @@ const CromaSwitch: React.FC<SwitchProps> = ({
 }
 const styles = StyleSheet.create({
   pressable: {
-    paddingHorizontal: spacingsNative.space4,
-    paddingVertical: spacingsNative.space2
+    width: spacingsNative.space60,
+    padding: spacingsNative.space2,
+    borderWidth: 2,
+    borderRadius: shapesNative.full,
+    borderColor: color.neutral[0]
+  },
+  withFocus: {
+    borderColor: color.blue.main
   },
   background: {
     width: spacingsNative.space52,

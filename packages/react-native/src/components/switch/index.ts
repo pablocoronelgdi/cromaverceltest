@@ -1,3 +1,2 @@
-import SwitchIcon from './Switch'
-import CromaSwitch from './newSwitch'
-export { SwitchIcon, CromaSwitch }
+import CromaSwitch from './Switch'
+export { CromaSwitch }
