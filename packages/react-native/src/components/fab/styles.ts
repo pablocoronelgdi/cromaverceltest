@@ -15,43 +15,28 @@ export const FabArea = styled.View<FabInnerPropTypes & FabPseudoTypes>`
   border-radius: ${shapes.full};
   padding: ${({ size }) => (size === 'small' ? '10px' : '16px')};
   background-color: ${({ size, disabled }) =>
-    disabled
-      ? color.neutral[300]
-      : size === 'small'
-      ? color.neutral[50]
-      : color.blue.main};
+    disabled ? color.neutral[300] : size === 'small' ? color.neutral[50] : color.blue.main};
 
   ${({ isPressed, ...props }) =>
     isPressed &&
     !props.disabled &&
     css`
-      background-color: ${props.size === 'small'
-        ? color.blue.extraSoft
-        : color.blue.dark};
+      background-color: ${props.size === 'small' ? color.blue.extraSoft : color.blue.dark};
     `}
 `
 
 export const FabIcon = styled(Icon)<FabInnerPropTypes>`
   color: ${({ size, disabled }) =>
-    disabled
-      ? color.neutral[500]
-      : size === 'medium'
-      ? color.blue.main
-      : color.neutral[50]};
+    disabled ? color.neutral[500] : size === 'medium' ? color.blue.main : color.neutral[50]};
 `
 export const FabText = styled.Text<FabInnerPropTypes>`
   color: ${({ size, disabled }) =>
-    disabled
-      ? color.neutral[500]
-      : size === 'small'
-      ? color.blue.main
-      : color.neutral[50]};
-  font-size: ${typography.button.md.semibold.fontSize};
-  text-decoration: ${typography.button.md.semibold.textDecoration};
-  font-weight: ${typography.button.md.semibold.fontWeight};
-  font-style: ${typography.button.md.semibold.fontStyle};
-  letter-spacing: ${typography.button.md.semibold.letterSpacing};
-  line-height: ${typography.button.md.semibold.lineHeight};
+    disabled ? color.neutral[500] : size === 'small' ? color.blue.main : color.neutral[50]};
+  text-decoration: ${typography.button.md.textDecoration};
+  font-weight: ${typography.variants.semibold};
+  font-style: ${typography.button.md.fontStyle};
+  letter-spacing: ${typography.button.md.letterSpacing};
+  line-height: ${typography.button.md.lineHeight};
 `
 
 export const FabStyles = StyleSheet.create({

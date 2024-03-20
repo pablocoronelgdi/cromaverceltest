@@ -26,3 +26,31 @@ export const spacings = {
   space160: '160px',
   spaceFull: '100%'
 }
+
+export const spacingsNative = {
+  space1: 1,
+  space2: 2,
+  space4: 4,
+  space6: 6,
+  space8: 8,
+  space10: 10,
+  space12: 12,
+  space16: 16,
+  space20: 20,
+  space24: 24,
+  space28: 28,
+  space32: 32,
+  space36: 36,
+  space40: 40,
+  space44: 44,
+  space48: 48,
+  space52: 52,
+  space60: 60,
+  space64: 64,
+  space72: 72,
+  space76: 76,
+  space80: 80,
+  space96: 96,
+  space112: 112,
+  space160: 160
+}
