@@ -10,7 +10,7 @@ export type TabsItemProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export type TabsProps = {
-  tabs: TabsItemProps[]
+  $tabs: TabsItemProps[]
   $labelShow?: boolean
   $iconLeft?: boolean
   $iconRight?: boolean
@@ -20,4 +20,5 @@ export type TabsProps = {
   $active?: boolean
   $content?: ReactNode | undefined
   $slidesToShow?: number
+  length?: ReactNode | undefined
 } & HTMLAttributes<HTMLDivElement>

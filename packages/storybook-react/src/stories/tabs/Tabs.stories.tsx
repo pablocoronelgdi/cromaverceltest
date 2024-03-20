@@ -98,7 +98,7 @@ export const Default: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabsSlider} $label $slidesToShow={4} />
+      <Tabs $tabs={tabsSlider} $label $slidesToShow={4} />
     )
   ]
 }
@@ -107,7 +107,7 @@ export const IconLeft: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} $label $iconLeft $slidesToShow={5} />
+      <Tabs $tabs={tabs} $label $iconLeft $slidesToShow={5} />
     )
   ]
 }
@@ -116,7 +116,7 @@ export const IconRight: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabsSlider} $label $iconRight $slidesToShow={3} />
+      <Tabs $tabs={tabsSlider} $label $iconRight $slidesToShow={3} />
     )
   ]
 }
@@ -125,7 +125,7 @@ export const Vertical: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} $vertical $label $iconLeft $slidesToShow={5} />
+      <Tabs $tabs={tabs} $vertical $label $iconLeft $slidesToShow={5} />
     )
   ]
 }
@@ -134,7 +134,7 @@ export const Icon: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} $iconLeft $slidesToShow={5} />
+      <Tabs $tabs={tabs} $iconLeft $slidesToShow={5} />
     )
   ]
 }

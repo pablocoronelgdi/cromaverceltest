@@ -25,12 +25,14 @@ function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Ele
 }
 
 const Tabs: React.FC<TabsProps> = ({
-  tabs,
-  $vertical,
+  id,
+  $tabs,
+  $vertical = false,
   $iconLeft,
   $iconRight,
   $slidesToShow,
-  $labelShow = true
+  $labelShow = true,
+  ...props
 }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -58,8 +60,6 @@ const Tabs: React.FC<TabsProps> = ({
       window.removeEventListener('resize', handleResize)
     }
   }, [])
-
-  const showSlider = windowWidth < 500 || tabs.length > 5
 
   const settings = {
     dots: false,
@@ -96,26 +96,29 @@ const Tabs: React.FC<TabsProps> = ({
     ]
   }
 
+  const showSlider = windowWidth < 1024
+
   if (showSlider) {
     // Trasforma a el componente tabs comun en un slider
     return (
       <div>
         <StyledTabContainer>
           <Slider {...settings}>
-            {tabs.map((tab, index) => (
+            {$tabs.map((tab, index) => (
               <StyledFoco key={index}>
                 <Tab
+                  id={id && defaultId}
                   onFocus={() => { handleTabFocus(index) }}
                   $focused={index === focusedTab}
-                  id={defaultId}
                   onBlur={handleTabBlur}
+                  {...props}
                   key={index}
                   $active={index === activeTab}
                   onClick={() => {
                     handleTabClick(index)
                   }}
                 >
-                  <Flex tabs={tabs} $vertical={$vertical}>
+                  <Flex $tabs={$tabs} $vertical={$vertical}>
                     {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
                     <p className="label">{$labelShow && tab.label}</p>
                     {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
@@ -125,17 +128,18 @@ const Tabs: React.FC<TabsProps> = ({
             ))}
           </Slider>
         </StyledTabContainer>
-        <TabContent>{tabs[activeTab].content}</TabContent>
+        <TabContent>{$tabs[activeTab].content}</TabContent>
       </div>
     )
   }
   return (
     <div>
       <StyledTabContainer className="flex">
-        {tabs.map((tab, index) => (
+        {$tabs.map((tab, index) => (
           <StyledFoco key={index}>
             <Tab
-              id={defaultId}
+              id={id && defaultId}
+              {...props}
               $focused={index === focusedTab}
               onFocus={() => {
                 handleTabFocus(index)
@@ -147,7 +151,7 @@ const Tabs: React.FC<TabsProps> = ({
                 handleTabClick(index)
               }}
             >
-              <Flex tabs={tabs} $vertical={$vertical}>
+              <Flex $tabs={$tabs} $vertical={$vertical}>
                 {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
                 <p className="label">{$labelShow && tab.label}</p>
                 {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
@@ -156,7 +160,7 @@ const Tabs: React.FC<TabsProps> = ({
           </StyledFoco>
         ))}
       </StyledTabContainer>
-      <TabContent>{tabs[activeTab].content}</TabContent>
+      <TabContent>{$tabs[activeTab].content}</TabContent>
     </div>
   )
 }
