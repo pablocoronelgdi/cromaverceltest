@@ -1,21 +1,23 @@
+import type { HTMLAttributes, ReactNode } from 'react'
+
 export type TabsItemProps = {
   label?: string
   iconLeftName?: string
   iconRightName?: string
-  content?: React.ReactNode | undefined
-  active?: boolean
-  focused?: boolean
-  hide?: boolean
-}
+  $hide?: boolean
+  $focused?: boolean
+  $active?: boolean
+} & HTMLAttributes<HTMLDivElement>
 
 export type TabsProps = {
   tabs: TabsItemProps[]
-  iconLeft?: boolean
-  iconRight?: boolean
+  $labelShow?: boolean
+  $iconLeft?: boolean
+  $iconRight?: boolean
   disabled?: boolean
-  vertical?: boolean
+  $vertical?: boolean
   className?: string
-  slidesToShow?: number
-  active?: boolean
-  label?: boolean
-}
+  $active?: boolean
+  $content?: ReactNode | undefined
+  $slidesToShow?: number
+} & HTMLAttributes<HTMLDivElement>

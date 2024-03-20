@@ -4,8 +4,8 @@ import { Tabs } from '@cromaui/react'
 const tabs = [
   {
     label: 'Tab 1',
-    iconLeftName: 'arrow_forward_ios',
-    iconRightName: 'arrow_forward_ios',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
     content: <div>Contenido de la pestaña 1</div>
   },
   {
@@ -16,39 +16,54 @@ const tabs = [
   },
   {
     label: 'Tab 3',
-    iconLeftName: 'home',
-    iconRightName: 'home',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
     content: <div>Contenido de la pestaña 3</div>
   },
   {
     label: 'Tab 4',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
+    content: <div>Contenido de la pestaña 4</div>
+  }
+]
+
+const tabsSlider = [
+  {
+    label: 'Tab 1',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
+    content: <div>Contenido de la pestaña 1</div>
+  },
+  {
+    label: 'Tab 2',
     iconLeftName: 'home',
     iconRightName: 'home',
+    content: <div>Contenido de la pestaña 2</div>
+  },
+  {
+    label: 'Tab 3',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
+    content: <div>Contenido de la pestaña 3</div>
+  },
+  {
+    label: 'Tab 4',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
     content: <div>Contenido de la pestaña 4</div>
   },
   {
     label: 'Tab 5',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
     content: <div>Contenido de la pestaña 5</div>
   },
   {
     label: 'Tab 6',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    iconLeftName: 'close',
+    iconRightName: 'expand_more',
     content: <div>Contenido de la pestaña 6</div>
-  },
-  {
-    label: 'Tab 7',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
-    content: <div>Contenido de la pestaña 7</div>
-  },
-  {
-    label: 'Tab 8',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
-    content: <div>Contenido de la pestaña 8</div>
   }
 ]
 
@@ -57,12 +72,20 @@ const meta = {
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
-    label: {
+    $labelShow: {
       description: 'Se define si requiere o no un label dentro del tab',
+      control: { type: 'string' }
+    },
+    $iconLeft: {
+      description: 'activa icono izquierdo',
       control: { type: 'boolean' }
     },
-    iconLeft: {
-      description: 'activa icono izquierdo',
+    $iconRight: {
+      description: 'activa icono Derecho',
+      control: { type: 'boolean' }
+    },
+    disabled: {
+      description: 'dejar inactivo un tab',
       control: { type: 'boolean' }
     }
   }
@@ -75,7 +98,7 @@ export const Default: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} label slidesToShow={4} />
+      <Tabs tabs={tabsSlider} $label $slidesToShow={4} />
     )
   ]
 }
@@ -84,7 +107,7 @@ export const IconLeft: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} label iconLeft slidesToShow={5} />
+      <Tabs tabs={tabs} $label $iconLeft $slidesToShow={5} />
     )
   ]
 }
@@ -93,7 +116,7 @@ export const IconRight: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} label iconRight slidesToShow={3} />
+      <Tabs tabs={tabsSlider} $label $iconRight $slidesToShow={3} />
     )
   ]
 }
@@ -102,7 +125,7 @@ export const Vertical: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} vertical label iconLeft slidesToShow={5} />
+      <Tabs tabs={tabs} $vertical $label $iconLeft $slidesToShow={5} />
     )
   ]
 }
@@ -111,7 +134,7 @@ export const Icon: Story = {
   args: { tabs },
   decorators: [
     () => (
-      <Tabs tabs={tabs} iconLeft slidesToShow={5} />
+      <Tabs tabs={tabs} $iconLeft $slidesToShow={5} />
     )
   ]
 }

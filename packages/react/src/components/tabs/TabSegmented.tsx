@@ -32,20 +32,20 @@ const TabSegmented: React.FC<TabsProps> = ({ tabs }) => {
         {tabs.map((tab, index) => (
           <FlexList tabs={tabs} key={index}>
             <StyledFocoSegmented
-              focused={index === focusedTab}
+              $focused={index === focusedTab}
               onClick={() => { handleTabClick(index) }}
               onFocus={() => { handleTabFocus(index) }}
               onBlur={handleTabBlur}
               onKeyDown={(event) => { handleKeyDown(event, index) }}
               tabIndex={0}
             >
-              <StyledTabSegmented tabs={tabs} active={index === activeTab}>
+              <StyledTabSegmented tabs={tabs} $active={index === activeTab}>
                   <FlexSegmented tabs={tabs}>
                       <span>{tab.label}</span>
                   </FlexSegmented>
               </StyledTabSegmented>
             </StyledFocoSegmented>
-            {index !== tabs.length - 1 && <Divider hide={index + 1 === activeTab} />}
+            {index !== tabs.length - 1 && <Divider $hide={index + 1 === activeTab} />}
           </FlexList>
         ))}
       </StyledTabContainerSegmented>
