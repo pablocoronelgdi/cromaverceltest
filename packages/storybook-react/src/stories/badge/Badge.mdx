@@ -1,0 +1,47 @@
+import { Meta, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as BadgeStories from './Badge.stories'
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Los textos de los badges deben ser lo más simples y concisos posible. Máximo de 4 palabras.
+Si incluye números se escriben en cifras.
+Solo se escribe en mayúscula la primera letra de cada frase.
+Sin punto final.
+
+<br />
+
+<Primary />
+
+## Usos
+
+### Pill
+Mediante la prop "$text" se puede ingresar un texto corto. Si se ajusta el tamaño aparecen 3 puntos suspensivos
+
+<Story of={BadgeStories.BadgeWithTextOrPill} />
+<Source of={BadgeStories.BadgeWithTextOrPill} />
+
+## Con números
+Mediante la prop $count se puede ingresar un número entero, si el número supera los 999, se agrega un signo de más. Si se ajusta el tamaño aparecen 3 puntos suspensivos
+
+<Story of={BadgeStories.BadgeWithCount} />
+<Source of={BadgeStories.BadgeWithCount} />
+
+## Con ícono y texto
+Mediante la prop $iconName se puede asignar el nombre de un ícono que se va a renderizar a la izquierda del texto. Si se ajusta el tamaño aparecen 3 puntos suspensivos
+
+<Story of={BadgeStories.BadgeWithIconAndText} />
+<Source of={BadgeStories.BadgeWithIconAndText} />
+
+## Con background oscuro
+Mediante la prop $backgroundType se puede definir el color de los bordes que va a tomar del Badge en base al color que haya de fondo  
+
+<Story of={BadgeStories.BadgeWithBackgroundDark} />
+<Source of={BadgeStories.BadgeWithBackgroundDark} />
+
+## Tipo notificación
+Si se quiere utilizar el componente Badge en forma de notificación por el momento se debe estilar la posición junto con el componente o elemento que se quiera mostrar  
+
+<Story of={BadgeStories.BadgeNotification} />
+<Source of={BadgeStories.BadgeNotification} />

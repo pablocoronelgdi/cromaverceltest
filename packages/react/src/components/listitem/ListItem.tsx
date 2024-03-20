@@ -1,46 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useId } from 'react'
 import { StyledListItem, TextContent, RightContent, LeftContent } from './styles'
 import type { ListItemPropsTypes } from './types'
 
 const ListItem: React.FC<ListItemPropsTypes> = ({
-  id,
-  $title,
-  $subtitle,
+  title,
+  $description,
   $contentLeft,
   $contentRight,
-  $disabled = false
+  $disabled = false,
+  ...props
 }) => {
   const [pressed, setPressed] = useState<boolean>(false)
+  const defaultId = useId()
 
-  const handlePress = (): void => {
-    setPressed(true)
-    setTimeout(() => {
-      setPressed(false)
-    }, 1000)
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    if (!$disabled) {
+      setPressed(!pressed)
+    }
   }
 
   return (
     <StyledListItem
-      id={id}
-      $title={$title}
+      id={props.id || defaultId}
+      title={title}
       $disabled={$disabled}
-      className={`${pressed ? 'pressed' : ''} ${$disabled ? 'disabled' : ''}`}
-      onClick={handlePress}
+      className={`${pressed ? 'pressed' : ''}`}
+      onMouseDown={(e) => {
+        handlePress(e)
+      }}
+      onMouseUp={(e) => {
+        handlePress(e)
+      }}
+      {...props}
     >
-      { $contentLeft &&
-        <LeftContent title={$title}>
-        { $contentLeft }
-        </LeftContent>
-      }
-      <TextContent title={$title}>
-        <h3>{$title}</h3>
-        <p>{$subtitle}</p>
+      {$contentLeft && <LeftContent title={title}>{$contentLeft}</LeftContent>}
+      <TextContent title={title}>
+        <p>{title}</p>
+        <span>{$description}</span>
       </TextContent>
-      { $contentRight &&
-        <RightContent title={$title}>
-        { $contentRight }
-        </RightContent>
-      }
+      {$contentRight && <RightContent title={title}>{$contentRight}</RightContent>}
     </StyledListItem>
   )
 }
