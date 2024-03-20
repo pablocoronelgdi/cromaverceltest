@@ -13,7 +13,7 @@ import type { SwitchProps } from './types'
 import { spacingsNative } from '@cromaui/foundations/dist/spacings'
 import { shapesNative } from '@cromaui/foundations/dist/shapes'
 
-const CromaSwitch: React.FC<SwitchProps> = ({
+const Switch: React.FC<SwitchProps> = ({
   onChange,
   value,
   defaultValue,
@@ -173,4 +173,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CromaSwitch
+export default Switch

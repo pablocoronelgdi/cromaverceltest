@@ -1,2 +1,2 @@
-import CromaSwitch from './Switch'
-export { CromaSwitch }
+import Switch from './Switch'
+export { Switch }

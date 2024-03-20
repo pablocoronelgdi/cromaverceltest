@@ -6,7 +6,7 @@ const meta: Meta<typeof Image> = {
   component: ListItem,
   tags: ['autodocs'],
   argTypes: {
-    $title: {
+    title: {
       description: 'Se le puede agregar un título al componente pin input',
       control: {
         type: 'text',
@@ -133,15 +133,5 @@ export const Medium: Story = {
     title: 'Título',
     $disabled: false,
     $contentRight: <RoundedImage $size="small" $iconName="person" $disabled />
-  }
-}
-
-export const Medium: Story = {
-  args: {
-    $contentLeft: <Switch disabled />,
-    $title: 'Título',
-    $disabled: true,
-    $contentRight:
-      <RoundedImage $size="small" $iconName="person" $disabled />
   }
 }
