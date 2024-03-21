@@ -19,7 +19,7 @@ import type { TabsItemProps, TabsProps } from './types'
 =                   TABS DEFAULT              =
 ============================================= */
 
-export const StyledTabContainer = styled.div<TabsItemProps>`
+export const StyledTabContainer = styled.ul<TabsItemProps>`
   background: ${color.neutral[50]};
 
   &.flex {
@@ -66,32 +66,43 @@ export const StyledTabContainer = styled.div<TabsItemProps>`
     opacity: 0;
   }
 `
-export const Tab = styled.div<TabsItemProps>`
+export const Tab = styled.li<TabsItemProps>`
   width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
+  list-style: none;
   padding: ${spacings.space8} ${spacings.space16};
-  border-bottom: ${(props) => (props.active ? borders.br2 + color.blue.main : borders.br2 + color.neutral[400])};
-  border-radius: ${(props) => (props.active ? `${shapes.sm} ${shapes.sm} 0 0` : 0)};
+  border-bottom: ${(props) => (props.$active ? borders.br2 + color.blue.main : borders.br2 + color.neutral[400])};
+  border-radius: ${(props) => (props.$active ? `${shapes.sm} ${shapes.sm} 0 0` : 0)};
 
   &:hover {
     background: ${color.blue.extraSoft};
-   }
+  }
 
-  span.label {
-    color: ${(props) => (props.active ? color.blue.main : color.neutral[700])};
-    ${(props) => (props.active ? FONT_BODY_MD : FONT_BODY_SM)};
-    ${(props) => (props.active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+  p.label {
+    color: ${(props) => (props.$active ? color.neutral[900] : color.neutral[700])};
+    ${(props) => (props.$active ? FONT_BODY_MD : FONT_BODY_SM)};
+    ${(props) => (props.$active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
     margin: 0 ${spacings.space4}
   }
+  span {
+    color: ${color.neutral[900]};
+  }
+
 `
 export const StyledFoco = styled.div<TabsItemProps>`
-    background: ${(props) => (props.active ? color.neutral[50] : color.neutral[200])};
-    border: ${(props) => (props.focused ? borders.br2 + color.blue.main : borders.br2 + ' none')};
-    box-sizing: border-box;
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      color: ${(props) => (props.$active ? color.neutral[900] : color.neutral[700])};
+      background: ${(props) => (props.$active ? color.neutral[50] : color.neutral[200])};
+      border: ${(props) => (props.$focused || props.$active ? borders.br2 + color.blue.main : borders.br1 + ' none')};
+      box-sizing: border-box;
+    }
+    
 `
 export const Flex = styled.div<TabsProps>`
-   ${(props) => (props.vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
+   ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 `
 /* ====================== FIN ======================= */
 
@@ -111,16 +122,16 @@ export const StyledTabContainerSegmented = styled.ul<TabsItemProps>`
 `
 export const FlexList = styled.li<TabsProps>`
   width: ${spacings.spaceFull};
-  ${(props) => (props.vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
+  ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 `
 export const StyledTabSegmented = styled.div<TabsProps>`
   width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
-  background: ${(props) => (props.active ? color.neutral[50] : 'transparent')};
+  background: ${(props) => (props.$active ? color.neutral[50] : 'transparent')};
   padding: ${spacings.space8} ${spacings.space16};
   border-radius: ${shapes.full};
-  box-shadow: ${(props) => (props.active ? '0px 2px 4px 0px #4447484D' : '')};
+  box-shadow: ${(props) => (props.$active ? '0px 2px 4px 0px #4447484D' : '')};
 
   &:hover {
     background: ${color.blue.extraSoft};
@@ -128,7 +139,7 @@ export const StyledTabSegmented = styled.div<TabsProps>`
   }
 `
 export const FlexSegmented = styled.div<TabsProps>`
-   ${(props) => (props.vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
+   ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 
    span {
     width: ${spacings.spaceFull};
@@ -136,15 +147,15 @@ export const FlexSegmented = styled.div<TabsProps>`
 `
 export const StyledFocoSegmented = styled.div<TabsItemProps>`
     width: ${spacings.spaceFull};
-    border: ${(props) => (props.focused ? borders.br2 + color.blue.main : borders.br2 + ' transparent')};
+    border: ${(props) => (props.$focused ? borders.br2 + color.blue.main : borders.br2 + ' transparent')};
     padding: ${spacings.space2};
     border-radius: ${shapes.full};
     box-sizing: border-box;
 
   span {
-    color: ${(props) => (props.active ? color.navy.main : color.neutral[700])};
-    ${(props) => (props.active ? FONT_BODY_MD : FONT_BODY_SM)};
-    ${(props) => (props.active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+    color: ${(props) => (props.$active ? color.navy.main : color.neutral[700])};
+    ${(props) => (props.$active ? FONT_BODY_MD : FONT_BODY_SM)};
+    ${(props) => (props.$active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
     margin: 0 ${spacings.space4};
   }
 `
@@ -156,6 +167,6 @@ export const Divider = styled.div<TabsItemProps>`
   height: ${spacings.space20};
   background: ${color.neutral[400]};
   margin: 0 ${spacings.space10};
-  visibility: ${(props) => (props.hide ? 'hidden' : 'visible')};
+  visibility: ${(props) => (props.$hide ? 'hidden' : 'visible')};
 `
 /* ====================== FIN ======================= */

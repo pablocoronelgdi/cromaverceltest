@@ -30,7 +30,7 @@ const meta = {
         defaultValue: { summary: 'void' }
       }
     },
-    defaultValue: {
+    defaultChecked: {
       description:
         "Valor por defecto del checkbox. Solo válido cuando no se establece la propiedad 'checked'.",
       table: {
@@ -92,13 +92,14 @@ export const UnControlledCheckBox: Story = {
         dark: true,
         code: `
       const [value,setValue] = useState("El valor del checkbox es: false");
-      const getValorDelCheckbox = (isChecked) => {
-        setValue("El nuevo valor es:" + isChecked)
+
+      const getValorDelCheckbox = (e) => {
+        setValue("El nuevo valor es:" + e)
         }
 
       return (
        <>
-          <Checkbox onChange={getValorDelCheckbox} defaultValue={false} />
+          <Checkbox onChange={e => getValorDelCheckbox(e.target.value)} defaultChecked={false} />
           <p>{value}</p>
        </>
        )
@@ -106,21 +107,19 @@ export const UnControlledCheckBox: Story = {
       }
     }
   },
-  args: {
-    checked: false
-  },
 
-  render: function Render(args) {
+  render: function Render() {
     const [value, setValue] = useState('El valor del checkbox es: false')
-    const getValorDelCheckbox = (isChecked: boolean): void => {
-      setValue(`El valor del checkbox es: ${isChecked}`)
+    const getValorDelCheckbox = (e: boolean): void => {
+      setValue(`El nuevo valor es: ${e}`)
     }
     return (
       <>
         <Checkbox
-          {...args}
-          onChange={getValorDelCheckbox}
-          defaultValue={false}
+          onChange={(e) => {
+            getValorDelCheckbox(e.target.checked)
+          }}
+          defaultChecked={false}
         />
         <p>{value}</p>
       </>
@@ -137,13 +136,13 @@ export const DefaultValue: Story = {
         language: 'tsx',
         dark: true,
         code: `
-          <Checkbox defaultValue={true} />
+          <Checkbox defaultChecked={true} />
         `
       }
     }
   },
   args: {
-    defaultValue: true
+    defaultChecked: true
   },
 
   render: function Render({ ...args }) {
@@ -164,8 +163,8 @@ export const Disabled: Story = {
         language: 'tsx',
         dark: true,
         code: `
-          <Checkbox disabled defaultValue={true} />
-          <Checkbox disabled defaultValue={false} />
+          <Checkbox disabled defaultChecked={true} />
+          <Checkbox disabled defaultChecked={false} />
         `
       }
     }
@@ -177,8 +176,8 @@ export const Disabled: Story = {
   render: function Render({ ...args }) {
     return (
       <>
-        <Checkbox {...args} defaultValue={true} />
-        <Checkbox {...args} defaultValue={false} />
+        <Checkbox {...args} defaultChecked={true} />
+        <Checkbox {...args} defaultChecked={false} />
       </>
     )
   }

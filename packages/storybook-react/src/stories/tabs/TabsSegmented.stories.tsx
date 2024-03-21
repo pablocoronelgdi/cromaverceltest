@@ -49,7 +49,7 @@ export const TresTabs: Story = {
   args: { tabs: tabs3 },
   decorators: [
     () => (
-      <TabSegmented tabs={tabs3} />
+      <TabSegmented $tabs={tabs3} />
     )
   ]
 }
@@ -58,7 +58,7 @@ export const DosTabs: Story = {
   args: { tabs: tabs2 },
   decorators: [
     () => (
-      <TabSegmented tabs={tabs2} />
+      <TabSegmented $tabs={tabs2} />
     )
   ]
 }

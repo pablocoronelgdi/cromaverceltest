@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useId } from 'react'
 import { StyledTabContainer, Tab, TabContent, Flex, StyledFoco } from './styles'
 import { breakpoints } from '@cromaui/foundations'
 import type { TabsProps } from './types'
@@ -25,16 +25,19 @@ function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Ele
 }
 
 const Tabs: React.FC<TabsProps> = ({
-  tabs,
-  vertical,
-  iconLeft,
-  iconRight,
-  slidesToShow,
-  label
+  id,
+  $tabs,
+  $vertical = false,
+  $iconLeft,
+  $iconRight,
+  $slidesToShow,
+  $labelShow = true,
+  ...props
 }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [focusedTab, setFocusedTab] = useState<number | null>(null)
+  const defaultId = useId()
 
   const handleTabClick = (index: number): void => {
     setActiveTab(index)
@@ -58,13 +61,11 @@ const Tabs: React.FC<TabsProps> = ({
     }
   }, [])
 
-  const showSlider = windowWidth < 600 || tabs.length > 5
-
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: slidesToShow || 5, // Se define la cantidad de items a mostrar por default o por props
+    slidesToShow: $slidesToShow || 5, // Se define la cantidad de items a mostrar por default o por props
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -95,67 +96,73 @@ const Tabs: React.FC<TabsProps> = ({
     ]
   }
 
+  const showSlider = windowWidth < 1024
+
   if (showSlider) {
     // Trasforma a el componente tabs comun en un slider
     return (
       <div>
         <StyledTabContainer>
           <Slider {...settings}>
-            {tabs.map((tab, index) => (
+            {$tabs.map((tab, index: number) => (
               <StyledFoco key={index}>
                 <Tab
-                  focused={index === focusedTab}
+                  id={id && defaultId}
                   onFocus={() => {
                     handleTabFocus(index)
                   }}
+                  $focused={index === focusedTab}
                   onBlur={handleTabBlur}
+                  {...props}
                   key={index}
-                  active={index === activeTab}
+                  $active={index === activeTab}
                   onClick={() => {
                     handleTabClick(index)
                   }}
                 >
-                  <Flex tabs={tabs} vertical={vertical}>
-                    {iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="small" />}
-                    <span className="label">{label && tab.label}</span>
-                    {iconRight && <Icon $name={`${tab.iconRightName}`} $size="small" />}
+                  <Flex $tabs={$tabs} $vertical={$vertical}>
+                    {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
+                    <p className="label">{$labelShow && tab.label}</p>
+                    {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
                   </Flex>
                 </Tab>
               </StyledFoco>
             ))}
           </Slider>
         </StyledTabContainer>
-        <TabContent>{tabs[activeTab].content}</TabContent>
+        <TabContent>{$tabs[activeTab].content}</TabContent>
       </div>
     )
   }
   return (
     <div>
       <StyledTabContainer className="flex">
-        {tabs.map((tab, index) => (
+        {$tabs.map((tab, index: number) => (
           <StyledFoco key={index}>
             <Tab
-              focused={index === focusedTab}
+              id={id && defaultId}
+              {...props}
+              $focused={index === focusedTab}
               onFocus={() => {
                 handleTabFocus(index)
               }}
               onBlur={handleTabBlur}
               key={index}
-              active={index === activeTab}
+              $active={index === activeTab}
               onClick={() => {
                 handleTabClick(index)
               }}
             >
-              <Flex tabs={tabs} vertical={vertical}>
-                {iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="medium" />}
-                <span className="label">{label && tab.label}</span>
-                {iconRight && <Icon $name={`${tab.iconRightName}`} $size="medium" />}
+              <Flex $tabs={$tabs} $vertical={$vertical}>
+                {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
+                <p className="label">{$labelShow && tab.label}</p>
+                {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
               </Flex>
             </Tab>
           </StyledFoco>
         ))}
       </StyledTabContainer>
-      <TabContent>{tabs[activeTab].content}</TabContent>
+      <TabContent>{$tabs[activeTab].content}</TabContent>
     </div>
   )
 }

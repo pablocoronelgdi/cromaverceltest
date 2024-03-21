@@ -23,14 +23,14 @@ su valor a la prop "onChange"
 <Source of={CheckboxStories.ControlledCheckBox} />
 
 ### Componente Sin Controlar
-Tambien puede utilizarse sin pasarle ningun valor. Se puede acceder a tu estado mediante el atributo
-"isChecked"
+Tambien puede utilizarse sin pasarle ningun valor. Se puede acceder a tu estado mediante el parámetro
+"e.target.checked"
 
 <Story of={CheckboxStories.UnControlledCheckBox} />
 <Source of={CheckboxStories.UnControlledCheckBox} />
 
 ### Con valor por defecto
-Los componentes no controlados pueden tener un valor por defecto mediante la prop "defaultValue".
+Los componentes no controlados pueden tener un valor por defecto mediante la prop "defaultChecked".
 <Story of={CheckboxStories.DefaultValue} />
 <Source of={CheckboxStories.DefaultValue} />
 
@@ -43,7 +43,8 @@ desde otro componente ajeno al checkbox.
 <Source of={CheckboxStories.Disabled} />
 
 ## Props
-El componente checkbox acepta, ademas de los atributos de html, los siguientes parametros:
+El componente checkbox acepta, ademas de los atributos de un input html, los siguientes parametros:
 
 <ArgTypes />
+import { LinkTargetBlank } from '../link/Link.stories';
 

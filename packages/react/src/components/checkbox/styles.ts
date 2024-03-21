@@ -1,18 +1,7 @@
-import {
-  borders,
-  color,
-  opacities,
-  shapes,
-  spacings
-} from '@cromaui/foundations'
-import { styled, css } from 'styled-components'
+import { borders, color, opacities, shapes, spacings } from '@cromaui/foundations'
+import { styled } from 'styled-components'
 import type { CheckInnerProps } from './types'
-
-/* =============================================
-=            ESTILOS DEL COMPONENTE CHECKBOX     =
-============================================= */
-
-/* ----------  Check Container  (div) ---------- */
+import { FLEX_CENTER } from '../../globals/globals'
 
 export const CheckContainer = styled.div<CheckInnerProps>`
   position: relative;
@@ -25,36 +14,28 @@ export const CheckContainer = styled.div<CheckInnerProps>`
   padding: ${spacings.space8};
   border-radius: ${shapes.full};
 
-  /* ----------  Check Aura ---------- */
+  /* ---------- Aura ---------- */
   &:hover {
-    ${(props) =>
-      props.disabled &&
-      css`
-        background-color: ${color.navy.soft}${opacities.opacity20};
-      `}
-    ${(props) =>
-      props.isPressed &&
-      css`
-        background-color: ${color.neutral[600]}${opacities.opacity20};
-      `}
+    background-color: ${({ disabled, $isPressed }) =>
+      disabled
+        ? color.neutral[0]
+        : $isPressed
+        ? color.navy.soft + opacities.opacity20
+        : color.neutral[600] + opacities.opacity20};
   }
-
-  /* ----------  Check Area  (label) ---------- */
   & label {
+    ${FLEX_CENTER}
     width: ${spacings.space24};
     height: ${spacings.space24};
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     border-radius: ${shapes.xs};
-    ${(props) =>
-      props.isFocused &&
-      css`
-        outline: ${borders.br2}${color.blue.main};
-        outline-offset: 0px;
-      `}
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-    /* ----------  Check Input  (input checkbox) ---------- */
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      border: ${borders.br2};
+      border-color: ${({ disabled }) => (disabled ? color.neutral[0] : color.blue.main)};
+    }
 
     & input {
       opacity: 0;
