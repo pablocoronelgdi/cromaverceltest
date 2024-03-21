@@ -30,7 +30,8 @@ export const CheckContainer = styled.div<CheckInnerProps>`
     border-radius: ${shapes.xs};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-    &:focus &:focus-visible,
+    &:focus,
+    &:focus-visible,
     &:focus-within {
       border: ${borders.br2};
       border-color: ${({ disabled }) => (disabled ? color.neutral[0] : color.blue.main)};
