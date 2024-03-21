@@ -11,7 +11,7 @@ import { Logo } from './components/logo'
 import { Pictogram } from './components/pictogram'
 import { PinInput } from './components/pin-input'
 import { ProgressBar } from './components/progressbar'
-import { Radio } from './components/radio'
+import { RadioButton } from './components/radiobutton'
 import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
@@ -34,7 +34,7 @@ export {
   Pictogram,
   PinInput,
   ProgressBar,
-  Radio,
+  RadioButton,
   RoundedImage,
   Spinner,
   Switch,

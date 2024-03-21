@@ -22,15 +22,15 @@ export const RadioContainer = styled.div<RadioInnerProps>`
   padding: ${spacings.space8};
   border-radius: ${shapes.full};
   background-color: ${(props) =>
-    props.disabled
+    props.$disabled
       ? 'transparent'
-      : props.isPressed
+      : props.$isPressed
       ? color.neutral[600] + opacities.opacity20
       : 'transparent'};
 
   & hover {
     background-color: ${(props) =>
-      props.disabled
+      props.$disabled
         ? 'transparent'
         : color.neutral[600] + opacities.opacity20};
   }
@@ -45,7 +45,7 @@ export const RadioContainer = styled.div<RadioInnerProps>`
     border-radius: ${shapes.full};
 
     ${(props) =>
-      props.isFocused &&
+      props.$isFocused &&
       css`
         outline: ${borders.br2}${color.blue.main};
         outline-offset: -1px;
@@ -53,7 +53,7 @@ export const RadioContainer = styled.div<RadioInnerProps>`
 
     /* ----------  Radio Icon  ---------- */
     & span {
-      color: ${(props) => props.disabled && color.neutral[400]};
+      color: ${(props) => props.$disabled && color.neutral[400]};
     }
 
     /* ----------  Radio Input  (input radiobox) ---------- */

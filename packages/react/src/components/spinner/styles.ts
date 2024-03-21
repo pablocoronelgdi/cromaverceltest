@@ -31,25 +31,25 @@ const rotateInnedDiv = keyframes`
 export const SpinnerContainerStyled = styled.div<SpinnerPropTypes>`
   ${FLEX_CENTER}
   flex-direction:column;
-  gap: ${({ withLogo }) => (withLogo ? spacings.space8 : spacings.space4)};
+  gap: ${({ $withLogo }) => ($withLogo ? spacings.space8 : spacings.space4)};
   padding: ${spacings.space2};
   width: min-content;
 
   /* ----------  Outer Spinner Ring  (div) ---------- */
   & > div {
     ${FLEX_CENTER}
-    width: ${({ withLogo }) =>
-      withLogo ? spacings.space76 : spacings.space64};
-    height: ${({ withLogo }) =>
-      withLogo ? spacings.space76 : spacings.space64};
-    padding: ${({ withLogo }) => (withLogo ? spacings.space2 : 0)};
+    width: ${({ $withLogo }) =>
+      $withLogo ? spacings.space76 : spacings.space64};
+    height: ${({ $withLogo }) =>
+      $withLogo ? spacings.space76 : spacings.space64};
+    padding: ${({ $withLogo }) => ($withLogo ? spacings.space2 : 0)};
     border-style: solid;
-    border-width: ${({ withLogo }) =>
-      withLogo ? spacings.space10 : spacings.space8};
+    border-width: ${({ $withLogo }) =>
+      $withLogo ? spacings.space10 : spacings.space8};
     border-color: ${color.navy.extraSoft};
     border-radius: ${shapes.full};
-    border-left-color: ${({ withLogo }) =>
-      withLogo ? color.navy.main : color.navy.extraSoft};
+    border-left-color: ${({ $withLogo }) =>
+      $withLogo ? color.navy.main : color.navy.extraSoft};
     border-top-color: ${color.navy.main};
     transform: rotate(45deg);
     animation: ${rotateOuterDiv} 1s ease infinite;
