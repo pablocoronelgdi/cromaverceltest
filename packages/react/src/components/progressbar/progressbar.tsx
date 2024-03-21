@@ -2,7 +2,7 @@ import React, { useState, useEffect, useId } from 'react'
 import type { ProgressBarPropsTypes } from './types'
 import { Container, ContainerProgress, ProgressFill } from './styles'
 
-const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ $duration, $label, $id }) => {
+const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ $duration, $label, id }) => {
   const [progress, setProgress] = useState<number>(0)
   const time = $duration
   const percentage = (100 / $duration)
@@ -24,7 +24,7 @@ const ProgressBar: React.FC<ProgressBarPropsTypes> = ({ $duration, $label, $id }
   }, [$duration])
 
   return (
-    <Container id={$id || defaultId}>
+    <Container id={ id || defaultId}>
         <ContainerProgress>
             <ProgressFill $width={progress} $duration={$duration} />
         </ContainerProgress>
