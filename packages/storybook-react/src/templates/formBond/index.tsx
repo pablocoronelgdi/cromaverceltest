@@ -1,4 +1,4 @@
-import { Button, Checkbox, TextArea, InputField, Logo, Toogletip } from '@cromaui/react'
+import { Button, TextArea, InputField, Logo, Toogletip } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
@@ -10,7 +10,6 @@ function FormBond(): JSX.Element {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [comment, setComment] = useState('')
-  const [isReminder, setIsReminder] = useState(false)
 
   const handleForm = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
@@ -21,7 +20,6 @@ function FormBond(): JSX.Element {
       console.log('Email:', email)
       console.log('Password:', password)
       console.log('Comentario:', comment)
-      console.log('Recordar contraseña:', isReminder)
     }
   }
   const [showToogletip, setShowToogletip] = useState(false)
@@ -33,7 +31,7 @@ function FormBond(): JSX.Element {
 
   return (
     <section className="form_bond__section">
-      <div className="form_bond__header">
+      <div className="form_bond__header" id="form">
         <h1 className="form_bond__title">Formulario para solicitar bono</h1>
         <Logo $name="MacroTagLine" $size="large" />
         <Toogletip
@@ -45,10 +43,8 @@ function FormBond(): JSX.Element {
           $onToogletipClose={handleToogle}
           $actionButtons={
             <>
-              <Button variant="outlined" onClick={handleToogle}>
-                Cerrar
-              </Button>
-              <Button onClick={handleToogle}>Entendido</Button>
+              <Button $variant="outline" onClick={handleToogle} $text="Cerrar" />
+              <Button onClick={handleToogle} $text="Entendido" />
             </>
           }
           $steps={[
@@ -58,13 +54,12 @@ function FormBond(): JSX.Element {
           ]}
         >
           <Button
-            variant="ghost"
-            size="extra-small"
-            iconName="info"
+            $variant="ghost"
+            $size="extra-small"
+            $iconName="info"
             onClick={handleToogle}
-          >
-            Más información acá
-          </Button>
+            $text="Más información acá"
+          />
         </Toogletip>
       </div>
       <form className="form_bond__form" onSubmit={handleForm}>
@@ -109,17 +104,16 @@ function FormBond(): JSX.Element {
             setComment(e.target.value)
           }}
         />
-        <Checkbox
-          checked={isReminder}
-          onChange={() => {
-            setIsReminder(!isReminder)
-          }}
-        />
         <div className="form_bond__buttons">
-          <Button size="medium" type="submit">
-            Enviar
-          </Button>
-          <Button variant="outlined">Registrame</Button>
+          <Button type="submit" $text="Enviar" $fullWidth />
+          <Button
+            $as="a"
+            $variant="fill"
+            $iconName="expand_less"
+            $text="Subir"
+            $iconPosition="left"
+            href="#form"
+          />
         </div>
       </form>
     </section>

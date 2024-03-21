@@ -21,7 +21,7 @@ const meta = {
         defaultValue: { summary: 'large' }
       }
     },
-    $color: {
+    color: {
       description: 'Define el color del icono',
       table: {
         type: { summary: 'string' },
@@ -84,10 +84,10 @@ export const ColorIcon: Story = {
         dark: true,
         code: `
         <>
-          <Icon $name="person" $color="pink" />
-          <Icon $name="person" $color={rgba(10, 141, 43, 1)} />
-          <Icon $name="person" $color={navy} />
-          <Icon $name="person" $color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)} />
+          <Icon $name="person" color="pink" />
+          <Icon $name="person" color={rgba(10, 141, 43, 1)} />
+          <Icon $name="person" color={navy} />
+          <Icon $name="person" color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)} />
         </>
         `
       }
@@ -98,9 +98,9 @@ export const ColorIcon: Story = {
     const navy = '#053575'
     return (
       <>
-        <Icon $name="person" $color="pink" />
-        <Icon $name="person" $color={rgba(10, 141, 43, 1)} />
-        <Icon $name="person" $color={navy} />
+        <Icon $name="person" color="pink" />
+        <Icon $name="person" color={rgba(10, 141, 43, 1)} />
+        <Icon $name="person" color={navy} />
         <Icon
           $name="person"
           $color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)}

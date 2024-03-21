@@ -10,7 +10,7 @@ export type ButtonVariantType = 'filled' | 'outlined' | 'link'
 
 export type ButtonPropTypes = {
   size?: ButtonSizeType
-  variant?: ButtonVariantType
+  $variant?: ButtonVariantType
   theme?: any
   children?: ReactNode
   disabled?: boolean
@@ -27,7 +27,7 @@ export type ChildrenButtonPropTypes = {
 
 export type ButtonTextPropTypes = {
   size?: ButtonSizeType
-  variant?: ButtonVariantType
+  $variant?: ButtonVariantType
   isPressed?: boolean
   disabled?: boolean
   theme?: any
@@ -36,6 +36,6 @@ export type ButtonTextPropTypes = {
 /* ----------  Props del icono del boton  ---------- */
 
 export type ButtonIconPropTypes = {
-  variant?: ButtonVariantType
+  $variant?: ButtonVariantType
   isPressed?: boolean
 } & IconPropTypes

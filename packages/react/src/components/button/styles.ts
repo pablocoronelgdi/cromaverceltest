@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
-import type { InnerButtonProps } from './types'
-import { borders, color, shapes, spacings } from '@cromaui/foundations'
+import type { AnchorPropTypes, ButtonPropTypes } from './types'
 import {
   FLEX_CENTER,
   FONT_BUTTON_MD,
@@ -8,233 +7,548 @@ import {
   FONT_BUTTON_XSM,
   FONT_TYPE_SEMIBOLD
 } from '../../globals/globals'
+import { color, shapes, spacings } from '@cromaui/foundations'
 
-export const ButtonStyled = styled.button<InnerButtonProps>`
-  ${FLEX_CENTER}
-  ${FONT_BUTTON_MD}
-  ${FONT_TYPE_SEMIBOLD}
+export const ButtonStyled = styled.button<ButtonPropTypes>`
   cursor: pointer;
-  gap: ${spacings.space8};
-  border: ${borders.br2};
   border-radius: ${shapes.sm};
-  flex-direction: ${({ iconPosition }) => (iconPosition === 'left' ? 'row-reverse' : 'row')};
-  padding: ${({ size }) =>
-    size === 'large'
-      ? `${spacings.space12} ${spacings.space16}`
-      : size === 'extra-small'
-      ? `${spacings.space4}`
-      : `${spacings.space8} ${spacings.space12}`};
+  border: none;
+  max-width: 328px;
+  text-align: center;
+  flex-direction: ${({ $iconPosition }) => ($iconPosition === 'left' ? 'row-reverse' : 'row')};
+  gap: ${({ $iconName, $text, $size }) =>
+    $iconName && $text && $size === 'extra-small' ? spacings.space6 : spacings.space8};
+  width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'fit-content')};
+  ${FLEX_CENTER}
+  ${FONT_TYPE_SEMIBOLD}
+  ${({ $size }) =>
+    $size === 'small' ? FONT_BUTTON_SM : $size === 'extra-small' ? FONT_BUTTON_XSM : FONT_BUTTON_MD}
+  ${({ $variant, $backgroundType }) => {
+    switch ($variant) {
+      case 'fill':
+        return css`
+          background-color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[100]};
+          color: ${$backgroundType === 'light' ? color.neutral[50] : color.navy.main};
+          & > span {
+            color: ${$backgroundType === 'light' ? color.neutral[50] : color.navy.main};
+          }
+          &:hover {
+            background-color: ${$backgroundType === 'light'
+              ? color.navy.soft
+              : color.navy.extraSoft};
+          }
+          &:active {
+            background-color: ${$backgroundType === 'light' ? color.navy.dark : color.navy.soft};
+            color: ${color.neutral[50]};
+            & > span {
+              color: ${color.neutral[50]};
+            }
+          }
+          &:focus,
+          &:focus-visible,
+          &:focus-within {
+            outline: solid;
+            outline-color: ${color.blue.soft};
+            outline-offset: 2px;
+            outline-width: 2px;
+          }
+          &:disabled {
+            outline: none;
+            background-color: ${$backgroundType === 'light'
+              ? color.neutral[300]
+              : color.neutral[400]};
+            color: ${$backgroundType === 'light' ? color.neutral[500] : color.neutral[600]};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[500] : color.neutral[600]};
+            }
+          }
+        `
+      case 'outline':
+        return css`
+          background-color: transparent;
+          color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[50]};
+          border: solid;
+          border-width: 1.7px;
+          border-color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[50]};
 
-  ${({ size }) =>
-    size === 'small' ? FONT_BUTTON_SM : size === 'extra-small' ? FONT_BUTTON_XSM : FONT_BUTTON_MD}
+          & > span {
+            color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[50]};
+          }
+          &:hover {
+            background-color: ${color.navy.extraSoft};
+            border-color: ${$backgroundType === 'light' ? color.navy.soft : color.neutral[50]};
+            color: ${color.navy.main};
+            & > span {
+              color: ${color.navy.main};
+            }
+          }
+          &:active {
+            background-color: ${color.navy.extraSoft};
+            border-color: ${$backgroundType === 'light' ? color.navy.dark : color.navy.soft};
+            color: ${color.navy.dark};
+            & > span {
+              color: ${color.navy.dark};
+            }
+          }
+          &:focus,
+          &:focus-visible,
+          &:focus-within {
+            background-color: transparent;
+            border-color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[50]};
+            color: ${$backgroundType === 'light' ? color.navy.main : color.neutral[50]};
+            outline: solid;
+            outline-color: ${color.blue.soft};
+            outline-offset: 2px;
+            outline-width: 2px;
+          }
+          &:disabled {
+            border-color: ${$backgroundType === 'light' ? color.neutral[400] : color.neutral[600]};
+            color: ${$backgroundType === 'light' ? color.neutral[400] : color.neutral[600]};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[400] : color.neutral[600]};
+            }
+          }
+        `
+      case 'ghost':
+        return css`
+          background-color: transparent;
+          color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
 
-  &:focus {
-    outline: solid;
-    outline-color: ${color.blue.main};
-    outline-offset: 2px;
-    outline-width: 2px;
-  }
-
-  &.croma-button-filled {
-    border-color: ${color.navy.main};
-    background-color: ${color.navy.main};
-    color: ${color.neutral[50]};
-
-    & > span {
-      color: ${color.neutral[50]};
+          & > span {
+            color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
+          }
+          &:hover {
+            background-color: ${color.navy.extraSoft};
+            color: ${$backgroundType === 'light' ? color.neutral[900] : color.navy.main};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[900] : color.navy.main};
+            }
+          }
+          &:active {
+            background-color: ${$backgroundType === 'light' ? color.neutral[200] : color.navy.soft};
+            color: ${$backgroundType === 'light' ? color.navy.dark : color.neutral[50]};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.navy.dark : color.neutral[50]};
+            }
+          }
+          &:focus,
+          &:focus-visible,
+          &:focus-within {
+            color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
+            outline: solid;
+            outline-color: ${color.blue.soft};
+            outline-offset: 2px;
+            outline-width: 2px;
+          }
+          &:disabled {
+            color: ${$backgroundType === 'light' ? color.neutral[400] : color.neutral[600]};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[400] : color.neutral[600]};
+            }
+          }
+        `
+      case 'tonal':
+        return css`
+          background-color: ${$backgroundType === 'light' ? color.blue.main : color.blue.soft};
+          color: ${color.neutral[50]};
+          & > span {
+            color: ${color.neutral[50]};
+          }
+          &:hover {
+            background-color: ${$backgroundType === 'light' ? color.blue.soft : color.blue.main};
+          }
+          &:active {
+            background-color: ${color.blue.dark};
+          }
+          &:focus,
+          &:focus-visible,
+          &:focus-within {
+            background-color: ${$backgroundType === 'light' ? color.blue.main : color.blue.soft};
+            outline: solid;
+            outline-color: ${color.blue.soft};
+            outline-offset: 2px;
+            outline-width: 2px;
+          }
+          &:disabled {
+            outline: none;
+            background-color: ${$backgroundType === 'light'
+              ? color.neutral[300]
+              : color.neutral[600]};
+            color: ${$backgroundType === 'light' ? color.neutral[500] : color.neutral[400]};
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[500] : color.neutral[400]};
+            }
+          }
+        `
+      default:
+        return css``
     }
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        border-color: ${color.navy.dark};
-        background-color: ${color.navy.dark};
-        color: ${color.neutral[50]};
-      `}
-
-    &:hover {
-      border-color: ${({ isPressed }) => !isPressed && color.navy.soft};
-      background-color: ${({ isPressed }) => !isPressed && color.navy.soft};
-      color: ${({ isPressed }) => !isPressed && color.neutral[50]};
+  }}
+  ${({ $size, $variant, $iconPosition, $text, $iconName }) => {
+    switch ($size) {
+      case 'extra-small':
+        return css`
+          padding-top: ${$variant === 'ghost' && !$text ? spacings.space2 : spacings.space4};
+          padding-bottom: ${$variant === 'ghost' && !$text ? spacings.space2 : spacings.space4};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space8
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text && $variant !== 'ghost'
+            ? spacings.space4
+            : $variant === 'ghost' && !!$iconName && !$iconPosition && !$text
+            ? spacings.space2
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space8
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text && $variant !== 'ghost'
+            ? spacings.space4
+            : $variant === 'ghost' && !!$iconName && !$iconPosition && !$text
+            ? spacings.space2
+            : ''};
+        `
+      case 'small':
+      case 'medium':
+        return css`
+          padding-top: ${spacings.space8};
+          padding-bottom: ${spacings.space8};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space8
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space8
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space8
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space8
+            : ''};
+        `
+      case 'large':
+        return css`
+          padding-top: ${spacings.space12};
+          padding-bottom: ${spacings.space12};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space12
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space16
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space12
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space12
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space16
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space12
+            : ''};
+        `
+      default:
+        return css``
     }
-
-    &:disabled {
-      cursor: not-allowed;
-      outline: none;
-      border-color: ${color.neutral[300]};
-      background-color: ${color.neutral[300]};
-      color: ${color.neutral[500]};
-      & > span {
-        color: ${color.neutral[500]};
-      }
-    }
-  }
-
-  &.croma-button-outlined {
-    border-color: ${color.navy.main};
-    background-color: transparent;
-    color: ${color.navy.main};
-    & > span {
-      color: ${color.navy.main};
-    }
-
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        border-color: ${color.navy.dark};
-        color: ${color.navy.dark};
-      `}
-
-    &:hover {
-      border-color: ${({ isPressed }) => !isPressed && color.navy.soft};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      border-color: ${color.neutral[400]};
-      color: ${color.neutral[400]};
-      & > span {
-        color: ${color.neutral[400]};
-      }
-      cursor: not-allowed;
-    }
-  }
-  &.croma-button-ghost {
-    border-color: transparent;
-    background-color: transparent;
-    & > span {
-      color: ${color.neutral[900]};
-    }
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        color: ${color.navy.dark};
-        background-color: ${color.neutral[200]};
-      `}
-
-    &:hover {
-      background-color: ${({ isPressed }) => !isPressed && color.navy.extraSoft};
-    }
-    &:focus,
-    &:focus-visible,
-    &:focus-within {
-      border-color: ${({ isPressed }) => !isPressed && color.blue.soft};
-      background-color: ${({ isPressed }) => !isPressed && 'transparent'};
-      color: ${({ isPressed }) => !isPressed && color.neutral[900]};
-    }
-    &:disabled {
-      cursor: not-allowed;
-      color: ${color.neutral[400]};
-      background-color: transparent;
-      & > span {
-        color: ${color.neutral[400]};
-      }
-    }
-  }
-
-  &.croma-button-light-filled {
-    border-color: ${color.neutral[100]};
-    background-color: ${color.neutral[100]};
-    color: ${color.navy.main};
-
-    & > span {
-      color: ${color.navy.main};
-    }
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        border-color: ${color.navy.soft};
-        background-color: ${color.navy.soft};
-        color: ${color.neutral[50]};
-      `}
-
-    &:hover {
-      border-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      background-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      color: ${({ isPressed }) => !isPressed && color.navy.soft};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      outline: none;
-      border-color: ${color.neutral[400]};
-      background-color: ${color.neutral[400]};
-      color: ${color.neutral[600]};
-      & > span {
-        color: ${color.neutral[600]};
-      }
-    }
-  }
-
-  &.croma-button-light-outlined {
-    border-color: ${color.neutral[50]};
-    background-color: transparent;
-    color: ${color.neutral[50]};
-    & > span {
-      ${color.neutral[50]};
-    }
-
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        border-color: ${color.navy.soft};
-        background-color: ${color.navy.extraSoft};
-        color: ${color.navy.dark};
-      `}
-
-    &:hover {
-      border-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      background-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      color: ${({ isPressed }) => !isPressed && color.navy.main};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      background-color: transparent;
-      border-color: transparent;
-      color: ${color.neutral[600]};
-      & > span {
-        color: ${color.neutral[600]};
-      }
-      cursor: not-allowed;
-    }
-  }
-  &.croma-button-light-ghost {
-    border-color: transparent;
-    background-color: transparent;
-    color: ${color.neutral[50]};
-    & > span {
-      ${color.neutral[50]};
-    }
-
-    ${({ isPressed }) =>
-      isPressed &&
-      css`
-        border-color: ${color.navy.soft};
-        background-color: ${color.navy.soft};
-        color: ${color.neutral[50]};
-      `}
-
-    &:hover {
-      border-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      background-color: ${({ isPressed }) => !isPressed && color.neutral[50]};
-      color: ${({ isPressed }) => !isPressed && color.navy.main};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      background-color: transparent;
-
-      border-color: ${color.neutral[600]};
-      color: ${color.neutral[600]};
-      & > span {
-        color: ${color.neutral[600]};
-      }
-      cursor: not-allowed;
-    }
+  }}
+&:disabled {
+    cursor: not-allowed;
   }
 `
-
-export const ButtonContainerStyled = styled.div`
+export const AnchorStyled = styled.a<AnchorPropTypes>`
+  cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
+  border-radius: ${shapes.sm};
+  max-width: 328px;
+  flex-direction: ${({ $iconPosition }) => ($iconPosition === 'left' ? 'row-reverse' : 'row')};
+  gap: ${({ $iconName, $text, $size }) =>
+    $iconName && $text && $size === 'extra-small' ? spacings.space6 : spacings.space8};
+  width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'fit-content')};
   ${FLEX_CENTER}
-  padding: ${spacings.space2}
+  ${FONT_TYPE_SEMIBOLD}
+  ${({ $size }) =>
+    $size === 'small' ? FONT_BUTTON_SM : $size === 'extra-small' ? FONT_BUTTON_XSM : FONT_BUTTON_MD}
+  ${({ $variant, $backgroundType, $disabled }) => {
+    switch ($variant) {
+      case 'fill':
+        return css`
+          // State Disabled:
+          outline: ${$disabled && 'none'};
+          background-color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[300]
+            : color.neutral[400]};
+          color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[500]
+            : color.neutral[600]};
+          & > span {
+            color: ${$disabled && $backgroundType === 'light'
+              ? color.neutral[500]
+              : color.neutral[600]};
+          }
+
+          ${!$disabled &&
+          css`
+            background-color: ${!$disabled && $backgroundType === 'light'
+              ? color.navy.main
+              : color.neutral[100]};
+            color: ${!$disabled && $backgroundType === 'light'
+              ? color.neutral[50]
+              : color.navy.main};
+            & > span {
+              color: ${!$disabled && $backgroundType === 'light'
+                ? color.neutral[50]
+                : color.navy.main};
+            }
+            &:hover {
+              background-color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.soft
+                : color.navy.extraSoft};
+            }
+            &:active {
+              background-color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.dark
+                : color.navy.soft};
+              color: ${color.neutral[50]};
+              & > span {
+                color: ${color.neutral[50]};
+              }
+            }
+            &:focus,
+            &:focus-visible,
+            &:focus-within {
+              outline: ${!$disabled && 'solid'};
+              outline-color: ${!$disabled && color.blue.soft};
+              outline-offset: ${!$disabled && '2px'};
+              outline-width: ${!$disabled && '2px'};
+            }
+          `}
+        `
+      case 'outline':
+        return css`
+          // State Disabled:
+          outline: none;
+          border: solid;
+          border-width: 1.7px;
+          border-color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[400]
+            : color.neutral[600]};
+          color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[400]
+            : color.neutral[600]};
+          & > span {
+            color: ${$disabled && $backgroundType === 'light'
+              ? color.neutral[400]
+              : color.neutral[600]};
+          }
+          ${!$disabled &&
+          css`
+            background-color: transparent;
+            color: ${!$disabled && $backgroundType === 'light'
+              ? color.navy.main
+              : color.neutral[50]};
+
+            border-color: ${!$disabled && $backgroundType === 'light'
+              ? color.navy.main
+              : color.neutral[50]};
+
+            & > span {
+              color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.main
+                : color.neutral[50]};
+            }
+            &:hover {
+              background-color: ${color.navy.extraSoft};
+              border-color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.soft
+                : color.neutral[50]};
+              color: ${color.navy.main};
+              & > span {
+                color: ${color.navy.main};
+              }
+            }
+            &:active {
+              background-color: ${color.navy.extraSoft};
+              border-color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.dark
+                : color.navy.soft};
+              color: ${color.navy.dark};
+              & > span {
+                color: ${color.navy.dark};
+              }
+            }
+            &:focus,
+            &:focus-visible,
+            &:focus-within {
+              background-color: transparent;
+              border-color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.main
+                : color.neutral[50]};
+              color: ${!$disabled && $backgroundType === 'light'
+                ? color.navy.main
+                : color.neutral[50]};
+              outline: ${!$disabled && 'solid'};
+              outline-color: ${!$disabled && color.blue.soft};
+              outline-offset: 2px;
+              outline-width: 2px;
+            }
+          `}
+        `
+      case 'ghost':
+        return css`
+          // State Disabled:
+          outline: none;
+          color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[400]
+            : color.neutral[600]};
+          & > span {
+            color: ${$disabled && $backgroundType === 'light'
+              ? color.neutral[400]
+              : color.neutral[600]};
+          }
+          ${!$disabled &&
+          css`
+            background-color: transparent;
+            color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
+
+            & > span {
+              color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
+            }
+            &:hover {
+              background-color: ${color.navy.extraSoft};
+              color: ${$backgroundType === 'light' ? color.neutral[900] : color.navy.main};
+              & > span {
+                color: ${$backgroundType === 'light' ? color.neutral[900] : color.navy.main};
+              }
+            }
+            &:active {
+              background-color: ${$backgroundType === 'light'
+                ? color.neutral[200]
+                : color.navy.soft};
+              color: ${$backgroundType === 'light' ? color.navy.dark : color.neutral[50]};
+              & > span {
+                color: ${$backgroundType === 'light' ? color.navy.dark : color.neutral[50]};
+              }
+            }
+            &:focus,
+            &:focus-visible,
+            &:focus-within {
+              color: ${$backgroundType === 'light' ? color.neutral[900] : color.neutral[50]};
+              outline: solid;
+              outline-color: ${color.blue.soft};
+              outline-offset: 2px;
+              outline-width: 2px;
+            }
+          `}
+        `
+      case 'tonal':
+        return css`
+          // State Disabled:
+          outline: ${$disabled && 'none'};
+          background-color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[300]
+            : color.neutral[600]};
+          color: ${$disabled && $backgroundType === 'light'
+            ? color.neutral[500]
+            : color.neutral[400]};
+          & > span {
+            color: ${$disabled && $backgroundType === 'light'
+              ? color.neutral[500]
+              : color.neutral[400]};
+          }
+          ${!$disabled &&
+          css`
+            background-color: ${$backgroundType === 'light' ? color.blue.main : color.blue.soft};
+            color: ${color.neutral[50]};
+            & > span {
+              color: ${color.neutral[50]};
+            }
+            &:hover {
+              background-color: ${$backgroundType === 'light' ? color.blue.soft : color.blue.main};
+            }
+            &:active {
+              background-color: ${color.blue.dark};
+            }
+            &:focus,
+            &:focus-visible,
+            &:focus-within {
+              background-color: ${$backgroundType === 'light' ? color.blue.main : color.blue.soft};
+              outline: solid;
+              outline-color: ${color.blue.soft};
+              outline-offset: 2px;
+              outline-width: 2px;
+            }
+          `}
+        `
+      default:
+        return css``
+    }
+  }}
+  ${({ $size, $variant, $iconPosition, $text, $iconName }) => {
+    switch ($size) {
+      case 'extra-small':
+        return css`
+          padding-top: ${$variant === 'ghost' && !$text ? spacings.space2 : spacings.space4};
+          padding-bottom: ${$variant === 'ghost' && !$text ? spacings.space2 : spacings.space4};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space8
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text && $variant !== 'ghost'
+            ? spacings.space4
+            : $variant === 'ghost' && !!$iconName && !$iconPosition && !$text
+            ? spacings.space2
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space8
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text && $variant !== 'ghost'
+            ? spacings.space4
+            : $variant === 'ghost' && !!$iconName && !$iconPosition && !$text
+            ? spacings.space2
+            : ''};
+        `
+      case 'small':
+      case 'medium':
+        return css`
+          padding-top: ${spacings.space8};
+          padding-bottom: ${spacings.space8};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space8
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space8
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space8
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space12
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space8
+            : ''};
+        `
+      case 'large':
+        return css`
+          padding-top: ${spacings.space12};
+          padding-bottom: ${spacings.space12};
+          padding-left: ${$iconPosition === 'left'
+            ? spacings.space12
+            : $iconPosition === 'right' || ($text && !$iconPosition)
+            ? spacings.space16
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space12
+            : ''};
+          padding-right: ${$iconPosition === 'right'
+            ? spacings.space12
+            : $iconPosition === 'left' || ($text && !$iconPosition)
+            ? spacings.space16
+            : !!$iconName && !$iconPosition && !$text
+            ? spacings.space12
+            : ''};
+        `
+      default:
+        return css``
+    }
+  }}
 `

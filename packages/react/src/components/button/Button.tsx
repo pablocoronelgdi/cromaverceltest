@@ -1,94 +1,84 @@
-import React, { useState } from 'react'
+import React, { useId } from 'react'
 import type { ButtonPropTypes } from './types'
-import { ButtonContainerStyled, ButtonStyled } from './styles'
 import { Icon } from '../icon'
+import { AnchorStyled, ButtonStyled } from './styles'
 
 const Button: React.FC<ButtonPropTypes> = ({
-  variant = 'filled',
-  children,
-  iconName,
-  size = 'medium',
-  iconPosition = 'left',
-  disabled,
-  background = 'dark',
+  $as = 'button',
+  $backgroundType = 'light',
+  disabled = false,
+  $fullWidth = false,
+  $iconName,
+  $iconPosition,
   onClick,
-  type = 'button',
+  $size = 'medium',
+  $text,
+  $variant = 'fill',
   ...props
 }) => {
-  const [isPressed, setIsPressed] = useState(false)
-
-  const handleMouseDown = (e?: React.MouseEvent<HTMLElement>): void => {
-    if (e) {
-      e.preventDefault()
-    }
-    setIsPressed(true)
-  }
-  const handleMouseUp = (e?: React.MouseEvent<HTMLElement>): void => {
-    if (e) {
-      e.preventDefault()
-    }
-    setIsPressed(false)
-  }
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
-    if (e.key === 'Tab') {
-      console.log(e)
-    }
-    if (e.key === 'Enter') {
-      handleMouseDown()
-    }
-  }
-  const handleKeyUp = (e: React.KeyboardEvent<HTMLElement>): void => {
-    if (e.key === 'Tab') {
-      console.log(e)
-    }
-    if (e.key === 'Enter') {
-      handleMouseUp()
-    }
-  }
-  const handleMouseLeave = (): void => {
-    if (isPressed) {
-      setIsPressed(!isPressed)
-    }
-  }
-  return (
-    <ButtonContainerStyled>
-      <ButtonStyled
-        className={`croma-button-${background === 'light' ? 'light-' : ''}${variant}`}
-        disabled={disabled}
-        size={size}
-        iconPosition={iconPosition}
+  const defaultId = useId()
+  if ($as === 'a') {
+    return (
+      <AnchorStyled
+        $as="a"
+        $backgroundType={$backgroundType}
+        $disabled={disabled}
+        $fullWidth={$fullWidth}
+        $iconName={$iconName}
+        $iconPosition={$iconPosition}
+        id={props.id ?? defaultId}
         onClick={onClick}
-        onKeyDown={(e): void => {
-          handleKeyDown(e)
-        }}
-        onKeyUp={(e): void => {
-          handleKeyUp(e)
-        }}
-        onMouseDown={(e): void => {
-          handleMouseDown(e)
-        }}
-        onMouseUp={(e): void => {
-          handleMouseUp(e)
-        }}
-        onMouseLeave={handleMouseLeave}
-        isPressed={isPressed}
-        {...props}
+        $size={$size}
+        $variant={$variant}
+        title={props.title ?? $text}
+        href={props.href}
       >
-        {children}
-        {iconName && (
+        {$text}
+        {$iconName && (
           <Icon
-            $name={iconName}
+            $name={$iconName}
             $size={
-              size === 'extra-small'
+              $size === 'extra-small'
                 ? 'small'
-                : size === 'medium' || size === 'large'
+                : $size === 'medium' || $size === 'large'
                   ? 'large'
                   : 'medium'
             }
           />
         )}
-      </ButtonStyled>
-    </ButtonContainerStyled>
+      </AnchorStyled>
+    )
+  }
+  return (
+    <ButtonStyled
+      $as="button"
+      $backgroundType={$backgroundType}
+      disabled={disabled}
+      $fullWidth={$fullWidth}
+      id={props.id ?? defaultId}
+      $iconName={$iconName}
+      $iconPosition={$iconPosition}
+      onClick={onClick}
+      $size={$size}
+      type={props.type ?? 'button'}
+      $variant={$variant}
+      title={props.title ?? $text}
+      $text={$text}
+    >
+      {$text}
+      {$iconName && (
+        <Icon
+          $name={$iconName}
+          $size={
+            $size === 'extra-small'
+              ? 'small'
+              : $size === 'medium' || $size === 'large'
+                ? 'large'
+                : 'medium'
+          }
+        />
+      )}
+    </ButtonStyled>
   )
 }
 

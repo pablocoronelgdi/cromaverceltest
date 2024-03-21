@@ -116,10 +116,9 @@ const Login: React.FC = () => {
           type="submit"
           onClick={() => handleSubmit}
           disabled={!formData.ageChecked}
-          style={{ width: '100%' }}
-        >
-          Acceder
-        </Button>
+          $fullWidth
+          $text="Acceder"
+        />
       </div>
       <div style={{ marginTop: 10 }}>
         <Link
