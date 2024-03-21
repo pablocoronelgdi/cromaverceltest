@@ -1,27 +1,28 @@
-import React, { useState } from 'react'
+import React, { type InputHTMLAttributes, useId, useState } from 'react'
 import { Icon } from '../icon'
-import { color } from '@cromaui/foundations'
 import { CheckContainer } from './styles'
-import type { CheckProps } from './types'
+import { color } from '@cromaui/foundations'
 
-const Checkbox: React.FC<CheckProps> = ({
+const Checkbox: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
   onChange,
   disabled,
   checked,
-  defaultValue
+  defaultChecked,
+  type,
+  ...props
 }) => {
-  const [isChecked, setIsChecked] = useState(defaultValue ?? false)
+  const [isChecked, setIsChecked] = useState<boolean>(defaultChecked ?? false)
   const [isPressed, setIsPressed] = useState(false)
-  const [isFocused, setIsFocused] = useState(false)
+  const defaultID = useId()
 
-  const handleCheck = (): void => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!disabled) {
       if (checked === undefined) {
         setIsChecked(!isChecked)
       }
       if (onChange) {
         setIsChecked(!isChecked)
-        onChange(!isChecked)
+        onChange(e)
       }
     }
   }
@@ -35,22 +36,12 @@ const Checkbox: React.FC<CheckProps> = ({
     }
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
-    if (e.key === 'Tab') {
-      setIsFocused(true)
-    }
-  }
-
-  const handleClick = (): void => {
-    setIsFocused(false)
-  }
-
   return (
     <CheckContainer
-      isChecked={checked ?? isChecked}
-      isPressed={isPressed}
-      isFocused={isFocused}
+      $isChecked={checked ?? isChecked}
+      $isPressed={isPressed}
       disabled={disabled}
+      id={props.id || defaultID}
     >
       <label
         onMouseDown={(e) => {
@@ -60,18 +51,18 @@ const Checkbox: React.FC<CheckProps> = ({
           handlePress(e)
         }}
         onMouseLeave={handleMouseLeave}
-        tabIndex={isFocused ? 0 : -1}
-        onKeyDown={handleKeyDown}
-        onClick={handleClick}
       >
         <input
           disabled={disabled}
           type="checkbox"
           checked={checked ?? isChecked}
-          onChange={handleCheck}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleCheck(e)
+          }}
+          {...props}
         />
         <Icon
-          $color={disabled ? color.neutral[400] : color.navy.main}
+          color={disabled ? color.neutral[400] : color.navy.main}
           $name={checked ?? isChecked ? 'check_box' : 'check_box_outline_blank'}
         />
       </label>

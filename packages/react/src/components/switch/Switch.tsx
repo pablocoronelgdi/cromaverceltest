@@ -11,27 +11,21 @@ const Switch: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
   onChange,
   checked,
   disabled,
-  defaultValue,
+  defaultChecked,
+  type,
   ...props
 }) => {
-  const [isChecked, setChecked] = useState<boolean>(
-    defaultValue?.toString().toLocaleLowerCase() === 'true' ?? false
-  )
+  const [isChecked, setIsChecked] = useState<boolean>(defaultChecked ?? false)
   const [isPressed, setIsPressed] = useState(false)
   const defaultID = useId()
 
-  /**
-   * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
-   * por el usuario, la ejecuta pasándole el estado del "checked".
-   * De esta forma el componente puede ser controlado o no controlado.
-   */
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!disabled) {
       if (checked === undefined) {
-        setChecked(!isChecked)
+        setIsChecked(!isChecked)
       }
       if (onChange) {
-        setChecked(!isChecked)
+        setIsChecked(!isChecked)
         onChange(e)
       }
     }
@@ -62,7 +56,6 @@ const Switch: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
       }}
       onMouseLeave={handleMouseLeave}
       disabled={disabled}
-      className="croMa-switch-container"
     >
       <label>
         <input
@@ -71,6 +64,7 @@ const Switch: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             handleCheck(e)
           }}
+          {...props}
         />
         <div>{checked ?? isChecked ? <Icon $size="medium" $name="check" /> : null}</div>
       </label>

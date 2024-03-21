@@ -163,7 +163,7 @@ const PinInput: React.FC<PinInputPropTypes> = ({
         <label>
           <StyledLabel>
             <StyledLabelIcon>
-              {$error && <Icon $name="info_outlined" $color={color.error.main} $size="small" />}
+              {$error && <Icon $name="info_outlined" color={color.error.main} $size="small" />}
               <p>{$error ? $errorMessage : $helperText}</p>
             </StyledLabelIcon>
           </StyledLabel>

@@ -1,12 +1,5 @@
-export type CheckProps = {
-  onChange?: (isChecked: boolean) => void
-  disabled?: boolean
-  checked?: boolean
-  defaultValue?: boolean
-}
 export type CheckInnerProps = {
-  isChecked: boolean
-  isPressed: boolean
-  isFocused: boolean
+  $isChecked: boolean
+  $isPressed: boolean
   disabled?: boolean
 }
