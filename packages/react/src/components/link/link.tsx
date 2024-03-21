@@ -57,7 +57,7 @@ const Link: React.FC<LinkPropsTypes> = ({
     >
       {$iconRight && (
         <Icon
-          $color={props.disabled ? color.neutral[400] : color.blue.main}
+          color={props.disabled ? color.neutral[400] : color.blue.main}
           $name={$iconName}
           $size={iconSize}
         />
@@ -65,7 +65,7 @@ const Link: React.FC<LinkPropsTypes> = ({
       <p>{$children}</p>
       {$iconLeft && (
         <Icon
-          $color={props.disabled ? color.neutral[400] : color.blue.main}
+          color={props.disabled ? color.neutral[400] : color.blue.main}
           $name={$iconName}
           $size={iconSize}
         />

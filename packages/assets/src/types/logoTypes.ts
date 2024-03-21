@@ -1,5 +1,4 @@
 export type LogoCatalog =
-  | 'MacroTagLine'
   | 'Agro'
   | 'BankLimited'
   | 'BankLimitedVertical'

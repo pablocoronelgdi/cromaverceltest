@@ -104,11 +104,13 @@ const Tabs: React.FC<TabsProps> = ({
       <div>
         <StyledTabContainer>
           <Slider {...settings}>
-            {$tabs.map((tab, index) => (
+            {$tabs.map((tab, index: number) => (
               <StyledFoco key={index}>
                 <Tab
                   id={id && defaultId}
-                  onFocus={() => { handleTabFocus(index) }}
+                  onFocus={() => {
+                    handleTabFocus(index)
+                  }}
                   $focused={index === focusedTab}
                   onBlur={handleTabBlur}
                   {...props}
@@ -135,7 +137,7 @@ const Tabs: React.FC<TabsProps> = ({
   return (
     <div>
       <StyledTabContainer className="flex">
-        {$tabs.map((tab, index) => (
+        {$tabs.map((tab, index: number) => (
           <StyledFoco key={index}>
             <Tab
               id={id && defaultId}
