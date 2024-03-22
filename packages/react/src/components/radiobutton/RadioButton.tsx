@@ -61,7 +61,7 @@ const RadioButton: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, va
           }}
         />
         <Icon
-          $color={disabled ? color.neutral[400] : color.navy.main}
+          color={disabled ? color.neutral[400] : color.navy.main}
           $name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
         />
       </label>
