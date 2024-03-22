@@ -6,7 +6,7 @@ const meta = {
   component: Spinner,
   tags: ['autodocs'],
   argTypes: {
-    withLogo: {
+    $withLogo: {
       control: { type: 'boolean' },
       description: 'Muestra una variante basada en el logo de Macro.',
       table: {
@@ -14,7 +14,7 @@ const meta = {
         type: { summary: 'boolean' }
       }
     },
-    label: {
+    $label: {
       control: { type: 'text' },
       description: 'El mensaje de carga que muestra el componente',
       table: {
@@ -31,31 +31,31 @@ type Story = StoryObj<typeof meta>
 export const SpinnerDefault: Story = {
   name: 'Default',
   args: {
-    withLogo: false,
-    label: undefined
+    $withLogo: false,
+    $label: undefined
   }
 }
 
 export const SpinnerWithLabel: Story = {
   name: 'Con texto',
   args: {
-    withLogo: false,
-    label: 'Cargando...'
+    $withLogo: false,
+    $label: 'Cargando...'
   }
 }
 
 export const SpinerLogoDefault: Story = {
   name: 'Con logo',
   args: {
-    withLogo: true,
-    label: undefined
+    $withLogo: true,
+    $label: undefined
   }
 }
 
 export const SpinnerLogoWithLabel: Story = {
   name: 'Con logo y texto',
   args: {
-    withLogo: true,
-    label: 'Cargando...'
+    $withLogo: true,
+    $label: 'Cargando...'
   }
 }

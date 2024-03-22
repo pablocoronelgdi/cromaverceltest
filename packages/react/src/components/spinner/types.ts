@@ -1,4 +1,7 @@
+import type { HTMLAttributes } from 'react'
+
 export type SpinnerPropTypes = {
-  withLogo?: boolean
-  label?: string
-}
+  id?: string
+  $withLogo?: boolean
+  $label?: string
+} & HTMLAttributes<HTMLDivElement>

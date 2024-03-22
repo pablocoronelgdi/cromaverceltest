@@ -25,7 +25,7 @@ export const ContainerProgress = styled.div`
 
 export const ProgressFill = styled.div<ProgressBarPropsTypes>`
   height: 100%;
-  width: ${(props) => props.width}%;
+  width: ${(props) => props.$width}%;
   background-color: ${color.blue.main};
   transition: width 0.3s ease-in-out;
 `
