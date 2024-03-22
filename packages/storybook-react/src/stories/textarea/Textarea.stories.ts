@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { TextArea } from '@cromaui/react'
 
 const meta = {
-  title: 'Inputs/TextArea',
+  title: 'Inputs/Textarea',
   component: TextArea,
   tags: ['autodocs'],
   argTypes: {
