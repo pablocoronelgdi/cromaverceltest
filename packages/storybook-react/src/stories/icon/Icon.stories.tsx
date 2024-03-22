@@ -103,7 +103,7 @@ export const ColorIcon: Story = {
         <Icon $name="person" color={navy} />
         <Icon
           $name="person"
-          $color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)}
+          color={hsl(135.1145038167939, 86.75496688741723, 29.607843137254903)}
         />
       </>
     )
@@ -116,6 +116,6 @@ export const Default: Story = {
   args: {
     $size: 'large',
     $name: 'person',
-    $color: 'inherit'
+    color: 'inherit'
   }
 }

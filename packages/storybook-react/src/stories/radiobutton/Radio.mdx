@@ -1,12 +1,12 @@
-import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
-import * as RadioButtonStories from './RadioButton.stories';
-
+import { Meta, Primary, ArgTypes, Story, Source } from '@storybook/blocks'
+import * as RadioButtonStories from './RadioButton.stories'
 
 <Meta of={RadioButtonStories} />
 
 # RadioButton
 
 Un radio input es un elemento de interfaz gráfica que permite al usuario seleccionar una opción exclusiva de entre varias disponibles.
+
 <br />
 
 <Primary />
@@ -14,20 +14,22 @@ Un radio input es un elemento de interfaz gráfica que permite al usuario selecc
 ## Usos
 
 ### Default
-RadioButton input necesita de un valor booleano en la propiedad "checked" y una funcion en la prop "onChange" 
+
+RadioButton input necesita de un valor booleano en la propiedad "checked" y una funcion en la prop "onChange"
 para modificarlo.
 
 <Story of={RadioButtonStories.Default} />
 <Source of={RadioButtonStories.Default} />
 
-
 ### Deshabilitado
-Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso. 
+
+Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso.
 
 <Story of={RadioButtonStories.Disabled} />
 <Source of={RadioButtonStories.Disabled} />
 
 ## Props
+
 El componente Radio acepta, ademas de los atributos de html, los siguientes parametros:
 
 <ArgTypes />

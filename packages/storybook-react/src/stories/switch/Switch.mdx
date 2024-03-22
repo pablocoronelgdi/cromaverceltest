@@ -1,6 +1,5 @@
-import { Meta, Primary, ArgTypes, Story,Stories,Source,Title } from '@storybook/blocks';
-import * as SwitchStories from './Switch.stories';
-
+import { Meta, Primary, ArgTypes, Story, Source } from '@storybook/blocks'
+import * as SwitchStories from './Switch.stories'
 
 <Meta of={SwitchStories} />
 
@@ -9,6 +8,7 @@ import * as SwitchStories from './Switch.stories';
 El switch es un elemento de interfaz de usuario que permite a los usuarios seleccionar o deseleccionar opciones individuales.
 Proporcionando una forma clara y simple de recopilar información binaria.
 Su versatilidad lo hace adecuado para selección única o múltiple de opciones.
+
 <br />
 
 <Primary />
@@ -16,6 +16,7 @@ Su versatilidad lo hace adecuado para selección única o múltiple de opciones.
 ## Usos
 
 ### Componente Controlado
+
 El input puede ser controlado si se le pasa como prop un valor a "checked" y una funcion para modificar
 su valor a la prop "onChange"
 
@@ -23,6 +24,7 @@ su valor a la prop "onChange"
 <Source of={SwitchStories.ControlledSwitch} />
 
 ### Componente Sin Controlar
+
 Tambien puede utilizarse sin pasarle ningun valor. Se puede acceder a tu estado mediante el atributo
 "isChecked"
 
@@ -30,12 +32,15 @@ Tambien puede utilizarse sin pasarle ningun valor. Se puede acceder a tu estado 
 <Source of={SwitchStories.UnControlledSwitch} />
 
 ### Con valor por defecto
+
 Los componentes no controlados pueden tener un valor por defecto mediante la prop "defaultValue".
+
 <Story of={SwitchStories.DefaultValue} />
 <Source of={SwitchStories.DefaultValue} />
 
 ### Deshabilitado
-Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso. 
+
+Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso.
 Si es un componente controlado, esto no impedira que cambie su valor si dicho valor puede ser modificado
 desde otro componente ajeno al switch.
 
@@ -43,7 +48,7 @@ desde otro componente ajeno al switch.
 <Source of={SwitchStories.Disabled} />
 
 ## Props
+
 El componente switch acepta, ademas de los atributos de html, los siguientes parametros:
 
 <ArgTypes />
-

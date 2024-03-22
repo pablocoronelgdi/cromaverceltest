@@ -6,37 +6,38 @@ import Inicio from './Inicio'
 import ValidacionMobile from './ValidacionMobile'
 import Login from '../login/login'
 import FormBond from '../formBond'
+import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
 
-const tabs = [
+const tabs: TabsItemProps[] = [
   {
     label: 'Inicio',
     iconLeftName: 'home',
     iconRightName: 'home',
-    content: <Inicio />
+    $content: <Inicio />
   },
   {
     label: 'Transferencias',
     iconLeftName: 'expand_circle_down',
     iconRightName: 'expand_circle_down',
-    content: <Movimientos />
+    $content: <Movimientos />
   },
   {
     label: 'Validación Móvil',
     iconLeftName: 'expand_circle_down',
     iconRightName: 'expand_circle_down',
-    content: <ValidacionMobile />
+    $content: <ValidacionMobile />
   },
   {
     label: 'Login Form',
     iconLeftName: 'expand_circle_down',
     iconRightName: 'expand_circle_down',
-    content: <Login />
+    $content: <Login />
   },
   {
     label: 'Solicitud de Bono',
     iconLeftName: 'person',
     iconRightName: 'person',
-    content: <FormBond />
+    $content: <FormBond />
   }
 ]
 
@@ -59,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <Tabs tabs={tabs} label iconLeft iconRight />
+        <Tabs $tabs={tabs} $labelShow $iconLeft $iconRight />
       </main>
     </>
   )

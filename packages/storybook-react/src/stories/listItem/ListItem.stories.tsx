@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ListItem, RoundedImage, Switch, Radio, Checkbox, Link, Icon } from '@cromaui/react'
+import { ListItem, RoundedImage, Switch, RadioButton, Checkbox, Link, Icon } from '@cromaui/react'
 
 const meta: Meta<typeof Image> = {
   title: 'Data Display/ListItem',
@@ -82,7 +82,7 @@ export const AvatarRadio: Story = {
     $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
     title: 'Título',
     $description: 'Texto informativo',
-    $contentRight: <Radio name="defaults" value="radio1" checked={false} />
+    $contentRight: <RadioButton name="defaults" value="radio1" checked={false} />
   }
 }
 

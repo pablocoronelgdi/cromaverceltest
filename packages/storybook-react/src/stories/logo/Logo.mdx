@@ -1,5 +1,5 @@
-import { Meta, ArgTypes, Primary, Story, Stories, Source, IconGallery, IconItem } from '@storybook/blocks';
-import * as LogoStories from './Logo.stories';
+import { Meta, ArgTypes, Primary, Story, Source, IconGallery, IconItem } from '@storybook/blocks'
+import * as LogoStories from './Logo.stories'
 import { Logo } from '@cromaui/react'
 import { color } from '@cromaui/foundations'
 
@@ -7,7 +7,8 @@ import { color } from '@cromaui/foundations'
 
 # Logo
 
-Mediante el componente Logo se podran elegir entre una variedad de Logos del ecosistema Macro. 
+Mediante el componente Logo se podran elegir entre una variedad de Logos del ecosistema Macro.
+
 <br />
 
 <Primary />
@@ -15,12 +16,14 @@ Mediante el componente Logo se podran elegir entre una variedad de Logos del eco
 ## Usos
 
 ### Default
-Mediante las props "$name", "$size" y "$colorPrimary" se puede renderizar el componente y modificar su variante, tamaño y color. 
+
+Mediante las props "$name", "$size" y "$colorPrimary" se puede renderizar el componente y modificar su variante, tamaño y color.
 
 <Story of={LogoStories.DocLogoDefault} />
 <Source of={LogoStories.DocLogoDefault} />
 
 ### Los Logos disponibles son:
+
 <br />
 <IconGallery>
   <IconItem name="MacroHorizontal">
@@ -51,7 +54,12 @@ Mediante las props "$name", "$size" y "$colorPrimary" se puede renderizar el com
     <Logo $name="Fiducia" $colorPrimary={color.navy.main} $size="large" />
   </IconItem>
   <IconItem name="Premia">
-    <Logo $name="Premia" $colorPrimary={color.gold.main} $colorSecondary={color.black.main} $size="large" />
+    <Logo
+      $name="Premia"
+      $colorPrimary={color.gold.main}
+      $colorSecondary={color.black.main}
+      $size="large"
+    />
   </IconItem>
   <IconItem name="BankLimitedVertical">
     <Logo $name="BankLimitedVertical" $colorPrimary={color.navy.main} $size="large" />
@@ -66,32 +74,41 @@ Mediante las props "$name", "$size" y "$colorPrimary" se puede renderizar el com
     <Logo $name="SelectaPrivado" $colorPrimary={color.black.main} $size="large" />
   </IconItem>
   <IconItem name="Agro">
-    <Logo $name="Agro" $colorPrimary={color.navy.main} $colorSecondary={color.green.main} $size="large" />
+    <Logo
+      $name="Agro"
+      $colorPrimary={color.navy.main}
+      $colorSecondary={color.green.main}
+      $size="large"
+    />
   </IconItem>
 </IconGallery>
 
 ### Logo con color secundario
+
 Algunos logos necesitan la prop "$colorSecondary", ya que puede variar según la documentación.
+
 - "Agro"
 - "Premia"
 
 <Story of={LogoStories.DocLogoColorSecondary} />
 <Source of={LogoStories.DocLogoColorSecondary} />
 
-
 ### Logo con SVG importado
+
 Envolviendo a un SVG importado entre el componente Logo se podría utilizar un Logo que no esté disponible en el CDS.
 
 <Story of={LogoStories.DocLogoWithImportedSvg} />
 <Source of={LogoStories.DocLogoWithImportedSvg} />
 
 ### Logo con HTML como children
+
 Incrustando un SVG directamente entre el componente Logo se podría utilizar un Logo que no esté disponible en el CDS.
 
 <Story of={LogoStories.DocLogoWithChildren} />
 <Source of={LogoStories.DocLogoWithChildren} />
 
 ## Props
+
 El componente Logo acepta, los siguientes parametros:
 
 <ArgTypes />

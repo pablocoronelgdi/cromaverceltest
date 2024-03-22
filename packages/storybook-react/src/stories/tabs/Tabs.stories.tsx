@@ -1,69 +1,70 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Tabs } from '@cromaui/react'
+import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
 
-const tabs = [
+const tabs: TabsItemProps[] = [
   {
     label: 'Tab 1',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 1</div>
+    $content: <div>Contenido de la pestaña 1</div>
   },
   {
     label: 'Tab 2',
     iconLeftName: 'home',
     iconRightName: 'home',
-    content: <div>Contenido de la pestaña 2</div>
+    $content: <div>Contenido de la pestaña 2</div>
   },
   {
     label: 'Tab 3',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 3</div>
+    $content: <div>Contenido de la pestaña 3</div>
   },
   {
     label: 'Tab 4',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 4</div>
+    $content: <div>Contenido de la pestaña 4</div>
   }
 ]
 
-const tabsSlider = [
+const tabsSlider: TabsItemProps[] = [
   {
     label: 'Tab 1',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 1</div>
+    $content: <div>Contenido de la pestaña 1</div>
   },
   {
     label: 'Tab 2',
     iconLeftName: 'home',
     iconRightName: 'home',
-    content: <div>Contenido de la pestaña 2</div>
+    $content: <div>Contenido de la pestaña 2</div>
   },
   {
     label: 'Tab 3',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 3</div>
+    $content: <div>Contenido de la pestaña 3</div>
   },
   {
     label: 'Tab 4',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 4</div>
+    $content: <div>Contenido de la pestaña 4</div>
   },
   {
     label: 'Tab 5',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 5</div>
+    $content: <div>Contenido de la pestaña 5</div>
   },
   {
     label: 'Tab 6',
     iconLeftName: 'close',
     iconRightName: 'expand_more',
-    content: <div>Contenido de la pestaña 6</div>
+    $content: <div>Contenido de la pestaña 6</div>
   }
 ]
 
@@ -95,46 +96,26 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { tabs },
-  decorators: [
-    () => (
-      <Tabs $tabs={tabsSlider} $label $slidesToShow={4} />
-    )
-  ]
+  args: { $tabs: tabsSlider },
+  decorators: [() => <Tabs $tabs={tabsSlider} $labelShow $slidesToShow={4} />]
 }
 
 export const IconLeft: Story = {
-  args: { tabs },
-  decorators: [
-    () => (
-      <Tabs $tabs={tabs} $label $iconLeft $slidesToShow={5} />
-    )
-  ]
+  args: { $tabs: tabs },
+  decorators: [() => <Tabs $tabs={tabs} $labelShow $iconLeft $slidesToShow={5} />]
 }
 
 export const IconRight: Story = {
-  args: { tabs },
-  decorators: [
-    () => (
-      <Tabs $tabs={tabsSlider} $label $iconRight $slidesToShow={3} />
-    )
-  ]
+  args: { $tabs: tabsSlider },
+  decorators: [() => <Tabs $tabs={tabsSlider} $labelShow $iconRight $slidesToShow={3} />]
 }
 
 export const Vertical: Story = {
-  args: { tabs },
-  decorators: [
-    () => (
-      <Tabs $tabs={tabs} $vertical $label $iconLeft $slidesToShow={5} />
-    )
-  ]
+  args: { $tabs: tabs },
+  decorators: [() => <Tabs $tabs={tabs} $vertical $labelShow $iconLeft $slidesToShow={5} />]
 }
 
 export const Icon: Story = {
-  args: { tabs },
-  decorators: [
-    () => (
-      <Tabs $tabs={tabs} $iconLeft $slidesToShow={5} />
-    )
-  ]
+  args: { $tabs: tabs },
+  decorators: [() => <Tabs $tabs={tabs} $iconLeft $slidesToShow={5} />]
 }
