@@ -6,7 +6,7 @@ const meta = {
   title: 'Inputs/RadioButton',
   component: RadioButton,
   argTypes: {
-    $disabled: {
+    disabled: {
       description:
         "Si su valor es 'true' el componente se mostrara deshabilitado impidiendo así su uso.",
       table: {
@@ -14,7 +14,7 @@ const meta = {
         defaultValue: { summary: 'false' }
       }
     },
-    $checked: {
+    checked: {
       description: 'Valor que indica si el input ha sido seleccionado.',
       table: {
         type: { summary: 'boolean' },
@@ -53,13 +53,13 @@ export const Default: Story = {
         }
 
       <>
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio1"
           checked={value === "radio1"}
           onChange={(e) => onChange(e.target.value)}
         />
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio2"
           checked={value === "radio2"}
@@ -71,10 +71,10 @@ export const Default: Story = {
     }
   },
   args: {
-    $disabled: false,
-    $name: '',
-    $checked: true,
-    $value: ''
+    disabled: false,
+    name: '',
+    checked: true,
+    value: ''
   },
 
   render: function Render() {
@@ -86,17 +86,17 @@ export const Default: Story = {
     return (
       <>
         <RadioButton
-          $name="defaults"
-          $value="radio1"
-          $checked={value === 'radio1'}
+          name="defaults"
+          value="radio1"
+          checked={value === 'radio1'}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             onChange(e.target.value)
           }}
         />
         <RadioButton
-          $name="defaults"
-          $value="radio2"
-          $checked={value === 'radio2'}
+          name="defaults"
+          value="radio2"
+          checked={value === 'radio2'}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             onChange(e.target.value)
           }}
@@ -145,10 +145,10 @@ export const Disabled: Story = {
     }
   },
   args: {
-    $disabled: true,
-    $checked: false,
-    $name: 'disabled radio input',
-    $value: 'radio2'
+    disabled: true,
+    checked: false,
+    name: 'disabled radio input',
+    value: 'radio2'
   },
 
   render: function Render() {
@@ -161,19 +161,19 @@ export const Disabled: Story = {
     return (
       <>
         <RadioButton
-          $disabled
-          $name="defaults"
-          $value="radio1"
-          $checked={value === 'radio1'}
+          disabled
+          name="defaults"
+          value="radio1"
+          checked={value === 'radio1'}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             onChange(e.target.value)
           }}
         />
         <RadioButton
-          $disabled
-          $name="defaults"
-          $value="radio2"
-          $checked={value === 'radio2'}
+          disabled
+          name="defaults"
+          value="radio2"
+          checked={value === 'radio2'}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             onChange(e.target.value)
           }}

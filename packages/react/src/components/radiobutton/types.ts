@@ -6,7 +6,6 @@ export type RadioPropTypes = {
   checked: boolean
   name: string
   value: string
-  id?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 export type RadioInnerProps = {
