@@ -61,16 +61,19 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
             <small>
               Paso {step} de {$steps?.length}
             </small>
-            <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
+            <Button $variant="ghost" $size="extra-small" onClick={handleClose} $iconName="close" />
           </div>
         )}
         <div className="croma_toogletip_card_header">
           <h2 id={$ariaTitelledBy ?? 'toogletip_title'}>{$steps?.[step - 1]?.title || $title}</h2>
           {!$steps && (
-            <Button variant="ghost" size="extra-small" onClick={handleClose} iconName="close" />
+            <Button $variant="ghost" $size="extra-small" onClick={handleClose} $iconName="close" />
           )}
         </div>
-        <div className="croma_toogletip_card_body" id={$ariaDescripbedBy ?? 'toogletip_description'}>
+        <div
+          className="croma_toogletip_card_body"
+          id={$ariaDescripbedBy ?? 'toogletip_description'}
+        >
           <p>{$steps?.[step - 1]?.label || $description}</p>
           {!$steps ? (
             renderToogletipActions($actionLinks as ReactNode, $actionButtons as ReactNode)
@@ -78,18 +81,20 @@ const Toogletip: React.FC<ToogletipPropTypes> = TooltipHOC(
             <div className="croma_toogletip_card_actions_end">
               {step > 1 && (
                 <>
-                  <Button variant="ghost" onClick={handleStepBack} size="small">
-                    Anterior
-                  </Button>
+                  <Button
+                    $variant="ghost"
+                    onClick={handleStepBack}
+                    $size="small"
+                    $text="Anterior"
+                  />
                 </>
               )}
               <Button
-                variant="filled"
-                size="small"
+                $variant="fill"
+                $size="small"
                 onClick={!$steps || step === $steps.length ? handleClose : handleStepFoward}
-              >
-                {!$steps || step === $steps.length ? 'Confirmar' : 'Siguiente'}
-              </Button>
+                $text={!$steps || step === $steps.length ? 'Confirmar' : 'Siguiente'}
+              />
             </div>
           )}
         </div>

@@ -1,0 +1,124 @@
+import { ArgTypes, Meta, Primary, Story, Source } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Los botones son componentes que hacen referencia a una acción que la persona
+ usuaria tiene que realizar. También son conocidos como Call To Action o CTA´s.
+  La finalidad de los botones siempre será istar a la persona a decidir cómo quiere
+   continuar su experiencia. Pueden utilizarse para empezar o terminar flujos,
+    también pueden contener una o varias acciones. 
+<br />
+
+<Primary />
+
+## Usos
+
+### Tipo de botón
+Mediante la prop "as" se puede seleccionar el tipo de botón, puede ser un button o un anchor.
+Esto es por si se quiere usar el componente para navegación entre páginas internas o hacia alguna sección de la misma página.
+
+
+### Función
+Mediante la prop onClick nativa del componente se puede utilizar para disparar algún evento.
+
+### Variante 
+Mediante la prop $variant se define el estilo del botón, las opciones son: fill, outline, ghost, y tonal.
+
+### Tamaño
+Mediante la prop $size se define el tamaño del botón, las opciones son: extra-small, small, medium, y large.
+
+### Texto
+Mediante la prop $text se define el texto o contenido del botón.
+
+### Ícono
+Mediante la prop $iconName se define el nombre del icono que se quiere mostrar en el botón.
+
+### Posición del ícono
+Mediante la prop $iconPosition se define la posición del ícono junto al texto, las opciones pueden ser "left" o "right" 
+
+### Color de fondo
+Mediante la prop $backgroundType se define el tono del color de fondo donde se utiliza el boton, las opciones pueden ser "light" o "dark"
+
+### Ancho máximo
+Mediante la prop $fullWidth de tipo Boolean, se define si el componente ocupa todo el ancho posible o del contenido.
+
+### Deshabilitado
+Mediante la prop disabled de tipo Boolean, se define si el componente esta deshabilitado.
+
+## Ejemplos de uso
+
+### Variante fill con fondo claro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.FillBackgroundLight} />
+<Source of={ButtonStories.FillBackgroundLight} />
+
+### Variante fill con fondo claro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.FillBackgroundLightDisabled} />
+<Source of={ButtonStories.FillBackgroundLightDisabled} />
+
+### Variante fill con fondo oscuro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.FillBackgroundDark} />
+<Source of={ButtonStories.FillBackgroundDark} />
+
+### Variante fill con fondo oscuro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.FillBackgroundDarkDisabled} />
+<Source of={ButtonStories.FillBackgroundDarkDisabled} />
+
+### Variante outline con fondo claro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.OutlineBackgroundLight} />
+<Source of={ButtonStories.OutlineBackgroundLight} />
+
+### Variante outline con fondo claro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.OutlineBackgroundLightDisabled} />
+<Source of={ButtonStories.OutlineBackgroundLightDisabled} />
+
+### Variante outline con fondo oscuro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.OutlineBackgroundDark} />
+<Source of={ButtonStories.OutlineBackgroundDark} />
+
+### Variante outline con fondo oscuro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.OutlineBackgroundDarkDisabled} />
+<Source of={ButtonStories.OutlineBackgroundDarkDisabled} />
+
+### Variante ghost con fondo claro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.GhostBackgroundLight} />
+<Source of={ButtonStories.GhostBackgroundLight} />
+
+### Variante ghost con fondo claro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.GhostBackgroundLightDisabled} />
+<Source of={ButtonStories.GhostBackgroundLightDisabled} />
+
+### Variante ghost con fondo oscuro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.GhostBackgroundDark} />
+<Source of={ButtonStories.GhostBackgroundDark} />
+
+### Variante ghost con fondo oscuro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.GhostBackgroundDarkDisabled} />
+<Source of={ButtonStories.GhostBackgroundDarkDisabled} />
+
+### Variante tonal con fondo claro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.TonalBackgroundLight} />
+<Source of={ButtonStories.TonalBackgroundLight} />
+
+### Variante tonal con fondo claro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.TonalBackgroundLightDisabled} />
+<Source of={ButtonStories.TonalBackgroundLightDisabled} />
+
+### Variante tonal con fondo oscuro, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.TonalBackgroundDark} />
+<Source of={ButtonStories.TonalBackgroundDark} />
+
+### Variante tonal con fondo oscuro, deshabilitado, diferentes tamaños con o sin ícono, solo texto y solo ícono
+<Story of={ButtonStories.TonalBackgroundDarkDisabled} />
+<Source of={ButtonStories.TonalBackgroundDarkDisabled} />
+
+### Button con ancho máximo, con fondo claro y diferentes variantes
+<Story of={ButtonStories.ButtonFullWidth} />
+<Source of={ButtonStories.ButtonFullWidth} />
+
+## Props
+El componente Button acepta, ademas de los atributos html del "button" y "a", los siguientes parametros:
+
+<ArgTypes />

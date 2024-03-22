@@ -22,7 +22,7 @@ const ValidacionMobile: React.FC = () => {
             validarNumeros(e)
           }}
         />
-        <Button>Validar Pin</Button>
+        <Button $text="Validar Pin" />
       </div>
     </div>
   )

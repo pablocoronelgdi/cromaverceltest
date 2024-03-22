@@ -56,14 +56,14 @@ const InputField: React.FC<InputFieldPropTypes> = ({
         />
         {$type === 'password' && (
           <Button
-            variant="ghost"
-            size="extra-small"
+            $variant="ghost"
+            $size="extra-small"
             onClick={() => {
               if (!props.disabled) {
                 toogleVisibility()
               }
             }}
-            iconName={passVisible ? 'visibility' : 'visibility_off'}
+            $iconName={passVisible ? 'visibility' : 'visibility_off'}
           />
         )}
       </div>
