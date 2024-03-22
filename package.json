@@ -25,7 +25,7 @@
     "build": "yarn lerna run build",
     "dev": "yarn lerna run dev",
     "start": "yarn lerna run start",
-    "storybook": "yarn lerna run storybook:android",
+    "storybook": "yarn lerna run storybook",
     "lint": "yarn run eslint --ext .ts --ext .tsx ."
   },
   "publishConfig": {

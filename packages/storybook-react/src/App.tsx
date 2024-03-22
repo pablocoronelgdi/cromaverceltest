@@ -1,22 +1,11 @@
 import { ThemeWrapper } from '@cromaui/react'
-import FormBond from './templates/formBond'
+import Dashboard from './templates/dashboard/Dashboard'
 
 function App(): JSX.Element {
   return (
-    <main
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        padding: '4rem'
-      }}
-    >
-      <ThemeWrapper $theme="macro">
-        <FormBond />
-      </ThemeWrapper>
-    </main>
+    <ThemeWrapper $theme="macro">
+      <Dashboard />
+    </ThemeWrapper>
   )
 }
 
