@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useId } from 'react'
 import type { ChangeEvent } from 'react'
 import { Icon } from '../icon'
 import { color } from '@cromaui/foundations'
 import { RadioContainer } from './styles'
 import type { RadioPropTypes } from './types'
 
-const Radio: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, id, name }) => {
+const RadioButton: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, id, name }) => {
   const [isPressed, setIsPressed] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
+  const defaultId = useId()
 
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (onChange) {
@@ -34,7 +35,7 @@ const Radio: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, i
   }
 
   return (
-    <RadioContainer isPressed={isPressed} isFocused={isFocused} disabled={disabled}>
+    <RadioContainer $isPressed={isPressed} $isFocused={isFocused} disabled={disabled}>
       <label
         onMouseDown={(e) => {
           handlePress(e)
@@ -49,7 +50,7 @@ const Radio: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, i
         onClick={handleClick}
       >
         <input
-          id={id}
+          id={id || defaultId}
           disabled={disabled}
           type="radio"
           checked={checked}
@@ -68,4 +69,4 @@ const Radio: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, i
   )
 }
 
-export default Radio
+export default RadioButton

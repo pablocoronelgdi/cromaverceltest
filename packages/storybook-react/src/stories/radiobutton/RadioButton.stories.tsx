@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Radio } from '@cromaui/react'
+import { RadioButton } from '@cromaui/react'
 import { type ChangeEvent, useState } from 'react'
 
 const meta = {
-  title: 'Inputs/Radio',
-  component: Radio,
+  title: 'Inputs/RadioButton',
+  component: RadioButton,
   argTypes: {
     disabled: {
       description:
@@ -30,7 +30,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Radio>
+} satisfies Meta<typeof RadioButton>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -53,13 +53,13 @@ export const Default: Story = {
         }
 
       <>
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio1"
           checked={value === "radio1"}
           onChange={(e) => onChange(e.target.value)}
         />
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio2"
           checked={value === "radio2"}
@@ -85,7 +85,7 @@ export const Default: Story = {
     }
     return (
       <>
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio1"
           checked={value === 'radio1'}
@@ -93,7 +93,7 @@ export const Default: Story = {
             onChange(e.target.value)
           }}
         />
-        <Radio
+        <RadioButton
           name="defaults"
           value="radio2"
           checked={value === 'radio2'}
@@ -125,14 +125,14 @@ export const Disabled: Story = {
         }
 
       <>
-        <Radio
+        <RadioButton
           disabled
           name="defaults"
           value="radio1"
           checked={value === "radio1"}
           onChange={(e) => onChange(e.target.value)}
         />
-        <Radio
+        <RadioButton
           disabled
           name="defaults"
           value="radio2"
@@ -160,7 +160,7 @@ export const Disabled: Story = {
 
     return (
       <>
-        <Radio
+        <RadioButton
           disabled
           name="defaults"
           value="radio1"
@@ -169,7 +169,7 @@ export const Disabled: Story = {
             onChange(e.target.value)
           }}
         />
-        <Radio
+        <RadioButton
           disabled
           name="defaults"
           value="radio2"
