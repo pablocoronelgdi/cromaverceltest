@@ -1,16 +1,9 @@
 import React, { useState } from 'react'
-import { color, opacities } from '@cromaui/foundations'
+import { color } from '@cromaui/foundations'
 import { Icon } from '../icon'
-import {
-  type NativeSyntheticEvent,
-  type TargetedEvent,
-  Pressable,
-  StyleSheet,
-  View
-} from 'react-native'
-import { spacingsNative } from '@cromaui/foundations/dist/spacings'
-import { shapesNative } from '@cromaui/foundations/dist/shapes'
+import { type NativeSyntheticEvent, type TargetedEvent, Pressable, View } from 'react-native'
 import type { CheckboxProps } from './types'
+import { styles } from './styles'
 
 const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
@@ -87,32 +80,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
 }
 
 export default Checkbox
-
-const styles = StyleSheet.create({
-  container: {
-    width: spacingsNative.space40,
-    height: spacingsNative.space40,
-    padding: spacingsNative.space8,
-    borderRadius: shapesNative.full,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  containerHovered: {
-    backgroundColor: color.navy.soft + opacities.opacity20
-  },
-  containerPressed: {
-    backgroundColor: color.neutral[600] + opacities.opacity20
-  },
-  area: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: spacingsNative.space26,
-    height: spacingsNative.space26,
-    borderRadius: shapesNative.xs,
-    borderWidth: 2,
-    borderColor: 'transparent'
-  },
-  areaFocused: {
-    borderColor: color.blue.main
-  }
-})

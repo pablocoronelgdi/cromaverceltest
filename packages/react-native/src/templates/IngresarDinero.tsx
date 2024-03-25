@@ -1,22 +1,18 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { color } from '@cromaui/foundations'
-import CromaText from '../components/text/Text'
 import Button from '../components/button/Button'
+import { CromaText } from '../components/text'
 
 const IngresarDinero: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.navBar}>
-        <CromaText $color="light">Ingresar dinero</CromaText>
+        <CromaText>Ingresar dinero</CromaText>
       </View>
       <View style={styles.body}>
-        <CromaText $variant="semibold">
-          ¿Donde queres que se acredite?
-        </CromaText>
-        <CromaText $component="bodySm">
-          Elegí una de tus cuentas de macro
-        </CromaText>
+        <CromaText variant="semibold">¿Donde queres que se acredite?</CromaText>
+        <CromaText component="bodySm">Elegí una de tus cuentas de macro</CromaText>
       </View>
       <View style={{ width: 200 }}>
         <Button>Continuar</Button>

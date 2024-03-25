@@ -179,162 +179,104 @@ export const typography = {
 export const typographyNative = {
   displayXl: {
     fontSize: 50,
-    textDecoration: 'none',
     fontFamily: 'Titillium Web',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.3,
-    lineHeight: 80,
-    textCase: 'none'
+    lineHeight: 80
   },
   displayLg: {
     fontSize: 40,
-    textDecoration: 'none',
     fontFamily: 'Titillium Web',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.2,
-    lineHeight: 64,
-    textCase: 'none'
+    lineHeight: 64
   },
   headingXl: {
     fontSize: 32,
-    textDecoration: 'none',
     fontFamily: 'Titillium Web',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.128,
-    lineHeight: 48,
-    textCase: 'none'
+    lineHeight: 48
   },
   headingLg: {
     fontSize: 28,
-    textDecoration: 'none',
     fontFamily: 'Titillium Web',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.098,
-    lineHeight: 48,
-    textCase: 'none'
+    lineHeight: 48
   },
   headingMd: {
     fontSize: 24,
-    textDecoration: 'none',
     fontFamily: 'Titillium Web',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.072,
-    lineHeight: 40,
-    textCase: 'none'
+    lineHeight: 40
   },
   headingSm: {
     fontSize: 20,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.05,
-    lineHeight: 32,
-    textCase: 'none'
+    lineHeight: 32
   },
   bodyLg: {
     fontSize: 18,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.036,
-    lineHeight: 32,
-    textCase: 'none'
+    lineHeight: 32
   },
   bodyMd: {
     fontSize: 16,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.032,
-    lineHeight: 24,
-    textCase: 'none'
+    lineHeight: 24
   },
   bodySm: {
     fontSize: 14,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
+
     letterSpacing: 0.025,
-    lineHeight: 24,
-    textCase: 'none'
+    lineHeight: 24
   },
   caption: {
     fontSize: 12,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.018,
-    lineHeight: 18,
-    textCase: 'none'
+    lineHeight: 18
   },
   linkLg: {
     fontSize: 18,
-    textDecoration: 'underline',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0,
-    lineHeight: 28,
-    textCase: 'none'
+    lineHeight: 28
   },
   linkMd: {
-    fontSize: '16',
-    textDecoration: 'underline',
+    fontSize: 16,
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0,
-    lineHeight: 24,
-    textCase: 'none'
+    lineHeight: 24
   },
   linkSm: {
-    fontSize: '14',
-    textDecoration: 'underline',
+    fontSize: 14,
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0,
-    lineHeight: 20,
-    textCase: 'none'
+    lineHeight: 20
   },
   buttonMd: {
     fontSize: 16,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
-    letterSpacing: '0.032',
-    lineHeight: 24,
-    textCase: 'none'
+    letterSpacing: 0.032,
+    lineHeight: 24
   },
   buttonSm: {
     fontSize: 14,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.025,
-    lineHeight: 20,
-    textCase: 'none'
+    lineHeight: 20
   },
   buttonXsm: {
     fontSize: 14,
-    textDecoration: 'none',
     fontFamily: 'Public Sans',
-    fontStyle: 'normal',
-    fontStretch: 'normal',
     letterSpacing: 0.025,
-    lineHeight: 16,
-    textCase: 'none'
+    lineHeight: 16
   }
 }
