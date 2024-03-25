@@ -175,3 +175,166 @@ export const typography = {
     bold: { fontWeight: 700 }
   }
 }
+
+export const typographyNative = {
+  displayXl: {
+    fontSize: 50,
+    textDecoration: 'none',
+    fontFamily: 'Titillium Web',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.3,
+    lineHeight: 80,
+    textCase: 'none'
+  },
+  displayLg: {
+    fontSize: 40,
+    textDecoration: 'none',
+    fontFamily: 'Titillium Web',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.2,
+    lineHeight: 64,
+    textCase: 'none'
+  },
+  headingXl: {
+    fontSize: 32,
+    textDecoration: 'none',
+    fontFamily: 'Titillium Web',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.128,
+    lineHeight: 48,
+    textCase: 'none'
+  },
+  headingLg: {
+    fontSize: 28,
+    textDecoration: 'none',
+    fontFamily: 'Titillium Web',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.098,
+    lineHeight: 48,
+    textCase: 'none'
+  },
+  headingMd: {
+    fontSize: 24,
+    textDecoration: 'none',
+    fontFamily: 'Titillium Web',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.072,
+    lineHeight: 40,
+    textCase: 'none'
+  },
+  headingSm: {
+    fontSize: 20,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.05,
+    lineHeight: 32,
+    textCase: 'none'
+  },
+  bodyLg: {
+    fontSize: 18,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.036,
+    lineHeight: 32,
+    textCase: 'none'
+  },
+  bodyMd: {
+    fontSize: 16,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.032,
+    lineHeight: 24,
+    textCase: 'none'
+  },
+  bodySm: {
+    fontSize: 14,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.025,
+    lineHeight: 24,
+    textCase: 'none'
+  },
+  caption: {
+    fontSize: 12,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.018,
+    lineHeight: 18,
+    textCase: 'none'
+  },
+  linkLg: {
+    fontSize: 18,
+    textDecoration: 'underline',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0,
+    lineHeight: 28,
+    textCase: 'none'
+  },
+  linkMd: {
+    fontSize: '16',
+    textDecoration: 'underline',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0,
+    lineHeight: 24,
+    textCase: 'none'
+  },
+  linkSm: {
+    fontSize: '14',
+    textDecoration: 'underline',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0,
+    lineHeight: 20,
+    textCase: 'none'
+  },
+  buttonMd: {
+    fontSize: 16,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: '0.032',
+    lineHeight: 24,
+    textCase: 'none'
+  },
+  buttonSm: {
+    fontSize: 14,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.025,
+    lineHeight: 20,
+    textCase: 'none'
+  },
+  buttonXsm: {
+    fontSize: 14,
+    textDecoration: 'none',
+    fontFamily: 'Public Sans',
+    fontStyle: 'normal',
+    fontStretch: 'normal',
+    letterSpacing: 0.025,
+    lineHeight: 16,
+    textCase: 'none'
+  }
+}

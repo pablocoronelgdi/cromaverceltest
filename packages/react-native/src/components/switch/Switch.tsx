@@ -49,7 +49,6 @@ const Switch: React.FC<SwitchProps> = ({
     if (!disabled) {
       setFocused(true)
       props.onFocus && props.onFocus(e)
-      console.log(e)
     }
   }
   const handleBlur = (e: NativeSyntheticEvent<TargetedEvent>): void => {
@@ -96,7 +95,11 @@ const Switch: React.FC<SwitchProps> = ({
             ]}
           >
             {innerValue && (
-              <Icon name={'check'} color={disabled ? 'neutral' : 'primary'} size="small" />
+              <Icon
+                name={'check'}
+                color={disabled ? color.neutral[300] : color.navy.main}
+                size="small"
+              />
             )}
           </View>
         </Animated.View>
