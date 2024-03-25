@@ -7,6 +7,7 @@ export type TabsItemProps = {
   $hide?: boolean
   $focused?: boolean
   $active?: boolean
+  $content?: ReactNode | undefined
 } & HTMLAttributes<HTMLDivElement>
 
 export type TabsProps = {
@@ -18,7 +19,6 @@ export type TabsProps = {
   $vertical?: boolean
   className?: string
   $active?: boolean
-  $content?: ReactNode | undefined
   $slidesToShow?: number
   length?: ReactNode | undefined
 } & HTMLAttributes<HTMLDivElement>

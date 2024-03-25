@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import { Button, Link, Toogletip } from '@cromaui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'

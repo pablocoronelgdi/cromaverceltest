@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import { Tooltip } from '@cromaui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 

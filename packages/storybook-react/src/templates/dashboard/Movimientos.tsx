@@ -50,7 +50,7 @@ const Movimientos: React.FC = () => {
         <div style={{ width: '70%' }}>
           {loading ? (
             <div className="spinnerContainer">
-              <Spinner withLogo label="Cargando últimos movimientos" />
+              <Spinner $withLogo $label="Cargando últimos movimientos" />
             </div>
           ) : (
             <div className="list">
