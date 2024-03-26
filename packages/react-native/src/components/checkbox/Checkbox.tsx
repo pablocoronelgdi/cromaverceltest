@@ -22,7 +22,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
     if (!disabled) {
       setInnerValue(!innerValue)
       onChange && onChange(!innerValue)
-      console.log(innerValue)
     }
   }
   const handleFocus = (e: NativeSyntheticEvent<TargetedEvent>): void => {

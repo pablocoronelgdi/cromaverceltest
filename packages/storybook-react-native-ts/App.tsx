@@ -1,27 +1,26 @@
 import { View, StyleSheet } from 'react-native'
-import Constants from 'expo-constants'
-import { Switch, Checkbox,CromaText } from '@cromaui/react-native'
+import { Switch, Checkbox, CromaText } from '@cromaui/react-native'
 import { useState } from 'react'
 
-function App() {
+function App(): JSX.Element {
   const [value, setvalue] = useState(true)
 
-  const handlePress = (innerValue) => {
+  const handlePress = (innerValue: boolean): void => {
     console.log(innerValue)
   }
   return (
     <View style={styles.container}>
       <Switch onChange={handlePress} defaultValue={false} disabled />
-      <Switch value={value} onChange={() => setvalue(!value)} />
+      <Switch
+        value={value}
+        onChange={() => {
+          setvalue(!value)
+        }}
+      />
       <Checkbox onChange={() => {}} />
       <CromaText component="h2">Hola</CromaText>
     </View>
   )
-}
-
-let AppEntryPoint = App
-if (Constants.expoConfig?.extra?.storybookEnabled === 'true') {
-  AppEntryPoint = require('./.storybook').default
 }
 
 const styles = StyleSheet.create({
@@ -32,4 +31,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AppEntryPoint
+export default App
