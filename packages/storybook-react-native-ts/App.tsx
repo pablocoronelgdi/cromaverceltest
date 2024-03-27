@@ -1,34 +1,31 @@
-import { View, StyleSheet } from 'react-native'
-import { Switch, Checkbox, CromaText } from '@cromaui/react-native'
-import { useState } from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import Constants from 'expo-constants'
+import { Checkbox } from '@cromaui/react-native'
 
 function App(): JSX.Element {
-  const [value, setvalue] = useState(true)
-
-  const handlePress = (innerValue: boolean): void => {
-    console.log(innerValue)
-  }
   return (
     <View style={styles.container}>
-      <Switch onChange={handlePress} defaultValue={false} disabled />
-      <Switch
-        value={value}
-        onChange={() => {
-          setvalue(!value)
-        }}
-      />
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
       <Checkbox onChange={() => {}} />
-      <CromaText component="h2">Hola</CromaText>
     </View>
   )
+}
+
+let AppEntryPoint = App
+
+if (Constants.expoConfig?.extra?.storybookEnabled === 'true') {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  AppEntryPoint = require('./.storybook').default
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   }
 })
-
-export default App
+export default AppEntryPoint

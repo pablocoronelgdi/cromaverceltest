@@ -24,6 +24,9 @@ module.exports = {
     },
     web: {
       favicon: './assets/favicon.png'
+    },
+    extra: {
+      storybookEnabled: process.env.STORYBOOK
     }
   }
 }
