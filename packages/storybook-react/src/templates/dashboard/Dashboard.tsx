@@ -10,33 +10,33 @@ import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
 
 const tabs: TabsItemProps[] = [
   {
-    label: 'Inicio',
-    iconLeftName: 'home',
-    iconRightName: 'home',
+    $label: 'Inicio',
+    $iconLeftName: 'home',
+    $iconRightName: 'home',
     $content: <Inicio />
   },
   {
-    label: 'Transferencias',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    $label: 'Transferencias',
+    $iconLeftName: 'expand_circle_down',
+    $iconRightName: 'expand_circle_down',
     $content: <Movimientos />
   },
   {
-    label: 'Validación Móvil',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    $label: 'Validación Móvil',
+    $iconLeftName: 'expand_circle_down',
+    $iconRightName: 'expand_circle_down',
     $content: <ValidacionMobile />
   },
   {
-    label: 'Login Form',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    $label: 'Login Form',
+    $iconLeftName: 'expand_circle_down',
+    $iconRightName: 'expand_circle_down',
     $content: <Login />
   },
   {
-    label: 'Solicitud de Bono',
-    iconLeftName: 'person',
-    iconRightName: 'person',
+    $label: 'Solicitud de Bono',
+    $iconLeftName: 'person',
+    $iconRightName: 'person',
     $content: <FormBond />
   }
 ]
@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <Tabs $tabs={tabs} $labelShow $iconLeft $iconRight />
+        <Tabs $tabs={tabs} $iconLeft $iconRight />
       </main>
     </>
   )

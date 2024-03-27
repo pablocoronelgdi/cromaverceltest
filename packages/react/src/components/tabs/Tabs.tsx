@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useId } from 'react'
-import { StyledTabContainer, Tab, TabContent, Flex, StyledFoco } from './styles'
+import { StyledTabContainer, Tab, TabContent, Flex } from './styles'
 import { breakpoints } from '@cromaui/foundations'
 import type { TabsProps } from './types'
 import { Icon } from '../icon'
@@ -25,13 +25,12 @@ function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Ele
 }
 
 const Tabs: React.FC<TabsProps> = ({
-  id,
+  $id,
   $tabs,
   $vertical = false,
   $iconLeft,
   $iconRight,
   $slidesToShow,
-  $labelShow = true,
   ...props
 }) => {
   const [activeTab, setActiveTab] = useState(0)
@@ -105,32 +104,30 @@ const Tabs: React.FC<TabsProps> = ({
         <StyledTabContainer>
           <Slider {...settings}>
             {$tabs.map((tab, index: number) => (
-              <StyledFoco key={index}>
-                <Tab
-                  id={id && defaultId}
-                  onFocus={() => {
-                    handleTabFocus(index)
-                  }}
-                  $focused={index === focusedTab}
-                  onBlur={handleTabBlur}
-                  {...props}
-                  key={index}
-                  $active={index === activeTab}
-                  onClick={() => {
-                    handleTabClick(index)
-                  }}
-                >
-                  <Flex $tabs={$tabs} $vertical={$vertical}>
-                    {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
-                    <p className="label">{$labelShow && tab.label}</p>
-                    {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
-                  </Flex>
-                </Tab>
-              </StyledFoco>
+              <Tab
+                key={index}
+                id={$id && defaultId}
+                onFocus={() => {
+                  handleTabFocus(index)
+                }}
+                $focused={index === focusedTab}
+                onBlur={handleTabBlur}
+                {...props}
+                $active={index === activeTab}
+                onClick={() => {
+                  handleTabClick(index)
+                }}
+              >
+                <Flex $tabs={$tabs} $vertical={$vertical}>
+                  {$iconLeft && <Icon $name={`${tab.$iconLeftName}`} $size="large" />}
+                  {tab.$label && <small>{tab.$label}</small>}
+                  {$iconRight && <Icon $name={`${tab.$iconRightName}`} $size="large" />}
+                </Flex>
+              </Tab>
             ))}
           </Slider>
         </StyledTabContainer>
-        <TabContent>{$tabs[activeTab].content}</TabContent>
+        <TabContent>{$tabs[activeTab].$content}</TabContent>
       </div>
     )
   }
@@ -138,31 +135,29 @@ const Tabs: React.FC<TabsProps> = ({
     <div>
       <StyledTabContainer className="flex">
         {$tabs.map((tab, index: number) => (
-          <StyledFoco key={index}>
-            <Tab
-              id={id && defaultId}
-              {...props}
-              $focused={index === focusedTab}
-              onFocus={() => {
-                handleTabFocus(index)
-              }}
-              onBlur={handleTabBlur}
-              key={index}
-              $active={index === activeTab}
-              onClick={() => {
-                handleTabClick(index)
-              }}
-            >
-              <Flex $tabs={$tabs} $vertical={$vertical}>
-                {$iconLeft && <Icon $name={`${tab.iconLeftName}`} $size="large" />}
-                <p className="label">{$labelShow && tab.label}</p>
-                {$iconRight && <Icon $name={`${tab.iconRightName}`} $size="large" />}
-              </Flex>
-            </Tab>
-          </StyledFoco>
+          <Tab
+            id={$id && defaultId}
+            {...props}
+            $focused={index === focusedTab}
+            onFocus={() => {
+              handleTabFocus(index)
+            }}
+            onBlur={handleTabBlur}
+            key={index}
+            $active={index === activeTab}
+            onClick={() => {
+              handleTabClick(index)
+            }}
+          >
+            <Flex $tabs={$tabs} $vertical={$vertical}>
+              {$iconLeft && <Icon $name={`${tab.$iconLeftName}`} $size="large" />}
+              {tab.$label && <small>{tab.$label}</small>}
+              {$iconRight && <Icon $name={`${tab.$iconRightName}`} $size="large" />}
+            </Flex>
+          </Tab>
         ))}
       </StyledTabContainer>
-      <TabContent>{$tabs[activeTab].content}</TabContent>
+      <TabContent>{$tabs[activeTab].$content}</TabContent>
     </div>
   )
 }

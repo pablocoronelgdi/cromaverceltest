@@ -31,6 +31,7 @@ const Button: React.FC<ButtonPropTypes> = ({
         $size={$size}
         $variant={$variant}
         title={props.title ?? $text}
+        $text={$text}
         href={props.href}
       >
         {$text}

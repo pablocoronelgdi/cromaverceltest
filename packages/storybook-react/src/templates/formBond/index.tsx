@@ -1,4 +1,4 @@
-import { Button, TextArea, InputField, Logo, Toogletip } from '@cromaui/react'
+import { Button, TextArea, InputField, Logo, Toogletip, Tab } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
@@ -27,6 +27,10 @@ function FormBond(): JSX.Element {
   const handleToogle = (): void => {
     setShowToogletip(!showToogletip)
     console.log('click')
+  }
+
+  const handleCloseTab = (): void => {
+    alert('click en close tab')
   }
 
   return (
@@ -104,16 +108,21 @@ function FormBond(): JSX.Element {
             setComment(e.target.value)
           }}
         />
+        <div className="container_tabs">
+          <Tab $text="Tab 1" $iconName="home" />
+          <Tab $text="Tab 2" $selected $iconName="person" />
+          <Tab $text="Tab 3" $onClose={handleCloseTab} />
+          <Tab $text="Tab 4" $selected $iconName="person" $onClose={handleCloseTab} />
+          <Tab $iconName="home" />
+          <Tab $selected $iconName="person" />
+          <Tab $iconName="home" $isVertical $text="Tab 7" />
+          <Tab $selected $iconName="person" $isVertical $text="Tab 8" />
+          <Tab $text="Tab 9" />
+          <Tab $selected $text="Tab 10" />
+        </div>
         <div className="form_bond__buttons">
           <Button type="submit" $text="Enviar" $fullWidth />
-          <Button
-            $as="a"
-            $variant="fill"
-            $iconName="expand_less"
-            $text="Subir"
-            $iconPosition="left"
-            href="#form"
-          />
+          <Button $as="a" $variant="outline" $text="Subir" href="#form" />
         </div>
       </form>
     </section>

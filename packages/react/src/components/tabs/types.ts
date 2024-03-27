@@ -1,24 +1,22 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 export type TabsItemProps = {
-  label?: string
-  iconLeftName?: string
-  iconRightName?: string
-  $hide?: boolean
-  $focused?: boolean
-  $active?: boolean
+  $label?: string
+  $iconLeftName?: string
+  $iconRightName?: string
   $content?: ReactNode | undefined
-} & HTMLAttributes<HTMLDivElement>
+  $active?: boolean
+  $focused?: boolean
+  $hide?: boolean
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export type TabsProps = {
+  $id?: string
+  $disabled?: boolean
   $tabs: TabsItemProps[]
-  $labelShow?: boolean
   $iconLeft?: boolean
   $iconRight?: boolean
-  disabled?: boolean
   $vertical?: boolean
-  className?: string
-  $active?: boolean
   $slidesToShow?: number
-  length?: ReactNode | undefined
-} & HTMLAttributes<HTMLDivElement>
+  $active?: boolean
+}
