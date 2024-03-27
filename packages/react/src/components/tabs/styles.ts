@@ -1,10 +1,5 @@
 import styled from 'styled-components'
-import {
-  color,
-  spacings,
-  borders,
-  shapes
-} from '@cromaui/foundations'
+import { color, spacings, borders, shapes } from '@cromaui/foundations'
 import {
   FONT_BODY_MD,
   FONT_BODY_SM,
@@ -59,50 +54,55 @@ export const StyledTabContainer = styled.ul<TabsItemProps>`
       color: ${color.navy.main};
     }
   }
-  .slick-arrow.slick-next:before, .slick-arrow.slick-prev:before {
-    content: ''
+  .slick-arrow.slick-next:before,
+  .slick-arrow.slick-prev:before {
+    content: '';
   }
-  .slick-prev.slick-disabled, .slick-next.slick-disabled {
+  .slick-prev.slick-disabled,
+  .slick-next.slick-disabled {
     opacity: 0;
   }
 `
-export const Tab = styled.li<TabsItemProps>`
+export const Tab = styled.button<TabsItemProps>`
+  background: ${({ $active }) => ($active ? color.neutral[200] : color.neutral[50])};
   width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
-  list-style: none;
   padding: ${spacings.space8} ${spacings.space16};
-  border-bottom: ${(props) => (props.$active ? borders.br2 + color.blue.main : borders.br2 + color.neutral[400])};
-  border-radius: ${(props) => (props.$active ? `${shapes.sm} ${shapes.sm} 0 0` : 0)};
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: ${({ $active }) =>
+    $active ? borders.br2 + color.blue.main : borders.br2 + color.neutral[400]};
+  border-radius: ${shapes.sm} ${shapes.sm} 0 0;
 
   &:hover {
     background: ${color.blue.extraSoft};
   }
 
-  p.label {
-    color: ${(props) => (props.$active ? color.neutral[900] : color.neutral[700])};
-    ${(props) => (props.$active ? FONT_BODY_MD : FONT_BODY_SM)};
-    ${(props) => (props.$active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
-    margin: 0 ${spacings.space4}
-  }
-  span {
-    color: ${color.neutral[900]};
+  small {
+    color: ${({ $active }) => ($active ? color.neutral[900] : color.neutral[700])};
+    ${({ $active }) => ($active ? FONT_BODY_MD : FONT_BODY_SM)};
+    ${({ $active }) => ($active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+    margin: 0 ${spacings.space4};
   }
 
-`
-export const StyledFoco = styled.div<TabsItemProps>`
-    &:focus,
-    &:focus-visible,
-    &:focus-within {
-      color: ${(props) => (props.$active ? color.neutral[900] : color.neutral[700])};
-      background: ${(props) => (props.$active ? color.neutral[50] : color.neutral[200])};
-      border: ${(props) => (props.$focused || props.$active ? borders.br2 + color.blue.main : borders.br1 + ' none')};
-      box-sizing: border-box;
-    }
-    
+  span {
+    color: ${({ $active }) => ($active ? color.neutral[900] : color.neutral[700])};
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    color: ${({ $active }) => ($active ? color.neutral[900] : color.neutral[700])};
+    background: ${({ $active }) => ($active ? color.neutral[50] : color.neutral[200])};
+    border: ${({ $active, $focused }) =>
+      $focused || $active ? borders.br2 + color.blue.main : borders.br1 + ' none'};
+    box-sizing: border-box;
+  }
 `
 export const Flex = styled.div<TabsProps>`
-   ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
+  ${({ $vertical }) => ($vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 `
 /* ====================== FIN ======================= */
 
@@ -122,51 +122,53 @@ export const StyledTabContainerSegmented = styled.ul<TabsItemProps>`
 `
 export const FlexList = styled.li<TabsProps>`
   width: ${spacings.spaceFull};
-  ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
+  ${({ $vertical }) => ($vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 `
 export const StyledTabSegmented = styled.div<TabsProps>`
   width: ${spacings.spaceFull};
   text-align: center;
   cursor: pointer;
-  background: ${(props) => (props.$active ? color.neutral[50] : 'transparent')};
+  background: ${({ $active }) => ($active ? color.neutral[50] : 'transparent')};
   padding: ${spacings.space8} ${spacings.space16};
   border-radius: ${shapes.full};
-  box-shadow: ${(props) => (props.$active ? '0px 2px 4px 0px #4447484D' : '')};
-
+  box-shadow: ${({ $active }) =>
+    $active && 'box-shadow: 0px 1px 3px 1px #2E313226; box-shadow: 0px 1px 2px 0px #2E31324D'};
+  // @TODO: En el refactor de Tabs, usar elevations
   &:hover {
     background: ${color.blue.extraSoft};
     border-radius: ${shapes.full};
   }
 `
 export const FlexSegmented = styled.div<TabsProps>`
-   ${(props) => (props.$vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
-
-   span {
-    width: ${spacings.spaceFull};
-   }
-`
-export const StyledFocoSegmented = styled.div<TabsItemProps>`
-    width: ${spacings.spaceFull};
-    border: ${(props) => (props.$focused ? borders.br2 + color.blue.main : borders.br2 + ' transparent')};
-    padding: ${spacings.space2};
-    border-radius: ${shapes.full};
-    box-sizing: border-box;
+  ${({ $vertical }) => ($vertical ? FLEX_COLUMN_CENTER : FLEX_CENTER)};
 
   span {
-    color: ${(props) => (props.$active ? color.navy.main : color.neutral[700])};
-    ${(props) => (props.$active ? FONT_BODY_MD : FONT_BODY_SM)};
-    ${(props) => (props.$active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+    width: ${spacings.spaceFull};
+  }
+`
+export const StyledFocoSegmented = styled.div<TabsItemProps>`
+  width: ${spacings.spaceFull};
+  border: ${({ $focused }) =>
+    $focused ? borders.br2 + color.blue.main : borders.br2 + ' transparent'};
+  padding: ${spacings.space2};
+  border-radius: ${shapes.full};
+  box-sizing: border-box;
+
+  span {
+    color: ${({ $active }) => ($active ? color.navy.main : color.neutral[700])};
+    ${({ $active }) => ($active ? FONT_BODY_MD : FONT_BODY_SM)};
+    ${({ $active }) => ($active ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
     margin: 0 ${spacings.space4};
   }
 `
 export const TabContent = styled.div<TabsItemProps>`
-   margin-top: ${spacings.space20};
+  margin-top: ${spacings.space20};
 `
 export const Divider = styled.div<TabsItemProps>`
   width: ${spacings.space1};
   height: ${spacings.space20};
   background: ${color.neutral[400]};
   margin: 0 ${spacings.space10};
-  visibility: ${(props) => (props.$hide ? 'hidden' : 'visible')};
+  visibility: ${({ $hide }) => ($hide ? 'hidden' : 'visible')};
 `
 /* ====================== FIN ======================= */
