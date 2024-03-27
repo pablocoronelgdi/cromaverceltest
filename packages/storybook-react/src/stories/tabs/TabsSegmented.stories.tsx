@@ -4,35 +4,35 @@ import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
 
 const tabs2: TabsItemProps[] = [
   {
-    label: 'Tab 1',
-    iconLeftName: 'arrow_forward_ios',
-    iconRightName: 'arrow_forward_ios',
+    $label: 'Tab 1',
+    $iconLeftName: 'arrow_forward_ios',
+    $iconRightName: 'arrow_forward_ios',
     $content: <div>Contenido de la pestaña 1</div>
   },
   {
-    label: 'Tab 2',
-    iconLeftName: 'home',
-    iconRightName: 'home',
+    $label: 'Tab 2',
+    $iconLeftName: 'home',
+    $iconRightName: 'home',
     $content: <div>Contenido de la pestaña 2</div>
   }
 ]
 const tabs3: TabsItemProps[] = [
   {
-    label: 'Tab 1',
-    iconLeftName: 'arrow_forward_ios',
-    iconRightName: 'arrow_forward_ios',
+    $label: 'Tab 1',
+    $iconLeftName: 'arrow_forward_ios',
+    $iconRightName: 'arrow_forward_ios',
     $content: <div>Contenido de la pestaña 1</div>
   },
   {
-    label: 'Tab 2',
-    iconLeftName: 'home',
-    iconRightName: 'home',
+    $label: 'Tab 2',
+    $iconLeftName: 'home',
+    $iconRightName: 'home',
     $content: <div>Contenido de la pestaña 2</div>
   },
   {
-    label: 'Tab 3',
-    iconLeftName: 'home',
-    iconRightName: 'home',
+    $label: 'Tab 3',
+    $iconLeftName: 'home',
+    $iconRightName: 'home',
     $content: <div>Contenido de la pestaña 3</div>
   }
 ]

@@ -84,10 +84,19 @@ const meta = {
       }
     },
     $fullWidth: {
-      description: 'Define si el componente ocupa todo el ancho posible o el contenido.',
+      control: { type: 'boolean' },
+      description: 'Define si el componente ocupa todo el ancho posible o el contenido. Máximo 328px',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: false }
+      }
+    },
+    href: {
+      description: 'Define el link interno o el ancla a dónde se quiera navegar, siempre y cuando el $as sea "a"',
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: undefined }
       }
     }
   }
