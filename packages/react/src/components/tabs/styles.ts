@@ -131,8 +131,9 @@ export const StyledTabSegmented = styled.div<TabsProps>`
   background: ${({ $active }) => ($active ? color.neutral[50] : 'transparent')};
   padding: ${spacings.space8} ${spacings.space16};
   border-radius: ${shapes.full};
-  box-shadow: ${({ $active }) => ($active ? '0px 2px 4px 0px #4447484D' : '')};
-
+  box-shadow: ${({ $active }) =>
+    $active && 'box-shadow: 0px 1px 3px 1px #2E313226; box-shadow: 0px 1px 2px 0px #2E31324D'};
+  // @TODO: En el refactor de Tabs, usar elevations
   &:hover {
     background: ${color.blue.extraSoft};
     border-radius: ${shapes.full};
