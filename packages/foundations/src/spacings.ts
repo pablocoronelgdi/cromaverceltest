@@ -38,6 +38,7 @@ export const spacingsNative = {
   space16: 16,
   space20: 20,
   space24: 24,
+  space26: 26,
   space28: 28,
   space32: 32,
   space36: 36,

@@ -1,37 +1,23 @@
 import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
-import styled from 'styled-components'
-import { getColorByProp } from '../../utils/colorUtils'
-import type { IconPropTypes, IconSizeType } from './types'
+import type { IconPropTypes } from './types'
+import { iconStyles } from './styles'
 
-const getSize = (size?: IconSizeType): number => {
-  switch (size) {
-    case 'small':
-      return 16
-    case 'medium':
-      return 20
-    case 'large':
-      return 24
-    case 'extra-large':
-      return 32
-    default:
-      return 24
-  }
+const IconSize = {
+  small: 18,
+  medium: 20,
+  large: 24,
+  extraLarge: 32
 }
 
-const StyledIcon = styled(MaterialIcons)<IconPropTypes>`
-  color: ${(props) => getColorByProp(props.color, props.theme)};
-  font-weight: 600;
-`
-
-const Icon: React.FC<IconPropTypes> = ({
-  name,
-  size = 'medium',
-  color = 'primary',
-  style
-}: IconPropTypes) => {
+const Icon: React.FC<IconPropTypes> = ({ name, size = 'large', color = '#000' }: IconPropTypes) => {
   return (
-    <StyledIcon name={name} color={color} size={getSize(size)} style={style} />
+    <MaterialIcons
+      name={name}
+      color={color}
+      style={[iconStyles(IconSize[size]).icon]}
+      size={IconSize[size]}
+    />
   )
 }
 

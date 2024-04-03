@@ -1,31 +1,80 @@
-import React from 'react'
-import styled from 'styled-components/native'
-import { color, shapes, spacings } from '@cromaui/foundations'
+import React, { useState } from 'react'
+import { color } from '@cromaui/foundations'
 import { Icon } from '../icon'
+import { type NativeSyntheticEvent, type TargetedEvent, Pressable, View } from 'react-native'
+import type { CheckboxProps } from './types'
+import { styles } from './styles'
 
-const CheckboxContainer = styled.Pressable`
-  background-color: ${color.navy.extraSoft};
-  padding: ${spacings.space8};
-  border-radius: ${shapes.full};
-`
+const Checkbox: React.FC<CheckboxProps> = ({
+  onChange,
+  checked,
+  defaultChecked,
+  disabled,
+  ...props
+}) => {
+  const [pressed, setPressed] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [hovered, setHovered] = useState(false)
 
-const CheckboxBorder = styled.View`
-  background-color: ${color.blue.main};
-  border-radius: 100px;
-`
+  const [innerValue, setInnerValue] = useState(checked || defaultChecked || false)
 
-const CheckboxIcon = styled(Icon)`
-  color: ${color.neutral[50]};
-  background-color: ${color.navy.main};
-`
+  const handlePress = (): void => {
+    if (!disabled) {
+      setInnerValue(!innerValue)
+      onChange && onChange(!innerValue)
+    }
+  }
+  const handleFocus = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(true)
+      props.onFocus && props.onFocus(e)
+    }
+  }
+  const handleBlur = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(false)
+      props.onBlur && props.onBlur(e)
+    }
+  }
+  const handleHover = (value: boolean): void => {
+    if (!disabled) {
+      setHovered(value)
+    }
+  }
 
-const Checkbox: React.FC = () => {
   return (
-    <CheckboxContainer>
-      <CheckboxBorder>
-        <CheckboxIcon size="medium" name="check" />
-      </CheckboxBorder>
-    </CheckboxContainer>
+    <Pressable
+      style={[
+        styles.container,
+        hovered && styles.containerHovered,
+        pressed && styles.containerPressed
+      ]}
+      onPressIn={(e) => {
+        setPressed(true)
+        props.onPressIn && props.onPressIn(e)
+      }}
+      onPressOut={(e) => {
+        setPressed(false)
+        props.onPressOut && props.onPressOut(e)
+      }}
+      onPress={handlePress}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onHoverIn={() => {
+        handleHover(true)
+      }}
+      onHoverOut={() => {
+        handleHover(false)
+      }}
+    >
+      <View style={[styles.area, focused && styles.areaFocused]}>
+        <Icon
+          size="large"
+          color={disabled ? color.neutral[400] : color.navy.main}
+          name={innerValue ? 'check-box' : 'check-box-outline-blank'}
+        />
+      </View>
+    </Pressable>
   )
 }
 
