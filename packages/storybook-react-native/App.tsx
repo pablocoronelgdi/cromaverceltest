@@ -1,15 +1,22 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 import Constants from 'expo-constants'
-import { Checkbox } from '@cromaui/react-native'
+import { CromaText, useCromaFonts } from '@cromaui/react-native'
+import React from 'react'
 
-function App(): JSX.Element {
-  return (
+const App: React.FC = () => {
+  const areFontsLoaded = useCromaFonts()
+  return areFontsLoaded ? (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
-      <Checkbox onChange={() => {}} />
+      <CromaText>Holis</CromaText>
+      <CromaText component="h1" variant="bold">
+        Holis
+      </CromaText>
     </View>
+  ) : (
+    <Text>he he</Text>
   )
 }
 
