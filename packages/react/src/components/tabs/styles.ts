@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color, spacings, borders, shapes } from '@cromaui/foundations'
+import { color, spacings, borders, shapes, elevations } from '@cromaui/foundations'
 import {
   FONT_BODY_MD,
   FONT_BODY_SM,
@@ -131,9 +131,7 @@ export const StyledTabSegmented = styled.div<TabsProps>`
   background: ${({ $active }) => ($active ? color.neutral[50] : 'transparent')};
   padding: ${spacings.space8} ${spacings.space16};
   border-radius: ${shapes.full};
-  box-shadow: ${({ $active }) =>
-    $active && 'box-shadow: 0px 1px 3px 1px #2E313226; box-shadow: 0px 1px 2px 0px #2E31324D'};
-  // @TODO: En el refactor de Tabs, usar elevations
+  box-shadow: ${({ $active }) => $active && elevations.level1};
   &:hover {
     background: ${color.blue.extraSoft};
     border-radius: ${shapes.full};
