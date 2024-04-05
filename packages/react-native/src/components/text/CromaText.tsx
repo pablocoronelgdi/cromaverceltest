@@ -30,7 +30,7 @@ const CromaText: React.FC<TextPropTypes> = ({
   ...props
 }) => {
   return (
-    <Text style={[styles?.[typoRecord[component]], styles[variant], style]} {...props}>
+    <Text style={[styles(variant)[typoRecord[component]], style]} {...props}>
       {children}
     </Text>
   )

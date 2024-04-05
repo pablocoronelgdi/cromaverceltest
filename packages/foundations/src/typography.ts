@@ -278,5 +278,22 @@ export const typographyNative = {
     fontFamily: 'Public Sans',
     letterSpacing: 0.025,
     lineHeight: 16
+  },
+  variant: {
+    display: {
+      bold: { fontFamily: 'TitilliumBold' },
+      semibold: { fontFamily: 'TitilliumSemibold' },
+      regular: { fontFamily: 'TitilliumRegular' }
+    },
+    heading: {
+      bold: { fontFamily: 'TitilliumBold' },
+      semibold: { fontFamily: 'TitilliumSemibold' },
+      regular: { fontFamily: 'TitilliumRegular' }
+    },
+    body: {
+      bold: { fontFamily: 'PublicSansBold' },
+      semibold: { fontFamily: 'PublicSansSemibold' },
+      regular: { fontFamily: 'PublicSansRegular' }
+    }
   }
 }
