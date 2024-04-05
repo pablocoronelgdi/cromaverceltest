@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
-import { SwitchIcon, CromaSwitch } from '@cromaui/react-native/'
+import { Switch, Checkbox,CromaText } from '@cromaui/react-native'
 import { useState } from 'react'
 
 function App() {
@@ -11,8 +11,10 @@ function App() {
   }
   return (
     <View style={styles.container}>
-      <CromaSwitch onChange={handlePress} defaultValue={false} disabled />
-      <CromaSwitch value={value} onChange={() => setvalue(!value)} />
+      <Switch onChange={handlePress} defaultValue={false} disabled />
+      <Switch value={value} onChange={() => setvalue(!value)} />
+      <Checkbox onChange={() => {}} />
+      <CromaText component="h2">Hola</CromaText>
     </View>
   )
 }
