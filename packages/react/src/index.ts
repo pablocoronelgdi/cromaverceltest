@@ -16,6 +16,7 @@ import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { Tab } from './components/tab'
+import { TabsNew } from './components/tabsNew'
 import { Tabs, TabSegmented } from './components/tabs'
 import { TextArea } from './components/textarea'
 import { ThemeWrapper } from './components/themeWrapper'
@@ -41,6 +42,7 @@ export {
   Switch,
   Tab,
   Tabs,
+  TabsNew,
   TabSegmented,
   TextArea,
   ThemeWrapper,

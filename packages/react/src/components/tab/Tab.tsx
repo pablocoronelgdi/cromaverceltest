@@ -2,13 +2,15 @@ import React, { useEffect, useId, useState } from 'react'
 import type { TabPropTypes } from './types'
 import { StyledTab } from './styles'
 import { Icon } from '../icon'
+import { breakpoints } from '@cromaui/foundations'
 
 const Tab: React.FC<TabPropTypes> = ({
   $iconName,
-  $onClose,
-  $selected,
-  $text,
-  $isVertical = false,
+  $isActive,
+  $isDismissible,
+  $isVerticalContent = false,
+  $onDismiss,
+  $label,
   ...props
 }) => {
   const defaultId = useId()
@@ -26,20 +28,25 @@ const Tab: React.FC<TabPropTypes> = ({
     }
   }, [])
 
-  const isDesktop = windowWidth > 768
+  const isDesktop = windowWidth > breakpoints.lg
 
   return (
     <StyledTab
       id={props.id || defaultId}
-      $selected={$selected}
+      $isActive={$isActive}
       $iconName={$iconName}
-      $onClose={$onClose}
-      $text={$text}
-      $isVertical={$isVertical}
+      $onDismiss={$onDismiss}
+      $label={$label}
+      $isVerticalContent={$isVerticalContent}
+      $isDismissible={$isDismissible}
+      onClick={props.onClick}
+      type="button"
+      {...props}
     >
-      {$iconName && !$onClose && <Icon $name={$iconName} $size={isDesktop ? 'medium' : 'large'} />}
-      {$text}
-      {$onClose && <Icon $name="close" $size="medium" onClick={$onClose} />}
+      {$iconName && !$isDismissible && <Icon $name={$iconName} $size={isDesktop ? 'medium' : 'large'} />}
+      {$label}
+      {$isDismissible && <Icon $name="close" $size="medium" onClick={$onDismiss} />}
+      <div></div>
     </StyledTab>
   )
 }

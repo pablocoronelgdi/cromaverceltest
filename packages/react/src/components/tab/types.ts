@@ -1,9 +1,10 @@
 import type { ButtonHTMLAttributes } from 'react'
 
 export type TabPropTypes = {
-  $text?: string
   $iconName?: string
-  $selected?: boolean
-  $isVertical?: boolean
-  $onClose?: () => void
+  $isActive?: boolean
+  $isDismissible?: boolean
+  $isVerticalContent?: boolean
+  $label?: string
+  $onDismiss?: () => void
 } & ButtonHTMLAttributes<HTMLButtonElement>

@@ -1,42 +1,37 @@
 import React from 'react'
-import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
+import { Badge, Icon, Logo, RoundedImage, TabsNew } from '@cromaui/react'
 import './dashboard.css'
 import Movimientos from './Movimientos'
 import Inicio from './Inicio'
 import ValidacionMobile from './ValidacionMobile'
 import Login from '../login/login'
 import FormBond from '../formBond'
-import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
+import type { TabItemTypes } from '@cromaui/react/src/components/TabsNew/types'
 
-const tabs: TabsItemProps[] = [
+const tabs: TabItemTypes[] = [
   {
     $label: 'Inicio',
-    $iconLeftName: 'home',
-    $iconRightName: 'home',
+    $iconName: 'home',
     $content: <Inicio />
   },
   {
     $label: 'Transferencias',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <Movimientos />
   },
   {
     $label: 'Validación Móvil',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <ValidacionMobile />
   },
   {
     $label: 'Login Form',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <Login />
   },
   {
     $label: 'Solicitud de Bono',
-    $iconLeftName: 'person',
-    $iconRightName: 'person',
+    $iconName: 'person',
     $content: <FormBond />
   }
 ]
@@ -60,7 +55,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <Tabs $tabs={tabs} $iconLeft $iconRight />
+        <TabsNew $items={tabs} />
       </main>
     </>
   )

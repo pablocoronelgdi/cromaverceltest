@@ -1,117 +1,107 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs } from '@cromaui/react'
-import type { TabsItemProps } from '@cromaui/react/src/components/tabs/types'
-
-const tabs: TabsItemProps[] = [
+import { TabsNew } from '@cromaui/react'
+import type { TabItemTypes } from '@cromaui/react/src/components/tabsNew/types'
+// @TODO: Crear archivo Tabs.mdx|
+const tabs: TabItemTypes[] = [
   {
     $label: 'Tab 1',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
+    $iconName: 'close',
     $content: <div>Contenido de la pestaña 1</div>
   },
   {
     $label: 'Tab 2',
-    $iconLeftName: 'home',
-    $iconRightName: 'home',
+    $iconName: 'home',
     $content: <div>Contenido de la pestaña 2</div>
   },
   {
     $label: 'Tab 3',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
+    $iconName: 'close',
     $content: <div>Contenido de la pestaña 3</div>
   },
   {
     $label: 'Tab 4',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
+    $iconName: 'close',
     $content: <div>Contenido de la pestaña 4</div>
   }
 ]
 
-const tabsSlider: TabsItemProps[] = [
+const tabsSlider: TabItemTypes[] = [
   {
     $label: 'Tab 1',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
     $content: <div>Contenido de la pestaña 1</div>
   },
   {
     $label: 'Tab 2',
-    $iconLeftName: 'home',
-    $iconRightName: 'home',
     $content: <div>Contenido de la pestaña 2</div>
   },
   {
     $label: 'Tab 3',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
     $content: <div>Contenido de la pestaña 3</div>
   },
   {
     $label: 'Tab 4',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
     $content: <div>Contenido de la pestaña 4</div>
   },
   {
     $label: 'Tab 5',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
     $content: <div>Contenido de la pestaña 5</div>
   },
   {
     $label: 'Tab 6',
-    $iconLeftName: 'close',
-    $iconRightName: 'expand_more',
     $content: <div>Contenido de la pestaña 6</div>
   }
 ]
 
 const meta = {
   title: 'Navigation/Tabs',
-  component: Tabs,
+  component: TabsNew,
   tags: ['autodocs'],
   argTypes: {
-    $iconLeft: {
-      description: 'activa icono izquierdo',
+    $items: {
+      description: 'Recibe un Array de items con $content, $label e $iconName principalmente',
       control: { type: 'boolean' }
     },
-    $iconRight: {
-      description: 'activa icono Derecho',
+    $isCarousel: {
+      description:
+        'Define si se los items de las Tabs usan botones para hacer scroll de forma horizontal',
       control: { type: 'boolean' }
     },
-    $disabled: {
-      description: 'dejar inactivo un tab',
+    $isDismissibleItems: {
+      description: 'Define si los items y su contenido de las Tabs son descartables',
+      control: { type: 'boolean' }
+    },
+    $isVerticalItems: {
+      description:
+        'Define si los items de las Tabs se ven de forma vertical, solo funciona en mobile',
       control: { type: 'boolean' }
     }
   }
-} satisfies Meta<typeof Tabs>
+} satisfies Meta<typeof TabsNew>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { $tabs: tabsSlider },
-  decorators: [() => <Tabs $tabs={tabsSlider} $slidesToShow={4} />]
+  args: { $items: tabsSlider },
+  decorators: [() => <TabsNew $items={tabsSlider} />]
 }
 
-export const IconLeft: Story = {
-  args: { $tabs: tabs },
-  decorators: [() => <Tabs $tabs={tabs} $iconLeft $slidesToShow={5} />]
+export const WithIcons: Story = {
+  args: { $items: tabs },
+  decorators: [() => <TabsNew $items={tabs} />]
 }
 
-export const IconRight: Story = {
-  args: { $tabs: tabsSlider },
-  decorators: [() => <Tabs $tabs={tabsSlider} $iconRight $slidesToShow={3} />]
+export const WithCarousel: Story = {
+  args: { $items: tabsSlider, $isCarousel: true },
+  decorators: [() => <TabsNew $items={tabsSlider} $isCarousel />]
 }
 
-export const Vertical: Story = {
-  args: { $tabs: tabs },
-  decorators: [() => <Tabs $tabs={tabs} $vertical $iconLeft $slidesToShow={5} />]
+export const VerticalItems: Story = {
+  args: { $items: tabs, $isVerticalItems: true },
+  decorators: [() => <TabsNew $items={tabs} $isVerticalItems />]
 }
 
-export const Icon: Story = {
-  args: { $tabs: tabs },
-  decorators: [() => <Tabs $tabs={tabs} $iconLeft $slidesToShow={5} />]
+export const WithDismissibleItems: Story = {
+  args: { $items: tabs, $isDismissibleItems: true },
+  decorators: [() => <TabsNew $items={tabs} $isDismissibleItems />]
 }
