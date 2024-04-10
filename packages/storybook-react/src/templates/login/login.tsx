@@ -56,80 +56,88 @@ const Login: React.FC = () => {
   }
 
   return (
-    <form
+    <section
       style={{
         width: '100%',
-        maxWidth: 450,
-        background: 'white',
-        height: 'auto',
-        padding: 20,
-        borderRadius: 8,
-        boxShadow: '6px 9px 14px -4px rgba(0,0,0,0.28)'
+        display: 'flex',
+        justifyContent: 'center'
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Logo $name="MacroHorizontal" $size="medium" />
-      </div>
-      <div>
-        <label>Usuario</label>
-        <InputField
-          type="text"
-          name="user"
-          value={formData.user}
-          onChange={handleChange}
-          $error={!!formErrors.user}
-          $helperText={formErrors.user && formErrors.user}
-        />
-      </div>
-      <div>
-        <label>Clave</label>
-        <InputField
-          style={{ width: '100%' }}
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          $error={!!formErrors.password}
-          $helperText={formErrors.password && formErrors.password}
-        />
-      </div>
-      <div
+      <form
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: 20
+          width: '100%',
+          maxWidth: 450,
+          background: 'white',
+          height: 'auto',
+          padding: 20,
+          borderRadius: 8,
+          boxShadow: '6px 9px 14px -4px rgba(0,0,0,0.28)'
         }}
       >
-        <label>Soy mayor de edad:</label>
-        <Switch
-          checked={formData.ageChecked}
-          onChange={handleAgeCheck}
-          /* Agregar estas props?
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Logo $name="MacroHorizontal" $size="medium" />
+        </div>
+        <div>
+          <label>Usuario</label>
+          <InputField
+            type="text"
+            name="user"
+            value={formData.user}
+            onChange={handleChange}
+            $error={!!formErrors.user}
+            $helperText={formErrors.user && formErrors.user}
+          />
+        </div>
+        <div>
+          <label>Clave</label>
+          <InputField
+            style={{ width: '100%' }}
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            $error={!!formErrors.password}
+            $helperText={formErrors.password && formErrors.password}
+          />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: 20
+          }}
+        >
+          <label>Soy mayor de edad:</label>
+          <Switch
+            checked={formData.ageChecked}
+            onChange={handleAgeCheck}
+            /* Agregar estas props?
           name="ageChecked"
           color="primary" */
-        />
-        {formErrors.ageChecked && <span>{formErrors.ageChecked}</span>}
-      </div>
-      <div>
-        <Button
-          type="submit"
-          onClick={() => handleSubmit}
-          disabled={!formData.ageChecked}
-          $fullWidth
-          $text="Acceder"
-        />
-      </div>
-      <div style={{ marginTop: 10 }}>
-        <Link
-          content="olvide mi clave"
-          target="_blank"
-          href="https://google.com"
-          alt="#"
-          title="#"
-        />
-      </div>
-    </form>
+          />
+          {formErrors.ageChecked && <span>{formErrors.ageChecked}</span>}
+        </div>
+        <div>
+          <Button
+            type="submit"
+            onClick={() => handleSubmit}
+            disabled={!formData.ageChecked}
+            $fullWidth
+            $text="Acceder"
+          />
+        </div>
+        <div style={{ marginTop: 10 }}>
+          <Link
+            content="olvide mi clave"
+            target="_blank"
+            href="https://google.com"
+            alt="#"
+            title="#"
+          />
+        </div>
+      </form>
+    </section>
   )
 }
 

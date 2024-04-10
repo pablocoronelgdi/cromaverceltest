@@ -6,5 +6,5 @@ export type TabPropTypes = {
   $isDismissible?: boolean
   $isVerticalContent?: boolean
   $label?: string
-  $onDismiss?: () => void
+  $onDismiss?: (e: React.MouseEvent<HTMLButtonElement>) => void
 } & ButtonHTMLAttributes<HTMLButtonElement>

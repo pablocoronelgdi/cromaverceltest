@@ -8,7 +8,6 @@ export type TabItemTypes = {
 export type TabsPropTypes = {
   $items: TabItemTypes[]
   $id?: string
-  $isCarousel?: boolean
   $isDismissibleItems?: boolean
   $isVerticalItems?: boolean
 }

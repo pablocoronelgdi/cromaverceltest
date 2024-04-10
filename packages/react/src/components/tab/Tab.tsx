@@ -31,6 +31,13 @@ const Tab: React.FC<TabPropTypes> = ({
 
   const isDesktop = windowWidth > breakpoints.lg
 
+  const handleOnDissmis = (
+    e: React.MouseEvent<HTMLButtonElement> & React.MouseEvent<HTMLAnchorElement>
+  ): void => {
+    e.stopPropagation()
+    $onDismiss && $onDismiss(e)
+  }
+
   return (
     <StyledTab
       id={props.id || defaultId}
@@ -49,9 +56,8 @@ const Tab: React.FC<TabPropTypes> = ({
       )}
       <small>{$label}</small>
       {$isDismissible && (
-        <section>
-          <Button $iconName="close" $size="extra-small" $variant="ghost" onClick={$onDismiss} />
-        </section>
+        // @TODO: Revisar el warning en consola de nestingDOM
+        <Button $iconName="close" $size="extra-small" $variant="ghost" onClick={handleOnDissmis} />
       )}
       <div></div>
     </StyledTab>

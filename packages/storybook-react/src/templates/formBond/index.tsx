@@ -96,6 +96,39 @@ function FormBond(): JSX.Element {
         </div>
       ),
       $iconName: 'dataset'
+    },
+    {
+      id: 'tab7',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab7">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab8',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab8">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab9',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab9">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
     }
   ]
 

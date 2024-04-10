@@ -18,9 +18,8 @@ export const StyledTab = styled.button<TabPropTypes>`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: ${({ $isVerticalContent }) => ($isVerticalContent ? 'column' : 'row')};
-  // revisar esto flex-grow: 1 esta bien que los tabs ocupen solo el ancho que corresponde al contenido
-  // y que si el contenido supera el ancho maximo permitido, que se centre
 
   ${FONT_BODY_SM}
   ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};

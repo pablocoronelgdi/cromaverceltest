@@ -52,8 +52,8 @@ const TABS_MOCK_2 = [
     $label: 'Tab 3',
     $content: (
       <div>
-        <h1>Tab 2</h1>
-        <span>contenido tab 2</span>
+        <h1>Tab 3</h1>
+        <span>contenido tab 3</span>
       </div>
     ),
     $iconName: 'dataset'
@@ -151,67 +151,9 @@ const TABS_MOCK_4 = [
       </div>
     ),
     $iconName: 'arrow_back_ios'
-  }
-]
-
-const TABS_MOCK_5 = [
+  },
   {
     id: 'tab14',
-    $label: 'Tab 1',
-    $content: (
-      <div>
-        <h1>Tab 1</h1>
-        <span>contenido tab 1</span>
-      </div>
-    ),
-    $iconName: 'home'
-  },
-  {
-    id: 'tab15',
-    $label: 'Tab 2',
-    $content: (
-      <div>
-        <h1>Tab 2</h1>
-        <span>contenido tab 2</span>
-      </div>
-    ),
-    $iconName: 'close'
-  },
-  {
-    id: 'tab16',
-    $label: 'Tab 3',
-    $content: (
-      <div>
-        <h1>Tab 3</h1>
-        <span>contenido tab 3</span>
-      </div>
-    ),
-    $iconName: 'menu'
-  },
-  {
-    id: 'tab17',
-    $label: 'Tab 4',
-    $content: (
-      <div>
-        <h1>Tab 4</h1>
-        <span>contenido tab 4</span>
-      </div>
-    ),
-    $iconName: 'delete'
-  },
-  {
-    id: 'tab18',
-    $label: 'Tab 5',
-    $content: (
-      <div>
-        <h1>Tab 5</h1>
-        <span>contenido tab 5</span>
-      </div>
-    ),
-    $iconName: 'check'
-  },
-  {
-    id: 'tab19',
     $label: 'Tab 6',
     $content: (
       <div>
@@ -219,10 +161,10 @@ const TABS_MOCK_5 = [
         <span>contenido tab 6</span>
       </div>
     ),
-    $iconName: 'filter_list'
+    $iconName: 'zoom_in'
   },
   {
-    id: 'tab20',
+    id: 'tab15',
     $label: 'Tab 7',
     $content: (
       <div>
@@ -230,7 +172,7 @@ const TABS_MOCK_5 = [
         <span>contenido tab 7</span>
       </div>
     ),
-    $iconName: 'zoom_in'
+    $iconName: 'delete'
   }
 ]
 
@@ -750,206 +692,6 @@ export const TabsDismissible: Story = {
       >
         <Tabs $items={TABS_MOCK_4} $isDismissibleItems />
       </div>
-    )
-  }
-}
-
-export const TabsCarousel: Story = {
-  name: 'Tabs with carousel',
-  args: { $items: TABS_MOCK_5 },
-  parameters: {
-    docs: {
-      source: {
-        format: 'dedent',
-        language: 'tsx',
-        dark: true,
-        code: `
-        const TABS_MOCK_5 = [
-          {
-            id: 'tab14',
-            $label: 'Tab 1',
-            $content: (
-              <div>
-                <h1>Tab 1</h1>
-                <span>contenido tab 1</span>
-              </div>
-            ),
-            $iconName: 'home'
-          },
-          {
-            id: 'tab15',
-            $label: 'Tab 2',
-            $content: (
-              <div>
-                <h1>Tab 2</h1>
-                <span>contenido tab 2</span>
-              </div>
-            ),
-            $iconName: 'close'
-          },
-          {
-            id: 'tab16',
-            $label: 'Tab 3',
-            $content: (
-              <div>
-                <h1>Tab 3</h1>
-                <span>contenido tab 3</span>
-              </div>
-            ),
-            $iconName: 'menu'
-          },
-          {
-            id: 'tab17',
-            $label: 'Tab 4',
-            $content: (
-              <div>
-                <h1>Tab 4</h1>
-                <span>contenido tab 4</span>
-              </div>
-            ),
-            $iconName: 'delete'
-          },
-          {
-            id: 'tab18',
-            $label: 'Tab 5',
-            $content: (
-              <div>
-                <h1>Tab 5</h1>
-                <span>contenido tab 5</span>
-              </div>
-            ),
-            $iconName: 'check'
-          },
-          {
-            id: 'tab19',
-            $label: 'Tab 6',
-            $content: (
-              <div>
-                <h1>Tab 6</h1>
-                <span>contenido tab 6</span>
-              </div>
-            ),
-            $iconName: 'filter_list'
-          },
-          {
-            id: 'tab20',
-            $label: 'Tab 7',
-            $content: (
-              <div>
-                <h1>Tab 7</h1>
-                <span>contenido tab 7</span>
-              </div>
-            ),
-            $iconName: 'zoom_in'
-          }
-        ]
-    
-        return (
-          <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          <Tabs $items={TABS_MOCK_5} $isCarousel />
-        </div>
-        )
-        `
-      }
-    }
-  },
-  render: function Render() {
-    const TABS_MOCK_5 = [
-      {
-        id: 'tab14',
-        $label: 'Tab 1',
-        $content: (
-          <div>
-            <h1>Tab 1</h1>
-            <span>contenido tab 1</span>
-          </div>
-        ),
-        $iconName: 'home'
-      },
-      {
-        id: 'tab15',
-        $label: 'Tab 2',
-        $content: (
-          <div>
-            <h1>Tab 2</h1>
-            <span>contenido tab 2</span>
-          </div>
-        ),
-        $iconName: 'close'
-      },
-      {
-        id: 'tab16',
-        $label: 'Tab 3',
-        $content: (
-          <div>
-            <h1>Tab 3</h1>
-            <span>contenido tab 3</span>
-          </div>
-        ),
-        $iconName: 'menu'
-      },
-      {
-        id: 'tab17',
-        $label: 'Tab 4',
-        $content: (
-          <div>
-            <h1>Tab 4</h1>
-            <span>contenido tab 4</span>
-          </div>
-        ),
-        $iconName: 'delete'
-      },
-      {
-        id: 'tab18',
-        $label: 'Tab 5',
-        $content: (
-          <div>
-            <h1>Tab 5</h1>
-            <span>contenido tab 5</span>
-          </div>
-        ),
-        $iconName: 'check'
-      },
-      {
-        id: 'tab19',
-        $label: 'Tab 6',
-        $content: (
-          <div>
-            <h1>Tab 6</h1>
-            <span>contenido tab 6</span>
-          </div>
-        ),
-        $iconName: 'filter_list'
-      },
-      {
-        id: 'tab20',
-        $label: 'Tab 7',
-        $content: (
-          <div>
-            <h1>Tab 7</h1>
-            <span>contenido tab 7</span>
-          </div>
-        ),
-        $iconName: 'zoom_in'
-      }
-    ]
-
-    return (
-      <div
-      style={{
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >
-      <Tabs $items={TABS_MOCK_5} $isCarousel />
-    </div>
     )
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from 'react'
+import React, { type ReactNode, useEffect, useId, useRef, useState } from 'react'
 import { breakpoints } from '@cromaui/foundations'
 import type { TabsPropTypes, TabItemTypes } from './types'
 import {
@@ -13,7 +13,6 @@ import { Tab } from '../tab'
 const Tabs: React.FC<TabsPropTypes> = ({
   $items,
   $id,
-  $isCarousel = false,
   $isDismissibleItems = false,
   $isVerticalItems = false
 }) => {
@@ -22,14 +21,14 @@ const Tabs: React.FC<TabsPropTypes> = ({
   const [showNextArrow, setShowNextArrow] = useState<boolean>(true)
   const [shouldRenderTabs, setShouldRenderTabs] = useState<boolean>(true)
   const [visibleItems, setVisibleItems] = useState<TabItemTypes[]>($items)
-  const [selectedTab, setSelectedTab] = useState<string>(visibleItems[0]?.id ?? '')
-  const [renderedContent, setRenderedContent] = useState<React.ReactNode>(
+  const [selectedTabId, setSelectedTabId] = useState<string>(visibleItems[0]?.id ?? '')
+  const [renderedContent, setRenderedContent] = useState<ReactNode>(
     visibleItems.length > 0 ? visibleItems[0].$content : null
   )
+  const isDesktop = windowWidth > breakpoints.lg
   const tabItemsRef = useRef<HTMLUListElement>(null)
   const defaultId = useId()
-  const isDesktop = windowWidth > breakpoints.lg
-  const maxTabsVisible = $items.length
+  const maxTabsVisible = visibleItems.length >= 5
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -38,24 +37,18 @@ const Tabs: React.FC<TabsPropTypes> = ({
     }
 
     window.addEventListener('resize', handleResize)
+    console.log(isDesktop)
 
     return () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
 
-  useEffect(() => {
-    const handleUpdateTabContent = (): void => {
-      const content = visibleItems.find((tab) => tab.id === selectedTab)?.$content
-      setRenderedContent(content)
-    }
-
-    handleUpdateTabContent()
-    setShouldRenderTabs(visibleItems.length > 0)
-  }, [selectedTab, visibleItems])
-  // Función para selecionar una Tab
+  // Función para selecionar una Tab y su contenido
   const handleSelectTab = (tabId: string): void => {
-    setSelectedTab(tabId)
+    setSelectedTabId(tabId)
+    const content = visibleItems.find((tab) => tab.id === tabId)?.$content
+    setRenderedContent(content)
   }
   // Función que hace un scroll controlado segun la disponibilidad dentro de StyledTabItems
   const handleArrowClick = (direction: 'prev' | 'next'): void => {
@@ -77,34 +70,36 @@ const Tabs: React.FC<TabsPropTypes> = ({
       )
     }
   }
-  // Función para eliminar el tab item y tab content @TODO: Por acá esta el error
+  // Función para eliminar el tab item y tab content
   const handleCloseTab = (tabId: string): void => {
     if ($isDismissibleItems) {
+      const matchTabId = selectedTabId === tabId
       const updatedTabs: TabItemTypes[] = visibleItems.filter((tab) => tab.id !== tabId)
       const currentIndex = visibleItems.findIndex((tab) => tab.id === tabId)
-      const nextIndex = currentIndex < updatedTabs.length ? currentIndex : currentIndex - 1
-      const nextTabId = updatedTabs[nextIndex]?.id ?? selectedTab
-      if (selectedTab === tabId && updatedTabs.length > 0) {
-        setVisibleItems(updatedTabs)
-        setSelectedTab(nextTabId)
-      } else {
-        setVisibleItems(updatedTabs)
-        setSelectedTab(selectedTab)
-      }
+      const currentNewIndex: number =
+        updatedTabs.length > 0
+          ? currentIndex < updatedTabs.length
+            ? currentIndex
+            : currentIndex - 1
+          : 0
 
-      if (updatedTabs.length <= 0) {
+      if (updatedTabs.length === 0) {
         setShouldRenderTabs(false)
+      } else {
+        const newTabId =
+          updatedTabs[currentNewIndex].id !== undefined ? updatedTabs[currentNewIndex].id : null
+        setVisibleItems(updatedTabs)
+        if (matchTabId && updatedTabs.length > 0) {
+          handleSelectTab(newTabId || '')
+        }
       }
     }
   }
-  if (!shouldRenderTabs) {
-    return null
-  }
 
-  return (
+  return !shouldRenderTabs ? null : (
     <StyledTabsContainer id={$id && defaultId}>
       <StyledTabsItemsContainer>
-        {$isCarousel && isDesktop && maxTabsVisible && showPrevArrow && (
+        {isDesktop && maxTabsVisible && showPrevArrow && (
           <Button
             $iconName="arrow_back_ios"
             $size="extra-small"
@@ -120,7 +115,7 @@ const Tabs: React.FC<TabsPropTypes> = ({
               key={tabItem.id}
               id={tabItem.id}
               $iconName={tabItem.$iconName}
-              $isActive={selectedTab === tabItem.id}
+              $isActive={selectedTabId === tabItem.id}
               $isDismissible={$isDismissibleItems}
               $isVerticalContent={$isVerticalItems}
               $label={tabItem.$label}
@@ -137,7 +132,7 @@ const Tabs: React.FC<TabsPropTypes> = ({
             />
           ))}
         </StyledTabItems>
-        {$isCarousel && isDesktop && maxTabsVisible && showNextArrow && (
+        {isDesktop && maxTabsVisible && showNextArrow && (
           <Button
             $iconName="arrow_forward_ios"
             $size="extra-small"
@@ -149,7 +144,7 @@ const Tabs: React.FC<TabsPropTypes> = ({
         )}
       </StyledTabsItemsContainer>
       {
-        <StyledTabContent key={visibleItems.find((tab) => tab.id === selectedTab)?.id}>
+        <StyledTabContent key={visibleItems.find((tab) => tab.id === selectedTabId)?.id}>
           {renderedContent}
         </StyledTabContent>
       }
