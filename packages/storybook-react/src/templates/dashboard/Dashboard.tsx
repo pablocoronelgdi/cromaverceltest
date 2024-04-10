@@ -6,37 +6,37 @@ import Inicio from './Inicio'
 import ValidacionMobile from './ValidacionMobile'
 import Login from '../login/login'
 import FormBond from '../formBond'
-import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
+import type { TabItemTypes } from '@cromaui/react/src/components/tabs/types'
 
-const tabs: TabsItemProps[] = [
+const tabs: TabItemTypes[] = [
   {
+    id: 'idHome',
     $label: 'Inicio',
-    $iconLeftName: 'home',
-    $iconRightName: 'home',
+    $iconName: 'home',
     $content: <Inicio />
   },
   {
+    id: 'idMovements',
     $label: 'Transferencias',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <Movimientos />
   },
   {
+    id: 'idMobileValidation',
     $label: 'Validación Móvil',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <ValidacionMobile />
   },
   {
+    id: 'idLogin',
     $label: 'Login Form',
-    $iconLeftName: 'expand_circle_down',
-    $iconRightName: 'expand_circle_down',
+    $iconName: 'expand_circle_down',
     $content: <Login />
   },
   {
+    id: 'idFormBond',
     $label: 'Solicitud de Bono',
-    $iconLeftName: 'person',
-    $iconRightName: 'person',
+    $iconName: 'person',
     $content: <FormBond />
   }
 ]
@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <Tabs $tabs={tabs} $iconLeft $iconRight />
+        <Tabs $items={tabs} />
       </main>
     </>
   )
