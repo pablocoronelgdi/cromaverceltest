@@ -1,56 +1,40 @@
-/* eslint-disable react/prop-types */
-import React, { useEffect, useState, useId } from 'react'
-import { StyledTabContainer, Tab, TabContent, Flex } from './styles'
+import React, { useEffect, useId, useRef, useState } from 'react'
 import { breakpoints } from '@cromaui/foundations'
-import type { TabsProps } from './types'
-import { Icon } from '../icon'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import type { TabsPropTypes, TabItemTypes } from './types'
+import {
+  StyledTabContent,
+  StyledTabItems,
+  StyledTabsContainer,
+  StyledTabsItemsContainer
+} from './styles'
+import { Button } from '../button'
+import { Tab } from '../tab'
 
-function SampleNextArrow({ className = '', onClick = undefined }): React.JSX.Element {
-  return (
-    <button className={className} style={{ display: 'block' }} onClick={onClick}>
-      <Icon $name="arrow_forward_ios" $size="small" />
-    </button>
-  )
-}
-
-function SamplePrevArrow({ className = '', onClick = undefined }): React.JSX.Element {
-  return (
-    <button className={className} style={{ display: 'block' }} onClick={onClick}>
-      <Icon $name="arrow_back_ios" $size="small" />
-    </button>
-  )
-}
-
-const Tabs: React.FC<TabsProps> = ({
+const Tabs: React.FC<TabsPropTypes> = ({
+  $items,
   $id,
-  $tabs,
-  $vertical = false,
-  $iconLeft,
-  $iconRight,
-  $slidesToShow,
-  ...props
+  $isCarousel = false,
+  $isDismissibleItems = false,
+  $isVerticalItems = false
 }) => {
-  const [activeTab, setActiveTab] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  const [focusedTab, setFocusedTab] = useState<number | null>(null)
+  const [showPrevArrow, setShowPrevArrow] = useState<boolean>(false)
+  const [showNextArrow, setShowNextArrow] = useState<boolean>(true)
+  const [shouldRenderTabs, setShouldRenderTabs] = useState<boolean>(true)
+  const [visibleItems, setVisibleItems] = useState<TabItemTypes[]>($items)
+  const [selectedTab, setSelectedTab] = useState<string>(visibleItems[0]?.id ?? '')
+  const [renderedContent, setRenderedContent] = useState<React.ReactNode>(
+    visibleItems.length > 0 ? visibleItems[0].$content : null
+  )
+  const tabItemsRef = useRef<HTMLUListElement>(null)
   const defaultId = useId()
-
-  const handleTabClick = (index: number): void => {
-    setActiveTab(index)
-  }
-  const handleTabFocus = (index: number): void => {
-    setFocusedTab(index)
-  }
-  const handleTabBlur = (): void => {
-    setFocusedTab(null)
-  }
+  const isDesktop = windowWidth > breakpoints.lg
+  const maxTabsVisible = $items.length
 
   useEffect(() => {
     const handleResize = (): void => {
       setWindowWidth(window.innerWidth)
+      handleScrollArrows()
     }
 
     window.addEventListener('resize', handleResize)
@@ -60,105 +44,117 @@ const Tabs: React.FC<TabsProps> = ({
     }
   }, [])
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: $slidesToShow || 5, // Se define la cantidad de items a mostrar por default o por props
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    onclick,
-    responsive: [
-      // Respomsive Slider
-      {
-        breakpoint: breakpoints.lg,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: breakpoints.sm,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: breakpoints.xs,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
+  useEffect(() => {
+    const handleUpdateTabContent = (): void => {
+      const content = visibleItems.find((tab) => tab.id === selectedTab)?.$content
+      setRenderedContent(content)
+    }
+
+    handleUpdateTabContent()
+    setShouldRenderTabs(visibleItems.length > 0)
+  }, [selectedTab, visibleItems])
+  // Función para selecionar una Tab
+  const handleSelectTab = (tabId: string): void => {
+    setSelectedTab(tabId)
+  }
+  // Función que hace un scroll controlado segun la disponibilidad dentro de StyledTabItems
+  const handleArrowClick = (direction: 'prev' | 'next'): void => {
+    const scrollAmount = tabItemsRef.current?.clientWidth || 0
+    if (direction === 'prev' && tabItemsRef.current) {
+      tabItemsRef.current.scrollLeft -= scrollAmount
+    } else if (direction === 'next' && tabItemsRef.current) {
+      tabItemsRef.current.scrollLeft += scrollAmount
+    }
+    handleScrollArrows()
+  }
+  // Función para mostrar o ocultar los iconos tipo arrow segun el espacio que haya disponible dentro de StyledTabItems
+  const handleScrollArrows = (): void => {
+    if (tabItemsRef.current) {
+      setShowPrevArrow(tabItemsRef.current.scrollLeft > 0)
+      setShowNextArrow(
+        tabItemsRef.current.scrollLeft + tabItemsRef.current.clientWidth + 4 <
+          tabItemsRef.current.scrollWidth
+      )
+    }
+  }
+  // Función para eliminar el tab item y tab content @TODO: Por acá esta el error
+  const handleCloseTab = (tabId: string): void => {
+    if ($isDismissibleItems) {
+      const updatedTabs: TabItemTypes[] = visibleItems.filter((tab) => tab.id !== tabId)
+      const currentIndex = visibleItems.findIndex((tab) => tab.id === tabId)
+      const nextIndex = currentIndex < updatedTabs.length ? currentIndex : currentIndex - 1
+      const nextTabId = updatedTabs[nextIndex]?.id ?? selectedTab
+      if (selectedTab === tabId && updatedTabs.length > 0) {
+        setVisibleItems(updatedTabs)
+        setSelectedTab(nextTabId)
+      } else {
+        setVisibleItems(updatedTabs)
+        setSelectedTab(selectedTab)
       }
-    ]
+
+      if (updatedTabs.length <= 0) {
+        setShouldRenderTabs(false)
+      }
+    }
+  }
+  if (!shouldRenderTabs) {
+    return null
   }
 
-  const showSlider = windowWidth < 1024
-
-  if (showSlider) {
-    // Trasforma a el componente tabs comun en un slider
-    return (
-      <div>
-        <StyledTabContainer>
-          <Slider {...settings}>
-            {$tabs.map((tab, index: number) => (
-              <Tab
-                key={index}
-                id={$id && defaultId}
-                onFocus={() => {
-                  handleTabFocus(index)
-                }}
-                $focused={index === focusedTab}
-                onBlur={handleTabBlur}
-                {...props}
-                $active={index === activeTab}
-                onClick={() => {
-                  handleTabClick(index)
-                }}
-              >
-                <Flex $tabs={$tabs} $vertical={$vertical}>
-                  {$iconLeft && <Icon $name={`${tab.$iconLeftName}`} $size="large" />}
-                  {tab.$label && <small>{tab.$label}</small>}
-                  {$iconRight && <Icon $name={`${tab.$iconRightName}`} $size="large" />}
-                </Flex>
-              </Tab>
-            ))}
-          </Slider>
-        </StyledTabContainer>
-        <TabContent>{$tabs[activeTab].$content}</TabContent>
-      </div>
-    )
-  }
   return (
-    <div>
-      <StyledTabContainer className="flex">
-        {$tabs.map((tab, index: number) => (
-          <Tab
-            id={$id && defaultId}
-            {...props}
-            $focused={index === focusedTab}
-            onFocus={() => {
-              handleTabFocus(index)
-            }}
-            onBlur={handleTabBlur}
-            key={index}
-            $active={index === activeTab}
+    <StyledTabsContainer id={$id && defaultId}>
+      <StyledTabsItemsContainer>
+        {$isCarousel && isDesktop && maxTabsVisible && showPrevArrow && (
+          <Button
+            $iconName="arrow_back_ios"
+            $size="extra-small"
+            $variant="ghost"
             onClick={() => {
-              handleTabClick(index)
+              handleArrowClick('prev')
             }}
-          >
-            <Flex $tabs={$tabs} $vertical={$vertical}>
-              {$iconLeft && <Icon $name={`${tab.$iconLeftName}`} $size="large" />}
-              {tab.$label && <small>{tab.$label}</small>}
-              {$iconRight && <Icon $name={`${tab.$iconRightName}`} $size="large" />}
-            </Flex>
-          </Tab>
-        ))}
-      </StyledTabContainer>
-      <TabContent>{$tabs[activeTab].$content}</TabContent>
-    </div>
+          />
+        )}
+        <StyledTabItems ref={tabItemsRef}>
+          {visibleItems?.map((tabItem) => (
+            <Tab
+              key={tabItem.id}
+              id={tabItem.id}
+              $iconName={tabItem.$iconName}
+              $isActive={selectedTab === tabItem.id}
+              $isDismissible={$isDismissibleItems}
+              $isVerticalContent={$isVerticalItems}
+              $label={tabItem.$label}
+              $onDismiss={() => {
+                if (tabItem?.id) {
+                  handleCloseTab(tabItem?.id)
+                }
+              }}
+              onClick={() => {
+                if (tabItem?.id) {
+                  handleSelectTab(tabItem?.id)
+                }
+              }}
+            />
+          ))}
+        </StyledTabItems>
+        {$isCarousel && isDesktop && maxTabsVisible && showNextArrow && (
+          <Button
+            $iconName="arrow_forward_ios"
+            $size="extra-small"
+            $variant="ghost"
+            onClick={() => {
+              handleArrowClick('next')
+            }}
+          />
+        )}
+      </StyledTabsItemsContainer>
+      {
+        <StyledTabContent key={visibleItems.find((tab) => tab.id === selectedTab)?.id}>
+          {renderedContent}
+        </StyledTabContent>
+      }
+    </StyledTabsContainer>
   )
 }
+
 export default Tabs

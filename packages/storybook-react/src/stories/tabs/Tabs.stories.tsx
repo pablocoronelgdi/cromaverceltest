@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { TabsNew } from '@cromaui/react'
+import { Tabs } from '@cromaui/react'
 
 const TABS_MOCK_1 = [
   {
@@ -236,7 +236,7 @@ const TABS_MOCK_5 = [
 
 const meta = {
   title: 'Navigation/Tabs',
-  component: TabsNew,
+  component: Tabs,
   argTypes: {
     $items: {
       description: 'Recibe un Array de items con $content, $label e $iconName principalmente',
@@ -279,7 +279,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof TabsNew>
+} satisfies Meta<typeof Tabs>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -327,7 +327,7 @@ export const TabsDefault: Story = {
               alignItems: 'center'
             }}
           >
-            <TabsNew $items={TABS_MOCK_1} />
+            <Tabs $items={TABS_MOCK_1} />
           </div>
         )
         `
@@ -368,7 +368,7 @@ export const TabsDefault: Story = {
           alignItems: 'center'
         }}
       >
-        <TabsNew $items={TABS_MOCK_1} />
+        <Tabs $items={TABS_MOCK_1} />
       </div>
     )
   }
@@ -428,7 +428,7 @@ export const TabsWithIcon: Story = {
               alignItems: 'center'
             }}
           >
-            <TabsNew $items={TABS_MOCK_2} />
+            <Tabs $items={TABS_MOCK_2} />
           </div>
         )
         `
@@ -480,7 +480,7 @@ export const TabsWithIcon: Story = {
           alignItems: 'center'
         }}
       >
-        <TabsNew $items={TABS_MOCK_2} />
+        <Tabs $items={TABS_MOCK_2} />
       </div>
     )
   }
@@ -540,7 +540,7 @@ export const TabsVerticalItems: Story = {
               alignItems: 'center'
             }}
           >
-            <TabsNew $items={TABS_MOCK_3} $isVerticalItems />
+            <Tabs $items={TABS_MOCK_3} $isVerticalItems />
           </div>
         )
         `
@@ -592,7 +592,7 @@ export const TabsVerticalItems: Story = {
           alignItems: 'center'
         }}
       >
-        <TabsNew $items={TABS_MOCK_3} $isVerticalItems />
+        <Tabs $items={TABS_MOCK_3} $isVerticalItems />
       </div>
     )
   }
@@ -674,7 +674,7 @@ export const TabsDismissible: Story = {
               alignItems: 'center'
             }}
           >
-            <TabsNew $items={TABS_MOCK_4} $isDismissibleItems />
+            <Tabs $items={TABS_MOCK_4} $isDismissibleItems />
           </div>
         )
         `
@@ -748,7 +748,7 @@ export const TabsDismissible: Story = {
           alignItems: 'center'
         }}
       >
-        <TabsNew $items={TABS_MOCK_4} $isDismissibleItems />
+        <Tabs $items={TABS_MOCK_4} $isDismissibleItems />
       </div>
     )
   }
@@ -852,7 +852,7 @@ export const TabsCarousel: Story = {
             alignItems: 'center'
           }}
         >
-          <TabsNew $items={TABS_MOCK_5} $isCarousel />
+          <Tabs $items={TABS_MOCK_5} $isCarousel />
         </div>
         )
         `
@@ -948,7 +948,7 @@ export const TabsCarousel: Story = {
         alignItems: 'center'
       }}
     >
-      <TabsNew $items={TABS_MOCK_5} $isCarousel />
+      <Tabs $items={TABS_MOCK_5} $isCarousel />
     </div>
     )
   }

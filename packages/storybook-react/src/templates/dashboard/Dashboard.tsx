@@ -1,35 +1,40 @@
 import React from 'react'
-import { Badge, Icon, Logo, RoundedImage, TabsNew } from '@cromaui/react'
+import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
 import './dashboard.css'
 import Movimientos from './Movimientos'
 import Inicio from './Inicio'
 import ValidacionMobile from './ValidacionMobile'
 import Login from '../login/login'
 import FormBond from '../formBond'
-import type { TabItemTypes } from '@cromaui/react/src/components/TabsNew/types'
+import type { TabItemTypes } from '@cromaui/react/src/components/tabs/types'
 
 const tabs: TabItemTypes[] = [
   {
+    id: 'idHome',
     $label: 'Inicio',
     $iconName: 'home',
     $content: <Inicio />
   },
   {
+    id: 'idMovements',
     $label: 'Transferencias',
     $iconName: 'expand_circle_down',
     $content: <Movimientos />
   },
   {
+    id: 'idMobileValidation',
     $label: 'Validación Móvil',
     $iconName: 'expand_circle_down',
     $content: <ValidacionMobile />
   },
   {
+    id: 'idLogin',
     $label: 'Login Form',
     $iconName: 'expand_circle_down',
     $content: <Login />
   },
   {
+    id: 'idFormBond',
     $label: 'Solicitud de Bono',
     $iconName: 'person',
     $content: <FormBond />
@@ -55,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <TabsNew $items={tabs} />
+        <Tabs $items={tabs} />
       </main>
     </>
   )

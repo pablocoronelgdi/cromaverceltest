@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 import type { TabPropTypes } from './types'
 import { borders, breakpoints, color, shapes, spacings } from '@cromaui/foundations'
-import {
-  FLEX_CENTER,
-  FONT_BODY_SM,
-  FONT_TYPE_REGULAR,
-  FONT_TYPE_SEMIBOLD
-} from '../../globals/globals'
+import { FONT_BODY_SM, FONT_TYPE_REGULAR, FONT_TYPE_SEMIBOLD } from '../../globals/globals'
 
 export const StyledTab = styled.button<TabPropTypes>`
   background-color: ${({ $isActive }) => ($isActive ? color.neutral[100] : color.neutral[50])};
@@ -16,21 +11,32 @@ export const StyledTab = styled.button<TabPropTypes>`
   color: ${({ $isActive }) => ($isActive ? color.neutral[900] : color.neutral[700])};
   cursor: pointer;
   gap: ${spacings.space8};
-  // @TODO: Revisar el width con otros tabs y solo 1 tab
-  min-width: ${({ $iconName }) => ($iconName ? '101px' : 'fit-content')};
+  min-width: 116px;
+  width: fit-content;
+  max-width: 216px;
   padding: ${spacings.space8} ${spacings.space16};
   position: relative;
-  text-align: center;
-  ${FLEX_CENTER}
+  display: flex;
+  align-items: center;
   flex-direction: ${({ $isVerticalContent }) => ($isVerticalContent ? 'column' : 'row')};
-  flex-grow: 1;
-  ${FONT_BODY_SM};
+  // revisar esto flex-grow: 1 esta bien que los tabs ocupen solo el ancho que corresponde al contenido
+  // y que si el contenido supera el ancho maximo permitido, que se centre
+
+  ${FONT_BODY_SM}
   ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+
+  small {
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   div {
     background-color: ${({ $isActive }) => ($isActive ? color.blue.main : color.neutral[400])};
     border-radius: ${({ $isActive }) => ($isActive ? '1px' : 'none')};
     bottom: 0;
+    left: 0;
     height: 2px;
     position: absolute;
     width: 100%;

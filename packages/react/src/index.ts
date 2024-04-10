@@ -16,8 +16,8 @@ import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { Tab } from './components/tab'
-import { TabsNew } from './components/tabsNew'
-import { Tabs, TabSegmented } from './components/tabs'
+import { Tabs } from './components/tabs'
+import { TabSegmented } from './components/tabsSegmented'
 import { TextArea } from './components/textarea'
 import { ThemeWrapper } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
@@ -42,7 +42,6 @@ export {
   Switch,
   Tab,
   Tabs,
-  TabsNew,
   TabSegmented,
   TextArea,
   ThemeWrapper,

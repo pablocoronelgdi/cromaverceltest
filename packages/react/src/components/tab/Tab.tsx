@@ -1,8 +1,9 @@
 import React, { useEffect, useId, useState } from 'react'
+import { breakpoints } from '@cromaui/foundations'
 import type { TabPropTypes } from './types'
 import { StyledTab } from './styles'
+import { Button } from '../button'
 import { Icon } from '../icon'
-import { breakpoints } from '@cromaui/foundations'
 
 const Tab: React.FC<TabPropTypes> = ({
   $iconName,
@@ -43,9 +44,15 @@ const Tab: React.FC<TabPropTypes> = ({
       type="button"
       {...props}
     >
-      {$iconName && !$isDismissible && <Icon $name={$iconName} $size={isDesktop ? 'medium' : 'large'} />}
-      {$label}
-      {$isDismissible && <Icon $name="close" $size="medium" onClick={$onDismiss} />}
+      {$iconName && !$isDismissible && (
+        <Icon $name={$iconName} $size={isDesktop ? 'medium' : 'large'} />
+      )}
+      <small>{$label}</small>
+      {$isDismissible && (
+        <section>
+          <Button $iconName="close" $size="extra-small" $variant="ghost" onClick={$onDismiss} />
+        </section>
+      )}
       <div></div>
     </StyledTab>
   )
