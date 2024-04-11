@@ -1,2 +1,3 @@
-import Fab from './Fab'
-export { Fab }
+import FloatingButton from './FloatingButton'
+import FloatingMenu from './FloatingMenu'
+export { FloatingButton, FloatingMenu }
