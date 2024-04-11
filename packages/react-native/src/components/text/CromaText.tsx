@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text } from 'react-native'
-import type { TextPropTypes, TypograpyRecordType } from './types'
+import type { TextPropTypes } from './types'
 import { styles } from './styles'
 
-export const typoRecord: TypograpyRecordType = {
+export const typoRecord = {
   h1: 'displayXL',
   h2: 'displayLg',
   h3: 'headingXl',

@@ -24,3 +24,12 @@ export const elevations = {
   `,
   none: 'none'
 }
+
+export const elevationsNative = {
+  level1: {
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3
+  }
+}

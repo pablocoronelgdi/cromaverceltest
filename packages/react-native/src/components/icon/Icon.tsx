@@ -10,12 +10,17 @@ const IconSize = {
   extraLarge: 32
 }
 
-const Icon: React.FC<IconPropTypes> = ({ name, size = 'large', color = '#000' }: IconPropTypes) => {
+const Icon: React.FC<IconPropTypes> = ({
+  name,
+  size = 'large',
+  color = '#000',
+  ...props
+}: IconPropTypes) => {
   return (
     <MaterialIcons
       name={name}
       color={color}
-      style={[iconStyles(IconSize[size]).icon]}
+      style={[iconStyles(IconSize[size]).icon, props.style]}
       size={IconSize[size]}
     />
   )

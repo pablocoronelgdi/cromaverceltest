@@ -179,103 +179,81 @@ export const typography = {
 export const typographyNative = {
   displayXl: {
     fontSize: 50,
-    fontFamily: 'Titillium Web',
     letterSpacing: 0.3,
     lineHeight: 80
   },
   displayLg: {
     fontSize: 40,
-    fontFamily: 'Titillium Web',
     letterSpacing: 0.2,
     lineHeight: 64
   },
   headingXl: {
     fontSize: 32,
-    fontFamily: 'Titillium Web',
-
     letterSpacing: 0.128,
     lineHeight: 48
   },
   headingLg: {
     fontSize: 28,
-    fontFamily: 'Titillium Web',
-
     letterSpacing: 0.098,
     lineHeight: 48
   },
   headingMd: {
     fontSize: 24,
-    fontFamily: 'Titillium Web',
-
     letterSpacing: 0.072,
     lineHeight: 40
   },
   headingSm: {
     fontSize: 20,
-    fontFamily: 'Public Sans',
-
     letterSpacing: 0.05,
     lineHeight: 32
   },
   bodyLg: {
     fontSize: 18,
-    fontFamily: 'Public Sans',
-
     letterSpacing: 0.036,
     lineHeight: 32
   },
   bodyMd: {
     fontSize: 16,
-    fontFamily: 'Public Sans',
     letterSpacing: 0.032,
     lineHeight: 24
   },
   bodySm: {
     fontSize: 14,
-    fontFamily: 'Public Sans',
-
     letterSpacing: 0.025,
     lineHeight: 24
   },
   caption: {
     fontSize: 12,
-    fontFamily: 'Public Sans',
     letterSpacing: 0.018,
     lineHeight: 18
   },
   linkLg: {
     fontSize: 18,
-    fontFamily: 'Public Sans',
     letterSpacing: 0,
     lineHeight: 28
   },
   linkMd: {
     fontSize: 16,
-    fontFamily: 'Public Sans',
     letterSpacing: 0,
     lineHeight: 24
   },
   linkSm: {
     fontSize: 14,
-    fontFamily: 'Public Sans',
     letterSpacing: 0,
     lineHeight: 20
   },
   buttonMd: {
     fontSize: 16,
-    fontFamily: 'Public Sans',
     letterSpacing: 0.032,
     lineHeight: 24
   },
   buttonSm: {
     fontSize: 14,
-    fontFamily: 'Public Sans',
     letterSpacing: 0.025,
     lineHeight: 20
   },
   buttonXsm: {
     fontSize: 14,
-    fontFamily: 'Public Sans',
     letterSpacing: 0.025,
     lineHeight: 16
   },
