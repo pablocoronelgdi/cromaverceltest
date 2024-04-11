@@ -1,87 +1,90 @@
 import styled from 'styled-components'
 import type { TabPropTypes } from './types'
 import { borders, breakpoints, color, shapes, spacings } from '@cromaui/foundations'
-import {
-  FLEX_CENTER,
-  FONT_BODY_MD,
-  FONT_BODY_SM,
-  FONT_TYPE_REGULAR,
-  FONT_TYPE_SEMIBOLD
-} from '../../globals/globals'
+import { FONT_BODY_SM, FONT_TYPE_REGULAR, FONT_TYPE_SEMIBOLD } from '../../globals/globals'
 
 export const StyledTab = styled.button<TabPropTypes>`
-  background: ${({ $selected }) => ($selected ? color.neutral[100] : color.neutral[50])};
+  background-color: ${({ $isActive }) => ($isActive ? color.neutral[100] : color.neutral[50])};
   border-radius: ${spacings.space8} ${spacings.space8} 0 0;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: ${({ $selected }) =>
-    $selected ? borders.br1 + color.blue.main : borders.br1 + color.neutral[400]};
+  border: none;
   border-radius: ${shapes.sm} ${shapes.sm} 0 0;
-  color: ${({ $selected }) => ($selected ? color.neutral[900] : color.neutral[700])};
+  color: ${({ $isActive }) => ($isActive ? color.neutral[900] : color.neutral[700])};
   cursor: pointer;
   gap: ${spacings.space8};
+  min-width: 116px;
+  width: fit-content;
+  max-width: 216px;
   padding: ${spacings.space8} ${spacings.space16};
-  text-align: center;
-  min-width: fit-content;
-  ${FLEX_CENTER}
-  flex-direction: ${({ $isVertical }) => ($isVertical ? 'column' : 'row')};
-  ${FONT_BODY_SM};
-  ${({ $selected }) => ($selected ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: ${({ $isVerticalContent }) => ($isVerticalContent ? 'column' : 'row')};
+
+  ${FONT_BODY_SM}
+  ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+
+  small {
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  div {
+    background-color: ${({ $isActive }) => ($isActive ? color.blue.main : color.neutral[400])};
+    border-radius: ${({ $isActive }) => ($isActive ? '1px' : 'none')};
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    position: absolute;
+    width: 100%;
+  }
 
   &:hover {
-    color: ${({ $selected, $text, $iconName, $onClose }) =>
-      ($selected && $text && $iconName) ||
-      ($selected && $iconName) ||
-      ($selected && $onClose) ||
-      ($iconName && $text) ||
-      $iconName ||
-      $onClose
-        ? color.neutral[600]
-        : $text && $selected
-        ? color.neutral[800]
-        : $text && !$selected && color.neutral[700]};
-    background: ${({ $text, $iconName, $selected, $onClose }) =>
-      ($selected && $text && $iconName) ||
-      ($selected && $iconName) ||
-      ($selected && $onClose) ||
-      ($iconName && $text) ||
-      $onClose
-        ? color.neutral[50]
-        : (($selected && $text) || $text) && color.blue.extraSoft};
-    border-bottom-color: ${({ $selected }) => ($selected ? color.blue.soft : color.neutral[500])};
+    background-color: ${color.blue.extraSoft};
+    color: ${color.neutral[700]};
+
+    div {
+      background-color: ${({ $isActive }) => ($isActive ? color.blue.soft : color.neutral[500])};
+    }
   }
 
   &:active {
-    background: ${color.blue.extraSoft};
-    color: ${({ $selected, $iconName }) =>
-      $selected && !$iconName ? color.blue.dark : color.neutral[900]};
-    border-bottom-color: ${({ $selected }) => ($selected ? color.blue.dark : color.neutral[900])};
+    background-color: ${color.blue.extraSoft};
+    color: ${color.neutral[900]};
+
+    div {
+      background-color: ${({ $isActive }) => ($isActive ? color.blue.dark : color.neutral[900])};
+    }
   }
 
   &:focus,
   &:focus-visible,
   &:focus-within {
-    background: ${color.neutral[50]};
-    border-bottom: ${({ $selected }) =>
-      $selected ? borders.br1 + color.blue.soft : borders.br1 + color.neutral[400]};
-    color: ${({ $selected }) => ($selected ? color.neutral[900] : color.neutral[700])};
+    background-color: ${({ $isActive }) => ($isActive ? color.neutral[100] : color.neutral[50])};
+    color: ${({ $isActive }) => ($isActive ? color.neutral[900] : color.neutral[700])};
     outline: solid;
     outline-color: ${color.blue.soft};
     outline-offset: ${spacings.space2};
     outline-width: ${spacings.space2};
+    z-index: 1;
+
+    div {
+      background-color: ${({ $isActive }) =>
+        $isActive ? borders.br2 + color.blue.soft : borders.br2 + color.neutral[400]};
+    }
   }
 
-  span {
-    display: ${({ $onClose }) => ($onClose ? 'none' : 'flex')};
-  }
-  
   @media ${`(min-width: ${breakpoints.lg.toLocaleString()}px)`} {
-    background: ${({ $selected }) => ($selected ? color.neutral[200] : color.neutral[50])};
+    background-color: ${({ $isActive }) => ($isActive ? color.neutral[200] : color.neutral[50])};
     flex-direction: row;
-    ${({ $iconName, $onClose, $selected }) => !$iconName && !$onClose && $selected && FONT_BODY_MD}
-    span {
-      display: flex;
+    min-width: fit-content;
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      background-color: ${({ $isActive }) => ($isActive ? color.neutral[200] : color.neutral[50])};
     }
   }
 `

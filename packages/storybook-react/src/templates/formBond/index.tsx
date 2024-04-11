@@ -1,7 +1,8 @@
-import { Button, TextArea, InputField, Logo, Toogletip, Tab } from '@cromaui/react'
+import { Button, TextArea, InputField, Logo, Toogletip, Tabs } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
+import type { TabItemTypes } from '@cromaui/react/src/components/Tabs/types'
 
 function FormBond(): JSX.Element {
   const [isError, setIsError] = useState(false)
@@ -29,9 +30,107 @@ function FormBond(): JSX.Element {
     console.log('click')
   }
 
-  const handleCloseTab = (): void => {
-    alert('click en close tab')
-  }
+  const TABS_MOCK: TabItemTypes[] = [
+    {
+      id: 'tab1',
+      $label: 'Tab 1 - texto largo',
+      $content: (
+        <div key="tab1">
+          <h1>Tab 1</h1>
+          <span>contenido tab 1</span>
+        </div>
+      ),
+      $iconName: 'person'
+    },
+    {
+      id: 'tab2',
+      $label: 'Tab 2',
+      $content: (
+        <div key="tab2">
+          <h1>Tab 2</h1>
+          <span>contenido tab 2</span>
+        </div>
+      ),
+      $iconName: 'home'
+    },
+    {
+      id: 'tab3',
+      $label: 'Tab 3 - probar largo',
+      $content: (
+        <div key="tab3">
+          <h1>Tab 3</h1>
+          <span>contenido tab 3</span>
+        </div>
+      ),
+      $iconName: 'settings'
+    },
+    {
+      id: 'tab4',
+      $label: 'Tab 4 - se rompe esto?',
+      $content: (
+        <div key="tab4">
+          <h1>Tab 4</h1>
+          <span>contenido tab 4</span>
+        </div>
+      ),
+      $iconName: 'star'
+    },
+    {
+      id: 'tab5',
+      $label: 'Tab 5',
+      $content: (
+        <div key="tab5">
+          <h1>Tab 5</h1>
+          <span>contenido tab 5</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab6',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab6">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab7',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab7">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab8',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab8">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    },
+    {
+      id: 'tab9',
+      $label: 'Tab 6',
+      $content: (
+        <div key="tab9">
+          <h1>Tab 6</h1>
+          <span>contenido tab 6</span>
+        </div>
+      ),
+      $iconName: 'dataset'
+    }
+  ]
 
   return (
     <section className="form_bond__section">
@@ -108,18 +207,7 @@ function FormBond(): JSX.Element {
             setComment(e.target.value)
           }}
         />
-        <div className="container_tabs">
-          <Tab $text="Tab 1" $iconName="home" />
-          <Tab $text="Tab 2" $selected $iconName="person" />
-          <Tab $text="Tab 3" $onClose={handleCloseTab} />
-          <Tab $text="Tab 4" $selected $iconName="person" $onClose={handleCloseTab} />
-          <Tab $iconName="home" />
-          <Tab $selected $iconName="person" />
-          <Tab $iconName="home" $isVertical $text="Tab 7" />
-          <Tab $selected $iconName="person" $isVertical $text="Tab 8" />
-          <Tab $text="Tab 9" />
-          <Tab $selected $text="Tab 10" />
-        </div>
+        <Tabs $items={TABS_MOCK} $isDismissibleItems />
         <div className="form_bond__buttons">
           <Button type="submit" $text="Enviar" $fullWidth />
           <Button $as="a" $variant="outline" $text="Subir" href="#form" />
