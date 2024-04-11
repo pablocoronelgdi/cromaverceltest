@@ -11,7 +11,7 @@ const IconSize = {
 }
 
 const Icon: React.FC<IconPropTypes> = ({
-  name,
+  name = 'info',
   size = 'large',
   color = '#000',
   ...props
