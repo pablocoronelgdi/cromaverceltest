@@ -12,7 +12,6 @@ const CromaThemeProvider: React.FC<ThemeProviderPropTypes> = ({ theme, children 
   const setTheme = (newTheme: object): void => {
     setCurrentTheme(newTheme)
   }
-  console.log('el valor de las font es', fontsLoaded)
 
   return fontsLoaded ? (
     <ThemeContext.Provider value={{ theme: currentTheme, setTheme }}>{children}</ThemeContext.Provider>
