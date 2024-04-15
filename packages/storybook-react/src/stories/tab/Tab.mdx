@@ -1,0 +1,49 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as TabStories from './Tab.stories';
+import { Tab } from '@cromaui/react'
+
+<Meta of={TabStories} />
+
+# Tabs
+Mediante el componente Tab se podrá mostrar $label, el contenido de texto, $iconName el nombre del icono a mostrar, $isVerticalContent, para mostrar el contenido en formato vertical, $isDismissible para activar la funcionalidad de eliminar o no el Tab, $onDismiss, la función para controlar la funcionalidad de eliminar el Tab, $isActive, para cambiar el estado del tab a activo de tal forma que se cambian los estilos visuales
+<br />
+
+<Primary />
+
+## Usos
+
+### Default (Tab con solo texto)
+Mediante la prop $label se puede definir el texto que se quiere mostrar en el contenido del componente. 
+
+<Story of={TabStories.TabDefault} />
+<Source of={TabStories.TabDefault} />
+
+### Tab con ícono
+Agregando la prop $iconName se puede definir o agregar el nombre del ícono que se quiere mostrar en el contenido del componente.
+
+<Story of={TabStories.TabIcon} />
+<Source of={TabStories.TabIcon} />
+
+### Tab activo
+Cambiando el valor de la prop $isActive se puede definir si el estado es activo o no, cambiando los estilos visuales del componente.
+
+<Story of={TabStories.TabActive} />
+<Source of={TabStories.TabActive} />
+
+### Tab vertical
+Cambiando el valor de la prop $isVerticalContent se puede definir si el contenido se muestra de forma vertical o no, solo aplican los cambios si el ancho del componente es menor a 1200px.
+
+<Story of={TabStories.TabVertical} />
+<Source of={TabStories.TabVertical} />
+
+### Tab descartable
+Cambiando el valor de la prop $isDismissible se puede definir si el Tab se puede eliminar o no, se debe utilizar en conjunto con la prop $onDismiss que es la función que controla la funcionalidad del componente.
+
+<Story of={TabStories.TabDismissible} />
+<Source of={TabStories.TabDismissible} />
+
+### Props
+
+El componente Tab acepta los siguientes parámetros:
+
+<ArgTypes />
