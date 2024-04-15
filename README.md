@@ -15,7 +15,7 @@ $ yarn install
 5. Ejecutá el siguiente comando para realizar una build de las librerias de componentes
 
 ```bash
-$ yarn dev
+$ yarn build
 ```
 
 ## Ejecución (web)

@@ -23,7 +23,6 @@ const ListItem: React.FC<ListItemPropsTypes> = ({
   return (
     <StyledListItem
       id={props.id || defaultId}
-      title={title}
       $disabled={$disabled}
       className={`${pressed ? 'pressed' : ''}`}
       onMouseDown={(e) => {
@@ -35,10 +34,12 @@ const ListItem: React.FC<ListItemPropsTypes> = ({
       {...props}
     >
       {$contentLeft && <LeftContent title={title}>{$contentLeft}</LeftContent>}
-      <TextContent title={title}>
-        <p>{title}</p>
-        <span>{$description}</span>
-      </TextContent>
+      {title && (
+        <TextContent $disabled={$disabled}>
+          <span>{title}</span>
+          {$description && <p>{$description}</p>}
+        </TextContent>
+      )}
       {$contentRight && <RightContent title={title}>{$contentRight}</RightContent>}
     </StyledListItem>
   )

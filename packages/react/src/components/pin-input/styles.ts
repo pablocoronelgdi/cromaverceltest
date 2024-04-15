@@ -41,7 +41,7 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
     margin: 0;
     margin-bottom: ${spacings.space4};
     color: ${(props) =>
-      props.disabled ? color.neutral[400] : props.$error ? color.error.main : color.neutral[700]};
+      props.disabled ? color.neutral[400] : props.$error ? color.error.main : color.neutral[900]};
   }
 
   input {
@@ -64,7 +64,7 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
         ? borders.br1 + color.neutral[400]
         : props.$error
         ? borders.br2 + color.error.main
-        : borders.br1 + color.neutral[400]};
+        : borders.br1 + color.neutral[600]};
     border-radius: ${shapes.sm};
     gap: ${spacings.space8};
     cursor: ${(props) => (props.disabled ? 'no-drop' : 'pointer')};
@@ -77,12 +77,13 @@ export const StyledPinInput = styled.div<PinInputPropTypes>`
     &:hover {
       border: ${({ $error }) => ($error ? borders.br2 : borders.br1)};
       border-color: ${({ disabled, $error }) =>
-        disabled ? color.neutral[400] : $error ? color.error.main : color.neutral[700]};
+        disabled ? color.neutral[400] : $error ? color.error.main : color.neutral[900]};
     }
 
     &:focus,
     &:focus-within,
     &:focus-visible {
+      color: ${(props) => (props.disabled ? color.neutral[400] : color.neutral[700])};
       border: ${borders.br2};
       border-color: ${({ $error }) => !$error && color.blue.soft};
     }
