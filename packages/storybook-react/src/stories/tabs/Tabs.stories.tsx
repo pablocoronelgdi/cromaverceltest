@@ -194,15 +194,6 @@ const meta = {
         }
       }
     },
-    $isCarousel: {
-      description:
-        'Define si se los items de las Tabs usan botones para hacer scroll de forma horizontal',
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
     $isDismissibleItems: {
       description: 'Define si los items y su contenido de las Tabs son descartables',
       control: { type: 'boolean' },
