@@ -9,6 +9,8 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
   withLogo = false,
   label,
   labelStyle,
+  size = 'medium',
+  color,
   ...props
 }) => {
   const rotateOuterView = useRef(new Animated.Value(0)).current
@@ -24,7 +26,6 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
         useNativeDriver: true
       })
     )
-
     const innerAnimation = Animated.loop(
       Animated.timing(rotateInnerView, {
         toValue: 1,
@@ -33,7 +34,6 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
         useNativeDriver: true
       })
     )
-
     outerAnimation.start()
     innerAnimation.start()
     return () => {
@@ -53,22 +53,27 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
   })
 
   return (
-    <View id={props.id || id} style={[styles.container, style]}>
+    <View id={props.id || id} style={[styles().container, style]}>
       <Animated.View
         style={[
-          styles.outerRing,
-          withLogo ? styles.logoOuterRing : styles.noLogoOuterRing,
+          styles(size, withLogo, color).outerRing,
           { transform: [{ rotate: outerRotation }] }
         ]}
       >
         {withLogo && (
-          <Animated.View style={[styles.logoInnerRing, { transform: [{ rotate: innerRotation }] }]}>
-            <View style={styles.logoThumb} />
+          <Animated.View
+            style={[styles(size, withLogo).innerRing, { transform: [{ rotate: innerRotation }] }]}
+          >
+            <View style={styles(size, withLogo).thumb} />
           </Animated.View>
         )}
       </Animated.View>
       {label && (
-        <CromaText variant="regular" component="bodySm" style={[styles.label, labelStyle]}>
+        <CromaText
+          variant="regular"
+          component="bodySm"
+          style={[styles(size, withLogo).label, labelStyle]}
+        >
           {label}
         </CromaText>
       )}
