@@ -5,7 +5,6 @@ import { FONT_BODY_SM, FONT_TYPE_REGULAR, FONT_TYPE_SEMIBOLD } from '../../globa
 
 export const StyledTab = styled.button<TabPropTypes>`
   background-color: ${({ $isActive }) => ($isActive ? color.neutral[100] : color.neutral[50])};
-  border-radius: ${spacings.space8} ${spacings.space8} 0 0;
   border: none;
   border-radius: ${shapes.sm} ${shapes.sm} 0 0;
   color: ${({ $isActive }) => ($isActive ? color.neutral[900] : color.neutral[700])};

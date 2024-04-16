@@ -1,22 +1,12 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export type TabsItemProps = {
-  $label?: string
-  $iconLeftName?: string
-  $iconRightName?: string
-  $content?: ReactNode | undefined
-  $active?: boolean
-  $focused?: boolean
-  $hide?: boolean
+export type TabSegmentedItemTypes = {
+  $label: string
+  $content?: ReactNode
+  $isActive?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export type TabsProps = {
+export type TabsSegmentedPropTypes = {
+  $items: TabSegmentedItemTypes[]
   $id?: string
-  $disabled?: boolean
-  $tabs: TabsItemProps[]
-  $iconLeft?: boolean
-  $iconRight?: boolean
-  $vertical?: boolean
-  $slidesToShow?: number
-  $active?: boolean
 }

@@ -181,7 +181,7 @@ const meta = {
   component: Tabs,
   argTypes: {
     $items: {
-      description: 'Recibe un Array de items con $content, $label e $iconName principalmente',
+      description: 'Recibe un Array de items con id, $content, $label e $iconName principalmente',
       control: { type: 'Array' },
       table: {
         type: { summary: 'Array' },
