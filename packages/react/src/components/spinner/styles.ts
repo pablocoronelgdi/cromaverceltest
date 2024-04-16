@@ -48,8 +48,7 @@ export const SpinnerContainerStyled = styled.div<SpinnerPropTypes>`
       $withLogo ? spacings.space10 : spacings.space8};
     border-color: ${color.navy.extraSoft};
     border-radius: ${shapes.full};
-    border-left-color: ${({ $withLogo }) =>
-      $withLogo ? color.navy.main : color.navy.extraSoft};
+    border-left-color: ${color.navy.main};
     border-top-color: ${color.navy.main};
     transform: rotate(45deg);
     animation: ${rotateOuterDiv} 1s ease infinite;
