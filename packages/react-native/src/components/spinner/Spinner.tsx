@@ -14,7 +14,7 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
   ...props
 }) => {
   const rotateAnimationValue = useRef(new Animated.Value(0)).current
-  const opacityAnimationValue = useRef(new Animated.Value(0.5)).current
+  const opacityAnimationValue = useRef(new Animated.Value(1)).current
   const id = useId()
 
   useEffect(() => {
@@ -29,15 +29,15 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
     const opacityAnimation = Animated.loop(
       Animated.sequence([
         Animated.timing(opacityAnimationValue, {
-          toValue: 1,
-          duration: 1000,
-          easing: Easing.linear,
+          toValue: 0.5,
+          duration: 1500,
+          easing: Easing.ease,
           useNativeDriver: true
         }),
         Animated.timing(opacityAnimationValue, {
-          toValue: 0.5,
+          toValue: 1,
           duration: 1000,
-          easing: Easing.linear,
+          easing: Easing.ease,
           useNativeDriver: true
         })
       ])
