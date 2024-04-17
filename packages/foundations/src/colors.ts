@@ -28,9 +28,9 @@ export const skyBlue = {
 
 export const green = {
   dark: '#005A1D',
-  main: '#0BA05E',
+  main: '#009E61',
   soft: '#96D5B3',
-  extraSoft: '#E5F5EC'
+  extraSoft: '#F1FEF3'
 }
 
 export const stone = {
@@ -90,7 +90,7 @@ export const success = {
 export const Info = {
   dark: '#153990',
   main: '#0865D7',
-  soft: '#5AB8FF',
+  soft: '#8DCCFF',
   extraSoft: '#E3F3FF'
 }
 
@@ -106,11 +106,4 @@ export const brandGreen = {
   main: '#00AC69',
   soft: '#96D5B3',
   extraSoft: '#E5F5EC'
-}
-
-export const brandBlue = {
-  dark: '#0318A5',
-  main: '#203AE9',
-  soft: '#4860FF',
-  extraSoft: '#DBE9FF'
 }

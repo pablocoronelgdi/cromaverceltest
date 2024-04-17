@@ -35,10 +35,8 @@ const Tabs: React.FC<TabsPropTypes> = ({
       setWindowWidth(window.innerWidth)
       handleScrollArrows()
     }
-
     window.addEventListener('resize', handleResize)
-    console.log(isDesktop)
-
+    
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -143,7 +141,7 @@ const Tabs: React.FC<TabsPropTypes> = ({
           />
         )}
       </StyledTabsItemsContainer>
-      {
+      {renderedContent && 
         <StyledTabContent key={visibleItems.find((tab) => tab.id === selectedTabId)?.id}>
           {renderedContent}
         </StyledTabContent>

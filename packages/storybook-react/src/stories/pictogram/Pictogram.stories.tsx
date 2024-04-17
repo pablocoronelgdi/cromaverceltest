@@ -269,20 +269,133 @@ export const DocPictogramWithBackgroundColor: Story = {
         dark: true,
         code: `
         return (
-          <Pictogram
-            $name="Alert"
-            $size="large"
-            $segmentName="Individuos"
-            $backgroundColor="Light"
-            $individuosColor="Blue"
-          />
-          <Pictogram
-            $name="Alert"
-            $size="large"
-            $segmentName="Individuos"
-            $backgroundColor="Dark"
-            $individuosColor="Blue"
-          />
+          <div
+            style={{
+              width: '100%',
+              padding: '1rem',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: 12
+            }}
+          >
+            <div
+              style={{
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram
+                $name="Alert"
+                $size="large"
+                $segmentName="Individuos"
+                $backgroundColor="Light"
+                $individuosColor="Blue"
+              />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                backgroundColor: color.navy.dark,
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram
+                $name="Alert"
+                $size="large"
+                $segmentName="Individuos"
+                $backgroundColor="Dark"
+                $individuosColor="Blue"
+              />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Selecta" $backgroundColor="Light" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                backgroundColor: color.navy.dark,
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Selecta" $backgroundColor="Dark" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Empresas" $backgroundColor="Light" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                backgroundColor: color.navy.dark,
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Empresas" $backgroundColor="Dark" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Agro" $backgroundColor="Light" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                backgroundColor: color.navy.dark,
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Agro" $backgroundColor="Dark" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Gobierno" $backgroundColor="Light" />
+            </div>
+            <div
+              style={{
+                padding: '1rem',
+                backgroundColor: color.navy.dark,
+                borderRadius: '4px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Pictogram $name="Alert" $size="large" $segmentName="Gobierno" $backgroundColor="Dark" />
+            </div>
+          </div>
         )
         `
       }
@@ -294,15 +407,40 @@ export const DocPictogramWithBackgroundColor: Story = {
 
   render: function Render() {
     return (
-      <div style={{ width: '100%', padding: '1rem', display: 'flex', gap: 24 }}>
-        <Pictogram
-          $name="Alert"
-          $size="large"
-          $segmentName="Individuos"
-          $backgroundColor="Light"
-          $individuosColor="Blue"
-        />
-        <div style={{ padding: '1rem', backgroundColor: color.navy.main, borderRadius: '4px' }}>
+      <div
+        style={{
+          width: '100%',
+          padding: '1rem',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: 12
+        }}
+      >
+        <div
+          style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram
+            $name="Alert"
+            $size="large"
+            $segmentName="Individuos"
+            $backgroundColor="Light"
+            $individuosColor="Blue"
+          />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            backgroundColor: color.navy.dark,
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
           <Pictogram
             $name="Alert"
             $size="large"
@@ -310,6 +448,90 @@ export const DocPictogramWithBackgroundColor: Story = {
             $backgroundColor="Dark"
             $individuosColor="Blue"
           />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Selecta" $backgroundColor="Light" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            backgroundColor: color.navy.dark,
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Selecta" $backgroundColor="Dark" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Empresas" $backgroundColor="Light" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            backgroundColor: color.navy.dark,
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Empresas" $backgroundColor="Dark" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Agro" $backgroundColor="Light" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            backgroundColor: color.navy.dark,
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Agro" $backgroundColor="Dark" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Gobierno" $backgroundColor="Light" />
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            backgroundColor: color.navy.dark,
+            borderRadius: '4px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <Pictogram $name="Alert" $size="large" $segmentName="Gobierno" $backgroundColor="Dark" />
         </div>
       </div>
     )

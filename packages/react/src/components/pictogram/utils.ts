@@ -20,7 +20,7 @@ export const getPictogramColors = (
   > = {
     Individuos: {
       colorPrimary: isBackgroundLight ? color.navy.main : color.neutral[200],
-      colorSecondary: isBlue ? color.blue.main : color.pink.main
+      colorSecondary: isBlue && isBackgroundLight ? color.blue.main : isBlue ? color.blue.soft : color.pink.main
     },
     Selecta: {
       colorPrimary: isBackgroundLight ? color.black.main : color.neutral[200],

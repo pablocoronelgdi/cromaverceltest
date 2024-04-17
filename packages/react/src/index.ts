@@ -17,7 +17,7 @@ import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { Tab } from './components/tab'
 import { Tabs } from './components/tabs'
-import { TabSegmented } from './components/tabsSegmented'
+import { TabsSegmented } from './components/tabsSegmented'
 import { TextArea } from './components/textarea'
 import { ThemeWrapper } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
@@ -42,7 +42,7 @@ export {
   Switch,
   Tab,
   Tabs,
-  TabSegmented,
+  TabsSegmented,
   TextArea,
   ThemeWrapper,
   Toogletip,

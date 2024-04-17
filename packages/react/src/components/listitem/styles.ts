@@ -4,28 +4,27 @@ import {
   FLEX_CENTER,
   FLEX_END,
   FONT_BODY_SM,
-  FONT_BODY_MD,
+  FONT_BODY_LG,
   FONT_TYPE_REGULAR
 } from '../../globals/globals'
-import { color, borders, spacings, elevations } from '@cromaui/foundations'
+import { color, borders, spacings } from '@cromaui/foundations'
 import type { ListItemPropsTypes } from './types'
 
 /* =============================================
 =    ESTILOS DEL COMPONENTE LIST ITEM     =
 ============================================= */
 
-export const StyledListItem = styled.div<ListItemPropsTypes>`
+export const StyledListItem = styled.li<ListItemPropsTypes>`
   ${FLEX_AROUND}
-  background: ${(props) => (props.$disabled ? color.neutral[200] : color.neutral[50])};
-  color: ${(props) => (props.$disabled ? color.neutral[400] : color.neutral[700])};
+  background: ${(props) => (props.$disabled ? color.neutral[200] : 'transparent')};
   width: 100%;
   max-width: 1024px;
-  padding: ${spacings.space12};
+  padding: ${spacings.space12} ${spacings.space8};
   border-bottom: ${borders.br1} ${color.neutral[300]};
   transition: all 0.3s ease-in-out;
   cursor: ${(props) => (props.$disabled ? 'no-drop' : 'pointer')};
   &:hover {
-    box-shadow: ${(props) => (props.$disabled ? 'none' : elevations.level3)};
+    background: ${(props) => (props.$disabled ? color.neutral[200] : color.neutral[100])};
     transition: 0.3s;
   }
   &:focus,
@@ -46,20 +45,21 @@ export const LeftContent = styled.div`
   ${FLEX_CENTER}
   margin-right: ${spacings.space16};
 `
-export const TextContent = styled.div`
+export const TextContent = styled.div<ListItemPropsTypes>`
   width: 100%;
 
-  p {
-    ${FONT_BODY_MD}
+  span {
+    ${FONT_BODY_LG}
     ${FONT_TYPE_REGULAR}
-    color: ${color.neutral[900]};
+    color:  ${({ $disabled }) => ($disabled ? color.neutral[400] : color.neutral[900])};
     text-align: left;
     width: 100%;
     margin: 0;
   }
-  span {
+  p {
     ${FONT_BODY_SM}
     ${FONT_TYPE_REGULAR}
+    color:  ${({ $disabled }) => ($disabled ? color.neutral[400] : color.neutral[700])};
     text-align: left;
     width: 100%;
     margin: 0;
