@@ -5,7 +5,6 @@ import { FONT_BODY_SM, FONT_TYPE_REGULAR, FONT_TYPE_SEMIBOLD } from '../../globa
 
 export const StyledTab = styled.button<TabPropTypes>`
   background-color: ${({ $isActive }) => ($isActive ? color.neutral[100] : color.neutral[50])};
-  border-radius: ${spacings.space8} ${spacings.space8} 0 0;
   border: none;
   border-radius: ${shapes.sm} ${shapes.sm} 0 0;
   color: ${({ $isActive }) => ($isActive ? color.neutral[900] : color.neutral[700])};
@@ -21,10 +20,9 @@ export const StyledTab = styled.button<TabPropTypes>`
   justify-content: center;
   flex-direction: ${({ $isVerticalContent }) => ($isVerticalContent ? 'column' : 'row')};
 
-  ${FONT_BODY_SM}
-  ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
-
   small {
+    ${FONT_BODY_SM}
+    ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
     color: inherit;
     white-space: nowrap;
     overflow: hidden;

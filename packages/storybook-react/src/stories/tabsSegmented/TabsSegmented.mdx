@@ -1,0 +1,41 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as TabsSegmentedStories from './TabsSegmented.stories';
+import { TabsSegmented } from '@cromaui/react'
+
+<Meta of={TabsSegmentedStories} />
+
+# TabsSegmented
+Mediante el componente TabsSegmented se podrá navegar entre secciones según los items que se definan en la prop $items del componente
+<br />
+
+<Primary />
+
+## Usos
+
+### Tabs Segmented con 2 ítems (Default)
+Mediante la prop $items se puede definir las tabs y el contenido que se quiere navegar. 
+La prop $item recibe un Array de objetos, este objeto debe tener el siguiente formato cómo mínimo:
+
+id: string
+$label: string
+$content: ReactNode
+
+<Story of={TabsSegmentedStories.TabsSegmentedDefault} />
+<Source of={TabsSegmentedStories.TabsSegmentedDefault} />
+
+### Tabs Segmented con 3 ítems
+Mediante la prop $items se puede definir las tabs y el contenido que se quiere navegar. 
+La prop $item recibe un Array de objetos, este objeto debe tener el siguiente formato cómo mínimo:
+
+id: string
+$label: string
+$content: ReactNode
+
+<Story of={TabsSegmentedStories.TabsSegmentedWithThreeItems} />
+<Source of={TabsSegmentedStories.TabsSegmentedWithThreeItems} />
+
+### Props
+
+El componente TabsSegmented acepta los siguientes parámetros:
+
+<ArgTypes />
