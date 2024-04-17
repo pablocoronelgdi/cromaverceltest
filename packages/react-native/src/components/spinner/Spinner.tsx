@@ -13,41 +13,50 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
   color,
   ...props
 }) => {
-  const rotateOuterView = useRef(new Animated.Value(0)).current
-  const rotateInnerView = useRef(new Animated.Value(0)).current
+  const rotateAnimationValue = useRef(new Animated.Value(0)).current
+  const opacityAnimationValue = useRef(new Animated.Value(0.5)).current
   const id = useId()
 
   useEffect(() => {
-    const outerAnimation = Animated.loop(
-      Animated.timing(rotateOuterView, {
+    const rotateAnimation = Animated.loop(
+      Animated.timing(rotateAnimationValue, {
         toValue: 1,
-        duration: 1250,
+        duration: 2000,
         easing: Easing.bounce,
         useNativeDriver: true
       })
     )
-    const innerAnimation = Animated.loop(
-      Animated.timing(rotateInnerView, {
-        toValue: 1,
-        duration: 1250,
-        easing: Easing.bounce,
-        useNativeDriver: true
-      })
+    const opacityAnimation = Animated.loop(
+      Animated.sequence([
+        Animated.timing(opacityAnimationValue, {
+          toValue: 1,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: true
+        }),
+        Animated.timing(opacityAnimationValue, {
+          toValue: 0.5,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: true
+        })
+      ])
     )
-    outerAnimation.start()
-    innerAnimation.start()
+
+    rotateAnimation.start()
+    opacityAnimation.start()
     return () => {
-      outerAnimation.stop()
-      innerAnimation.stop()
+      rotateAnimation.stop()
+      opacityAnimation.stop()
     }
   }, [])
 
-  const outerRotation = rotateOuterView.interpolate({
+  const outerRotation = rotateAnimationValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['45deg', '405deg']
   })
 
-  const innerRotation = rotateInnerView.interpolate({
+  const innerRotation = rotateAnimationValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg']
   })
@@ -57,7 +66,8 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
       <Animated.View
         style={[
           styles(size, withLogo, color).outerRing,
-          { transform: [{ rotate: outerRotation }] }
+          { transform: [{ rotate: outerRotation }] },
+          { opacity: opacityAnimationValue }
         ]}
       >
         {withLogo && (
