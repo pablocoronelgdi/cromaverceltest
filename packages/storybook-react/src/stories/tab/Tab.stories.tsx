@@ -153,7 +153,7 @@ export const TabVertical: Story = {
 }
 
 export const TabDismissible: Story = {
-  name: 'Tab vertical',
+  name: 'Tab Dismissible',
   args: { $label: 'Tab 5', $iconName: 'settings', $isDismissible: true },
   parameters: {
     docs: {

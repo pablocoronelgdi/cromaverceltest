@@ -91,7 +91,7 @@ export const typography = {
       fontStyle: 'normal',
       fontStretch: 'normal',
       letterSpacing: '0.025px',
-      lineHeight: '24px',
+      lineHeight: '20px',
       textCase: 'none'
     }
   },
