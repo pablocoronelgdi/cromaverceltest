@@ -19,7 +19,7 @@ const TabsSegmented: React.FC<TabsSegmentedPropTypes> = ({ $items, $id }) => {
   )
   const defaultId = useId()
   const maxTabsVisible = $items.length === 3
-  const showError = $items.length >= 4 && maxTabsVisible
+  const showError = $items.length >= 4
 
   const handleSelectTab = (tabId: string): void => {
     setSelectedTabId(tabId)
@@ -47,6 +47,7 @@ const TabsSegmented: React.FC<TabsSegmentedPropTypes> = ({ $items, $id }) => {
               id={tabItem?.id}
               $label={tabItem?.$label}
               $isActive={selectedTabId === tabItem?.id}
+              $hasMaxItems={maxTabsVisible}
               onClick={() => {
                 if (tabItem?.id) {
                   handleSelectTab(tabItem?.id)
@@ -54,7 +55,7 @@ const TabsSegmented: React.FC<TabsSegmentedPropTypes> = ({ $items, $id }) => {
               }}
               type="button"
             >
-              {tabItem.$label}
+              <small>{tabItem.$label}</small>
             </StyledTabSegmented>
             {maxTabsVisible && isLastTabActive && index === 0 && <StyledTabSegmentedDivider />}
             {maxTabsVisible && isFirstTabActive && index === 1 && <StyledTabSegmentedDivider />}

@@ -16,21 +16,15 @@ export const StyledTabsSegmentedContainer = styled.div`
   min-width: 254px;
   padding: 0;
 `
-/* @TODO: Definiciones pendientes de visuals team:
-  - Definir si se cambia el padding por el valor de 4px en lugar de 0
-  - Definir espacio entre items
-  - Definir ancho máximo y mínimo
-  - Definir ancho del contenedor si ocupa el ancho permitido o si se ajusta a su contenido(actualmente)
-  - Definir espacio entre items cuando se agrega el divider
-  - Definir si el máximo de items permitido es 3
-  - Definir si mostrar el mensaje de error
-*/
+// @TODO: Definir espacio entre items cuando se agrega el divider
 export const StyledTabSegmentedItems = styled.ul`
   background: ${color.neutral[200]};
   border-radius: 100px;
   display: flex;
   align-items: center;
-  padding: 0;
+  gap: ${spacings.space8};
+  padding: ${spacings.space4};
+  margin: 0;
   width: fit-content;
   scrollbar-width: none;
   ::-webkit-scrollbar {
@@ -45,22 +39,24 @@ align-items: center;
 
 export const StyledTabSegmented = styled.button<TabSegmentedItemTypes>`
   ${FLEX_CENTER}
-  ${FONT_BODY_SM}
-  ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
   background-color: ${({ $isActive }) => ($isActive ? color.neutral[50] : 'transparent')};
   border: none;
   border-radius: 100px;
   box-shadow: ${({ $isActive }) => ($isActive ? elevations.level1 : 'none')};
   color: ${({ $isActive }) => ($isActive ? color.blue.main : color.neutral[700])};
   cursor: pointer;
-  max-width: 216px;
-  min-width: 116px;
-  overflow: hidden;
   padding: ${spacings.space8};
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: fit-content;
+  min-width: ${({ $hasMaxItems }) => ($hasMaxItems ? '100px' : '150px')};
+  width: ${({ $hasMaxItems }) => ($hasMaxItems ? '100px' : '150px')};
+
+  > small {
+    ${FONT_BODY_SM}
+    ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   &:hover {
     background-color: ${color.blue.extraSoft};

@@ -20,10 +20,9 @@ export const StyledTab = styled.button<TabPropTypes>`
   justify-content: center;
   flex-direction: ${({ $isVerticalContent }) => ($isVerticalContent ? 'column' : 'row')};
 
-  ${FONT_BODY_SM}
-  ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
-
   small {
+    ${FONT_BODY_SM}
+    ${({ $isActive }) => ($isActive ? FONT_TYPE_SEMIBOLD : FONT_TYPE_REGULAR)};
     color: inherit;
     white-space: nowrap;
     overflow: hidden;
