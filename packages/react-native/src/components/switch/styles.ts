@@ -1,6 +1,4 @@
-import { color, opacities } from '@cromaui/foundations'
-import { shapesNative } from '@cromaui/foundations/dist/shapes'
-import { spacingsNative } from '@cromaui/foundations/dist/spacings'
+import { color, opacities, spacingsNative, shapesNative } from '@cromaui/foundations'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({

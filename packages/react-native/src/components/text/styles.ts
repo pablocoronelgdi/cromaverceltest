@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { StyleSheet } from 'react-native'
 import type { StyleTextRecordType } from './types'
-import { typographyNative } from '@cromaui/foundations/dist/typography'
+import { typographyNative } from '@cromaui/foundations'
 
 export const styles = (variant: string): StyleSheet.NamedStyles<StyleTextRecordType> => {
   const fontDisplayVariant = typographyNative.variant.display[variant as keyof Object]
