@@ -1,6 +1,5 @@
-import { color } from '@cromaui/foundations'
+import { color, shapesNative } from '@cromaui/foundations'
 import { Platform, StyleSheet, type StyleProp, type TextStyle, type ViewStyle } from 'react-native'
-import { shapesNative } from '@cromaui/foundations/dist/shapes'
 
 export const getAreaStyle = (
   size: string,

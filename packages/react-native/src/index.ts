@@ -4,5 +4,15 @@ import { Checkbox } from './components/checkbox'
 import { CromaText } from './components/text'
 import { CromaThemeProvider } from './components/themeProvider'
 import { FloatingButton, FloatingMenu } from './components/fab'
+import { Spinner } from './components/spinner'
 
-export { Icon, Switch, Checkbox, CromaText, CromaThemeProvider, FloatingButton, FloatingMenu }
+export {
+  Checkbox,
+  CromaText,
+  CromaThemeProvider,
+  FloatingButton,
+  FloatingMenu,
+  Icon,
+  Spinner,
+  Switch
+}
