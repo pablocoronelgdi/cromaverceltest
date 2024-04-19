@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ListItem, RoundedImage, Switch, RadioButton, Checkbox, Link, Icon } from '@cromaui/react'
+import { ListItem, Avatar, Switch, RadioButton, Checkbox, Link, Icon } from '@cromaui/react'
 
 const meta: Meta<typeof Image> = {
   title: 'Data Display/ListItem',
@@ -70,7 +70,7 @@ export const Default: Story = {
 
 export const AvatarSwich: Story = {
   args: {
-    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $contentLeft: <Avatar $size="medium" $iconName="person" />,
     title: 'Título',
     $description: 'Texto informativo',
     $contentRight: <Switch />
@@ -79,7 +79,7 @@ export const AvatarSwich: Story = {
 
 export const AvatarRadio: Story = {
   args: {
-    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $contentLeft: <Avatar $size="medium" $iconName="person" />,
     title: 'Título',
     $description: 'Texto informativo',
     $contentRight: <RadioButton name="defaults" value="radio1" checked={false} />
@@ -106,7 +106,7 @@ export const AvatarLink: Story = {
 
 export const AvatarIcon: Story = {
   args: {
-    $contentLeft: <RoundedImage $size="medium" $iconName="person" />,
+    $contentLeft: <Avatar $size="medium" $iconName="person" />,
     title: 'Título',
     $description: 'Texto informativo',
     $contentRight: (
@@ -123,7 +123,7 @@ export const Disabled: Story = {
     title: 'Título',
     $disabled: true,
     $description: 'Texto informativo',
-    $contentRight: <RoundedImage $size="medium" $iconName="person" $disabled />
+    $contentRight: <Avatar $size="medium" $iconName="person" $disabled />
   }
 }
 
@@ -132,6 +132,6 @@ export const Medium: Story = {
     $contentLeft: <Switch disabled />,
     title: 'Título',
     $disabled: false,
-    $contentRight: <RoundedImage $size="small" $iconName="person" $disabled />
+    $contentRight: <Avatar $size="small" $iconName="person" $disabled />
   }
 }

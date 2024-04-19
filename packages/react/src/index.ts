@@ -1,3 +1,4 @@
+import { Avatar } from './components/avatar'
 import { Badge } from './components/badge'
 import { Button } from './components/button'
 import { Checkbox } from './components/checkbox'
@@ -12,7 +13,6 @@ import { Pictogram } from './components/pictogram'
 import { PinInput } from './components/pin-input'
 import { ProgressBar } from './components/progressbar'
 import { RadioButton } from './components/radiobutton'
-import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
 import { Tab } from './components/tab'
@@ -23,6 +23,7 @@ import { ThemeWrapper } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
 
 export {
+  Avatar,
   Badge,
   Button,
   Checkbox,
@@ -37,7 +38,6 @@ export {
   PinInput,
   ProgressBar,
   RadioButton,
-  RoundedImage,
   Spinner,
   Switch,
   Tab,
