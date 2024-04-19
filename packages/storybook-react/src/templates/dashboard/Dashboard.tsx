@@ -2,7 +2,7 @@ import React from 'react'
 import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
 import './dashboard.css'
 import Movimientos from './Movimientos'
-import Inicio from './Inicio'
+import Home from './home'
 import ValidacionMobile from './ValidacionMobile'
 import Login from '../login/login'
 import FormBond from '../formBond'
@@ -13,7 +13,7 @@ const tabs: TabItemTypes[] = [
     id: 'idHome',
     $label: 'Inicio',
     $iconName: 'home',
-    $content: <Inicio />
+    $content: <Home />
   },
   {
     id: 'idMovements',
