@@ -1,0 +1,54 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as AvatarStories from './Avatar.stories';
+import { Avatar } from '@cromaui/react'
+
+<Meta of={AvatarStories} />
+
+# Avatar
+Mediante el componente Avatar se podrá visualizar un Monograma, un Icono, o una Foto 
+<br />
+
+<Primary />
+
+## Usos
+
+### Default 
+Mediante la propiedad $size se puede definir el tamaño del componente, las opciones son:
+- “extra-small"
+- “small"
+- "medium”
+- ”large"
+- "extra-large"
+
+<Story of={AvatarStories.AvatarDefault} />
+<Source of={AvatarStories.AvatarDefault} />
+
+### Avatar con Icono
+Mediante la propiedad $iconName se puede definir el nombre del ícono que se quiere mostrar en el componente, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons
+
+<Story of={AvatarStories.AvatarWithIcon} />
+<Source of={AvatarStories.AvatarWithIcon} />
+
+### Avatar deshabilitado
+Mediante la propiedad $disabled se puede definir si el componente está en estado deshabilitado o nombre
+
+<Story of={AvatarStories.AvatarDisabled} />
+<Source of={AvatarStories.AvatarDisabled} />
+
+### Avatar con Monograma
+Mediante la propiedad $monogram se puede definir el monograma (2 letras) del componente, debe estar compuesto por 2 letras. No acepta tildes, ni diéricis, ni números
+
+<Story of={AvatarStories.AvatarWithMonogram} />
+<Source of={AvatarStories.AvatarWithMonogram} />
+
+### Avatar con Foto
+Mediante la propiedades $src y $alt se puede definir la imagen que se quiere mostrar del componente, $src recibe un link de tipo string, y $alt recibe el texto que describe la imagen de tipo string
+
+<Story of={AvatarStories.AvatarWithPhoto} />
+<Source of={AvatarStories.AvatarWithPhoto} />
+
+### Props
+
+El componente Avatar acepta los siguientes parámetros:
+
+<ArgTypes />

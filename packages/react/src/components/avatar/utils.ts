@@ -1,6 +1,6 @@
-import type { RoundedImageSizeType } from './types'
+import type { AvatarSizeType } from './types'
 
-export const getSize = (size?: RoundedImageSizeType): string => {
+export const getSize = (size?: AvatarSizeType): string => {
   switch (size) {
     case 'extra-small':
       return '32px'

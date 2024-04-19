@@ -35,7 +35,7 @@ const meta = {
     $iconName: {
       control: { type: 'text' },
       description:
-        'La prop $iconName es la que indica el nombre del icono a renderizar en el componente RoundedImage, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
+        'La prop $iconName es la que indica el nombre del icono a renderizar en el componente, se permiten los strings empenzando con minúscula de Material Symbols: https://fonts.google.com/icons',
       table: {
         defaultValue: { summary: "'info'" },
         type: { summary: 'string' }

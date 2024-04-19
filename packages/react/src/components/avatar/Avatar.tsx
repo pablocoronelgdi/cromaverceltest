@@ -1,20 +1,19 @@
 import React, { useEffect, useId, useState } from 'react'
-import { RoundedImageContainerStyled } from './styles'
+import { StyledAvatarContainer } from './styles'
 import { Icon } from '../icon'
 import { Image } from '../image'
 import { monogramRegex } from '../../utils/stringsUtils'
 import type { IconSizeType } from '../icon/types'
-import type { RoundedImagePropsTypes } from './types'
+import type { AvatarPropTypes } from './types'
 
-/** Descripcion del componente RoundedImage WIP */
-const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
+const Avatar: React.FC<AvatarPropTypes> = ({
   $size = 'small',
+  $iconName,
+  $id,
   $disabled = false,
   $monogram,
-  $src,
-  $iconName,
   $alt,
-  $id
+  $src
 }) => {
   const defaultId = useId()
   const [monogramCustom, setMonogramCustom] = useState<string | null>('AR')
@@ -45,7 +44,7 @@ const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
   }, [$monogram])
 
   return (
-    <RoundedImageContainerStyled $size={$size} $disabled={$disabled} $id={$id || defaultId}>
+    <StyledAvatarContainer $size={$size} $disabled={$disabled} $id={$id || defaultId}>
       {$monogram && !$src && (!$iconName || $iconName) && <small>{monogramCustom}</small>}
       {$src && $alt && (!$monogram || $monogram) && (!$iconName || $iconName) && (
         <Image alt={$alt} title={$alt} image={$src} height="100%" width="100%" />
@@ -53,8 +52,8 @@ const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
       {((!$src && !$monogram) || !isNaN(Number($monogram))) && (
         <Icon $size={iconSize} $name={$iconName?.toLowerCase() ?? 'person'} />
       )}
-    </RoundedImageContainerStyled>
+    </StyledAvatarContainer>
   )
 }
 
-export default RoundedImage
+export default Avatar

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
+import { Badge, Icon, Logo, Avatar, Tabs } from '@cromaui/react'
 import './dashboard.css'
 import Movimientos from './Movimientos'
 import Inicio from './Inicio'
@@ -52,7 +52,7 @@ const Dashboard: React.FC = () => {
           <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
           <Icon $name="notifications" style={{ color: 'white' }} $size="large" />
           <Badge $count={1000} $backgroundColor="pink" $backgroundType="dark" />
-          <RoundedImage
+          <Avatar
             $size="large"
             $src="https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg"
             $alt="Chayanne"
