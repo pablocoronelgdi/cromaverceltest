@@ -1,13 +1,11 @@
 import type { InputHTMLAttributes } from 'react'
 
 export type PinInputPropTypes = {
-  $pinLength?: number
+  $error?: boolean | ((arg: any) => boolean)
+  $helperText?: string | null
   $label?: string
-  $helperText?: string
+  $pinLength?: number
   $visibility?: boolean
-  $errorMessage?: string
-  $error?: boolean
   $onComplete?: (pin: string) => void
   $onPinChange?: (pin: string) => void
-
 } & InputHTMLAttributes<HTMLInputElement>

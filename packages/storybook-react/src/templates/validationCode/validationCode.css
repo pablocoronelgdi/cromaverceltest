@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 24px;
   border: solid 1px #aaa;
   width: fit-content;
   padding: 4rem;
