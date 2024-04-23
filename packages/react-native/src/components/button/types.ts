@@ -5,18 +5,20 @@ import type { IconPropTypes } from '../icon'
 
 /* ----------  Props del botón  ---------- */
 
+export type ButtonIconPositionType = 'left' | 'right'
 export type ButtonSizeType = 'small' | 'medium' | 'large'
 export type ButtonVariantType = 'filled' | 'outlined' | 'link'
+export type ButtonBackgroundType = 'light' | 'dark'
 
 export type ButtonPropTypes = {
-  size?: ButtonSizeType
-  variant?: ButtonVariantType
-  theme?: any
-  children?: ReactNode
-  disabled?: boolean
-  iconName?: keyof typeof MaterialIcons.glyphMap
+  size?: ButtonSizeType,
+  text: string,
+  backgroundType: ButtonBackgroundType,
+  fullWidth: boolean,
+  iconName: string,
   iconPosition?: 'left' | 'right'
-  color?: string
+  variant?: ButtonVariantType
+  disabled?: boolean
 } & PressableProps
 
 export type ChildrenButtonPropTypes = {
