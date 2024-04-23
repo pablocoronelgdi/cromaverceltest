@@ -19,7 +19,7 @@ import { Tab } from './components/tab'
 import { Tabs } from './components/tabs'
 import { TabsSegmented } from './components/tabsSegmented'
 import { TextArea } from './components/textarea'
-import { ThemeWrapper } from './components/themeWrapper'
+import { CromaThemeProvider } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
 
 export {
@@ -44,7 +44,7 @@ export {
   Tabs,
   TabsSegmented,
   TextArea,
-  ThemeWrapper,
+  CromaThemeProvider,
   Toogletip,
   Tooltip
 }

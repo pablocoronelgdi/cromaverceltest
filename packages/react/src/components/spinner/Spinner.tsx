@@ -1,11 +1,22 @@
 import React, { useId } from 'react'
-import { SpinnerContainerStyled } from './styles'
+import { StyledSpinnerContainer, StyledSpinnerLabel } from './styles'
 import type { SpinnerPropTypes } from './types'
 
-const Spinner: React.FC<SpinnerPropTypes> = ({ $withLogo, $label, id }) => {
+const Spinner: React.FC<SpinnerPropTypes> = ({
+  $withLogo = false,
+  $label,
+  id,
+  $size = 'extra-small',
+  $variantColor = 'dark'
+}) => {
   const defaultId = useId()
   return (
-    <SpinnerContainerStyled $withLogo={$withLogo} id={ id || defaultId }>
+    <StyledSpinnerContainer
+      $withLogo={$withLogo}
+      id={id || defaultId}
+      $size={$size}
+      $variantColor={$variantColor}
+    >
       <div>
         {$withLogo && (
           <div>
@@ -13,8 +24,12 @@ const Spinner: React.FC<SpinnerPropTypes> = ({ $withLogo, $label, id }) => {
           </div>
         )}
       </div>
-      {$label && <span>{$label}</span>}
-    </SpinnerContainerStyled>
+      {$label && $size == 'large' && (
+        <StyledSpinnerLabel $variantColor={$variantColor} $withLogo={$withLogo}>
+          {$label}
+        </StyledSpinnerLabel>
+      )}
+    </StyledSpinnerContainer>
   )
 }
 

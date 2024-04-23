@@ -1,2 +1,2 @@
-import ThemeWrapper from './ThemeWrapper'
-export { ThemeWrapper }
+import CromaThemeProvider from './ThemeWrapper'
+export { CromaThemeProvider }
