@@ -7,7 +7,7 @@ import {
   FLEX_COLUMN_START,
   FLEX_END,
   FLEX_START,
-  FONT_BODY_MD,
+  FONT_BODY_LG,
   FONT_BODY_SM,
   FONT_CAPTION,
   FONT_TYPE_BOLD,
@@ -187,7 +187,7 @@ export const TooltipContainerStyled = styled.div<TooltipPositionTypes & TooltipA
       ${FLEX_BETWEEN}
       gap: ${spacings.space4};
       & h2:first-of-type {
-        ${FONT_BODY_MD}
+        ${FONT_BODY_LG}
         ${FONT_TYPE_BOLD}
       }
     }

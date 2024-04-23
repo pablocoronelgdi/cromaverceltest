@@ -33,25 +33,25 @@ export const StyledAvatarContainer = styled.div<AvatarPropTypes>`
     ${({ $size }) =>
       $size === 'small' &&
       css`
-    font-size: ${typography.body.md.fontSize};
-    letter-spacing: ${typography.body.md.letterSpacing};
-    line-height: letter-spacing: ${typography.body.md.lineHeight};
+    font-size: ${typography.body.lg.fontSize};
+    letter-spacing: ${typography.body.lg.letterSpacing};
+    line-height: letter-spacing: ${typography.body.lg.lineHeight};
     `}
 
     ${({ $size }) =>
       ($size === 'medium' || $size === 'large') &&
       css`
-    font-size: ${typography.body.lg.fontSize};
-    letter-spacing: ${typography.body.lg.letterSpacing};
-    line-height: letter-spacing: ${typography.body.lg.lineHeight};
+    font-size: ${typography.heading.sm.fontSize};
+    letter-spacing: ${typography.heading.sm.letterSpacing};
+    line-height: letter-spacing: ${typography.heading.sm.lineHeight};
     `}
     
     ${({ $size }) =>
       $size === 'extra-large' &&
       css`
-    font-size: ${typography.heading.sm.fontSize};
-    letter-spacing: ${typography.heading.sm.letterSpacing};
-    line-height: letter-spacing: ${typography.heading.sm.lineHeight};
+    font-size: ${typography.heading.md.fontSize};
+    letter-spacing: ${typography.heading.md.letterSpacing};
+    line-height: letter-spacing: ${typography.heading.md.lineHeight};
     `}
   }
 
