@@ -33,13 +33,13 @@ export const typography = {
       textCase: 'none'
     },
     lg: {
-      fontSize: '28px',
+      fontSize: '24px',
       textDecoration: 'none',
-      fontFamily: 'Titillium Web',
+      fontFamily: 'Public Sans',
       fontStyle: 'normal',
       fontStretch: 'normal',
       letterSpacing: '0.098px',
-      lineHeight: '48px',
+      lineHeight: '32px',
       textCase: 'none'
     },
     md: {

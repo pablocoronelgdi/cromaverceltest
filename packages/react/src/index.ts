@@ -10,7 +10,7 @@ import { Link } from './components/link'
 import { ListItem } from './components/listitem'
 import { Logo } from './components/logo'
 import { Pictogram } from './components/pictogram'
-import { PinInput } from './components/pin-input'
+import { PinInput } from './components/pinInput'
 import { ProgressBar } from './components/progressbar'
 import { RadioButton } from './components/radiobutton'
 import { Spinner } from './components/spinner'
@@ -19,7 +19,7 @@ import { Tab } from './components/tab'
 import { Tabs } from './components/tabs'
 import { TabsSegmented } from './components/tabsSegmented'
 import { TextArea } from './components/textarea'
-import { ThemeWrapper } from './components/themeWrapper'
+import { CromaThemeProvider } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
 
 export {
@@ -44,7 +44,7 @@ export {
   Tabs,
   TabsSegmented,
   TextArea,
-  ThemeWrapper,
+  CromaThemeProvider,
   Toogletip,
   Tooltip
 }

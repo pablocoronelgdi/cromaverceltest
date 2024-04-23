@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import * as Theme from '../../theme/theme'
 import { GlobalStyle } from '../../globals/globals'
 
-type ThemeWrapperProps = {
+type CromaThemeProviderPropTypes = {
   $theme: string
   children: ReactNode
 }
@@ -20,7 +20,7 @@ const getMacroTheme = ($theme: string): any => {
   return selectedTheme ?? Theme.macro
 }
 
-const ThemeWrapper: React.FC<ThemeWrapperProps> = ({
+const CromaThemeProvider: React.FC<CromaThemeProviderPropTypes> = ({
   children,
   $theme = 'macro'
 }) => {
@@ -34,4 +34,4 @@ const ThemeWrapper: React.FC<ThemeWrapperProps> = ({
   )
 }
 
-export default ThemeWrapper
+export default CromaThemeProvider

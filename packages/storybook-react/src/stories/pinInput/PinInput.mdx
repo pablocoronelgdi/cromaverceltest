@@ -1,67 +1,66 @@
-import { Meta, Primary, ArgTypes, Story, Source } from '@storybook/blocks'
+import { Meta, Primary, ArgTypes, Story, Stories, Source } from '@storybook/blocks'
 import * as PinInputStories from './PinInput.stories'
 
 <Meta of={PinInputStories} />
 
 # PinInput
-
+Mediante el componente PIN Input se podrá ingresar un código numérico
 <br />
 
 <Primary />
 
 ## Usos
 
-### Titulo y label
+### Default
+Solo con importar el componente se puede renderizar con una longitud ($pinLength) de 4 por default
 
-El Pin Input posee un titulo y un label que se pueden personalizar mediante la prop 'title' y la prop '$label'
+<Story of={PinInputStories.PinInputDefault} />
+<Source of={PinInputStories.PinInputDefault} />
 
-<Story of={PinInputStories.TitleAndLabel} />
-<Source of={PinInputStories.TitleAndLabel} />
+### PIN Input con label
+Mediante la propiedad $label se pueden definir un label para el input
 
-### Limite del pin
+<Story of={PinInputStories.PinInputLabel} />
+<Source of={PinInputStories.PinInputLabel} />
 
-La longitud del pin puede modificarse mediante la propiedad $DPinInputStories.ifferentPinLength
+### PIN Input length
+Mediante la propiedad $pinLength se puede definir la longitud del valor del input que se quiere renderizar, por default es 4 y cómo máxmimo es 6
 
-<Story of={PinInputStories.DifferentPinLength} />
-<Source of={PinInputStories.DifferentPinLength} />
+<Story of={PinInputStories.PinInputLength} />
+<Source of={PinInputStories.PinInputLength} />
 
-### Componente Controlado
+### PIN Input deshabilitado
+Mediante la propiedad "disabled" se puede deshabilitar el componente impidiendo su uso
 
-El input puede ser controlado si se le pasa un valor a la propiedad "value" y una funcion de cambio de estado a '$onPinChange"'
+<Story of={PinInputStories.PinInputDisabled} />
+<Source of={PinInputStories.PinInputDisabled} />
 
-<Story of={PinInputStories.ControlledComponent} />
-<Source of={PinInputStories.ControlledComponent} />
+### PIN Input error
+Mediante la propiedad "$error" se define el estado de error del componente
 
-### On Complete
+<Story of={PinInputStories.PinInputError} />
+<Source of={PinInputStories.PinInputError} />
 
-La prop $onComplete recibe una funcion que se ejecutará cuando todos los casilleros del pin input hayan sido completados
+### PIN Input visibility
+Mediante la propiedad "$visibility" con un valor "false", hace que se oculten los digitos del componente, similar a un input de tipo "password"
 
-<Story of={PinInputStories.OnCompleted} />
-<Source of={PinInputStories.OnCompleted} />
+<Story of={PinInputStories.PinInputVisibility} />
+<Source of={PinInputStories.PinInputVisibility} />
 
-### Deshabilitado
+### PIN Input controlado
+El componente puede ser controlado si se le pasa un valor a la propiedad "value" y una funcion de cambio de estado a la propiedad "$onPinChange"
 
-Mediante la prop "disabled" se puede deshabilitar el componente impidiendo su uso.
+<Story of={PinInputStories.PinInputControlled} />
+<Source of={PinInputStories.PinInputControlled} />
 
-<Story of={PinInputStories.Disabled} />
-<Source of={PinInputStories.Disabled} />
+### PIN Input on complete
+Mediante la propiedad "$onComplete" se puede recibir una función que se ejecutará cuando todos los casilleros del componente hayan sido completados
 
-### Error
-
-La prop '$errorMessage' es similar al label con la diferencia que se muestra cuando la condicion de la prop $error es true.
-
-<Story of={PinInputStories.Error} />
-<Source of={PinInputStories.Error} />
-
-### Dígitos no visibles
-
-La prop '$visibility' con un valor false oculta los digitos del input similar a un input type="password"
-
-<Story of={PinInputStories.Visibility} />
-<Source of={PinInputStories.Visibility} />
+<Story of={PinInputStories.PinInputOnComplete} />
+<Source of={PinInputStories.PinInputOnComplete} />
 
 ## Props
 
-El componente PinInput acepta, ademas de los atributos de html input, los siguientes parametros:
+El componente PinInput acepta, ademas de los atributos de html input, los siguientes parámetros:
 
 <ArgTypes />
