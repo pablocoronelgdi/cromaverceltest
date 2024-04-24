@@ -1,5 +1,5 @@
 import React from 'react'
-import './inicio.css'
+import './home.css'
 import { Button, Pictogram, Tooltip } from '@cromaui/react'
 
 const Home: React.FC = () => {
