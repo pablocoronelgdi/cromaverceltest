@@ -9,17 +9,17 @@ export const styles = (variant: string): StyleSheet.NamedStyles<StyleTextRecordT
   const fontBodyDisplayVariant = typographyNative.variant.body[variant as keyof Object]
 
   return StyleSheet.create({
-    displayXL: {
-      ...typographyNative.displayXl,
+    displayLg: {
+      ...typographyNative.displayLg,
       ...fontDisplayVariant
     },
-    displayLg: { ...typographyNative.displayLg, ...fontDisplayVariant },
+    displayMd: { ...typographyNative.displayMd, ...fontDisplayVariant },
+    displaySm: { ...typographyNative.displaySm, ...fontDisplayVariant },
     headingXl: { ...typographyNative.headingXl, ...fontHeadingDisplayVariant },
     headingLg: { ...typographyNative.headingLg, ...fontHeadingDisplayVariant },
     headingMd: { ...typographyNative.headingMd, ...fontHeadingDisplayVariant },
     headingSm: { ...typographyNative.headingSm, ...fontHeadingDisplayVariant },
     bodyLg: { ...typographyNative.bodyLg, ...fontBodyDisplayVariant },
-    bodyMd: { ...typographyNative.bodyMd, ...fontBodyDisplayVariant },
     bodySm: { ...typographyNative.bodySm, ...fontBodyDisplayVariant },
     caption: typographyNative.caption,
     linkLg: typographyNative.linkLg,

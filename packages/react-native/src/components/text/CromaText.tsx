@@ -4,14 +4,14 @@ import type { TextPropTypes } from './types'
 import { styles } from './styles'
 
 export const typoRecord = {
-  h1: 'displayXL',
-  h2: 'displayLg',
-  h3: 'headingXl',
-  h4: 'headingLg',
-  h5: 'headingMd',
-  h6: 'headingSm',
+  h1: 'displayLg',
+  h2: 'displayMd',
+  h3: 'displaySm',
+  h4: 'headingXl',
+  h5: 'headingLg',
+  h6: 'headingMd',
+  headingSm: 'headingSm',
   bodyLg: 'bodyLg',
-  bodyMd: 'bodyMd',
   bodySm: 'bodySm',
   caption: 'caption',
   linkLg: 'linkLg',

@@ -1,11 +1,11 @@
-import { ThemeWrapper } from '@cromaui/react'
+import { CromaThemeProvider } from '@cromaui/react'
 import Dashboard from './templates/dashboard/Dashboard'
 
 function App(): JSX.Element {
   return (
-    <ThemeWrapper $theme="macro">
+    <CromaThemeProvider $theme="macro">
       <Dashboard />
-    </ThemeWrapper>
+    </CromaThemeProvider>
   )
 }
 

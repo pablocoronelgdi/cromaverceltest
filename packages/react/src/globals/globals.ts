@@ -48,15 +48,6 @@ export const FLEX_COLUMN_START = css`
 `
 
 // Typography
-export const FONT_DISPLAY_XL = css`
-  font-size: ${typography.display.xl.fontSize};
-  text-decoration: ${typography.display.xl.textDecoration};
-  font-family: ${typography.display.xl.fontFamily};
-  font-style: ${typography.display.xl.fontStyle};
-  font-stretch: ${typography.display.xl.fontStretch};
-  letter-spacing: ${typography.display.xl.letterSpacing};
-  line-height: ${typography.display.xl.lineHeight};
-`
 export const FONT_DISPLAY_LG = css`
   font-size: ${typography.display.lg.fontSize};
   text-decoration: ${typography.display.lg.textDecoration};
@@ -65,6 +56,24 @@ export const FONT_DISPLAY_LG = css`
   font-stretch: ${typography.display.lg.fontStretch};
   letter-spacing: ${typography.display.lg.letterSpacing};
   line-height: ${typography.display.lg.lineHeight};
+`
+export const FONT_DISPLAY_MD = css`
+  font-size: ${typography.display.md.fontSize};
+  text-decoration: ${typography.display.md.textDecoration};
+  font-family: ${typography.display.md.fontFamily};
+  font-style: ${typography.display.md.fontStyle};
+  font-stretch: ${typography.display.md.fontStretch};
+  letter-spacing: ${typography.display.md.letterSpacing};
+  line-height: ${typography.display.md.lineHeight};
+`
+export const FONT_DISPLAY_SM = css`
+  font-size: ${typography.display.md.fontSize};
+  text-decoration: ${typography.display.sm.textDecoration};
+  font-family: ${typography.display.sm.fontFamily};
+  font-style: ${typography.display.sm.fontStyle};
+  font-stretch: ${typography.display.sm.fontStretch};
+  letter-spacing: ${typography.display.sm.letterSpacing};
+  line-height: ${typography.display.sm.lineHeight};
 `
 export const FONT_HEADING_XL = css`
   font-size: ${typography.heading.xl.fontSize};
@@ -110,15 +119,6 @@ export const FONT_BODY_LG = css`
   font-stretch: ${typography.body.lg.fontStretch};
   letter-spacing: ${typography.body.lg.letterSpacing};
   line-height: ${typography.body.lg.lineHeight};
-`
-export const FONT_BODY_MD = css`
-  font-size: ${typography.body.md.fontSize};
-  text-decoration: ${typography.body.md.textDecoration};
-  font-family: ${typography.body.md.fontFamily};
-  font-style: ${typography.body.md.fontStyle};
-  font-stretch: ${typography.body.md.fontStretch};
-  letter-spacing: ${typography.body.md.letterSpacing};
-  line-height: ${typography.body.md.lineHeight};
 `
 export const FONT_BODY_SM = css`
   font-size: ${typography.body.sm.fontSize};
@@ -183,7 +183,6 @@ export const FONT_BUTTON_SM = css`
   letter-spacing: ${typography.button.sm.letterSpacing};
   line-height: ${typography.button.sm.lineHeight};
 `
-
 export const FONT_BUTTON_XSM = css`
   font-size: ${typography.button.xsm.fontSize};
   text-decoration: ${typography.button.xsm.textDecoration};
@@ -193,7 +192,6 @@ export const FONT_BUTTON_XSM = css`
   letter-spacing: ${typography.button.xsm.letterSpacing};
   line-height: ${typography.button.xsm.lineHeight};
 `
-
 export const FONT_TYPE_REGULAR = css`
   font-weight: 400;
 `
@@ -264,7 +262,7 @@ export const GlobalStyle = createGlobalStyle`
 ${normalize()}
 
 html{
-   ${FONT_BODY_MD}
+   ${FONT_BODY_LG}
 }
 body {
   background-color: #f2f2f2;
@@ -277,25 +275,24 @@ p, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 h1{
-  ${FONT_DISPLAY_XL}
-}
-h2{
   ${FONT_DISPLAY_LG}
 }
+h2{
+  ${FONT_DISPLAY_MD}
+}
 h3{
-  ${FONT_HEADING_XL}
+  ${FONT_DISPLAY_SM}
 }
 h4{
-  ${FONT_HEADING_LG}
+  ${FONT_HEADING_XL}
 }
 h5{
-  ${FONT_HEADING_MD}
+  ${FONT_HEADING_LG}
 }
 h6{
-  ${FONT_HEADING_SM}
+  ${FONT_HEADING_MD}
 }
 button{
 ${FONT_BUTTON_MD}
 }
-
 `
