@@ -5,17 +5,18 @@ import type { IconPropTypes } from '../icon'
 
 /* ----------  Props del botón  ---------- */
 
+
 export type ButtonIconPositionType = 'left' | 'right'
-export type ButtonSizeType = 'small' | 'medium' | 'large'
-export type ButtonVariantType = 'filled' | 'outlined' | 'link'
+export type ButtonSizeType = 'extraSmall' | 'small' | 'medium' | 'large'
+export type ButtonVariantType = 'fill' | 'outline' | 'ghost' | 'tonal'
 export type ButtonBackgroundType = 'light' | 'dark'
 
 export type ButtonPropTypes = {
-  size?: ButtonSizeType,
-  text: string,
-  backgroundType: ButtonBackgroundType,
-  fullWidth: boolean,
-  iconName: string,
+  size?: ButtonSizeType
+  text: string
+  backgroundType: ButtonBackgroundType
+  fullWidth: boolean
+  iconName: string
   iconPosition?: 'left' | 'right'
   variant?: ButtonVariantType
   disabled?: boolean
