@@ -47,6 +47,7 @@ export const LeftContent = styled.div`
 `
 export const TextContent = styled.div<ListItemPropsTypes>`
   width: 100%;
+  gap: ${spacings.space4};
 
   span {
     ${FONT_BODY_LG}

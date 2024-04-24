@@ -3,7 +3,7 @@ import { StyledListItem, TextContent, RightContent, LeftContent } from './styles
 import type { ListItemPropsTypes } from './types'
 
 const ListItem: React.FC<ListItemPropsTypes> = ({
-  title,
+  title = 'Título',
   $description,
   $contentLeft,
   $contentRight,

@@ -1,6 +1,6 @@
 import React from 'react'
-import './inicio.css'
-import { Button, Pictogram, Tooltip } from '@cromaui/react'
+import './home.css'
+import { Button, ListItem, Pictogram, Tooltip } from '@cromaui/react'
 
 const Home: React.FC = () => {
   return (
@@ -49,6 +49,7 @@ const Home: React.FC = () => {
           </div>
         </Tooltip>
       </div>
+      <ListItem $description='Descripción' />
     </>
   )
 }
