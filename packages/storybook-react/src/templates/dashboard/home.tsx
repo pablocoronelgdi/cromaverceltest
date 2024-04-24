@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import { Button, ListItem, Pictogram, Tooltip } from '@cromaui/react'
+import { Button, Pictogram, ListItem, Tooltip } from '@cromaui/react'
 
 const Home: React.FC = () => {
   return (
