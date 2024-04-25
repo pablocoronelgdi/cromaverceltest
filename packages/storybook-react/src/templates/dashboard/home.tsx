@@ -1,8 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './home.css'
-import { Button, Pictogram, ListItem, Tooltip } from '@cromaui/react'
+import { Button, Pictogram, ListItem, Tooltip, Checkbox } from '@cromaui/react'
 
 const Home: React.FC = () => {
+  const [selectedId, setSelectedId] = useState<string>('')
+  const handleChcked = (id: string) => {
+    setSelectedId(id)
+    console.log(selectedId)
+  }
+  const items = [
+    {
+      id: '1',
+      title: 'Item 1',
+      description: 'Descripcion del item 1'
+    },
+    {
+      id: '2',
+      title: 'Item 2',
+      description: 'Descripcion del item 2'
+    },
+    {
+      id: '3',
+      title: 'Item 3',
+      description: 'Descripcion del item 3'
+    },
+    {
+      id: '4',
+      title: 'Item 4',
+      description: 'Descripcion del item 4'
+    },
+    {
+      id: '5',
+      title: 'Item 5',
+      description: 'Descripcion del item 5'
+    },
+    {
+      id: '6',
+      title: 'Item 6',
+      description: 'Descripcion del item 6'
+    }
+  ]
   return (
     <>
       <h2 style={{ marginLeft: '2rem' }}>Inicio</h2>
@@ -49,7 +86,23 @@ const Home: React.FC = () => {
           </div>
         </Tooltip>
       </div>
-      <ListItem $description='Descripción' />
+      <div className="gridListItems">
+        {items.map((item) => (
+          <ListItem
+            key={item.id} 
+            $description={item.description}
+            title={item.title}
+            $leftComponentRender='iconItem'
+            $rightComponentRender='icon'
+            disabled
+            // $leftContentChildren={<Checkbox checked={selectedId === item.id} onChange={() => handleChcked(item.id)} />}
+            href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#try_it'
+            $as='link'
+  /*           $selected={selectedId === item.id}
+            $onSelect={() => handleChcked(item.id)} */
+          />
+        ))}
+      </div>
     </>
   )
 }
