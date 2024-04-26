@@ -6,15 +6,17 @@ import { Switch } from '../../switch'
 import { RightContentListItemPropTypes } from "./types";
 import { color } from '@cromaui/foundations'
 import { Link } from '../../link'
+import { SyledContainerDisabled } from './styles'
 
 const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
-  as = 'icon',
+  as,
   children,
   $onSelect,
   $selected,
   $disabled,
   $iconName = 'chevron_right',
-  $href
+  $href,
+  $labelLink
 }) => {
   const [value, setValue] = useState<boolean>(false)
   if (as === 'checkbox' || as === 'radioButton' || as === 'switch') {
@@ -33,7 +35,7 @@ const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
   if (as === 'icon') {
     return (
         <Icon
-          color={$disabled ? color.neutral[400] : color.blue.main}
+          color={$disabled ? color.neutral[400] : color.neutral[800]}
           $size="medium"
           $name={$iconName}
         />
@@ -76,16 +78,19 @@ const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
     )
   }
 
-  if (as === 'link' && $href) {
+  if (as === 'link' && $href && $labelLink) {
     return (
         <Link
           $size="small"
           href={$href}
+          $children={$labelLink}
+          target="_blank"
+          $disabled={$disabled}
         />
     )
   }
 
-  return <div>{children}</div>
+  return <SyledContainerDisabled $disabled={$disabled}>{children}</SyledContainerDisabled>
 }
 
 export default RightContentListItem

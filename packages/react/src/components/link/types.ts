@@ -12,7 +12,7 @@ export type LinkPropsTypes = {
   $iconName?: string
   $className?: string
   target?: string
-  disabled?: boolean
+  $disabled?: boolean
   $size?: LinkSizeType
   $weightRegular?: boolean
 } & AnchorHTMLAttributes<HTMLAnchorElement>

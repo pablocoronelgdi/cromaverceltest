@@ -6,6 +6,7 @@ export type RightContentListItemPropTypes = {
   $disabled?: boolean
   $href?: string
   $iconName?: string
+  $labelLink?: string
   $onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void
   $selected?: boolean
 }

@@ -1,2 +1,2 @@
-import Link from './link'
+import Link from './Link'
 export { Link }

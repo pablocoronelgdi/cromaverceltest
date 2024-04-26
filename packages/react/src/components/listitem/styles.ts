@@ -52,8 +52,8 @@ export const StyledListItem = styled.button<ListItemPropTypes>`
   }
 
   &:disabled {
-    cursor: not-allowed;
     outline: none;
+    cursor: not-allowed;
   }
 `
 
@@ -63,6 +63,7 @@ export const StyledListItemLink = styled.a<ListItemLinkPropTypes>`
   border: none;
   border-bottom: ${borders.br1} ${color.neutral[300]};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${({ disabled }) => (disabled && 'none')};
   gap: ${spacings.space8};
   padding: ${spacings.space12} ${spacings.space8};
   max-width: 1024px;

@@ -1,0 +1,94 @@
+import { ArgTypes, Meta, Primary, Story, Source } from '@storybook/blocks';
+import * as ListItemStories from './ListItem.stories';
+
+<Meta of={ListItemStories} />
+
+# ListItem
+Estos componentes sirven para representar y organizar elementos individuales dentro de una lista, 
+proporcionando una estructura visual coherente y facilitando la interacción del usuario con el contenido.
+<br />
+
+<Primary />
+
+## Usos
+
+### ListItem default
+Con solo utilizar el componente se renderiza el mismo con la propiedad title de tipo "string" y su valor por default es "Título"
+
+<Story of={ListItemStories.ListItemDefault} />
+<Source of={ListItemStories.ListItemDefault} />
+
+### ListItem description
+Mediante la propiedad (opcional) $description de tipo "string" se puede agregar una descripción para acompañar al título
+
+<Story of={ListItemStories.ListItemDescription} />
+<Source of={ListItemStories.ListItemDescription} />
+
+### ListItem link
+Mediante la propiedades (opcionales) $as se puede definir al elemento como un anchor o un button item, para navegación interna y acompañada de la propiedad href de tipo "string" se puede definir la url a la que se debe navegar, las opciones son:
+- "item" (default)
+- "link"
+
+<Story of={ListItemStories.ListItemLink} />
+<Source of={ListItemStories.ListItemLink} />
+
+### ListItem disabled
+Mediante la propiedad "disabled" de tipo boolean se puede definir el estado deshabilitado del componente impidiendo que se pueda accionar o navegar
+<Story of={ListItemStories.ListItemDisabled} />
+<Source of={ListItemStories.ListItemDisabled} />
+
+### ListItem selected
+Mediante las propiedades "selected" de tipo boolean y "onSelect" función que recibe un "string" se puede controlar al componente y conocer si fué seleccionado utilizando alguno de los Inputs que están disponibles en las propiedades $leftComponentRender y $rightComponentRender como "checkbox", "radioButton" y "switch"
+
+<Story of={ListItemStories.ListItemSelected} />
+<Source of={ListItemStories.ListItemSelected} />
+
+### ListItem left component
+Mediante la propiedad (opcional) $leftComponentRender se puede definir al componente que se quiere renderizar a la izquierda del título, las opciones son:
+- "iconItem" (default)
+- "switch"
+- "radioButton"
+- "checkbox"
+
+### ListItem left content children
+Mediante la propiedad (opcional) $leftContentChildren se puede definir al componente que se quiere renderizar a la izquierda del título y no esté dentro de las opciones de la propiedad $leftComponentRender.
+
+### ListItem right component
+Mediante la propiedad (opcional) $rightComponentRender se puede definir al componente que se quiere renderizar a la derecha del título, las opciones son:
+- "icon" (default)
+- "switch"
+- "radioButton"
+- "checkbox"
+- "link"
+
+### ListItem right content children
+Mediante la propiedad (opcional) $rightContentChildren se puede definir al componente que se quiere renderizar a la derecha del título, y no esté dentro de las opciones de la propiedad $rightComponentRender.
+
+## Ejemplos de uso
+
+#### ListItem con Switch a la izquierda y con link o icono a la derecha
+<Story of={ListItemStories.ListItemLeftSwitch} />
+<Source of={ListItemStories.ListItemLeftSwitch} />
+
+#### ListItem con IconItem a la izquierda y con link, checkbox, radioButton, switch e icono a la derecha
+<Story of={ListItemStories.ListItemLeftIconItem} />
+<Source of={ListItemStories.ListItemLeftIconItem} />
+
+#### ListItem con RadioButton a la izquierda y con link e icono a la derecha
+<Story of={ListItemStories.ListItemLeftRadioButton} />
+<Source of={ListItemStories.ListItemLeftRadioButton} />
+
+#### ListItem con Checkbox a la izquierda y con link e icono a la derecha
+<Story of={ListItemStories.ListItemLeftCheckbox} />
+<Source of={ListItemStories.ListItemLeftCheckbox} />
+
+#### ListItem con ChildrenAvatar a la izquierda y con link, checkbox, radioButton, switch e icono a la derecha
+<Story of={ListItemStories.ListItemLeftChildrenAvatar} />
+<Source of={ListItemStories.ListItemLeftChildrenAvatar} />
+
+
+## Props
+
+El componente ListItem acepta los siguientes parametros:
+
+<ArgTypes />

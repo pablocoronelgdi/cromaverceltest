@@ -8,6 +8,7 @@ const meta = {
     disabled: {
       description:
         "Si su valor es 'true' el componente se mostrara deshabilitado impidiendo así su uso.",
+      control: { type: 'boolean' },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' }

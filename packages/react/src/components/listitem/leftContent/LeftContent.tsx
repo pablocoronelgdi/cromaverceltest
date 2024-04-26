@@ -5,13 +5,15 @@ import { Checkbox } from '../../checkbox'
 import { RadioButton } from '../../radiobutton'
 import { Switch } from '../../switch'
 import { LeftContentListItemPropTypes } from './types'
+import { SyledContainerDisabled } from './styles'
 
 const LeftContentListItem: React.FC<LeftContentListItemPropTypes> = ({
-  as = 'iconItem',
+  as,
   children,
   $onSelect,
   $selected,
-  $disabled
+  $disabled,
+  $nameInput
 }) => {
   const [value, setValue] = useState<boolean>(false)
   if (as === 'checkbox' || as === 'radioButton' || as === 'switch') {
@@ -69,6 +71,7 @@ const LeftContentListItem: React.FC<LeftContentListItemPropTypes> = ({
           handleCheck(e)
         }}
         disabled={$disabled}
+        name={$nameInput}
       />
     )
   }
@@ -85,7 +88,7 @@ const LeftContentListItem: React.FC<LeftContentListItemPropTypes> = ({
     )
   }
 
-  return <div>{children}</div>
+  return <SyledContainerDisabled $disabled={$disabled}>{children}</SyledContainerDisabled>
 }
 
 export default LeftContentListItem

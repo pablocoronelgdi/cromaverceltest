@@ -7,13 +7,16 @@ import RightContentListItem from './rightContent/RightContent'
 const ListItem: React.FC<ListItemPropTypes> = ({
   title = 'Título',
   $description,
-  $leftContentChildren,
+  $as = 'item',
   $leftComponentRender,
+  $leftContentChildren,
   $rightComponentRender,
   $rightContentChildren,
-  $as = 'item',
   $onSelect,
   $selected,
+  $labelLinkRight,
+  $iconNameRight,
+  $nameInput,
   ...props
 }) => {
   const defaultId = useId()
@@ -29,6 +32,7 @@ const ListItem: React.FC<ListItemPropTypes> = ({
         id={props.id || defaultId}
         disabled={props.disabled}
         onClick={props.disabled ? (e) => e.preventDefault() : undefined}
+        href={props.href}
         {...props}
       >
         {($leftContentChildren || $leftComponentRender) && (
@@ -68,6 +72,7 @@ const ListItem: React.FC<ListItemPropTypes> = ({
           as={$leftComponentRender}
           $selected={$selected}
           $disabled={props.disabled}
+          $nameInput={$nameInput}
         >
           {$leftContentChildren}
         </LeftContentListItem>
@@ -84,6 +89,9 @@ const ListItem: React.FC<ListItemPropTypes> = ({
           as={$rightComponentRender}
           $selected={$selected}
           $disabled={props.disabled}
+          $href={props.href}
+          $labelLink={$labelLinkRight}
+          $iconName={$iconNameRight}
         >
           {$rightContentChildren}
         </RightContentListItem>
