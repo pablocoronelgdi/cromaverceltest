@@ -2,13 +2,18 @@ import { type NativeSyntheticEvent, Pressable, type TargetedEvent, Text, View } 
 import React, { useState } from 'react'
 import { type ButtonPropTypes } from './types'
 import { buttonStyles } from './newStyles'
+import { Icon } from '../icon'
+import { type IconNameType } from '../icon/types'
 
 const ButtonNew: React.FC<ButtonPropTypes> = ({
   text,
   backgroundType = 'light',
   iconPosition = 'left',
-  variant = 'filled',
+  iconName,
+  variant = 'fill',
   disabled = false,
+  size = 'medium',
+  fullWidth,
   ...props
 }) => {
   const [pressed, setPressed] = useState(false)
@@ -34,7 +39,7 @@ const ButtonNew: React.FC<ButtonPropTypes> = ({
   }
   const viewClass =
     variant + (backgroundType.charAt(0).toUpperCase() + backgroundType.slice(1).toLowerCase())
-  const styles = buttonStyles(iconPosition, pressed, disabled)
+  const styles = buttonStyles(iconPosition, text, iconName, variant, pressed, disabled, size)
 
   return (
     <Pressable
@@ -48,10 +53,23 @@ const ButtonNew: React.FC<ButtonPropTypes> = ({
       }}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      style={[focused && styles.focused]}
+      onPress={props.onPress}
+      style={[focused && styles.focused, fullWidth && { width: '100%' }]}
     >
-      <View style={[styles.baseButton, styles[viewClass]]}>
-        <Text>{text}</Text>
+      <View style={[styles.baseButton, styles[viewClass], styles[size]]}>
+        <Text style={[styles[viewClass + 'Color'], { lineHeight: 24, fontSize: 18 }]}>{text}</Text>
+        {iconName && (
+          <Icon
+            name={iconName as IconNameType}
+            size={
+              size === 'extraSmall'
+                ? 'small'
+                : size === 'medium' || size === 'large'
+                ? 'large'
+                : 'medium'
+            }
+          />
+        )}
       </View>
     </Pressable>
   )

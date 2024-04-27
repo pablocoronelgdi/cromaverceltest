@@ -1,2 +1,2 @@
-import Button from './Button'
-export { Button }
+import ButtonNew from './ButtonNew'
+export { ButtonNew }

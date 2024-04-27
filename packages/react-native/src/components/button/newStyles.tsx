@@ -1,20 +1,27 @@
-import { color, shapesNative, spacingsNative, spacingsNativeNative } from '@cromaui/foundations'
+import { color, shapesNative, spacingsNative } from '@cromaui/foundations'
 import { StyleSheet } from 'react-native'
-import { type ButtonVariantType, type ButtonIconPositionType } from './types'
+import { type ButtonVariantType, type ButtonIconPositionType, type ButtonSizeType } from './types'
 
 export const buttonStyles = (
   iconPosition: ButtonIconPositionType,
+  text: string | undefined,
+  iconName: string | undefined,
+  variant: ButtonVariantType,
   pressed: boolean,
   disabled: boolean,
-  text: string,
-  iconName: string,
-  variant: ButtonVariantType
+  size: ButtonSizeType
 ): StyleSheet.NamedStyles<any> =>
   StyleSheet.create({
+    container: {
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
     baseButton: {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: iconPosition === 'left' ? 'row-reverse' : 'row',
+      gap:
+        iconName && text && size === 'extraSmall' ? spacingsNative.space6 : spacingsNative.space8,
       borderRadius: shapesNative.sm,
       maxWidth: 328
     },
@@ -24,43 +31,59 @@ export const buttonStyles = (
       borderWidth: 2
     },
     fillLight: {
-      backgroundColor: disabled ? color.neutral[300] : pressed ? color.navy.dark : color.navy.main,
+      backgroundColor: disabled ? color.neutral[300] : pressed ? color.navy.dark : color.navy.main
+    },
+    fillLightColor: {
       color: disabled ? color.neutral[500] : color.neutral[50]
     },
     fillDark: {
       backgroundColor: disabled
         ? color.neutral[400]
         : pressed
-          ? color.navy.soft
-          : color.neutral[100],
+        ? color.navy.soft
+        : color.neutral[100]
+    },
+    fillDarkColor: {
       color: disabled ? color.neutral[600] : color.navy.main
     },
     outlineLight: {
       backgroundColor: pressed ? color.navy.extraSoft : 'transparent',
-      color: disabled ? color.neutral[400] : pressed ? color.navy.dark : color.navy.main,
       borderWidth: 1.7,
       borderColor: disabled ? color.neutral[400] : pressed ? color.navy.dark : color.navy.main
     },
+    outlineLightColor: {
+      color: disabled ? color.neutral[400] : pressed ? color.navy.dark : color.navy.main
+    },
     outlineDark: {
       backgroundColor: pressed ? color.navy.extraSoft : color.neutral[50],
-      color: disabled ? color.neutral[600] : pressed ? color.navy.dark : color.neutral[50],
       borderWidth: 1.7,
       borderColor: disabled ? color.neutral[600] : pressed ? color.navy.soft : color.neutral[50]
     },
+    outlineDarkColor: {
+      color: disabled ? color.neutral[600] : pressed ? color.navy.dark : color.neutral[50]
+    },
     ghostLight: {
-      backgroundColor: pressed ? color.neutral[200] : 'transparent',
+      backgroundColor: pressed ? color.neutral[200] : 'transparent'
+    },
+    ghostLightColor: {
       color: disabled ? color.neutral[400] : pressed ? color.neutral[200] : color.neutral[900]
     },
     ghostDark: {
-      backgroundColor: pressed ? color.navy.soft : 'transparent',
+      backgroundColor: pressed ? color.navy.soft : 'transparent'
+    },
+    ghostDarkColor: {
       color: disabled ? color.neutral[600] : pressed ? color.navy.dark : color.neutral[50]
     },
     tonalLight: {
-      backgroundColor: disabled ? color.neutral[300] : pressed ? color.blue.dark : color.blue.main,
+      backgroundColor: disabled ? color.neutral[300] : pressed ? color.blue.dark : color.blue.main
+    },
+    tonalLightColor: {
       color: disabled ? color.neutral[500] : color.neutral[50]
     },
     tonalDark: {
-      backgroundColor: disabled ? color.neutral[600] : pressed ? color.blue.dark : color.blue.soft,
+      backgroundColor: disabled ? color.neutral[600] : pressed ? color.blue.dark : color.blue.soft
+    },
+    tonalDarkColor: {
       color: disabled ? color.neutral[400] : color.neutral[50]
     },
     // Sizes
@@ -71,25 +94,82 @@ export const buttonStyles = (
         iconPosition === 'left'
           ? spacingsNative.space8
           : iconPosition === 'right' || (text && !iconPosition)
-            ? spacingsNative.space12
-            : !!iconName && !iconPosition && !text && variant !== 'ghost'
-                ? spacingsNative.space4
-                : variant === 'ghost' && !!iconName && !iconPosition && !text
-                  ? spacingsNative.space2
-                  : 0,
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text && variant !== 'ghost'
+          ? spacingsNative.space4
+          : variant === 'ghost' && !!iconName && !iconPosition && !text
+          ? spacingsNative.space2
+          : 0,
       paddingRight:
         iconPosition === 'right'
           ? spacingsNative.space8
           : iconPosition === 'left' || (text && !iconPosition)
-            ? spacingsNative.space12
-            : !!iconName && !iconPosition && !text && variant !== 'ghost'
-                ? spacingsNative.space4
-                : variant === 'ghost' && !!iconName && !iconPosition && !text
-                  ? spacingsNative.space2
-                  : 0
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text && variant !== 'ghost'
+          ? spacingsNative.space4
+          : variant === 'ghost' && !!iconName && !iconPosition && !text
+          ? spacingsNative.space2
+          : 0
     },
     small: {
-
+      paddingTop: spacingsNative.space8,
+      paddingBottom: spacingsNative.space8,
+      paddingLeft:
+        iconPosition === 'left'
+          ? spacingsNative.space8
+          : iconPosition === 'right' || (text && !iconPosition)
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space8
+          : 0,
+      paddingRight:
+        iconPosition === 'right'
+          ? spacingsNative.space8
+          : iconPosition === 'left' || (text && !iconPosition)
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space8
+          : 0
+    },
+    medium: {
+      paddingTop: spacingsNative.space8,
+      paddingBottom: spacingsNative.space8,
+      paddingLeft:
+        iconPosition === 'left'
+          ? spacingsNative.space8
+          : iconPosition === 'right' || (text && !iconPosition)
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space8
+          : 0,
+      paddingRight:
+        iconPosition === 'right'
+          ? spacingsNative.space8
+          : iconPosition === 'left' || (text && !iconPosition)
+          ? spacingsNative.space12
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space8
+          : 0
+    },
+    large: {
+      paddingTop: spacingsNative.space12,
+      paddinBottom: spacingsNative.space12,
+      paddingLeft:
+        iconPosition === 'left'
+          ? spacingsNative.space12
+          : iconPosition === 'right' || (text && !iconPosition)
+          ? spacingsNative.space16
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space12
+          : 0,
+      paddingRight:
+        iconPosition === 'right'
+          ? spacingsNative.space12
+          : iconPosition === 'left' || (text && !iconPosition)
+          ? spacingsNative.space16
+          : !!iconName && !iconPosition && !text
+          ? spacingsNative.space12
+          : 0
     }
 
     /*    fill: {
