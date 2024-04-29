@@ -12,7 +12,7 @@ const meta = {
     href: { control: { type: 'text' } },
     $children: { control: { type: 'text' } },
     alt: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
+    $disabled: { control: { type: 'boolean' } },
     $iconRight: { control: { type: 'boolean' } },
     $iconLeft: { control: { type: 'boolean' } },
     target: {
@@ -48,7 +48,7 @@ export const LinkDisabled: Story = {
     children: 'Link de Ejemplo',
     alt: 'Texto de referencia',
     target: '_self',
-    disabled: true
+    $disabled: true
   }
 }
 

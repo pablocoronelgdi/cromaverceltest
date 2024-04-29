@@ -5,14 +5,30 @@ import { color } from '@cromaui/foundations'
 import { RadioContainer } from './styles'
 import type { RadioPropTypes } from './types'
 
-const RadioButton: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, value, id, name }) => {
+const RadioButton: React.FC<RadioPropTypes> = ({
+  onChange,
+  disabled,
+  checked,
+  defaultChecked,
+  value,
+  id,
+  name,
+  ...props
+}) => {
+  const [isChecked, setIsChecked] = useState<boolean>(defaultChecked ?? false)
   const [isPressed, setIsPressed] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
   const defaultId = useId()
 
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    if (onChange) {
-      onChange(e)
+    if (!disabled) {
+      if (checked === undefined) {
+        setIsChecked(!isChecked)
+      }
+      if (onChange) {
+        setIsChecked(!isChecked)
+        onChange(e)
+      }
     }
   }
   const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
@@ -31,7 +47,9 @@ const RadioButton: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, va
   }
 
   const handleClick = (): void => {
-    setIsFocused(false)
+    if (!disabled) {
+      setIsFocused(!isFocused)
+    }
   }
 
   return (
@@ -53,12 +71,13 @@ const RadioButton: React.FC<RadioPropTypes> = ({ onChange, disabled, checked, va
           id={id || defaultId}
           disabled={disabled}
           type="radio"
-          checked={checked}
+          checked={checked ?? isChecked}
           name={name}
           value={value}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             handleRadioChange(e)
           }}
+          {...props}
         />
         <Icon
           color={disabled ? color.neutral[400] : color.navy.main}

@@ -29,7 +29,7 @@ export const typography = {
       letterSpacing: '0.4px',
       lineHeight: '40px',
       textCase: 'none'
-    },
+    }
   },
   heading: {
     xl: {

@@ -20,7 +20,7 @@ const PinInput: React.FC<PinInputPropTypes> = ({
   value,
   ...props
 }) => {
-  const $pinLength = propPinLength > 6 ? 6 : propPinLength;
+  const $pinLength = propPinLength > 6 ? 6 : propPinLength
   const [pin, setPin] = useState<Array<number | string | undefined>>(new Array($pinLength))
   const inputRefs = useRef<HTMLInputElement[]>([])
   const defaultId = useId()

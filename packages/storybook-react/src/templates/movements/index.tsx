@@ -1,6 +1,6 @@
 import { Icon, Image, Link, ListItem, Spinner, Tooltip } from '@cromaui/react'
 import React, { useEffect, useState } from 'react'
-import './movimientos.css'
+import './movements.css'
 
 const movimientosBancarios = [
   { monto: -500000, descripcion: 'Coto Digital S.A 023dcs4:12 00032', id: 546876518 },
@@ -54,17 +54,14 @@ const Movimientos: React.FC = () => {
             </div>
           ) : (
             <div className="list">
-              <ListItem title="" $contentLeft={<h6>Últimos Movimientos</h6>} />
               {movimientosBancarios.map((movimiento) => {
                 return (
                   <ListItem
                     key={movimiento.id}
-                    $contentLeft={
-                      <Icon $name={movimiento.monto > 0 ? 'arrow_downward' : 'arrow_upward'} />
-                    }
+                    $leftComponentRender="iconItem"
                     title={`$${movimiento.monto.toLocaleString()}`}
                     $description={movimiento.descripcion}
-                    $contentRight={<DescargarComprobante idComprobante={movimiento.id} />}
+                    $rightContentChildren={<DescargarComprobante idComprobante={movimiento.id} />}
                   />
                 )
               })}

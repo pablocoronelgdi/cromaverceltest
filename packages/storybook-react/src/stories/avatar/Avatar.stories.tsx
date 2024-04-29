@@ -74,7 +74,7 @@ export const AvatarDefault: Story = {
         format: 'dedent',
         language: 'tsx',
         dark: true,
-        code: `return <Avatar $size="extra-small" />`
+        code: 'return <Avatar $size="extra-small" />'
       }
     }
   },
@@ -95,7 +95,7 @@ export const AvatarWithIcon: Story = {
         format: 'dedent',
         language: 'tsx',
         dark: true,
-        code: `return <Avatar $size="small" $iconName="mood" />`
+        code: 'return <Avatar $size="small" $iconName="mood" />'
       }
     }
   },
@@ -117,7 +117,7 @@ export const AvatarDisabled: Story = {
         format: 'dedent',
         language: 'tsx',
         dark: true,
-        code: `return <Avatar $size="medium" $iconName="person" $disabled />`
+        code: 'return <Avatar $size="medium" $iconName="person" $disabled />'
       }
     }
   },
@@ -138,7 +138,7 @@ export const AvatarWithMonogram: Story = {
         format: 'dedent',
         language: 'tsx',
         dark: true,
-        code: `return <Avatar $size="large" $monogram="ar" />`
+        code: 'return <Avatar $size="large" $monogram="ar" />'
       }
     }
   },
@@ -174,7 +174,7 @@ export const AvatarWithPhoto: Story = {
   },
   render: function Render() {
     return (
-      <Avatar 
+      <Avatar
         $size="extra-large"
         $alt="Foto de perfil de usuario"
         $src="https://iili.io/JRkrejf.png"

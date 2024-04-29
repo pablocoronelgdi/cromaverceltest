@@ -1,4 +1,4 @@
-import React, { ReactNode, useId, useState } from 'react'
+import React, { type ReactNode, useId, useState } from 'react'
 import {
   StyledTabSegmented,
   StyledTabSegmentedContent,
