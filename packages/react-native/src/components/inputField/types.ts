@@ -1,4 +1,4 @@
-import { type TextInputProps, DimensionValue } from 'react-native'
+import type { TextInputProps, DimensionValue } from 'react-native'
 
 export type InputFieldPropTypes = {
   error?: boolean | ((arg: any) => boolean)

@@ -1,94 +1,74 @@
+import { type NativeSyntheticEvent, type TargetedEvent, Pressable, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import styled from 'styled-components/native'
-import * as ButtonStyle from './styles'
-import type {
-  ButtonPropTypes,
-  ChildrenButtonPropTypes,
-  ButtonTextPropTypes,
-  ButtonIconPropTypes
-} from './types'
 import { Icon } from '../icon'
+import { buttonStyles } from './styles'
+import { type IconNameType } from '../icon/types'
+import { type ButtonPropTypes } from './types'
 
-const StyledPressable = styled.Pressable<ChildrenButtonPropTypes>`
-  padding: 2px;
-  border: solid 2px;
-  border-color: transparent;
-  border-radius: 12px;
-`
-const ViewButton = styled.View<ChildrenButtonPropTypes>`
-  ${() => ButtonStyle.getBaseButtonStyles()}
-  ${(props: ChildrenButtonPropTypes) => ButtonStyle.getButtonSize(props)}
-${(props: ChildrenButtonPropTypes) => ButtonStyle.getButtonVariant(props)}
-`
-const TextButton = styled.Text<ButtonTextPropTypes>`
-  ${() => ButtonStyle.getBaseButtonTextStyles()}
-  ${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextSize(props)}
-${(props: ButtonTextPropTypes) => ButtonStyle.getButtonTextVariant(props)};
-`
-const IconButton = styled(Icon).attrs<ButtonIconPropTypes>(
-  (props: ButtonIconPropTypes) => ({
-    variant: props.variant
-  })
-)``
-
-const Button: React.FC<ButtonPropTypes> = ({
-  size = 'medium',
-  variant,
-  children,
-  disabled,
-  style,
-  iconName,
+const ButtonNew: React.FC<ButtonPropTypes> = ({
+  text,
+  backgroundType = 'light',
   iconPosition = 'left',
-  color = 'primary'
-}: ButtonPropTypes) => {
-  const [isPressed, setIsPressed] = useState(false)
+  iconName,
+  variant = 'fill',
+  disabled = false,
+  size = 'medium',
+  fullWidth,
+  ...props
+}) => {
+  const [pressed, setPressed] = useState(false)
+  const [focused, setFocused] = useState(false)
+
+  const handleFocus = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(true)
+      props.onFocus && props.onFocus(e)
+    }
+  }
+  const handleBlur = (e: NativeSyntheticEvent<TargetedEvent>): void => {
+    if (!disabled) {
+      setFocused(false)
+      props.onBlur && props.onBlur(e)
+    }
+  }
+  const viewClass =
+    variant + (backgroundType.charAt(0).toUpperCase() + backgroundType.slice(1).toLowerCase())
+  const styles = buttonStyles(iconPosition, text, iconName, variant, pressed, disabled, size)
+
   return (
-    <StyledPressable
-      onPressIn={() => {
-        setIsPressed(true)
+    <Pressable
+      onPressIn={(e) => {
+        setPressed(true)
+        props.onPressIn && props.onPressIn(e)
       }}
-      onPressOut={() => {
-        setIsPressed(false)
+      onPressOut={(e) => {
+        setPressed(false)
+        props.onPressOut && props.onPressOut(e)
       }}
-      isPressed={isPressed}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onPress={props.onPress}
+      disabled={disabled}
+      style={[styles.container, focused && styles.focused, fullWidth && { width: '100%' }]}
     >
-      <ViewButton
-        style={style}
-        variant={variant}
-        disabled={disabled}
-        size={size}
-        isPressed={isPressed}
-        color={color}
-      >
-        {iconName && iconPosition === 'left' && (
-          <IconButton
-            name={iconName}
-            size={size}
-            color={color}
-            variant={variant}
-            isPressed={isPressed}
+      <View style={[styles.baseButton, styles[viewClass], styles[size]]}>
+        {iconName && (
+          <Icon
+            name={iconName as IconNameType}
+            size={
+              size === 'extraSmall'
+                ? 'small'
+                : size === 'medium' || size === 'large'
+                  ? 'large'
+                  : 'medium'
+            }
+            style={[styles[viewClass + 'Color']]}
           />
         )}
-        <TextButton
-          variant={variant}
-          disabled={disabled}
-          size={size}
-          isPressed={isPressed}
-        >
-          {children}
-        </TextButton>
-        {iconName && iconPosition === 'right' && (
-          <IconButton
-            name={iconName}
-            size={size}
-            color={color}
-            variant={variant}
-            isPressed={isPressed}
-          />
-        )}
-      </ViewButton>
-    </StyledPressable>
+        <Text style={[styles[viewClass + 'Color']]}>{text}</Text>
+      </View>
+    </Pressable>
   )
 }
 
-export default Button
+export default ButtonNew
