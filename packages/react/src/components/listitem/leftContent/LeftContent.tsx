@@ -4,7 +4,7 @@ import { Icon } from '../../icon'
 import { Checkbox } from '../../checkbox'
 import { RadioButton } from '../../radiobutton'
 import { Switch } from '../../switch'
-import { LeftContentListItemPropTypes } from './types'
+import type { LeftContentListItemPropTypes } from './types'
 import { SyledContainerDisabled } from './styles'
 
 const LeftContentListItem: React.FC<LeftContentListItemPropTypes> = ({

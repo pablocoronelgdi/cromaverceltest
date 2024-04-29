@@ -61,7 +61,7 @@ export const SpinnerDefault: Story = {
         )
         `
       }
-    },
+    }
   },
   render: function Render() {
     return <Spinner />
@@ -89,7 +89,7 @@ export const SpinnerWithLabel: Story = {
         )
         `
       }
-    },
+    }
   },
   render: function Render() {
     return (
@@ -121,7 +121,7 @@ export const SpinerWithLogo: Story = {
         )
         `
       }
-    },
+    }
   },
   render: function Render() {
     return (
@@ -160,7 +160,7 @@ export const SpinnerSize: Story = {
         )
         `
       }
-    },
+    }
   },
   render: function Render() {
     return (
@@ -221,7 +221,7 @@ export const SpinnerVariantColor: Story = {
         )
         `
       }
-    },
+    }
   },
   render: function Render() {
     return (

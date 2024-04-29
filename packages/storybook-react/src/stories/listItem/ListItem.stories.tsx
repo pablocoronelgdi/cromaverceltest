@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ListItem, Avatar } from '@cromaui/react'
 import { useState } from 'react'
-import { ListItemPropTypes } from '@cromaui/react/dist/components/listitem/types'
+import { ListItem, Avatar } from '@cromaui/react'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { ListItemPropTypes } from '@cromaui/react/src/components/listitem/types'
 
 const meta: Meta<typeof Image> = {
   title: 'Data Display/ListItem',
@@ -419,7 +419,7 @@ export const ListItemSelected: Story = {
                 $labelLinkRight={item.$labelLinkRight}
                 $iconNameRight={item.$iconNameRight}
                 $selected={selectedId === item.id}
-                $onSelect={() => handleChcked(item.id || '')}
+                $onSelect={() => { handleChcked(item.id || '') }}
               />
             ))}
           </div>
@@ -430,7 +430,7 @@ export const ListItemSelected: Story = {
   },
   render: function Render() {
     const [selectedId, setSelectedId] = useState<string>('')
-    const handleChcked = (id: string) => {
+    const handleChcked = (id: string): void => {
       setSelectedId(id)
       if (selectedId !== '') {
         alert(`Seleccionaste el item con id: ${selectedId}`)
@@ -511,7 +511,9 @@ export const ListItemSelected: Story = {
             $labelLinkRight={item.$labelLinkRight}
             $iconNameRight={item.$iconNameRight}
             $selected={selectedId === item.id}
-            $onSelect={() => handleChcked(item.id || '')}
+            $onSelect={() => {
+              handleChcked(item.id || '')
+            }}
           />
         ))}
       </div>
@@ -766,21 +768,18 @@ export const ListItemLeftRadioButton: Story = {
   render: function Render() {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <ListItem title="Título"        $leftComponentRender="radioButton"
-        $nameInput='1' 
-        
+        <ListItem title="Título" $leftComponentRender="radioButton" $nameInput="1" />
+        <ListItem
+          title="Título"
+          $description="Descripción del ListItem"
+          $leftComponentRender="radioButton"
+          $nameInput="1"
         />
         <ListItem
           title="Título"
           $description="Descripción del ListItem"
           $leftComponentRender="radioButton"
-          $nameInput='1'
-        />
-        <ListItem
-          title="Título"
-          $description="Descripción del ListItem"
-          $leftComponentRender="radioButton"
-          $nameInput='1'
+          $nameInput="1"
           $rightComponentRender="link"
           $labelLinkRight="Ir a Macro"
           href="https://macro.com.ar/"
@@ -789,7 +788,7 @@ export const ListItemLeftRadioButton: Story = {
           title="Título"
           $description="Descripción del ListItem"
           $leftComponentRender="radioButton"
-          $nameInput='1'
+          $nameInput="1"
           $rightComponentRender="icon"
           $labelLinkRight="info"
         />

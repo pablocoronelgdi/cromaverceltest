@@ -54,7 +54,7 @@ const Link: React.FC<LinkPropsTypes> = ({
       className={`${$className} size`}
       $iconName={$iconName}
       $size={$size}
-      onClick={$disabled ? (e) => e.preventDefault() : undefined}
+      onClick={$disabled ? (e) => { e.preventDefault() } : undefined}
       {...props}
     >
       {$iconRight && (

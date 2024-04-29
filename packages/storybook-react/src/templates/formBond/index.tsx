@@ -39,7 +39,7 @@ function FormBond(): JSX.Element {
           <h1>Tab 1</h1>
           <span>contenido tab 1</span>
         </div>
-      ),
+      )
     },
     {
       id: 'tab2',
@@ -49,7 +49,7 @@ function FormBond(): JSX.Element {
           <h1>Tab 2</h1>
           <span>contenido tab 2</span>
         </div>
-      ),
+      )
     },
     {
       id: 'tab3',
@@ -59,8 +59,8 @@ function FormBond(): JSX.Element {
           <h1>Tab 3</h1>
           <span>contenido tab 3</span>
         </div>
-      ),
-    },
+      )
+    }
   ]
 
   return (

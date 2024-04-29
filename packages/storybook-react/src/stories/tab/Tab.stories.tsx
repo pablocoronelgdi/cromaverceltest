@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, Tab } from "@cromaui/react";
-import { useState } from 'react';
+import { Button, Tab } from '@cromaui/react'
 
 const meta = {
   title: 'Navigation/Tab',
@@ -31,7 +31,8 @@ const meta = {
       }
     },
     $isVerticalContent: {
-      description: 'Opcional, define si el contenido del Tab se debe ver en vertical o no. Solo funciona en medidas menores a 1200px',
+      description:
+        'Opcional, define si el contenido del Tab se debe ver en vertical o no. Solo funciona en medidas menores a 1200px',
       control: { type: 'boolean' },
       table: {
         type: { summary: 'boolean' },
@@ -39,7 +40,8 @@ const meta = {
       }
     },
     $isDismissible: {
-      description: 'Opcional, define si el contenido del Tab se puede eliminar o no, si es verdadero se agrega el botón con ícono "close" ',
+      description:
+        'Opcional, define si el contenido del Tab se puede eliminar o no, si es verdadero se agrega el botón con ícono "close" ',
       control: { type: 'boolean' },
       table: {
         type: { summary: 'boolean' },
@@ -47,7 +49,8 @@ const meta = {
       }
     },
     $onDismiss: {
-      description: 'Función que se ejecuta cuando se presiona el botón con ícono "close". Funciona si la propiedad $isDismissible es verdadera',
+      description:
+        'Función que se ejecuta cuando se presiona el botón con ícono "close". Funciona si la propiedad $isDismissible es verdadera',
       action: 'onClick',
       table: {
         type: { summary: 'function' },
@@ -77,9 +80,7 @@ export const TabDefault: Story = {
     }
   },
   render: function Render() {
-    return (
-      <Tab $label="Tab 1" />
-    )
+    return <Tab $label="Tab 1" />
   }
 }
 
@@ -100,9 +101,7 @@ export const TabIcon: Story = {
     }
   },
   render: function Render() {
-    return (
-      <Tab $iconName='home' />
-    )
+    return <Tab $iconName="home" />
   }
 }
 
@@ -123,9 +122,7 @@ export const TabActive: Story = {
     }
   },
   render: function Render() {
-    return (
-      <Tab $label="Tab 3" $iconName="person" $isActive />
-    )
+    return <Tab $label="Tab 3" $iconName="person" $isActive />
   }
 }
 
@@ -146,9 +143,7 @@ export const TabVertical: Story = {
     }
   },
   render: function Render() {
-    return (
-      <Tab $label="Tab 4" $iconName="dataset" $isVerticalContent />
-    )
+    return <Tab $label="Tab 4" $iconName="dataset" $isVerticalContent />
   }
 }
 
@@ -172,8 +167,8 @@ export const TabDismissible: Story = {
               gap: '12px'
             }}
           >
-            <Button $text="Resetear estado" onClick={() => setShowTab(true)} />
-            {showTab && <Tab $label="Tab 5" $iconName="settings" $isDismissible  $onDismiss={() => setShowTab(!showTab)} />}
+          <Button $text="Resetear estado" onClick={() => { setShowTab(true) }} />
+          {showTab && <Tab $label="Tab 5" $iconName="settings" $isDismissible  $onDismiss={() => { setShowTab(!showTab) }} />}
         </div>
         )`
       }
@@ -181,7 +176,6 @@ export const TabDismissible: Story = {
   },
   render: function Render() {
     const [showTab, setShowTab] = useState(true)
-    
     return (
       <div
         style={{
@@ -192,9 +186,23 @@ export const TabDismissible: Story = {
           gap: '12px'
         }}
       >
-        <Button $text="Resetear estado" onClick={() => setShowTab(true)} />
-        {showTab && <Tab $label="Tab 5" $iconName="settings" $isDismissible  $onDismiss={() => setShowTab(!showTab)} />}
-    </div>
+        <Button
+          $text="Resetear estado"
+          onClick={() => {
+            setShowTab(true)
+          }}
+        />
+        {showTab && (
+          <Tab
+            $label="Tab 5"
+            $iconName="settings"
+            $isDismissible
+            $onDismiss={() => {
+              setShowTab(!showTab)
+            }}
+          />
+        )}
+      </div>
     )
   }
 }

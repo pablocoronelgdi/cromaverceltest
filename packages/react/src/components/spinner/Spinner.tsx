@@ -24,7 +24,7 @@ const Spinner: React.FC<SpinnerPropTypes> = ({
           </div>
         )}
       </div>
-      {$label && $size == 'large' && (
+      {$label && $size === 'large' && (
         <StyledSpinnerLabel $variantColor={$variantColor} $withLogo={$withLogo}>
           {$label}
         </StyledSpinnerLabel>

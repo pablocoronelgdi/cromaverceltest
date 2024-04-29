@@ -31,7 +31,7 @@ const ListItem: React.FC<ListItemPropTypes> = ({
       <StyledListItemLink
         id={props.id || defaultId}
         disabled={props.disabled}
-        onClick={props.disabled ? (e) => e.preventDefault() : undefined}
+        onClick={props.disabled ? (e) => { e.preventDefault() } : undefined}
         href={props.href}
         {...props}
       >

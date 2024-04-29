@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { RightContentListItemPropTypes } from './types'
+import type { RightContentListItemPropTypes } from './types'
 
 export const SyledContainerDisabled = styled.div<RightContentListItemPropTypes>`
   ${({ $disabled }) =>

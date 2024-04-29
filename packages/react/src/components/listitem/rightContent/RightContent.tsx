@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { color } from '@cromaui/foundations'
 import { Icon } from '../../icon'
 import { Checkbox } from '../../checkbox'
+import { Link } from '../../link'
 import { RadioButton } from '../../radiobutton'
 import { Switch } from '../../switch'
-import { RightContentListItemPropTypes } from "./types";
-import { color } from '@cromaui/foundations'
-import { Link } from '../../link'
+import type { RightContentListItemPropTypes } from './types'
 import { SyledContainerDisabled } from './styles'
 
 const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
@@ -34,11 +34,11 @@ const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
 
   if (as === 'icon') {
     return (
-        <Icon
-          color={$disabled ? color.neutral[400] : color.neutral[800]}
-          $size="medium"
-          $name={$iconName}
-        />
+      <Icon
+        color={$disabled ? color.neutral[400] : color.neutral[800]}
+        $size="medium"
+        $name={$iconName}
+      />
     )
   }
 
@@ -80,13 +80,13 @@ const RightContentListItem: React.FC<RightContentListItemPropTypes> = ({
 
   if (as === 'link' && $href && $labelLink) {
     return (
-        <Link
-          $size="small"
-          href={$href}
-          $children={$labelLink}
-          target="_blank"
-          $disabled={$disabled}
-        />
+      <Link
+        $size="small"
+        href={$href}
+        $children={$labelLink}
+        target="_blank"
+        $disabled={$disabled}
+      />
     )
   }
 

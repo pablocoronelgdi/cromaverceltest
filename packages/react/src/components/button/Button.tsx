@@ -27,7 +27,13 @@ const Button: React.FC<ButtonPropTypes> = ({
         $iconName={$iconName}
         $iconPosition={$iconPosition}
         id={props.id ?? defaultId}
-        onClick={disabled ? (e) => e.preventDefault() : onClick}
+        onClick={
+          disabled
+            ? (e) => {
+                e.preventDefault()
+              }
+            : onClick
+        }
         $size={$size}
         $variant={$variant}
         title={props.title ?? $text}
