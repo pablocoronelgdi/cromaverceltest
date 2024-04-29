@@ -1,8 +1,22 @@
-import type { LiHTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import type { LeftContentListItemPropTypes } from './leftContent/types'
+import type { RightContentListItemPropTypes } from './rightContent/types'
 
-export type ListItemPropsTypes = {
+export type ListItemPropTypes = {
+  $as?: 'item' | 'link'
   $description?: string
-  $contentLeft?: ReactNode | undefined
-  $contentRight?: ReactNode | undefined
+  $leftComponentRender?: LeftContentListItemPropTypes['as']
+  $leftContentChildren?: ReactNode | null
+  $rightComponentRender?: RightContentListItemPropTypes['as']
+  $rightContentChildren?: ReactNode | null
+  $onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  $selected?: boolean
+  $labelLinkRight?: string
+  $iconNameRight?: string
+  $nameInput?: string
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+AnchorHTMLAttributes<HTMLAnchorElement>
+
+export type ListItemLinkPropTypes = {
   $disabled?: boolean
-} & LiHTMLAttributes<HTMLElement>
+} & ListItemPropTypes

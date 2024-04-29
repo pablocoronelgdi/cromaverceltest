@@ -16,6 +16,7 @@ export const spacings = {
   space44: '44px',
   space48: '48px',
   space52: '52px',
+  space56: '56px',
   space60: '60px',
   space64: '64px',
   space72: '72px',

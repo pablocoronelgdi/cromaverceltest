@@ -1,9 +1,9 @@
 import React from 'react'
 import { Badge, Icon, Logo, Avatar, Tabs } from '@cromaui/react'
 import './dashboard.css'
-import Movimientos from './Movimientos'
-import Inicio from './Inicio'
-import ValidacionMobile from './ValidacionMobile'
+import Movements from '../movements'
+import ValidationCode from '../validationCode'
+import Home from './home'
 import Login from '../login/login'
 import FormBond from '../formBond'
 import type { TabItemTypes } from '@cromaui/react/src/components/tabs/types'
@@ -13,19 +13,19 @@ const tabs: TabItemTypes[] = [
     id: 'idHome',
     $label: 'Inicio',
     $iconName: 'home',
-    $content: <Inicio />
+    $content: <Home />
   },
   {
     id: 'idMovements',
     $label: 'Transferencias',
     $iconName: 'expand_circle_down',
-    $content: <Movimientos />
+    $content: <Movements />
   },
   {
     id: 'idMobileValidation',
     $label: 'Validación Móvil',
     $iconName: 'expand_circle_down',
-    $content: <ValidacionMobile />
+    $content: <ValidationCode />
   },
   {
     id: 'idLogin',

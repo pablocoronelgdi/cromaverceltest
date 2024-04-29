@@ -1,8 +1,8 @@
 import React from 'react'
-import './inicio.css'
+import './home.css'
 import { Button, Pictogram, Tooltip } from '@cromaui/react'
 
-const Inicio: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <>
       <h2 style={{ marginLeft: '2rem' }}>Inicio</h2>
@@ -48,11 +48,9 @@ const Inicio: React.FC = () => {
             <Button $variant="outline" $size="small" $text="Boton de nada" />
           </div>
         </Tooltip>
-
-        <div className="gridItem"></div>
       </div>
     </>
   )
 }
 
-export default Inicio
+export default Home

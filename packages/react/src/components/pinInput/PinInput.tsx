@@ -1,24 +1,29 @@
 import React, { useEffect, useId, useRef, useState } from 'react'
 import type { PinInputPropTypes } from './types'
-import { StyledLabel, StyledLabelIcon, StyledPinInput } from './styles'
-import { color } from '@cromaui/foundations'
+import {
+  StyledPinInput,
+  StyledPinInputContainer,
+  StyledPinInputHelperTextContainer,
+  StyledPinInputLabel,
+  StyledPinInputValueContainer
+} from './styles'
 import { Icon } from '../icon'
 
 const PinInput: React.FC<PinInputPropTypes> = ({
-  $pinLength = 6,
+  $pinLength: propPinLength = 4,
   $onComplete,
   $onPinChange,
   $helperText,
   $visibility = true,
   $error,
-  $errorMessage,
   $label,
   value,
   ...props
 }) => {
+  const $pinLength = propPinLength > 6 ? 6 : propPinLength
   const [pin, setPin] = useState<Array<number | string | undefined>>(new Array($pinLength))
   const inputRefs = useRef<HTMLInputElement[]>([])
-  const cromaID = useId()
+  const defaultId = useId()
 
   useEffect(() => {
     if (value) {
@@ -126,18 +131,19 @@ const PinInput: React.FC<PinInputPropTypes> = ({
   }
 
   return (
-    <StyledPinInput
-      $onComplete={$onComplete}
-      $pinLength={$pinLength}
-      $error={$error}
-      $visibility={$visibility}
-      id={props.id ?? cromaID}
-    >
-      {$label && <p className="croma-pininput-label">{$label}</p>}
-      <div className="content-input">
+    <StyledPinInputContainer id={props.id ?? defaultId}>
+      {$label && (
+        <StyledPinInputLabel htmlFor={props.name ?? defaultId} disabled={props.disabled}>
+          {$label}
+        </StyledPinInputLabel>
+      )}
+      <StyledPinInputValueContainer>
         {Array.from(pin, (_, index) => {
           return (
-            <input
+            <StyledPinInput
+              $visibility={$visibility}
+              disabled={props.disabled}
+              $error={$error}
               key={index}
               type={$visibility ? 'text' : 'password'}
               value={pin[index] || ''}
@@ -158,18 +164,20 @@ const PinInput: React.FC<PinInputPropTypes> = ({
             />
           )
         })}
-      </div>
+      </StyledPinInputValueContainer>
       {$helperText && (
-        <label>
-          <StyledLabel>
-            <StyledLabelIcon>
-              {$error && <Icon $name="info_outlined" color={color.error.main} $size="small" />}
-              <p>{$error ? $errorMessage : $helperText}</p>
-            </StyledLabelIcon>
-          </StyledLabel>
-        </label>
+        <StyledPinInputHelperTextContainer
+          $helperText={$helperText}
+          $error={$error}
+          disabled={props.disabled}
+        >
+          <span id={props.name ?? defaultId}>
+            {$error && $helperText && <Icon $name="info_outlined" $size="small" />}
+            {$helperText}
+          </span>
+        </StyledPinInputHelperTextContainer>
       )}
-    </StyledPinInput>
+    </StyledPinInputContainer>
   )
 }
 

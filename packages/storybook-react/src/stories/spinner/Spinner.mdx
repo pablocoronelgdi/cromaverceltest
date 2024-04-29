@@ -1,0 +1,59 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as SpinnerStories from './Spinner.stories';
+import { Spinner } from '@cromaui/react'
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+El componente Spinner sirve para indicar que algo está cargando o se esta ejecutando, dando a entender a la persona usuaria debe esperar
+<br />
+
+<Primary />
+
+## Usos
+
+### Default
+Solo con utilizar el componente Spinner va a mostrar la variante sin ícono.
+
+<Story of={SpinnerStories.SpinnerDefault} />
+<Source of={SpinnerStories.SpinnerDefault} />
+
+### Spinner con label
+Mediante la propiedad $label se puede definir el texto que se quiere mostrar, esta propiedad solo se debe aplicar cuando el $size del componente sea "large"
+
+<Story of={SpinnerStories.SpinnerWithLabel} />
+<Source of={SpinnerStories.SpinnerWithLabel} />
+
+### Spinner con Logo
+Mediante la propiedad $withLogo se define el tipo de Spinner con Logo, solo tiene 2 tamaños disponibles:
+- "small"
+- "large"
+
+<Story of={SpinnerStories.SpinerWithLogo} />
+<Source of={SpinnerStories.SpinerWithLogo} />
+
+
+### Spinner size
+Mediante la propiedad $size se define el tamaño del componente, las opciones son:
+- "extra-small" (default)
+- "small"
+- "medium"
+- "large"
+
+<Story of={SpinnerStories.SpinnerSize} />
+<Source of={SpinnerStories.SpinnerSize} />
+
+### Spinner variant color
+Mediante la propiedad $variantColor (no aplica para junto a la propiedad $withLogo) se define el estilo del color del componente, las opciones son:
+- "dark" (default)
+- "light"
+
+<Story of={SpinnerStories.SpinnerVariantColor} />
+<Source of={SpinnerStories.SpinnerVariantColor} />
+
+
+### Props
+
+El componente Spinner acepta los siguientes parámetros:
+
+<ArgTypes />

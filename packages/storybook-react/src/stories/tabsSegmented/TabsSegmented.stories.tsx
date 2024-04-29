@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { TabsSegmented } from '@cromaui/react'
-import { type  TabSegmentedItemTypes } from '@cromaui/react/src/components/tabsSegmented/types'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { TabSegmentedItemTypes } from '@cromaui/react/src/components/tabsSegmented/types'
 
 const TABS_SEGMENTED_MOCK_1: TabSegmentedItemTypes[] = [
   {
@@ -51,7 +51,7 @@ const meta = {
         }
       }
     }
-  },
+  }
 } satisfies Meta<typeof TabsSegmented>
 
 export default meta
@@ -99,9 +99,7 @@ export const TabsSegmentedDefault: Story = {
         $content: <div>Contenido de la tab 2</div>
       }
     ]
-    return (
-      <TabsSegmented $items={TABS_SEGMENTED_MOCK_1} />
-    )
+    return <TabsSegmented $items={TABS_SEGMENTED_MOCK_1} />
   }
 }
 
@@ -157,8 +155,6 @@ export const TabsSegmentedWithThreeItems: Story = {
         $content: <div>Contenido de la tab 3</div>
       }
     ]
-    return (
-      <TabsSegmented $items={TABS_SEGMENTED_MOCK_2} />
-    )
+    return <TabsSegmented $items={TABS_SEGMENTED_MOCK_2} />
   }
 }

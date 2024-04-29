@@ -26,6 +26,7 @@ const Link: React.FC<LinkPropsTypes> = ({
   $iconName = '',
   $weightRegular,
   $id,
+  $disabled,
   ...props
 }) => {
   const iconSize: LinkSizeType = (() => {
@@ -45,27 +46,28 @@ const Link: React.FC<LinkPropsTypes> = ({
     <StyledLink
       $id={$id}
       $weightRegular={$weightRegular}
-      href={props.href || '#'}
+      href={!$disabled ? props.href : ''}
       alt={props.alt || props.href}
       title={props.title || props.href}
       target={props.target}
-      disabled={props.disabled}
+      $disabled={$disabled}
       className={`${$className} size`}
       $iconName={$iconName}
       $size={$size}
+      onClick={$disabled ? (e) => { e.preventDefault() } : undefined}
       {...props}
     >
       {$iconRight && (
         <Icon
-          color={props.disabled ? color.neutral[400] : color.blue.main}
+          color={$disabled ? color.neutral[400] : color.blue.main}
           $name={$iconName}
           $size={iconSize}
         />
       )}
-      <p>{$children}</p>
+      {$children}
       {$iconLeft && (
         <Icon
-          color={props.disabled ? color.neutral[400] : color.blue.main}
+          color={$disabled ? color.neutral[400] : color.blue.main}
           $name={$iconName}
           $size={iconSize}
         />

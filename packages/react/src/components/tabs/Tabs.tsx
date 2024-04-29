@@ -36,7 +36,6 @@ const Tabs: React.FC<TabsPropTypes> = ({
       handleScrollArrows()
     }
     window.addEventListener('resize', handleResize)
-    
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -141,11 +140,11 @@ const Tabs: React.FC<TabsPropTypes> = ({
           />
         )}
       </StyledTabsItemsContainer>
-      {renderedContent && 
+      {renderedContent && (
         <StyledTabContent key={visibleItems.find((tab) => tab.id === selectedTabId)?.id}>
           {renderedContent}
         </StyledTabContent>
-      }
+      )}
     </StyledTabsContainer>
   )
 }
