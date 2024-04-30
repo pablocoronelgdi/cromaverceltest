@@ -1,22 +1,22 @@
-import type { MaterialIcons } from '@expo/vector-icons'
-import type { ReactNode } from 'react'
 import type { PressableProps } from 'react-native'
 import type { IconPropTypes } from '../icon'
 
 /* ----------  Props del botón  ---------- */
 
-export type ButtonSizeType = 'small' | 'medium' | 'large'
-export type ButtonVariantType = 'filled' | 'outlined' | 'link'
+export type ButtonIconPositionType = 'left' | 'right'
+export type ButtonSizeType = 'extraSmall' | 'small' | 'medium' | 'large'
+export type ButtonVariantType = 'fill' | 'outline' | 'ghost' | 'tonal'
+export type ButtonBackgroundType = 'light' | 'dark'
 
 export type ButtonPropTypes = {
   size?: ButtonSizeType
-  variant?: ButtonVariantType
-  theme?: any
-  children?: ReactNode
-  disabled?: boolean
-  iconName?: keyof typeof MaterialIcons.glyphMap
+  text?: string
+  backgroundType?: ButtonBackgroundType
+  fullWidth?: boolean
+  iconName?: string
   iconPosition?: 'left' | 'right'
-  color?: string
+  variant?: ButtonVariantType
+  disabled?: boolean
 } & PressableProps
 
 export type ChildrenButtonPropTypes = {
