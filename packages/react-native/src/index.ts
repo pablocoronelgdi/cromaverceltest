@@ -1,4 +1,5 @@
 import { Icon } from './components/icon'
+import { Link } from './components/link'
 import { Switch } from './components/switch'
 import { Checkbox } from './components/checkbox'
 import { CromaText } from './components/text'
@@ -13,6 +14,7 @@ export {
   FloatingButton,
   FloatingMenu,
   Icon,
+  Link,
   Spinner,
   Switch
 }
