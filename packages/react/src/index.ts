@@ -1,3 +1,4 @@
+import { Avatar } from './components/avatar'
 import { Badge } from './components/badge'
 import { Button } from './components/button'
 import { Checkbox } from './components/checkbox'
@@ -9,18 +10,20 @@ import { Link } from './components/link'
 import { ListItem } from './components/listitem'
 import { Logo } from './components/logo'
 import { Pictogram } from './components/pictogram'
-import { PinInput } from './components/pin-input'
+import { PinInput } from './components/pinInput'
 import { ProgressBar } from './components/progressbar'
 import { RadioButton } from './components/radiobutton'
-import { RoundedImage } from './components/roundedImage'
 import { Spinner } from './components/spinner'
 import { Switch } from './components/switch'
-import { Tabs, TabSegmented } from './components/tabs'
+import { Tab } from './components/tab'
+import { Tabs } from './components/tabs'
+import { TabsSegmented } from './components/tabsSegmented'
 import { TextArea } from './components/textarea'
-import { ThemeWrapper } from './components/themeWrapper'
+import { CromaThemeProvider } from './components/themeWrapper'
 import { Tooltip, Toogletip } from './components/tooltip'
 
 export {
+  Avatar,
   Badge,
   Button,
   Checkbox,
@@ -35,13 +38,13 @@ export {
   PinInput,
   ProgressBar,
   RadioButton,
-  RoundedImage,
   Spinner,
   Switch,
+  Tab,
   Tabs,
-  TabSegmented,
+  TabsSegmented,
   TextArea,
-  ThemeWrapper,
+  CromaThemeProvider,
   Toogletip,
   Tooltip
 }

@@ -1,21 +1,26 @@
-import type { ReactNode } from 'react'
-type TextVariant = 'bold' | 'semibold' | 'regular'
-type TextComponent =
+import type { TextProps, TextStyle } from 'react-native'
+
+export type TypograpyRecordType =
   | 'h1'
   | 'h2'
   | 'h3'
   | 'h4'
   | 'h5'
   | 'h6'
+  | 'headingSm'
   | 'bodyLg'
-  | 'bodyMd'
   | 'bodySm'
   | 'caption'
-type TextProps = {
-  $component?: TextComponent
-  $variant?: TextVariant
-  children: ReactNode
-  $color?: string
-}
+  | 'linkLg'
+  | 'linkMd'
+  | 'linkSm'
+  | 'buttonMd'
+  | 'buttonSm'
+  | 'buttonXsm'
 
-export type { TextComponent, TextProps, TextVariant }
+export type StyleTextRecordType = Record<string, TextStyle>
+
+export type TextPropTypes = {
+  component?: TypograpyRecordType
+  variant?: 'bold' | 'semibold' | 'regular'
+} & TextProps

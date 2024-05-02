@@ -1,126 +1,106 @@
+import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { PinInput } from '@cromaui/react'
-import { useState } from 'react'
 
 const meta: Meta<typeof Image> = {
   title: 'Inputs/PinInput',
   component: PinInput,
   argTypes: {
     $pinLength: {
-      description: 'Maneja la cantidad de bloques o inputs a mostrar para llenar',
-      control: {
-        type: 'number',
-        table: {
-          defaultValue: { summary: 6 },
-          type: { summary: 'number' }
-        }
+      description: 'Maneja la cantidad de bloques o inputs a mostrar para llenar, máximo 6',
+      control: { type: 'number' },
+      table: {
+        defaultValue: { summary: 4 },
+        type: { summary: 'number' }
       }
     },
     $label: {
-      description: 'Se le puede agregar un título al componente pin input',
-      control: {
-        type: 'text',
-        table: {
-          defaultValue: { summary: 'Título de ejemplo' },
-          type: { summary: 'string' }
-        }
+      description: 'Se le puede agregar un label para acompañar al input',
+      control: { type: 'text' },
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'string' }
       }
     },
     $helperText: {
-      description: 'Se le puede agregar un label o mensaje al componente',
-      control: {
-        type: 'text',
-        table: {
-          defaultValue: { summary: 'Supporting text' },
-          type: { summary: 'string' }
-        }
-      }
-    },
-    $errorMessage: {
       description:
-        'Se le puede agregar un mensaje de error en remplazo del default label al componente',
-      control: {
-        type: 'text',
-        table: {
-          defaultValue: { summary: '¡El código cargado no es correcto!' },
-          type: { summary: 'string' }
-        }
+        'Se le puede agregar un mensaje de soporte o de error, se recomienda usar cómo un estado',
+      control: { type: 'text' },
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'string' }
       }
     },
     $error: {
-      description: 'Activa el estado error para mostrar mensaje y styles para ese caso',
-      control: {
-        type: 'boolean',
-        table: {
-          defaultValue: { summary: false },
-          type: { summary: 'boolean' }
-        }
+      description: 'Activa el estado error',
+      control: { type: 'boolean' },
+      table: {
+        defaultValue: { summary: false },
+        type: { summary: 'boolean' }
       }
     },
     $visibility: {
-      description: 'Si su estado es true, se mostrará ',
-      control: {
-        type: 'boolean',
-        table: {
-          defaultValue: { summary: true },
-          type: { summary: 'boolean' }
-        }
+      description: 'Define si se debe mostrar u ocultar el contenido del PIN Input',
+      control: { type: 'boolean' },
+      table: {
+        defaultValue: { summary: true },
+        type: { summary: 'boolean' }
       }
     },
     disabled: {
-      description: 'Activa el estado disabled para impedir poder llenar los campos',
-      control: {
-        type: 'boolean',
-        table: {
-          defaultValue: { summary: false },
-          type: { summary: 'boolean' }
-        }
+      description: 'La propiedad disabled es la que define si el componente está habilitado o no',
+      control: { type: 'boolean' },
+      table: {
+        defaultValue: { summary: false },
+        type: { summary: 'boolean' }
+      }
+    },
+    $onComplete: {
+      description:
+        'Función que se ejecuta cuando se llena el contenido del PIN Input, recibe como parámetro el PIN de tipo string',
+      action: 'onClick',
+      table: {
+        type: { summary: 'function' },
+        defaultValue: { summary: 'void' }
+      }
+    },
+    $onPinChange: {
+      description:
+        'Función que se ejecuta cuando se cambia el contenido del PIN Input, recibe como parámetro el PIN de tipo string',
+      action: 'onClick',
+      table: {
+        type: { summary: 'function' },
+        defaultValue: { summary: 'void' }
       }
     }
   }
-}
+} satisfies Meta<typeof PinInput>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    length: 6
-  }
-}
-
-/* ----------  DOC STORIES ---------- */
-
-export const TitleAndLabel: Story = {
-  name: 'Con título y label',
-  tags: ['docs-only'],
+export const PinInputDefault: Story = {
+  name: 'PIN Input default',
   parameters: {
     docs: {
       source: {
         format: 'dedent',
         language: 'tsx',
         dark: true,
-        code: `
-      
-        return (
-          <PinInput title="Este es un titulo" $label="Este es un label" />
-        `
+        code: 'return <PinInput />'
       }
     }
   },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
   render: function Render() {
-    return <PinInput title="Este es un titulo" $label="Este es un label" />
+    return <PinInput />
   }
 }
 
-export const DifferentPinLength: Story = {
-  name: 'Tamaño del pin',
-  tags: ['docs-only'],
+export const PinInputLabel: Story = {
+  name: 'PIN Input con label',
+  args: {
+    $label: 'Ingresar código SMS'
+  },
   parameters: {
     docs: {
       source: {
@@ -128,34 +108,57 @@ export const DifferentPinLength: Story = {
         language: 'tsx',
         dark: true,
         code: `
-      
         return (
-          <>
-            <PinInput title="Pin de 4 casilleros" $pinLength={4} />
-            <PinInput title="Pin de 8 casilleros" $pinLength={8} />
-          </>
+          <PinInput $label="Ingresar código SMS" />
         `
       }
     }
   },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
+  render: function Render() {
+    return <PinInput $label="Ingresar código SMS" />
+  }
+}
 
+export const PinInputLength: Story = {
+  name: 'PIN Input length',
+  args: {
+    $label: 'Ingresar código SMS',
+    $pinLength: 4
+  },
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'tsx',
+        dark: true,
+        code: `
+        return (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '12px'}}>
+            <PinInput $label="Ingresar código SMS" $pinLength={4} />
+            <PinInput $label="Ingresar código SMS" $pinLength={6} />
+            <PinInput $label="Ingresar código SMS" $pinLength={8} />
+          </div>
+        )
+        `
+      }
+    }
+  },
   render: function Render() {
     return (
-      <>
-        <PinInput title="Pin de 4 casilleros" $pinLength={4} />
-        <PinInput title="Pin de 8 casilleros" $pinLength={8} />
-      </>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '12px' }}>
+        <PinInput $label="Ingresar código SMS" $pinLength={4} />
+        <PinInput $label="Ingresar código SMS" $pinLength={6} />
+        <PinInput $label="Ingresar código SMS" $pinLength={8} />
+      </div>
     )
   }
 }
 
-export const ControlledComponent: Story = {
-  name: 'Componente controlado',
-  tags: ['docs-only'],
+export const PinInputDisabled: Story = {
+  name: 'PIN Input disabled',
+  args: {
+    disabled: true
+  },
   parameters: {
     docs: {
       source: {
@@ -163,78 +166,35 @@ export const ControlledComponent: Story = {
         language: 'tsx',
         dark: true,
         code: `
-      
-        const [value, setValue] = useState('1234')
-        const onChange = (e) => {
-          setValue(e)
-        }
-
         return (
-        <>
-          <PinInput
-            $pinLength={6}
-            $onPinChange={onChange}
-            value={value}
-          />
-
-          <p>Value: {value}</p>
-        </>
+          <div style={{display: 'flex', flexDirection: 'column' ,gap: '24px'}}>
+            <PinInput disabled $label="Ingresar código SMS" $helperText="Recordá que son 4 dígitos" />
+            <PinInput disabled $label="Ingresar código SMS" />
+            <PinInput disabled />
+          </div>
+        )
         `
       }
     }
   },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
   render: function Render() {
-    const [value, setValue] = useState('1234')
-
-    const onChange = (e: string): void => {
-      setValue(e)
-    }
-
     return (
-      <>
-        <PinInput $pinLength={6} $onPinChange={onChange} value={value} />
-        <p>Value: {value}</p>
-      </>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <PinInput disabled $label="Ingresar código SMS" $helperText="Recordá que son 4 dígitos" />
+        <PinInput disabled $label="Ingresar código SMS" />
+        <PinInput disabled />
+      </div>
     )
   }
 }
 
-export const Disabled: Story = {
-  name: 'Deshabilitado',
-  tags: ['docs-only'],
-  parameters: {
-    docs: {
-      source: {
-        format: 'dedent',
-        language: 'tsx',
-        dark: true,
-        code: `
-        return (
-          <PinInput
-            disabled
-          />
-        `
-      }
-    }
-  },
+export const PinInputError: Story = {
+  name: 'PIN Input error',
   args: {
-    size: 'large',
-    name: 'person'
+    $pinLength: 4,
+    $error: true,
+    $helperText: 'El códgio ingresado es incorrecto'
   },
-
-  render: function Render() {
-    return <PinInput disabled />
-  }
-}
-
-export const Error: Story = {
-  name: 'Error',
-  tags: ['docs-only'],
   parameters: {
     docs: {
       source: {
@@ -242,14 +202,29 @@ export const Error: Story = {
         language: 'tsx',
         dark: true,
         code: `
-        const [value, setValue] = useState('1234')
-
+        const [value, setValue] = useState<string>('')
+        const [error, setError] = useState<boolean>(false)
+        const [helperMessage, setHelperMessage] = useState<string | null>('Recordá que son 6 digitos numéricos')
+    
+        useEffect(() => {
+          if(value === '1234') {
+            setError(false)
+            setHelperMessage(null)
+            alert('Validación Exitosa.')
+          } else {
+            setError(!error)
+            setHelperMessage('El código ingresado es incorrecto')
+          }
+        },[value])
+    
         return (
           <PinInput
-            $error={value.length > 3}
-            $errorMessage="El pin debe ser menor a 3"
+            $error={error}
+            $helperText={helperMessage}
+            $pinLength={4}
             $label="Ingrese un pin"
-            $onPinChange={(e) => {
+            value={value}
+            $onPinChange={(e: string) => {
               setValue(e)
             }}
           />
@@ -258,18 +233,29 @@ export const Error: Story = {
       }
     }
   },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
   render: function Render() {
-    const [value, setValue] = useState('1234')
+    const [value, setValue] = useState<string>('')
+    const [error, setError] = useState<boolean>(false)
+    const [helperMessage, setHelperMessage] = useState<string | null>(
+      'Recordá que son 6 digitos numéricos'
+    )
+
+    useEffect(() => {
+      if (value === '1234') {
+        setError(false)
+        setHelperMessage(null)
+        alert('Validación Exitosa.')
+      } else {
+        setError(!error)
+        setHelperMessage('El código ingresado es incorrecto')
+      }
+    }, [value])
 
     return (
       <PinInput
-        $error={value.length > 3}
-        $errorMessage="El pin debe ser menor a 3"
+        $error={error}
+        $helperText={helperMessage}
+        $pinLength={4}
         $label="Ingrese un pin"
         value={value}
         $onPinChange={(e: string) => {
@@ -280,9 +266,12 @@ export const Error: Story = {
   }
 }
 
-export const OnCompleted: Story = {
-  name: 'On Completed',
-  tags: ['docs-only'],
+export const PinInputVisibility: Story = {
+  name: 'PIN Input visibility',
+  args: {
+    $pinLength: 4,
+    $label: 'Ingresar código SMS'
+  },
   parameters: {
     docs: {
       source: {
@@ -290,10 +279,79 @@ export const OnCompleted: Story = {
         language: 'tsx',
         dark: true,
         code: `
-        const [value, setValue] = useState('1234')
+        return <PinInput $label="Ingresar código SMS" $visibility={false} />
+        )
+        `
+      }
+    }
+  },
+  render: function Render() {
+    return <PinInput $label="Ingresar código SMS" $visibility={false} />
+  }
+}
 
-        const handleCompleted = (completedValue) => {
-          if (completedValue === '123456') {
+export const PinInputControlled: Story = {
+  name: 'PIN Input controlado',
+  args: {
+    $pinLength: 6
+  },
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'tsx',
+        dark: true,
+        code: `
+        const [value, setValue] = useState('123456')
+
+        const onChange = (e: string): void => {
+          setValue(e)
+        }
+    
+        return (
+          <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+            <PinInput $pinLength={6} $onPinChange={onChange} value={value} />
+            <p>Valor del PIN Input: {value}</p>
+          </div>
+        )
+      }
+        `
+      }
+    }
+  },
+  render: function Render() {
+    const [value, setValue] = useState('123456')
+
+    const onChange = (e: string): void => {
+      setValue(e)
+    }
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <PinInput $pinLength={6} $onPinChange={onChange} value={value} />
+        <p>Valor del PIN Input: {value}</p>
+      </div>
+    )
+  }
+}
+
+export const PinInputOnComplete: Story = {
+  name: 'PIN Input on complete',
+  args: {
+    $pinLength: 4,
+    $label: 'Ingresar código SMS'
+  },
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'tsx',
+        dark: true,
+        code: `
+        const [value, setValue] = useState<string>('')
+
+        const handleCompleted = (completedValue: string): void => {
+          if (completedValue === '1234') {
             alert('El codigo es correcto')
           } else {
             alert('El codigo no es válido')
@@ -301,28 +359,24 @@ export const OnCompleted: Story = {
         }
         return (
           <PinInput
-            title="Ingrese un pin"
+            $label="Ingresar código SMS"
             value={value}
             $onPinChange={(e: string) => {
               setValue(e)
             }}
             $onComplete={handleCompleted}
+            $helperText="Ingresá el código 1234"
           />
         )
         `
       }
     }
   },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
   render: function Render() {
-    const [value, setValue] = useState('1234')
+    const [value, setValue] = useState<string>('')
 
     const handleCompleted = (completedValue: string): void => {
-      if (completedValue === '123456') {
+      if (completedValue === '1234') {
         alert('El codigo es correcto')
       } else {
         alert('El codigo no es válido')
@@ -330,53 +384,14 @@ export const OnCompleted: Story = {
     }
     return (
       <PinInput
-        title="Ingrese un pin"
+        $label="Ingresar código SMS"
         value={value}
         $onPinChange={(e: string) => {
           setValue(e)
         }}
         $onComplete={handleCompleted}
+        $helperText="Ingresá el código 1234"
       />
     )
-  }
-}
-
-export const Visibility: Story = {
-  name: 'Visibility',
-  tags: ['docs-only'],
-  parameters: {
-    docs: {
-      source: {
-        format: 'dedent',
-        language: 'tsx',
-        dark: true,
-        code: `
-        return (
-          <PinInput
-          title="Ingrese un pin"
-          $visibility={false}
-        />
-        )
-        `
-      }
-    }
-  },
-  args: {
-    size: 'large',
-    name: 'person'
-  },
-
-  render: function Render() {
-    return <PinInput title="Ingrese un pin" $visibility={false} />
-  }
-}
-
-export const Title: Story = {
-  args: {
-    length: 6,
-    title: 'Título del pin input',
-    $label: 'Label del pin input',
-    $error: false,
-    disabled: false
   }
 }

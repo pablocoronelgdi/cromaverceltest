@@ -1,42 +1,42 @@
 import React from 'react'
-import { Badge, Icon, Logo, RoundedImage, Tabs } from '@cromaui/react'
+import { Badge, Icon, Logo, Avatar, Tabs } from '@cromaui/react'
 import './dashboard.css'
-import Movimientos from './Movimientos'
-import Inicio from './Inicio'
-import ValidacionMobile from './ValidacionMobile'
+import Movements from '../movements'
+import ValidationCode from '../validationCode'
+import Home from './home'
 import Login from '../login/login'
 import FormBond from '../formBond'
-import { type TabsItemProps } from '@cromaui/react/dist/components/tabs/types'
+import type { TabItemTypes } from '@cromaui/react/src/components/tabs/types'
 
-const tabs: TabsItemProps[] = [
+const tabs: TabItemTypes[] = [
   {
-    label: 'Inicio',
-    iconLeftName: 'home',
-    iconRightName: 'home',
-    $content: <Inicio />
+    id: 'idHome',
+    $label: 'Inicio',
+    $iconName: 'home',
+    $content: <Home />
   },
   {
-    label: 'Transferencias',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
-    $content: <Movimientos />
+    id: 'idMovements',
+    $label: 'Transferencias',
+    $iconName: 'expand_circle_down',
+    $content: <Movements />
   },
   {
-    label: 'Validación Móvil',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
-    $content: <ValidacionMobile />
+    id: 'idMobileValidation',
+    $label: 'Validación Móvil',
+    $iconName: 'expand_circle_down',
+    $content: <ValidationCode />
   },
   {
-    label: 'Login Form',
-    iconLeftName: 'expand_circle_down',
-    iconRightName: 'expand_circle_down',
+    id: 'idLogin',
+    $label: 'Login Form',
+    $iconName: 'expand_circle_down',
     $content: <Login />
   },
   {
-    label: 'Solicitud de Bono',
-    iconLeftName: 'person',
-    iconRightName: 'person',
+    id: 'idFormBond',
+    $label: 'Solicitud de Bono',
+    $iconName: 'person',
     $content: <FormBond />
   }
 ]
@@ -52,7 +52,7 @@ const Dashboard: React.FC = () => {
           <h5 style={{ color: 'white' }}>Elmer Figueroa</h5>
           <Icon $name="notifications" style={{ color: 'white' }} $size="large" />
           <Badge $count={1000} $backgroundColor="pink" $backgroundType="dark" />
-          <RoundedImage
+          <Avatar
             $size="large"
             $src="https://phantom-marca.unidadeditorial.es/5b09c2abe83fc40e6ebcb635adad40c7/resize/828/f/webp/assets/multimedia/imagenes/2022/12/31/16724746290185.jpg"
             $alt="Chayanne"
@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </nav>
       <main>
-        <Tabs $tabs={tabs} $labelShow $iconLeft $iconRight />
+        <Tabs $items={tabs} />
       </main>
     </>
   )

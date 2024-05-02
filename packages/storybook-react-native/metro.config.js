@@ -1,24 +1,22 @@
-// Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require("expo/metro-config");
-const path = require("path");
+const { getDefaultConfig } = require('expo/metro-config')
+const path = require('path')
 
 /** @type {import('expo/metro-config').MetroConfig} */
 
-// Find the project and workspace directories
-const projectRoot = __dirname;
-const config = getDefaultConfig(projectRoot);
-config.resolver.resolverMainFields.unshift("sbmodern");
-// This can be replaced with `find-yarn-workspace-root`
-const workspaceRoot = path.resolve(projectRoot, "../..");
+// Ubica el proyecto y todos sus workspaces
+const projectRoot = __dirname
+const config = getDefaultConfig(projectRoot)
+config.resolver.resolverMainFields.unshift('sbmodern')
+const workspaceRoot = path.resolve(projectRoot, '../..')
 
-// 1. Watch all files within the monorepo
-config.watchFolders = [workspaceRoot];
-// 2. Let Metro know where to resolve packages and in what order
+// Observa todos los archivos del monorepo monorepo
+config.watchFolders = [workspaceRoot]
+// Le permite a Metro resolver los packages y el orden.
 config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, "node_modules"),
-  path.resolve(workspaceRoot, "node_modules"),
-];
-// 3. Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
-config.resolver.disableHierarchicalLookup = true;
+  path.resolve(projectRoot, 'node_modules'),
+  path.resolve(workspaceRoot, 'node_modules')
+]
+// Fuerza a Metro a resolver (sub)dependencias solo dentro de los `nodeModulesPaths`
+config.resolver.disableHierarchicalLookup = true
 
-module.exports = config;
+module.exports = config

@@ -1,20 +1,19 @@
 import type { MaterialIcons } from '@expo/vector-icons'
-import type { PressableProps } from 'react-native'
+import type { TextStyle, TouchableOpacityProps, ViewProps, ViewStyle } from 'react-native'
 
-export type FabPropTypes = {
-  size: string
-  disabled: boolean
-  iconName: keyof typeof MaterialIcons.glyphMap
-  value?: string
-} & PressableProps
+export type FloatingRecordType = Record<string, ViewStyle | TextStyle>
 
-export type FabInnerPropTypes = {
-  size: string
-  disabled: boolean
-}
+export type FloatingButtonPropTypes = {
+  size?: string
+  disabled?: boolean
+  iconName?: keyof typeof MaterialIcons.glyphMap
+  label?: string
+} & TouchableOpacityProps
 
-export type FabPseudoTypes = {
-  isHover?: boolean
-  isFocus?: boolean
-  isPressed?: boolean
-}
+export type FloatingMenuPropTypes = {
+  disabled?: boolean
+  openIcon?: keyof typeof MaterialIcons.glyphMap
+  closeIcon?: keyof typeof MaterialIcons.glyphMap
+  label?: string
+  mainButtonProps?: FloatingButtonPropTypes
+} & ViewProps

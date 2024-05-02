@@ -9,7 +9,7 @@ import type { SwitchInnerProps } from './types'
 /* ----------  Switch Container  (div) ---------- */
 
 export const SwitchContainer = styled.div<SwitchInnerProps>`
-  width: ${spacings.space60};
+  min-width: ${spacings.space60};
   padding: ${spacings.space2};
   border: ${borders.br2};
   border-radius: ${shapes.full};

@@ -1,7 +1,8 @@
-import { Button, TextArea, InputField, Logo, Toogletip } from '@cromaui/react'
+import { Button, TextArea, InputField, Logo, Toogletip, TabsSegmented } from '@cromaui/react'
 
 import './styles.css'
 import React, { type FormEvent, useState } from 'react'
+import type { TabSegmentedItemTypes } from '@cromaui/react/src/components/tabsSegmented/types'
 
 function FormBond(): JSX.Element {
   const [isError, setIsError] = useState(false)
@@ -28,6 +29,39 @@ function FormBond(): JSX.Element {
     setShowToogletip(!showToogletip)
     console.log('click')
   }
+
+  const TABS_MOCK: TabSegmentedItemTypes[] = [
+    {
+      id: 'tab1',
+      $label: 'Tab 1 - texto largo',
+      $content: (
+        <div key="tab1">
+          <h1>Tab 1</h1>
+          <span>contenido tab 1</span>
+        </div>
+      )
+    },
+    {
+      id: 'tab2',
+      $label: 'Tab 2',
+      $content: (
+        <div key="tab2">
+          <h1>Tab 2</h1>
+          <span>contenido tab 2</span>
+        </div>
+      )
+    },
+    {
+      id: 'tab3',
+      $label: 'Tab 3 - probar largo',
+      $content: (
+        <div key="tab3">
+          <h1>Tab 3</h1>
+          <span>contenido tab 3</span>
+        </div>
+      )
+    }
+  ]
 
   return (
     <section className="form_bond__section">
@@ -104,16 +138,10 @@ function FormBond(): JSX.Element {
             setComment(e.target.value)
           }}
         />
+        <TabsSegmented $items={TABS_MOCK} />
         <div className="form_bond__buttons">
           <Button type="submit" $text="Enviar" $fullWidth />
-          <Button
-            $as="a"
-            $variant="fill"
-            $iconName="expand_less"
-            $text="Subir"
-            $iconPosition="left"
-            href="#form"
-          />
+          <Button $as="a" $variant="outline" $text="Subir" href="#form" />
         </div>
       </form>
     </section>

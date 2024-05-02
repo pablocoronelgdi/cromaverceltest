@@ -1,24 +1,13 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import type { TabPropTypes } from '../tab/types'
 
-export type TabsItemProps = {
-  label?: string
-  iconLeftName?: string
-  iconRightName?: string
-  $hide?: boolean
-  $focused?: boolean
-  $active?: boolean
-  $content?: ReactNode | undefined
-} & HTMLAttributes<HTMLDivElement>
+export type TabItemTypes = {
+  $content?: ReactNode
+} & TabPropTypes
 
-export type TabsProps = {
-  $tabs: TabsItemProps[]
-  $labelShow?: boolean
-  $iconLeft?: boolean
-  $iconRight?: boolean
-  disabled?: boolean
-  $vertical?: boolean
-  className?: string
-  $active?: boolean
-  $slidesToShow?: number
-  length?: ReactNode | undefined
-} & HTMLAttributes<HTMLDivElement>
+export type TabsPropTypes = {
+  $items: TabItemTypes[]
+  $id?: string
+  $isDismissibleItems?: boolean
+  $isVerticalItems?: boolean
+}

@@ -1,9 +1,22 @@
 import * as color from './colors'
-import { spacings } from './spacings'
-import { shapes } from './shapes'
+import { spacings, spacingsNative } from './spacings'
+import { shapes, shapesNative } from './shapes'
 import { breakpoints } from './breakpoints'
 import { borders } from './borders'
-import { elevations } from './elevations'
+import { elevations, elevationsNative } from './elevations'
 import { opacities } from './opacities'
-import { typography } from './typography'
-export { color, shapes, spacings, breakpoints, borders, elevations, opacities, typography }
+import { typography, typographyNative } from './typography'
+export {
+  borders,
+  breakpoints,
+  color,
+  elevations,
+  elevationsNative,
+  opacities,
+  shapes,
+  shapesNative,
+  spacings,
+  spacingsNative,
+  typography,
+  typographyNative
+}

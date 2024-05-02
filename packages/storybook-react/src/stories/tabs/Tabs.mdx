@@ -1,0 +1,58 @@
+import { Meta, ArgTypes, Primary, Story, Stories, Source } from '@storybook/blocks';
+import * as TabsStories from './Tabs.stories';
+import { Tabs } from '@cromaui/react'
+
+<Meta of={TabsStories} />
+
+# Tabs
+Mediante el componente Tabs se podrá navegar entre secciones según los items que se definan en la prop $items
+<br />
+
+<Primary />
+
+## Usos
+
+### Default (Tabs con solo texto)
+Mediante la prop $items se puede definir las tabs y el contenido que se quiere navegar. 
+La prop $item recibe un Array de objetos, este objeto debe tener el siguiente formato cómo mínimo:
+
+id: string
+$label: string
+$content: ReactNode
+
+<Story of={TabsStories.TabsDefault} />
+<Source of={TabsStories.TabsDefault} />
+
+### Tabs con íconos
+Agregando la prop $iconName dentro de la prop $items, el Array de objetos, se puede definir o agregar el ícono de cada Tab.
+
+id: string
+$label: string
+$content: ReactNode
+$iconName: string
+
+<Story of={TabsStories.TabsWithIcon} />
+<Source of={TabsStories.TabsWithIcon} />
+
+### Tabs en formato vertical
+Mediante la prop $isVerticalItems se puede definir si el contenido de cada item de las Tabs es vertical.
+
+<Story of={TabsStories.TabsVerticalItems} />
+<Source of={TabsStories.TabsVerticalItems} />
+
+### Tabs descartables
+Mediante la prop $isDismissibleItems se puede definir si las Tabs son descartables, es decir que al poner en true esta prop, 
+se agrega un ícono "close" que al precionarlo, se elimina la Tab y el contenido
+
+<Story of={TabsStories.TabsDismissible} />
+<Source of={TabsStories.TabsDismissible} />
+
+### Tabs scrolleables con botones
+Si el componente supera el ancho de "1200px" y la longitud del Array de $items es mayor o igual a 5, se puede 
+scrollear mediante botones de siguiente o atrás, como si fuera un carrusel
+
+### Props
+
+El componente Tabs acepta los siguientes parámetros:
+
+<ArgTypes />

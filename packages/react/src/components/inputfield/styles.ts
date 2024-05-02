@@ -7,8 +7,7 @@ import {
   FLEX_END,
   FONT_BODY_SM,
   FONT_CAPTION,
-  FONT_TYPE_REGULAR,
-  FONT_TYPE_SEMIBOLD
+  FONT_TYPE_REGULAR
 } from '../../globals/globals'
 
 /* =============================================
@@ -27,10 +26,10 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
   /* ---------- Input label  (label) ---------- */
   // Label que contiene el texto label del componente + Input area
   & label {
-    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
+    color: ${color.neutral[900]};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
     ${FONT_BODY_SM}
-    ${FONT_TYPE_SEMIBOLD}
+    ${FONT_TYPE_REGULAR}
   }
   /* ---------- Input area  (div) ---------- */
   // Div que envuelve el input y el icono. Proporciona el borde visible del componente
@@ -42,9 +41,9 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
     padding: ${spacings.space12};
     background-color: ${color.neutral[50]};
     border-radius: ${shapes.sm};
-    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
+    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
     outline: ${borders.br1};
-    outline-color: ${color.neutral[400]};
+    outline-color: ${color.neutral[600]};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
 
     & span {
@@ -53,11 +52,12 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
 
     &:hover {
       outline: ${borders.br1};
-      outline-color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[600])};
+      outline-color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
     }
     &:focus,
     &:focus-within,
     &:focus-visible {
+      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
       outline: ${({ disabled }) => (disabled ? borders.br1 : borders.br2)};
       outline-color: ${({ disabled, $error }) =>
         disabled ? color.neutral[400] : $error ? color.error.main : color.blue.soft};
@@ -71,6 +71,7 @@ export const InputfieldContainerStyled = styled.div<InputFieldPropTypes>`
     ${({ disabled }) =>
       disabled &&
       css`
+        color: ${color.neutral[400]};
         background-color: ${color.neutral[200]};
         outline-color: ${color.neutral[400]};
       `}

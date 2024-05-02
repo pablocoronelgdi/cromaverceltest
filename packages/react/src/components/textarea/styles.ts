@@ -7,8 +7,7 @@ import {
   FLEX_END,
   FONT_BODY_SM,
   FONT_CAPTION,
-  FONT_TYPE_REGULAR,
-  FONT_TYPE_SEMIBOLD
+  FONT_TYPE_REGULAR
 } from '../../globals/globals'
 
 export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
@@ -19,7 +18,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
 
   & label {
     ${FONT_BODY_SM}
-    ${FONT_TYPE_SEMIBOLD}
+    ${FONT_TYPE_REGULAR}
     color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
   }
@@ -30,11 +29,11 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     background-color: ${color.neutral[50]};
     border: none;
     border-radius: ${shapes.sm};
-    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
+    color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
     min-height: 120px;
     outline: ${borders.br1};
-    outline-color: ${color.neutral[400]};
+    outline-color: ${color.neutral[600]};
     padding: ${spacings.space12};
     width: 100%;
 
@@ -44,13 +43,13 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
 
     &:hover {
       outline: ${borders.br1};
-      outline-color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
+      outline-color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[900])};
     }
 
     &:focus,
     &:focus-within,
     &:focus-visible {
-      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[800])};
+      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
       outline: ${({ disabled }) => (disabled ? borders.br1 : borders.br2)};
       outline-color: ${({ disabled, $error }) =>
         disabled ? color.neutral[400] : $error ? color.error.main : color.blue.soft};
@@ -64,6 +63,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     ${({ disabled }) =>
       disabled &&
       css`
+      color: ${color.neutral[400]};
         background-color: ${color.neutral[200]};
         outline: ${borders.br1};
         outline-color: ${color.neutral[400]};
@@ -96,7 +96,7 @@ export const TextAreaContainerStyled = styled.div<TextAreaPropTypes>`
     & > small {
       ${FONT_CAPTION}
       ${FONT_TYPE_REGULAR}
-      color: ${({ disabled }) => (disabled ? color.neutral[400] : color.neutral[700])};
+      color: ${({ disabled, $error }) => (disabled ? color.neutral[400] : $error ? color.error.main : color.neutral[700])};
     }
   }
 `
